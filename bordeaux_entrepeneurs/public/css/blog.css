@@ -1,0 +1,47 @@
+body {
+    margin-top: 2em;
+}
+
+h1 {
+    margin-bottom: 1.5em;
+}
+
+.cardb {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 80%;
+    height: 25em;
+    margin: auto;
+    background-color: white;
+}
+
+
+/* On mouse-over, add a deeper shadow */
+
+.cardb:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+/* Add some padding inside the card container */
+
+.containerb {
+    padding: 2em 3em;
+}
+
+.dbutton .ebutton {
+    float: right;
+}
+
+li {
+    list-style-type: none;
+}
+.list .item .editMode-label {
+      margin-left: 5px;
+      font-family: "Varela Round";
+      border-radius: 2px;
+      border: 2px solid #a7b9c4;
+      font-size: 16px;
+      padding: 15px 0 15px 10px;
+      width: 60%; }
