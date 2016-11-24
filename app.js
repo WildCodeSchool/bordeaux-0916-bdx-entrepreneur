@@ -6,16 +6,16 @@ let express = require('express');
 let bodyParser = require('body-parser');
 let methodOverride = require('method-override')
 // router is now api moddule we required from index.js exports
-let router = require('./api/');
+let router = require('./app/api/');
 
 //express is now held in the variable app
 let app = express();
 
 //mongo is a singleton we dont do anything with the module but it is required.
-require('./database');
+require('./app/database');
 
 //requiring seed data
-require('./seed');
+require('./app/seed');
 
 //use method of express to acess all static files in the public folder
 app.use('/', express.static('public'));
