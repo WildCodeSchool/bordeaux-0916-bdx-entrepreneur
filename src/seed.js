@@ -29,7 +29,9 @@ let contacts = [{
 
 //loop through arrays and apply a function to every index.
 contacts.forEach(function(contact, index) {
-      //Member is the model of mongoose exported by express from member.js
+
+      //Member is the model of mongoose exported by express from Member.js
+
     Member.find(contact, function(err, contacts){
         if (!err && !contacts.length) {
             Member.create(contact);
