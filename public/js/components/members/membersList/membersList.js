@@ -1,14 +1,14 @@
 ((app) => {
-    app.component('blogList', {
-            templateUrl: 'js/components/blog/blogList/blogList.html',
-            controller: function(postsService) {
+    app.component('membersList', {
+            templateUrl: 'js/components/members/membersList/membersList.html',
+            controller: function(contactsService) {
 
-                    postsService.get().then((response) => {
-                        this.posts = response.data
+                    contactsService.get().then((response) => {
+                        this.contacts = response.data
                     });
 
-                    this.add = (post) => {
-                        this.posts.push(this.posts),
+                    this.add = (contact) => {
+                        this.contacts.push(this.contacts),
                             console.log('this has been added');
                     };
 
@@ -27,21 +27,21 @@
 
                       this.next = () => {
                           this.carouselstate ==
-                              this.blog.length - 1 ?
+                              this.members.length - 1 ?
                               this.carouselstate = 0 :
                               this.carouselstate++
-                              console.log('search next blog');
+                              console.log('search next members');
                       }
 
                       this.prev = () => {
                           this.carouselstate < 1 ?
                               this.carouselstate =
-                              this.blog.length - 1 :
+                              this.members.length - 1 :
                               this.carouselstate--;
-                          console.log('search prev blog');
+                          console.log('search prev members');
                       }*/
 
 
               } //dont delete
         }); //dont delete
-})(require('angular').module('app.blog'))
+})(require('angular').module('app.member'))

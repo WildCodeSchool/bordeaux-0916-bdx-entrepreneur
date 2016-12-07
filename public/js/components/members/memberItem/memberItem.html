@@ -1,0 +1,31 @@
+
+
+
+<!-- new content-->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-1">
+            <a href="" ng-click="$ctrl.prev()">Prev</a>
+        </div>
+        <div class="col-xs-10">
+            <div class="row">
+              <ul class="containerb card">
+                  <li>
+                      <h1 ng-dblclick="editMode1 = true" ng-hide="editMode1" class="editMode-label1" >{{$ctrl.member.title}}</h1>
+                      <input class="h1" ng-class="{{h1}}" ng-change="member.editMode1 = true" ng-blur="editMode1 = false;" ng-show="editMode1" for="member-{{$index}}" ng-model="$ctrl.member.title"  type="text" edit-autofocus="editMode1" />
+                      <h2 ng-dblclick="editMode2 = true" ng-hide="editMode2" class="editMode2-label">{{$ctrl.member.author}}</h2>
+                      <input class="h3" ng-class="{{h3}}" ng-change="member.editMode2 = true" ng-blur="editMode2 = false;" ng-show="editMode2" for="member-{{$index}}"  ng-model="$ctrl.member.author"  name="author" type="text" edit-autofocus="editMode2" />
+                      <h6> Published on the {{$ctrl.member.PublishedAt | date }}</h6>
+                      <p ng-dblclick="editMode3 = true" ng-hide="editMode3" class="editMode-label">{{$ctrl.member.content}} </p>
+                      <textarea ng-change="member.editMode3 = true" ng-blur="editMode3 = false;" ng-show="editMode3" for="member-{{$index}}" ng-model="$ctrl.member.content" class="editMode3-label" name="content" type="text" ></textarea>
+                  </li>
+                  <button class="btn-link" ng-click="$ctrl.saveMembers($ctrl.member)">Save</button>
+                  <button class="btn-link" ng-click="$ctrl.delete($ctrl.member)">Delete</button>
+              </ul>
+            </div>
+          </div>
+        <div class="col-xs-1">
+            <a href="" ng-click="$ctrl.next()">Next</a>
+        </div>
+    </div>
+</div>

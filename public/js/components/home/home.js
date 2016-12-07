@@ -1,7 +1,7 @@
 ((app) => {
     app.component('home', {
         templateUrl: 'js/components/home/home.html',
-        controller: function(postsService) {
+        controller: function(contactsService) {
 
                 this.carouselstate = 3
                 this.loadMore = () => {
