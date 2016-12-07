@@ -5,5 +5,5 @@
     'app.config',
     'app.services',
     'app.home',
-    'app.blog',
+    'app.member',
 ]))

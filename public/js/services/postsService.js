@@ -1,22 +1,22 @@
 ((app) => {
 
-    app.service('postsService', function($http) {
+    app.service('contactsService', function($http) {
         return {
             get(){
-                return $http.get('/api/posts');
+                return $http.get('/api/contacts');
             },
             getById(id){
-                return $http.get('/api/posts/' + id);
+                return $http.get('/api/contacts/' + id);
             },
-            delete(blog){
-                return $http.delete('/api/posts/' + blog._id);
+            delete(member){
+                return $http.delete('/api/contacts/' + member._id);
             },
 
-            save(blog){
-                if (!blog._id) {
-                    request = $http.post('/api/posts', blog)
+            save(member){
+                if (!member._id) {
+                    request = $http.contact('/api/contacts', member)
                 } else {
-                    request = $http.put('/api/posts/'+ blog._id, blog)
+                    request = $http.put('/api/contacts/'+ member._id, member)
                 }
                 return request
             }
