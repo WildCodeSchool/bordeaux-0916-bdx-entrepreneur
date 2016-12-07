@@ -1,9 +1,19 @@
+
 body {
     margin-top: 2em;
 }
 
 h1 {
     margin-bottom: 1.5em;
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+textarea{
+  width: 100%
 }
 
 .cardb {
@@ -45,3 +55,12 @@ li {
       font-size: 16px;
       padding: 15px 0 15px 10px;
       width: 60%; }
+
+
+      input {
+      border: 0;
+      padding: 15px 10px;
+      width: 100%;
+      outline: 0;
+      font-size: 16px;
+    }

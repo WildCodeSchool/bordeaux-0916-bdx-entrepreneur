@@ -3,4 +3,4 @@
 
 //Declaration of the module/component
 
-})(angular.module('app.home', []));
+})(require('angular').module('app.home', []));

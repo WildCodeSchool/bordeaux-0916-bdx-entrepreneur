@@ -1,11 +1,11 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-1">
-            <a href="" ng-click="$ctrl.prev()">Prev</a>
+
         </div>
         <div class="col-xs-10">
             <div class="row">
-                <div class="text-xs-center" ng-repeat= "post in $ctrl.posts | limitTo : 3 : $ctrl.carouselstate track by $index">
+                <div class="text-xs-center" ng-repeat= "post in $ctrl.posts | limitTo : $ctrl.carouselstate track by $index">
                     <div class="col-xs-12 col-md-4">
                         <div class="card hvr-grow text-xs-center">
                             <h4 class="card-title">{{post.title}}</h4>
@@ -20,14 +20,14 @@
               <div class="container">
               <div class="offset-md-4 col-xs-12 col-md-4 mt-3">
                 <div class="row">
-                  <h3 class="text-xs-center"><a href="" ng-click="$ctrl.add()" >+ Article</a></h3>
+                  <h3 class="text-xs-center"><a href="" ng-click="$ctrl.loadMore()" >+ Article</a></h3>
                 </div>
               </div>
               </div>
 
           </div>
         <div class="col-xs-1">
-            <a href="" ng-click="$ctrl.next()">Next</a>
+
         </div>
     </div>
 </div>

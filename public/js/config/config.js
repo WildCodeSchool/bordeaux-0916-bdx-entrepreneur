@@ -21,4 +21,4 @@
         }
     ]);
 
-})(angular.module('app.config', []))
+})(require('angular').module('app.config', []))

@@ -1,3 +1,3 @@
 ((app)=>{
 //Declaration of the module/component
-})(angular.module('app.blog', []))
+})(require('angular').module('app.blog', []))

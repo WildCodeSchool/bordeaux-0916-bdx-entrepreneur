@@ -5,7 +5,7 @@ let fs = require('fs')
 module.exports = (app) => {
     const ROUTER = express.Router()
 
-    fs.readdir('./app/api', (err, files) => {
+    fs.readdir('./src/api', (err, files) => {
         if (err) throw err
         else {
             files.forEach((file) => {

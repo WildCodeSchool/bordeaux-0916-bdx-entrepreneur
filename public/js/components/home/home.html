@@ -3,6 +3,19 @@
         <div class="jumbotron">
             <h1 class="text-xs-center">Blog</h1>
             <ui-view />
+            <div class="grid center load">
+
+                <div class="container">
+                    <div class="offset-md-4 col-xs-12 col-md-4 mt-3">
+                        <div class="row">
+                            <button class="btn btn-primary" ng-click="$ctrl.loadMore()" ng-if="$ctrl.carouselstate < $ctrl.posts.length">Load More</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
         </div>
     </div>
 </div>

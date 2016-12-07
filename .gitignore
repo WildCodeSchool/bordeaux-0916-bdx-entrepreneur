@@ -1,2 +1,6 @@
 .DS_Store
 node_modules/
+
+#Build files
+public/js/*.min.*
+public/css/

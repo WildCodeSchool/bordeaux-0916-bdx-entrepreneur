@@ -1,18 +1,31 @@
-<div class="card">
-    <div class="row">
-        <ul class="containerb">
 
-            <li>
-                <h1 ng-click="editMode = true" ng-hide="editMode" class="editMode-label">{{$ctrl.blog.title}}</h1>
-                <input ng-change="blog.editMode = true" ng-blur="editMode = false;" ng-show="editMode" ng-model="$ctrl.blog.title" class="editMode-label" type="text" />
-                <p ng-click="editMode = true" ng-hide="editMode" class="editMode-label">{{$ctrl.blog.author}}</p>
-                <input ng-change="blog.editMode = true" ng-blur="editMode = false;" ng-show="editMode" ng-model="$ctrl.blog.author" class="editMode-label" name="author" type="text" />
-                <p> Published on the {{$ctrl.blog.PublishedAt*1000 | date:' dd-MMMM-yyyy  @  hh:mm'}}</p>
-                <p ng-click="editMode = true" ng-hide="editMode" class="editMode-label">{{$ctrl.blog.content}} </p>
-                <textarea ng-change="blog.editMode = true" ng-blur="editMode = false;" ng-show="editMode" ng-model="$ctrl.blog.content" class="editMode-label" name="content" type="text"></textarea>
-            </li>
-            <button class="btn-link" ng-click="$ctrl.saveBlogs($ctrl.blog)">Save</button>
-            <button class="btn-link" ng-click="$ctrl.delete($ctrl.blog)">Delete</button>
-        </ul>
+
+
+<!-- new content-->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-1">
+            <a href="" ng-click="$ctrl.prev()">Prev</a>
+        </div>
+        <div class="col-xs-10">
+            <div class="row">
+              <ul class="containerb card">
+                  <li>
+                      <h1 ng-dblclick="editMode1 = true" ng-hide="editMode1" class="editMode-label1" >{{$ctrl.blog.title}}</h1>
+                      <input class="h1" ng-class="{{h1}}" ng-change="blog.editMode1 = true" ng-blur="editMode1 = false;" ng-show="editMode1" for="blog-{{$index}}" ng-model="$ctrl.blog.title"  type="text" edit-autofocus="editMode1" />
+                      <h2 ng-dblclick="editMode2 = true" ng-hide="editMode2" class="editMode2-label">{{$ctrl.blog.author}}</h2>
+                      <input class="h3" ng-class="{{h3}}" ng-change="blog.editMode2 = true" ng-blur="editMode2 = false;" ng-show="editMode2" for="blog-{{$index}}"  ng-model="$ctrl.blog.author"  name="author" type="text" edit-autofocus="editMode2" />
+                      <h6> Published on the {{$ctrl.blog.PublishedAt | date }}</h6>
+                      <p ng-dblclick="editMode3 = true" ng-hide="editMode3" class="editMode-label">{{$ctrl.blog.content}} </p>
+                      <textarea ng-change="blog.editMode3 = true" ng-blur="editMode3 = false;" ng-show="editMode3" for="blog-{{$index}}" ng-model="$ctrl.blog.content" class="editMode3-label" name="content" type="text" ></textarea>
+                  </li>
+                  <button class="btn-link" ng-click="$ctrl.saveBlogs($ctrl.blog)">Save</button>
+                  <button class="btn-link" ng-click="$ctrl.delete($ctrl.blog)">Delete</button>
+              </ul>
+            </div>
+          </div>
+        <div class="col-xs-1">
+            <a href="" ng-click="$ctrl.next()">Next</a>
+        </div>
     </div>
 </div>
