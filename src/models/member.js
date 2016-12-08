@@ -6,8 +6,8 @@
 
 let mongoose = require('mongoose');
 
-//creating the blogschema with mongoose's constructor class method.
-let blogSchema = new mongoose.Schema({
+//creating the memberschema with mongoose's constructor class method.
+let memberSchema = new mongoose.Schema({
     title: String,
     author: String,
     PublishedAt: String,
@@ -15,4 +15,4 @@ let blogSchema = new mongoose.Schema({
 });
 
 // creating and exporting model with the model method of mongoose.
-module.exports = mongoose.model('Blog', blogSchema);
+module.exports = mongoose.model('Member', memberSchema);

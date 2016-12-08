@@ -1,84 +1,84 @@
 'use strict'
-//All the get, post, put/create Restfull/crud methods.
-// Post Model of Mongoose requiring the blog.js file from src/models
-let Post = require('../models/blog');
+//All the get, contact, put/create Restfull/crud methods.
+// Contacts Model of Mongoose requiring the member.js file from src/models
+let Contact = require('../models/member');
 
 
 module.exports = (router) => {
     //mounting router method to get crud restFull api
-    router.get('/posts', function(req, res) {
-        Post.find({}, function(err, posts) {
+    router.get('/contacts', function(req, res) {
+        Contact.find({}, function(err, contacts) {
             if (err) {
                 return res.status(500).json({
                     message: err.message
                 });
             }
-            res.json(posts);
+            res.json(contacts);
         });
     });
 
-    //get post by id
-    router.get('/posts/:id', function(req, res) {
-        Post.findById(req.params.id, function(err, post) {
+    //get contact by id
+    router.get('/contacts/:id', function(req, res) {
+        Contact.findById(req.params.id, function(err, contact) {
             if (err) {
                 return res.status(500).json({
                     message: err.message
                 });
             }
-            res.json(post);
+            res.json(contact);
         });
     });
 
-    //post method with router prefix
-    router.post('/posts/', function(req, res) {
-        let post = req.body;
-        // post data to database using the Post model
-        Post.create(post, function(err, post) {
+    //contact method with router prefix
+    router.post('/contacts/', function(req, res) {
+        let contact = req.body;
+        // contact data to database using the Contact model
+        Contact.create(contact, function(err, contact) {
             if (err) {
                 return res.status(500).json({
                     err: err.message
                 });
             }
             res.json({
-                'post': post,
-                message: 'Post Created'
+                'contact': contact,
+                message: 'Contact Created'
             });
         });
     });
 
     //TODO: Add PUT route to uodate existng entries
 
-    // add :id params at end of /posts route.
-    router.put('/posts/:id', function(req, res) {
+    // add :id params at end of /contacts route.
+    router.put('/contacts/:id', function(req, res) {
         //id variable assigned request.parameters.identification of express modeule
         let id = req.params.id;
-        // post variable is locally assigned the requested body
-        let post = req.body;
+        // contact variable is locally assigned the requested body
+        let contact = req.body;
         //
-        if (post && post._id !== id) {
+        if (contact && contact._id !== id) {
             return res.status(500).json({
                 err: 'Ids do not match!'
             })
         }
-        //Post model of mongoose finds id and update.
-        Post.findByIdAndUpdate(id, post, {
+        //contact model of mongoose finds id and update.
+        Contact.findByIdAndUpdate(id, contact, {
             new: true
-        }, function(err, post) {
+        }, function(err, contact) {
             if (err) {
                 return res.status(500).json({
                     err: err.message
                 });
             }
             res.json({
-                'post': post,
-                message: 'Post Updated'
+                'contact': contact,
+                message: 'Contact Updated'
             });
         });
     });
 
     //TODO: Add DELETE route to create new entries
-    router.delete('/posts/:id', function(req, res) {
-        Post.findByIdAndRemove(req.params.id, function(err) {
+    router.delete('/contacts/:id', function(req, res) {
+        Contact.findByIdAndRemove(req.params.id, function(err) {
             if (err) {
                 res.status(500).json({
                     err: err.message
