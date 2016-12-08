@@ -21,18 +21,17 @@ exports.config = {
         },
         stylesheets: {
             joinTo: {
-                'css/vendor.min.css': [],
                 'css/app.min.css': /^public\/scss/
             }
         }
     },
     npm: {
         enabled: true,
-        compilers: ['angular', 'angular-ui-router']
+        compilers: ['angular', 'angular-ui-router', 'angular-aria', 'angular-animate', 'angular-messages', 'angular-material']
     },
     conventions: {
         assets: /static[\\/]/,
-        ignored: ['public/js/**/*.min.*', 'public/css/**/*.min.*' ]
+        ignored: ['public/js/**/*.min.*', 'public/css/**/*.min.*']
     },
     modules: {
         wrapper: false,
@@ -43,6 +42,11 @@ exports.config = {
             ignore: [
                 /^(node_modules)/
             ]
+        },
+        copycat: {
+            css: ['node_modules/angular-material/angular-material.min.css'],
+            verbose: true,
+            onlyChanged: true
         }
     },
     overrides: {
