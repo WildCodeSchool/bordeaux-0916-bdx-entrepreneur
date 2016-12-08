@@ -1,7 +1,10 @@
 ((app) => {
     app.component('membersList', {
             templateUrl: 'js/components/members/membersList/membersList.html',
-            controller: function(contactsService) {
+
+            controller: function(contactsService,$scope) {
+
+                  $scope.imagePath = 'img/washedout.png';
 
                     contactsService.get().then((response) => {
                         this.contacts = response.data
@@ -22,6 +25,26 @@
                     this.loadMore = () => {
                         this.carouselstate += 3
                     };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                     /*this.carouselstate = 0
 
