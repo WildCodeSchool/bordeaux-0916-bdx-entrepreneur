@@ -2,9 +2,9 @@
     app.component('membersList', {
             templateUrl: 'js/components/members/membersList/membersList.html',
 
-            controller: function(contactsService,$scope) {
+            controller: function(contactsService) {
 
-                  $scope.imagePath = 'img/washedout.png';
+
 
                     contactsService.get().then((response) => {
                         this.contacts = response.data
@@ -46,6 +46,15 @@
 
 
 
+              } //dont delete
+        }); //dont delete
+})(require('angular').module('app.member'))
+
+
+
+
+
+
                     /*this.carouselstate = 0
 
                       this.next = () => {
@@ -63,8 +72,3 @@
                               this.carouselstate--;
                           console.log('search prev member');
                       }*/
-
-
-              } //dont delete
-        }); //dont delete
-})(require('angular').module('app.member'))
