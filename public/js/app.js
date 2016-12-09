@@ -9,5 +9,5 @@
     'app.config',
     'app.services',
     'app.home',
-    'app.member',
+    'app.member'
 ]))
