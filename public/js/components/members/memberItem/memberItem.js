@@ -34,11 +34,9 @@
 
             this.delete = (member) => {
                 contactsService.delete(member).then((response) => {
-<<<<<<< HEAD
-                    console.log('Member deleted');
-=======
+
                     console.log('member deleted');
->>>>>>> fb39bff87dd26e6422dea99d2167ce7c310e6755
+
                     $state.go('member.list')
                 })
             };
