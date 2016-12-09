@@ -1,6 +1,6 @@
 ((app) => {
 
-})(require('angular').module( 'app', [
+})(require('angular').module('app', [
     require('angular-ui-router'),
     require('angular-material'),
     require('angular-aria'),

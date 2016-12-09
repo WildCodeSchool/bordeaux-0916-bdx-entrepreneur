@@ -73,7 +73,11 @@
                               this.members.length - 1 :
 >>>>>>> 87dd95faae3604ca908eeffd188ca5deb2b4be68:public/js/components/members/membersList/membersList.js
                               this.carouselstate--;
+<<<<<<< HEAD:public/js/components/members/membersList/membersList.js
+                          console.log('search prev members');
+=======
                           console.log('search prev member');
+>>>>>>> fb39bff87dd26e6422dea99d2167ce7c310e6755:public/js/components/members/membersList/membersList.js
                       }*/
 
 

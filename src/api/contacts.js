@@ -1,6 +1,11 @@
 'use strict'
 //All the get, contact, put/create Restfull/crud methods.
 
+
+// Contact Model of Mongoose requiring the member.js file from src/models
+
+
+
 // Contact Model of Mongoose requiring the member.js file from src/models
 
 let Contact = require('../models/member');
@@ -34,6 +39,7 @@ module.exports = (router) => {
     //contact method with router prefix
     router.post('/contacts/', function(req, res) {
         let contact = req.body;
+
         // contact data to database using the Contact model
 
         Contact.create(Contact, function(err, contact) {
@@ -45,7 +51,9 @@ module.exports = (router) => {
             }
             res.json({
                 'contact': contact,
+
                 message: 'Contact Created'
+
             });
         });
     });
