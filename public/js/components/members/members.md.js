@@ -1,5 +1,3 @@
-((app) => {
-    //Declaration of the module/component
-
-
-})(require('angular').module('app.member', []));
+((app)=>{
+//Declaration of the module/component
+})(require('angular').module('app.member', []))
