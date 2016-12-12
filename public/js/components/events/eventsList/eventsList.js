@@ -1,5 +1,5 @@
 ((app) => {
-    app.component('membersList', {
+    app.component('eventsList', {
             templateUrl: 'js/components/members/membersList/membersList.html',
 
 
