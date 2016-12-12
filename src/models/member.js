@@ -1,4 +1,3 @@
-
 'use strict'
 
 //These are the models and schemas of mongoose which shall be served to
@@ -11,7 +10,8 @@ let memberSchema = new mongoose.Schema({
     title: String,
     author: String,
     PublishedAt: String,
-    content: String
+    content: String,
+    img: String
 });
 
 // creating and exporting model with the model method of mongoose.
