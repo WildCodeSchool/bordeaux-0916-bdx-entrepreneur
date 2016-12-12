@@ -13,8 +13,8 @@
                 .state('member.list', {
                     template: '<members-list></members-list>',
                     url: '/'
-                })
-                .state('member.item', {
+                  })
+                 .state('member.item', {
                     template: '<member-item></member-item>',
                     url: '/member/:id'
                 });
