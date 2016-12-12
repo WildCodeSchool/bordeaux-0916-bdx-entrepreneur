@@ -10,5 +10,6 @@
     'app.services',
     'app.home',
     'app.navbar',
-    'app.member'
+    'app.member',
+    'app.event'
 ]))
