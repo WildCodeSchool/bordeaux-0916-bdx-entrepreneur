@@ -2,7 +2,7 @@
 <div layout="row" layout-padding layout-margin layout-wrap>
   <div  flex-gt-xs layout="column" layout-align="center" ng-repeat= "contact in $ctrl.contacts | limitTo : $ctrl.carouselstate track by $index">
       <md-card flex>
-        <img ng-src="/img/developer.jpg"  class="md-card-image" alt=""/>
+        <img ng-src="{{contact.img}}"  class="md-card-image" alt=""/>
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">{{contact.title}}</span>

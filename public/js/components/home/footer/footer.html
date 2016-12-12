@@ -1,84 +1,92 @@
+<div class="md-padding" ng-cloak>
+    <div class="bottom-sheet-demo inset" layout="row" layout-sm="column" layout-align="center">
+        <md-button flex="50" class="md-primary md-raised" ng-click="gridBottom =!gridBottom ">Actualité</md-button>
+    </div>
+</div>
+
 <div id="footer">
-  <div layout="row" layout-padding layout-margin layout-fill>
+  <div ng-if="gridBottom == true" layout="row" layout-padding layout-margin layout-fill layout-sm="column"   layout-align="center center" layout-xs="column">
 
 
-      <!-- First column -->
-      <div flex-xs flex-gt-xs="33" layout="column" layout-align="center">
-        <h4 layout-align="center">Nouveaux adhérents</h4>
-    <md-card>
-      <div layout="row">
-        <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
-          <p>Azendoo nous a rejoints</p>
-      </div>
 
-    </md-card>
-    <md-card>
-      <div layout="row">
-        <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
-          <p>Azendoo nous a rejoints</p>
-      </div>
+        <!-- First column -->
+        <div flex-xs="100" flex-gt-xs="33" layout="column" layout-align="center">
+            <h4 layout-align="center">Nouveaux adhérents</h4>
+            <md-card>
+                <div layout="row">
+                    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
+                    <p>Azendoo nous a rejoints</p>
+                </div>
 
-    </md-card>
-    <md-card>
-      <div layout="row">
-        <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
-          <p>Azendoo nous a rejoints</p>
-      </div>
+            </md-card>
+            <md-card hide-md hide-xs hide-sm>
+                <div layout="row">
+                    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
+                    <p>Azendoo nous a rejoints</p>
+                </div>
 
-    </md-card>
-  </div>
+            </md-card>
+            <md-card hide-md hide-xs hide-sm>
+                <div layout="row">
+                    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
+                    <p>Azendoo nous a rejoints</p>
+                </div>
+
+            </md-card>
+        </div>
 
 
-  <!-- Second column -->
-  <div flex-xs flex-gt-xs="33" layout="column" layout-align="center">
-    <h4 layout-align="center">Prochains évenements</h4>
-<md-card>
-  <div layout="row">
-    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
-      <p>Azendoo nous a rejoints</p>
-  </div>
+        <!-- Second column -->
+        <div flex-xs flex-gt-xs="33" layout="column" layout-align="center">
+            <h4 layout-align="center">Prochains évenements</h4>
+            <md-card>
+                <div layout="row">
+                    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
+                    <p>Azendoo nous a rejoints</p>
+                </div>
 
-</md-card>
-<md-card>
-  <div layout="row">
-    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
-      <p>Azendoo nous a rejoints</p>
-  </div>
+            </md-card>
+            <md-card hide-md hide-xs hide-sm>
+                <div layout="row">
+                    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
+                    <p>Azendoo nous a rejoints</p>
+                </div>
 
-</md-card>
-<md-card>
-  <div layout="row">
-    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
-      <p>Azendoo nous a rejoints</p>
-  </div>
+            </md-card>
+            <md-card hide-md hide-xs hide-sm>
+                <div layout="row">
+                    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
+                    <p>Azendoo nous a rejoints</p>
+                </div>
 
-</md-card>
+            </md-card>
+        </div>
+        <!-- Third column -->
+        <div flex-xs flex-gt-xs="33" layout="column" layout-align="center">
+            <h4 layout-align="center">Mes évenements</h4>
+            <md-card>
+                <div layout="row">
+                    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
+                    <p>Azendoo nous a rejoints</p>
+                </div>
+
+            </md-card>
+            <md-card hide-md hide-xs hide-sm>
+                <div layout="row">
+                    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
+                    <p>Azendoo nous a rejoints</p>
+                </div>
+            </md-card>
+            <md-card hide-md hide-xs hide-sm>
+                <div layout="row" hide-xs>
+                    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
+                    <p>Azendoo nous a rejoints</p>
+                </div>
+
+            </md-card>
+        </div>
+    </div>
+
 </div>
-<!-- Third column -->
-<div flex-xs flex-gt-xs="33" layout="column" layout-align="center">
-  <h4 layout-align="center">Mes évenements</h4>
-<md-card>
-<div layout="row">
-  <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
-    <p>Azendoo nous a rejoints</p>
-</div>
 
-</md-card>
-<md-card>
-<div layout="row">
-  <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
-    <p>Azendoo nous a rejoints</p>
-</div>
-
-</md-card>
-<md-card>
-<div layout="row">
-  <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
-    <p>Azendoo nous a rejoints</p>
-</div>
-
-</md-card>
-</div>
-
-</div>
 </div>
