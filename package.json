@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/app.js",
+  "scripts":{
+    "prestart": "brunch build --production",
+    "start": "node ./src/app.js",
+    "dev":"brunch watch --server"
+  },
   "dependencies": {
     "angular": "^1.5.9",
     "angular-animate": "^1.5.9",
@@ -24,9 +29,6 @@
     "css-brunch": "^2.6.1",
     "javascript-brunch": "^2.0.0",
     "sass-brunch": "^2.7.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC"

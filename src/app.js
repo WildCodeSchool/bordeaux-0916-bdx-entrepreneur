@@ -14,8 +14,6 @@ let app = express();
 //mongo is a singleton we dont do anything with the module but it is required.
 require('./database');
 
-//requiring seed data
-require('./seed');
 
 //use method of express to acess all static files in the public folder
 app.use('/', express.static('public'));

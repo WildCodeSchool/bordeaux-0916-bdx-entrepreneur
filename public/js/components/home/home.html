@@ -1,8 +1,36 @@
-<md-card>
+<div layout="row" layout-padding layout-margin layout-xs="column" layout-sm="column">
 
-<input type="text" name="name" value="" placeholder="E-mail">
-<input type="text" name="name" value="" placeholder="Mot de passe">
+    <div flex-gt-xs="25" layout="column" layout-align="center" style="align-self:baseline;">
+        <img src="../img/logo_BordeauxEntrepreneursV3.png" alt="logo" class="img-responsive" />
+    </div>
+</div>
 
-<md-button href=""> Se connecter </md-button>
+	<div layout="row">
+		<div layout="column" flex role="main">
+			<md-card layout="vertical" flex id="homeback">
+				<div layout="row" layout-align="center center" layout-fill>
+					<md-whiteframe class="md-whiteframe-z1" layout="column" flex-gt-xs="30" layout-wrap layout-padding style="box-shadow:none;">
+						<md-content>
+							<md-input-container>
+								<label style="color: #3a88be;">Email</label>
+								<input ng-model="user.email">
+							</md-input-container>
+							<md-input-container>
+								<label style="color: #3a88be;">Mot de passe</label>
+								<input ng-model="user.password" type="password">
+							</md-input-container>
+							<md-input-container layout-align="center center">
+								<div layout="row" layout-sm="column" layout-margin>
+									<md-button class="md-raised" flex="50" flex-sm="100" style="color: #3a88be;">Connexion</md-button>
+									<md-button class="md-raised md-primary" flex="50" flex-sm="100">S'inscrire</md-button>
+                  <h6 style="color: #3a88be;">Mot de passe oublié ?</h6>
+								</div>
 
-</md-card>
+							</md-input-container>
+
+						</md-content>
+					</md-whiteframe>
+				</div>
+			</md-card>
+		</div>
+	</div>
