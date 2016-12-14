@@ -33,17 +33,9 @@ let memberSchema = new mongoose.Schema({
     password: {
         type: String,
     },
-    founder: {
-        type: Boolean,
-        default: false
-    },
-    contact: {
-        type: Boolean,
-        default: true
-    },
     isAdmin: {
         type: Boolean,
-        default: true
+        default: false
     }
 
 });

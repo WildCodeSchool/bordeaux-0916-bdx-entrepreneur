@@ -58,6 +58,10 @@ let memberSchema = new mongoose.Schema({
     contact: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
+    }],
+    founder: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }]
 
 
