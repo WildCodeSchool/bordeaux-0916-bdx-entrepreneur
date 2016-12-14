@@ -7,9 +7,12 @@ let mongoose = require('mongoose');
 
 //creating the memberschema with mongoose's constructor class method.
 let memberSchema = new mongoose.Schema({
-    name:String,
+
+    name: String,
+    img: String
     date:String,
-    image:String
+
+
 });
 
 // creating and exporting model with the model method of mongoose.

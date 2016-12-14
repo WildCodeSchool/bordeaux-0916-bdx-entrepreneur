@@ -1,35 +1,35 @@
 
 <div layout="row" layout-padding layout-margin layout-wrap>
-  <div  flex-gt-xs layout="column" layout-align="center" ng-repeat= "contact in $ctrl.contacts | limitTo : $ctrl.carouselstate track by $index">
-      <md-card flex>
-        <img ng-src="{{contact.img}}"  class="md-card-image" alt=""/>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">{{contact.title}}</span>
-          </md-card-title-text>
-        </md-card-title>
-        <md-card-content>
-          <p>
-            {{contact.content | limitTo : 180}}
-          </p>
-        </md-card-content>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-fab md-icon-button" aria-label="Favorite">
-           <i class="material-icons">favorite</i>
-          </md-button>
-          <md-button class="md-icon-button md-fab md-primary md-hue-2" aria-label="Settings">
-          <i class="material-icons">menu</i>
-          </md-button>
-          <md-button class="md-icon-button md-fab md-primary md-hue-2" aria-label="Share">
-            <i class="material-icons">share</i>
-          </md-button>
-        </md-card-actions>
-      </md-card>
-   </div>
-  </div>
+    <div flex-gt-xs layout="column" layout-align="center" ng-repeat="contact in $ctrl.contacts | limitTo : $ctrl.carouselstate track by $index">
+        <md-card flex>
+            <img ng-src="{{contact.img}}" class="md-card-image" alt="" />
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{contact.title}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p>
+                    {{contact.content | limitTo : 180}}
+                </p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-fab md-icon-button" aria-label="Favorite">
+                    <i class="material-icons">favorite</i>
+                </md-button>
+                <md-button ui-sref="member.item({id:contact._id})" class="md-icon-button md-fab md-primary md-hue-2" aria-label="Settings">
+                    <i class="material-icons">menu</i>
+                </md-button>
+                <md-button class="md-icon-button md-fab md-primary md-hue-2" aria-label="Share">
+                    <i class="material-icons">share</i>
+                </md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</div>
 
-  <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-   <md-button class="md-fab md-primary" aria-label="Load More">
-    <i class="material-icons">expand_more</i>
-   </md-button>
- </section>
+<section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    <md-button class="md-fab md-primary" aria-label="Load More">
+        <i class="material-icons" ng-click="$ctrl.loadMore()">expand_more</i>
+    </md-button>
+</section>
