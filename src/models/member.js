@@ -15,8 +15,6 @@ let memberSchema = new mongoose.Schema({
     twitter: String,
     facebook: String,
     website: String,
-    founder1: ,
-    founder2: ,
     littleContent: String,
     longContent: {
         type: String,
@@ -31,14 +29,14 @@ let memberSchema = new mongoose.Schema({
         validate: [(phoneContact1) => {
             return /0[1-9]([-. ]?[0-9]{2}){4}/.test(phoneContact1)
         }, 'Merci d\'utiliser un numéro de téléphone valide'],
-    }
+    },
     mailContact1: {
         type: String,
         unique: true,
         validate: [(mailContact1) => {
             return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mailContact1)
         }, 'Veuillez utiliser une adresse mail valide'],
-    }
+    },
     photoContact2: String,
     facebookContact2: String,
     twitterContact2: String,
@@ -48,7 +46,7 @@ let memberSchema = new mongoose.Schema({
         validate: [(phoneContact2) => {
             return /0[1-9]([-. ]?[0-9]{2}){4}/.test(phoneContact2)
         }, 'Merci d\'utiliser un numéro de téléphone valide'],
-    }
+    },
 
     mailContact2: {
         type: String,
@@ -61,7 +59,7 @@ let memberSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }]
-}
+
 
 });
 
