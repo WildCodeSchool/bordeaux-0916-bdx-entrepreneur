@@ -5,15 +5,15 @@
 
 let mongoose = require('mongoose');
 
-//creating the memberschema with mongoose's constructor class method.
-let memberSchema = new mongoose.Schema({
+//creating the eventschema with mongoose's constructor class method.
+let eventSchema = new mongoose.Schema({
 
     name: String,
-    img: String
-    date:String,
+    img: String,
+    date:String
 
 
 });
 
 // creating and exporting model with the model method of mongoose.
-module.exports = mongoose.model('Event', memberSchema);
+module.exports = mongoose.model('Event', eventSchema);

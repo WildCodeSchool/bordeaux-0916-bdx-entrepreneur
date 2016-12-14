@@ -1,7 +1,7 @@
 'use strict'
 
 let User = require('../models/user');
-let Member = require('../models/member');
+let Company = require('../models/company');
 
 module.exports = (router) => {
 
@@ -11,13 +11,13 @@ module.exports = (router) => {
             if (err) {
                 res.sendStatus(500)
             } else {
-                //on cherche le member liée au user avec la value indiqué dans le corp (req.body.memberId)
-              Member.findById(req.body.memberId, function(err, member){
+                //on cherche le company liée au user avec la value indiqué dans le corp (req.body.companyId)
+              Company.findById(req.body.companyId, function(err, company){
                   if (err) {
                       res.sendStatus(500)
                     }else {
-                      member.users.push(user._id)
-                      member.save() // MANDATORY !!
+                      company.users.push(user._id)
+                      company.save() // MANDATORY !!
                       //retourne le user créé
                       res.json(user)
                     }

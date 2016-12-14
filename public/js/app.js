@@ -10,6 +10,6 @@
     'app.services',
     'app.home',
     'app.navbar',
-    'app.member',
+    'app.company',
     'app.event'
 ]))

@@ -19,5 +19,5 @@ function editAutofocus() {
 
 
 require('angular')
-    .module('app.member')
+    .module('app.company')
     .directive('editAutofocus', editAutofocus);

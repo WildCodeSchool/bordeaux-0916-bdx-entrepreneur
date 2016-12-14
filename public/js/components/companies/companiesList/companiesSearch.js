@@ -1,6 +1,6 @@
 ((app) => {
-    app.component('membersSearch', {
-        templateUrl: 'js/components/members/membersList/membersSearch.html',
+    app.component('companiesSearch', {
+        templateUrl: 'js/components/companies/companiesList/companiesSearch.html',
 
         controller: function(contactsService, $timeout, $scope, $q, $element) {
 
@@ -82,23 +82,23 @@
 
             } //dont delete
     }); //dont delete
-})(require('angular').module('app.member'))
+})(require('angular').module('app.company'))
 
 
 /*this.carouselstate = 0
 
   this.next = () => {
       this.carouselstate ==
-          this.members.length - 1 ?
+          this.companies.length - 1 ?
           this.carouselstate = 0 :
           this.carouselstate++
-          console.log('search next members');
+          console.log('search next companies');
   }
 
   this.prev = () => {
       this.carouselstate < 1 ?
           this.carouselstate =
-          this.members.length - 1 :
+          this.companies.length - 1 :
           this.carouselstate--;
-      console.log('search prev member');
+      console.log('search prev company');
   }*/

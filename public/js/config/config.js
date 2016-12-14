@@ -9,21 +9,21 @@
                     template: '<home></home>',
                     url: '/login'
                 })
-                .state('member', {
+                .state('company', {
                     template: `<navbar></navbar>
-                    <members-search> </members-search>
+                    <companies-search> </companies-search>
                     <ui-view></ui-view>
                     <footer></footer>`,
                     url: '',
                     abstract: true
                 })
-                .state('member.list', {
-                    template: '<members-list></members-list>',
+                .state('company.list', {
+                    template: '<companies-list></companies-list>',
                     url: '/'
                 })
-                .state('member.item', {
-                    template: '<member-item></member-item>',
-                    url: '/member/:id'
+                .state('company.item', {
+                    template: '<company-item></company-item>',
+                    url: '/company/:id'
                 });
         }
     ]);

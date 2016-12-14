@@ -1,6 +1,6 @@
 ((app) => {
-    app.component('membersList', {
-            templateUrl: 'js/components/members/membersList/membersList.html',
+    app.component('companiesList', {
+            templateUrl: 'js/components/companies/companiesList/companiesList.html',
                 controller: function(contactsService,$scope,$mdDialog) {
                   contactsService.get().then((response) => {
                       this.contacts = response.data
@@ -54,4 +54,4 @@
 
               } //dont delete
         }); //dont delete
-})(require('angular').module('app.member'))
+})(require('angular').module('app.company'))

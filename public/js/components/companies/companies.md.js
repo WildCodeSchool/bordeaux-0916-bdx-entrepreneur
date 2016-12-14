@@ -3,4 +3,4 @@
     //Declaration of the module/component
 
 
-})(require('angular').module('app.member',[]));
+})(require('angular').module('app.company',[]));

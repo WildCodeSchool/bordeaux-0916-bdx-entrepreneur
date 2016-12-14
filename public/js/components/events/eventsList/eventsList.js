@@ -1,6 +1,6 @@
 ((app) => {
     app.component('eventsList', {
-            templateUrl: 'js/components/members/membersList/membersList.html',
+            templateUrl: 'js/components/companies/companiesList/companiesList.html',
 
 
             controller: function(contactsService) {
@@ -61,31 +61,31 @@
 
                       this.next = () => {
                           this.carouselstate ==
-<<<<<<< HEAD:public/js/components/members/membersList/membersList.js
-                              this.member.length - 1 ?
+<<<<<<< HEAD:public/js/components/companies/companiesList/companiesList.js
+                              this.company.length - 1 ?
                               this.carouselstate = 0 :
                               this.carouselstate++
-                              console.log('search next member');
+                              console.log('search next company');
 =======
-                              this.members.length - 1 ?
+                              this.companies.length - 1 ?
                               this.carouselstate = 0 :
                               this.carouselstate++
-                              console.log('search next members');
->>>>>>> 87dd95faae3604ca908eeffd188ca5deb2b4be68:public/js/components/members/membersList/membersList.js
+                              console.log('search next companies');
+>>>>>>> 87dd95faae3604ca908eeffd188ca5deb2b4be68:public/js/components/companies/companiesList/companiesList.js
                       }
 
                       this.prev = () => {
                           this.carouselstate < 1 ?
                               this.carouselstate =
-<<<<<<< HEAD:public/js/components/members/membersList/membersList.js
-                              this.member.length - 1 :
+<<<<<<< HEAD:public/js/components/companies/companiesList/companiesList.js
+                              this.company.length - 1 :
 =======
-                              this.members.length - 1 :
->>>>>>> 87dd95faae3604ca908eeffd188ca5deb2b4be68:public/js/components/members/membersList/membersList.js
+                              this.companies.length - 1 :
+>>>>>>> 87dd95faae3604ca908eeffd188ca5deb2b4be68:public/js/components/companies/companiesList/companiesList.js
                               this.carouselstate--;
-<<<<<<< HEAD:public/js/components/members/membersList/membersList.js
-                          console.log('search prev members');
+<<<<<<< HEAD:public/js/components/companies/companiesList/companiesList.js
+                          console.log('search prev companies');
 =======
-                          console.log('search prev member');
->>>>>>> fb39bff87dd26e6422dea99d2167ce7c310e6755:public/js/components/members/membersList/membersList.js
+                          console.log('search prev company');
+>>>>>>> fb39bff87dd26e6422dea99d2167ce7c310e6755:public/js/components/companies/companiesList/companiesList.js
                       }*/

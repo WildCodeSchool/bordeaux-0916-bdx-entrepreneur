@@ -8,15 +8,15 @@
             getById(id){
                 return $http.get('/api/contacts/' + id);
             },
-            delete(member){
-                return $http.delete('/api/contacts/' + member._id);
+            delete(company){
+                return $http.delete('/api/contacts/' + company._id);
             },
 
-            save(member){
-                if (!member._id) {
-                    request = $http.contact('/api/contacts', member)
+            save(company){
+                if (!company._id) {
+                    request = $http.contact('/api/contacts', company)
                 } else {
-                    request = $http.put('/api/contacts/'+ member._id, member)
+                    request = $http.put('/api/contacts/'+ company._id, company)
                 }
                 return request
             }

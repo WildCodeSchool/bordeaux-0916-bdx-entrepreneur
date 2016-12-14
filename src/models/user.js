@@ -5,8 +5,8 @@
 
 let mongoose = require('mongoose');
 
-//creating the memberschema with mongoose's constructor class method.
-let memberSchema = new mongoose.Schema({
+//creating the userschema with mongoose's constructor class method.
+let userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true

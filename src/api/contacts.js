@@ -2,13 +2,13 @@
 //All the get, contact, put/create Restfull/crud methods.
 
 
-// Contact Model of Mongoose requiring the member.js file from src/models
+// Contact Model of Mongoose requiring the company.js file from src/models
 
 
 
-// Contact Model of Mongoose requiring the member.js file from src/models
+// Contact Model of Mongoose requiring the company.js file from src/models
 
-let Contact = require('../models/member');
+let Contact = require('../models/company');
 
 
 module.exports = (router) => {
