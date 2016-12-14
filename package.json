@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/app.js",
   "scripts":{
-    "prestart": "brunch build --production",
+    "postinstall": "brunch build --production",
     "start": "node ./src/app.js",
     "dev":"brunch watch --server"
   },
