@@ -1,29 +1,49 @@
 
-<!-- new content-->
-<div class="container">
-    <div class="row">
-        <div class="col-xs-1">
-            <a href="" ng-click="$ctrl.prev()">Prev</a>
-        </div>
-        <div class="col-xs-10">
-            <div class="row">
-              <ul class="containerb card">
-                  <li>
-                      <h1 ng-dblclick="editMode1 = true" ng-hide="editMode1" class="editMode-label1" >{{$ctrl.member.title}}</h1>
-                      <input class="h1" ng-class="{{h1}}" ng-change="member.editMode1 = true" ng-blur="editMode1 = false;" ng-show="editMode1" for="member-{{$index}}" ng-model="$ctrl.member.title"  type="text" edit-autofocus="editMode1" />
-                      <h2 ng-dblclick="editMode2 = true" ng-hide="editMode2" class="editMode2-label">{{$ctrl.member.author}}</h2>
-                      <input class="h3" ng-class="{{h3}}" ng-change="member.editMode2 = true" ng-blur="editMode2 = false;" ng-show="editMode2" for="member-{{$index}}"  ng-model="$ctrl.member.author"  name="author" type="text" edit-autofocus="editMode2" />
-                      <h6> Published on the {{$ctrl.member.PublishedAt | date }}</h6>
-                      <p ng-dblclick="editMode3 = true" ng-hide="editMode3" class="editMode-label">{{$ctrl.member.content}} </p>
-                      <textarea ng-change="member.editMode3 = true" ng-blur="editMode3 = false;" ng-show="editMode3" for="member-{{$index}}" ng-model="$ctrl.member.content" class="editMode3-label" name="content" type="text" ></textarea>
-                  </li>
-                  <button class="btn-link" ng-click="$ctrl.saveMembers($ctrl.member)">Save</button>
-                  <button class="btn-link" ng-click="$ctrl.delete($ctrl.member)">Delete</button>
-              </ul>
-            </div>
-          </div>
-        <div class="col-xs-1">
-            <a href="" ng-click="$ctrl.next()">Next</a>
-        </div>
+
+<div layout="row" layout-padding layout-margin>
+<md-content class="md-padding" layout-xs="column" layout="row" layout-align="center">
+    <div flex-xs="" flex-gt-xs="80" layout="column">
+        <md-card class="memberitem_image">
+            <img ng-src="{{$ctrl.member.img}}" class="md-card-image" alt="" />
+            <md-card-content>
+                <h1 ng-dblclick="editMode1 = true" ng-hide="editMode1" class="md-display-2 editMode-label1">{{$ctrl.member.title}}</h1>
+                <input class="edit1" ng-class="md-display-2" ng-change="member.editMode1 = true" ng-blur="editMode1 = false;" ng-show="editMode1" for="member-{{$index}}" ng-model="$ctrl.member.title" type="text" edit-autofocus="editMode1" />
+                <h2 ng-dblclick="editMode2 = true" ng-hide="editMode2" class="md-display-1 editMode2-label">{{$ctrl.member.author}}</h2>
+                <input class="edit2" ng-class="" ng-change="member.editMode2 = true" ng-blur="editMode2 = false;" ng-show="editMode2" for="member-{{$index}}" ng-model="$ctrl.member.author" name="author" type="text" edit-autofocus="editMode2" />
+                <h6> {{$ctrl.member.PublishedAt | date }}</h6>
+                <p ng-dblclick="editMode3 = true" ng-hide="editMode3" class=" md-headline editMode-label">{{$ctrl.member.content}} </p>
+                <textarea ng-change="member.editMode3 = true" ng-blur="editMode3 = false;" ng-show="editMode3" for="member-{{$index}}" ng-model="$ctrl.member.content" class="editMode3-label edit3" name="content" type="text" edit-autofocus="editMode3"></textarea>
+            </md-card-content>
+
+            <md-fab-toolbar md-open="demo.isOpen" count="demo.count"
+                             md-direction="{{demo.selectedDirection}}">
+               <md-fab-trigger class="align-with-text">
+                 <md-button aria-label="menu" class="md-fab md-primary">
+                   <i class="material-icons">menu</i>
+                 </md-button>
+               </md-fab-trigger>
+
+               <md-toolbar>
+                 <md-fab-actions class="md-toolbar-tools" layout-align="space-around-center">
+                   <md-button ng-click="$ctrl.next()" aria-label="comment" class="md-icon-button">
+                  <i class="material-icons">skip_next</i>
+                   </md-button>
+                   <md-button ng-click="$ctrl.prev()" aria-label="label" class="md-icon-button">
+                    <i class="material-icons">skip_previous</i>
+                   </md-button>
+                   <md-button ng-click="$ctrl.saveMembers($ctrl.member)" aria-label="photo" class="md-icon-button">
+                  <i class="material-icons">save</i>
+                   </md-button>
+                   <md-button ng-click="$ctrl.createMembers($ctrl.member)" aria-label="photo" class="md-icon-button">
+                  <i class="material-icons">note_add</i>
+                   </md-button>
+                   <md-button ng-click="$ctrl.delete($ctrl.member)" aria-label="photo" class="md-icon-button">
+                  <i class="material-icons">delete_forever</i>
+                   </md-button>
+                 </md-fab-actions>
+               </md-toolbar>
+            </md-fab-toolbar>
+        </md-card>
     </div>
+
 </div>

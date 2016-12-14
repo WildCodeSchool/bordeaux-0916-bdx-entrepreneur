@@ -58,7 +58,7 @@ module.exports = (router) => {
         });
     });
 
-    //TODO: Add PUT route to uodate existng entries
+    //TODO: Add PUT route to update existng entries
 
     // add :id params at end of /contacts route.
     router.put('/contacts/:id', function(req, res) {

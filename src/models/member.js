@@ -9,9 +9,11 @@ let mongoose = require('mongoose');
 let memberSchema = new mongoose.Schema({
     title: String,
     author: String,
-    PublishedAt: String,
+    PublishedAt: Date,
     content: String,
-    img: String
+    img: String,
+    sector: String,
+    keys: String
 });
 
 // creating and exporting model with the model method of mongoose.

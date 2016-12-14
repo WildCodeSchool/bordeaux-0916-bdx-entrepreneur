@@ -7,7 +7,7 @@ let mongoose = require('mongoose');
 
 //creating the memberschema with mongoose's constructor class method.
 let memberSchema = new mongoose.Schema({
-    name:String,
+    name: String,
     facebook: String,
     twitter: String,
     number: String,

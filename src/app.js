@@ -11,6 +11,7 @@ let router = require('./api/');
 //express is now held in the variable app
 let app = express();
 
+
 //mongo is a singleton we dont do anything with the module but it is required.
 require('./database');
 
