@@ -36,6 +36,14 @@ let userSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: false
+    },
+    contact: {
+        type: Boolean,
+        default: false
+    },
+    founder: {
+        type: Boolean,
+        default: false
     }
 
 });
