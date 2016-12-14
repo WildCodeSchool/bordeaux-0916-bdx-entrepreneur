@@ -41,4 +41,4 @@ let memberSchema = new mongoose.Schema({
 });
 
 // creating and exporting model with the model method of mongoose.
-module.exports = mongoose.model('User', memberSchema);
+module.exports = mongoose.model('User', userSchema);
