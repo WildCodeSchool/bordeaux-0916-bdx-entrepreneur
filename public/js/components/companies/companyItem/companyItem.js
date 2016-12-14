@@ -1,15 +1,26 @@
 ((app) => {
     app.component('companyItem', {
         templateUrl: 'js/components/companies/companyItem/companyItem.html',
-        controller: function($stateParams, contactsService, $state, $scope) {
+        controller: function($stateParams, companiesService, $state, $mdToast) {
 
-            contactsService.getById($stateParams.id).then((response) => {
-                this.company = response.data;
-            });
+            if ($stateParams.id) {
+                if ($stateParams.id === '_new') {
+                    this.company = {
+                        name: "Sample",
+                        longContent: "blank"
+                    }
+                } else {
+                    companiesService.getById($stateParams.id).then((response) => {
+                        this.company = response.data;
+                    });
+                }
 
-            contactsService.get().then((response) => {
-                this.companies = response.data;
-                /*console.log(this.companies);*/
+            } else {
+                $state.go('company.list')
+            }
+
+            companiesService.get().then((response) => {
+                this.companies = response.data
             });
 
             this.next = () => {
@@ -37,19 +48,24 @@
 
 
             this.delete = (company) => {
-                contactsService.delete(company).then((response) => {
+                companiesService.delete(company).then((response) => {
                     console.log('company deleted');
                     $state.go('company.list')
                 })
             };
 
             this.saveCompanies = (company) => {
-                contactsService.save(company).then((res) => {
-                    console.log("Your Contact Has Been Saved")
+                companiesService.save(company).then((res) => {
+                    $mdToast.show(
+                        $mdToast.simple()
+                        .textContent('Simple Toast!')
+                        .position("bottom right")
+                        .hideDelay(3000)
+                    );
                 });
             }
             this.createCompanies = (company) => {
-                contactsService.save(company).then((res) => {
+                companiesService.save(company).then((res) => {
                     console.log("Your Contact Has Been Saved and Updated")
                 });
             }
@@ -67,42 +83,6 @@
             let date = new Date();
             this.hhmm = (new Date(), 'hh:mm');
 
-
-            $scope.isOpen = false;
-
-            $scope.demo = {
-                isOpen: false,
-                count: 0,
-                selectedDirection: 'right'
-            };
-
-
-
-
-
-
-
-
         }
     }); //dont delete
 })(require('angular').module('app.company'))
-
-
-
-/*this.carouselstate = 0
-
-  this.next = () => {
-      this.carouselstate ==
-          this.company.length - 1 ?
-          this.carouselstate = 0 :
-          this.carouselstate++
-          console.log('search next company');
-  }
-
-  this.prev = () => {
-      this.carouselstate < 1 ?
-          this.carouselstate =
-          this.company.length - 1 :
-          this.carouselstate--;
-      console.log('search prev company');
-  }*/
