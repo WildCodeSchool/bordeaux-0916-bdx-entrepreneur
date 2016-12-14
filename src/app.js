@@ -33,6 +33,7 @@ app.use(methodOverride('X-HTTP-Method-Override'))
 app.use('/api', router());
 
 // listen method to run a localhost on port 8080
-app.listen(8080, function() {
-    console.log("The server is running on port 8080!");
+let port = process.env.PORT || 8080
+app.listen(port, function() {
+    console.log("The server is running on port " + port);
 });
