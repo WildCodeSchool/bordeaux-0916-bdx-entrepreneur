@@ -6,9 +6,16 @@
             if ($stateParams.id) {
                 if ($stateParams.id === '_new') {
                     this.company = {
-                        name: "Sample",
-                        longContent: "blank"
-                    }
+                        name: "Company Name",
+                        sector: "Sector of Activity",
+                        logo: "Company Logo",
+                        twitter: "Write your twitter link here",
+                        facebook: "Write your facebook link here",
+                        linkedin: "Write your linkedin link here",
+                        website: "Write your link to the company website here",
+                        littleContent: "Synopsis of the company",
+                        longContent: "Detailed Description of the company"
+                  }
                 } else {
                     companiesService.getById($stateParams.id).then((response) => {
                         this.company = response.data;
@@ -56,13 +63,21 @@
 
             this.saveCompanies = (company) => {
                 companiesService.save(company).then((res) => {
+                  if($stateParams.id === '_new'){
+                    $state.go('company.item',{id: res.data._id})
+                  }
+                    //Si c'est new company alors $state.go item + id du nouveau
                     $mdToast.show(
                         $mdToast.simple()
                         .textContent('Simple Toast!')
                         .position("bottom right")
                         .hideDelay(3000)
                     );
-                });
+                }).catch(function(){
+                  return res.status(500).json({
+                      message: err.message
+                  });
+                }) ;
             }
             this.createCompanies = (company) => {
                 companiesService.save(company).then((res) => {
@@ -74,10 +89,11 @@
                 this.companies.forEach(function(company) {
 
                 })
-            }
+            };
+
 
             this.editMode = (company, index) => {
-                this.company.editMode = true;
+              this.company.editMode = true;
             };
 
             let date = new Date();

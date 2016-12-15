@@ -11,7 +11,9 @@ let companySchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    sector: String,
     logo: String,
+    linkedin: String,
     twitter: String,
     facebook: String,
     website: String,
@@ -20,7 +22,7 @@ let companySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    contact: [{
+    contacts: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
