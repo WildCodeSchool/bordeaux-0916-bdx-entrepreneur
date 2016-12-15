@@ -13,15 +13,15 @@
 						<md-content>
 							<md-input-container>
 								<label style="color: #3a88be;">Email</label>
-								<input ng-model="user.email">
+								<input ng-model="$ctrl.user.email">
 							</md-input-container>
 							<md-input-container>
 								<label style="color: #3a88be;">Mot de passe</label>
-								<input ng-model="user.password" type="password">
+								<input ng-model="$ctrl.user.password" type="password">
 							</md-input-container>
 							<md-input-container layout-align="center center">
 								<div layout="row" layout-sm="column" layout-margin>
-									<md-button class="md-raised" flex="50" flex-sm="100" style="color: #3a88be;">Connexion</md-button>
+									<md-button class="md-raised" flex="50" flex-sm="100" ng-click="$ctrl.connect()" style="color: #3a88be;">Connexion</md-button>
 									<md-button class="md-raised md-primary" flex="50" flex-sm="100">S'inscrire</md-button>
                   <h6 style="color: #3a88be;">Mot de passe oublié ?</h6>
 								</div>

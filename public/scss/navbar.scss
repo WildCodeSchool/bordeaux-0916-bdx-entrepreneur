@@ -1,29 +1,18 @@
 #navbar {
-//   .grid-spaceBetween {
-//       display: flex;
-//       align-items: center;
-//   }
-//
-//   #plouf {
-//       align-self: flex-end;
-//       justify-content: space-around;
-//   }
-//
 
 md-card md-card-header md-card-avatar {
     width: 64px;
     height: 45px;
-
+  }
+  #logonav {
+    align-self: baseline;
+  }
+  #iconrow {
+    justify-content: space-around;
   }
   .material-icons {
       color: #3a88be;
       font-size: 48px;
   }
-//
-//   @media (min-width: 768px) {
-//       #btndisco {
-//           display: none;
-//       }
-//   }
-//
+
 }

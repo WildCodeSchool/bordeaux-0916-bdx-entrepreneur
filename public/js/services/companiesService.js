@@ -5,6 +5,19 @@
             get() {
                 return $http.get('/api/companies');
             },
+
+//Service for filtering
+            filter(filtre) {
+
+                if (!filtre.name)
+                    delete filtre.name
+//just here to anticipate if many filters...
+
+                return $http.get('/api/companies', {
+                        params: filtre
+                    })
+            },
+
             getById(id) {
                 return $http.get('/api/companies/' + id);
             },

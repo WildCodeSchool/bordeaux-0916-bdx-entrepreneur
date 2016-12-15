@@ -19,7 +19,7 @@
                 })
                 .state('company.list', {
                     template: '<companies-list></companies-list>',
-                    url: '/'
+                    url: '/:name'
                 })
                 .state('company.item', {
                     template: '<company-item></company-item>',
