@@ -14,7 +14,8 @@ let Company = require('../models/company');
 module.exports = (router) => {
     //mounting router method to get crud restFull api
     router.get('/companies', function(req, res) {
-        Company.find({}, function(err, companies) {
+      //add req.query for filter request
+        Company.find(req.query, function(err, companies) {
             if (err) {
                 return res.status(500).json({
                     message: err.message
