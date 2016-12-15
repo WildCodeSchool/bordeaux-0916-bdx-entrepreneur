@@ -10,10 +10,15 @@ let eventSchema = new mongoose.Schema({
 
     name: String,
     img: String,
-    date:String
+    date:String,
+  },
+    {
+    timestamps: true
+}
 
 
-});
+
+);
 
 // creating and exporting model with the model method of mongoose.
 module.exports = mongoose.model('Event', eventSchema);

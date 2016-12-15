@@ -45,8 +45,10 @@ let userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     }
-
-});
+  },
+  {
+  timestamps: true
+  });
 
 // creating and exporting model with the model method of mongoose.
 module.exports = mongoose.model('User', userSchema);
