@@ -26,6 +26,8 @@
                     $scope.status = ' ';
                     $scope.customFullscreen = false;
 
+                    
+
               } //dont delete
         }); //dont delete
 })(require('angular').module('app.company'))

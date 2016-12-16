@@ -53,19 +53,15 @@
             }
 
 
-
-            this.delete = (company) => {
+              this.delete = (company) => {
                 companiesService.delete(company).then((response) => {
                     console.log('company deleted');
                     $state.go('company.list')
                 })
             };
 
-            this.saveCompanies = (company) => {
+              this.saveCompanies = (company) => {
                 companiesService.save(company).then((res) => {
-                  if($stateParams.id === '_new'){
-                    $state.go('company.item',{id: res.data._id})
-                  }
                     //Si c'est new company alors $state.go item + id du nouveau
                     $mdToast.show(
                         $mdToast.simple()
@@ -73,6 +69,9 @@
                         .position("bottom right")
                         .hideDelay(3000)
                     );
+                     if($stateParams.id === '_new'){
+                      $state.go('company.item',{id: res.data._id})
+                    }
                 }).catch(function(){
                   return res.status(500).json({
                       message: err.message
@@ -98,6 +97,7 @@
 
             let date = new Date();
             this.hhmm = (new Date(), 'hh:mm');
+
 
         }
     }); //dont delete
