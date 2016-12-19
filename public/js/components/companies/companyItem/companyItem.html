@@ -6,7 +6,7 @@
 
 
 
-        <user-card name="User name">
+        <user-card name="User name" >
             <md-card>
 
             <md-card-title>
@@ -25,7 +25,7 @@
 
                 <md-card-title-text>
 
-                  <h3 ng-dblclick="editModefb = true" ng-hide="editModefb" class="md-display-1 editModefb-label">{{$ctrl.company.facebook}}</h3>
+                  <h3 ng-click="editModefb = true" ng-hide="editModefb" class="md-display-1 editModefb-label" ng-blur="$ctrl.saveCompanies($ctrl.company)">{{$ctrl.company.facebook}}</h3>
                   <input class="editfb" ng-class="md-display-4" ng-change="company.editModefb = true" ng-blur="editModefb = false;" ng-show="editModefb" for="company-{{$index}}" ng-model="$ctrl.company.facebook" name="facebook" type="text" edit-autofocus="editModefb" />
 
                   <h3 ng-dblclick="editModelnkd = true" ng-hide="editModelnkd" class="md-display-1 editModelnkd-label">{{$ctrl.company.linkedin}}</h3>
