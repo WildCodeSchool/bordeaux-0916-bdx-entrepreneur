@@ -25,8 +25,8 @@
 
                 <md-card-title-text>
 
-                  <h3 ng-click="editModefb = true" ng-hide="editModefb" class="md-display-1 editModefb-label" ng-blur="$ctrl.saveCompanies($ctrl.company)">{{$ctrl.company.facebook}}</h3>
-                  <input class="editfb" ng-class="md-display-4" ng-change="company.editModefb = true" ng-blur="editModefb = false;" ng-show="editModefb" for="company-{{$index}}" ng-model="$ctrl.company.facebook" name="facebook" type="text" edit-autofocus="editModefb" />
+                  <h3 ng-click="editModefb = true" ng-hide="editModefb" class="md-display-1 editModefb-label">{{$ctrl.company.facebook}}</h3>
+                  <input class="editfb" ng-class="md-display-4" ng-change="company.editModefb = true" ng-blur="editModefb = false; $ctrl.saveCompanies($ctrl.company);" ng-show="editModefb" for="company-{{$index}}" ng-model="$ctrl.company.facebook" name="facebook" type="text" edit-autofocus="editModefb" />
 
                   <h3 ng-dblclick="editModelnkd = true" ng-hide="editModelnkd" class="md-display-1 editModelnkd-label">{{$ctrl.company.linkedin}}</h3>
                   <input class="editlnkd" ng-class="md-display-4" ng-change="company.editModelnkd = true" ng-blur="editModelnkd = false;" ng-show="editModelnkd" for="company-{{$index}}" ng-model="$ctrl.company.linkedin" name="linkedin" type="text" edit-autofocus="editModelnkd" />
