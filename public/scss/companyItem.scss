@@ -1,5 +1,32 @@
 
- .edit1 {
+/*h3 .md-display-1{
+  margin: 0 auto 0 auto;
+}*/
+
+.editfb,
+.editlnkd,
+.edittwt{
+  font-size: 1.75em;
+}
+
+
+.editModetwt-label,
+.editModefb-label{
+  margin: 0px;
+}
+
+.editlnkd{
+  margin-top: 1.3em;
+  margin-bottom: 1.3em;
+}
+
+.editModelnkd-label{
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+}
+
+
+.edit1 {
     font-size: 2.8125em;
 }
 
@@ -7,8 +34,23 @@
     font-size: 2.125em;
 }
 
-.edit3{
+.edit3 {
+   font-size: 2.125em;
+}
+
+.edit4 {
+   font-size: 1.75em;
+   width: 100%;
+}
+
+.edit5{
   font-size:1.5em;
   height:20em;
   width: 100%;
+}
+
+.socialicons{
+
+  height: 3rem;
+  width: 3rem;
 }

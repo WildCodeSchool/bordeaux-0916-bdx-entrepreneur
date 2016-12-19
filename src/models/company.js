@@ -11,7 +11,9 @@ let companySchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    sector: String,
     logo: String,
+    linkedin: String,
     twitter: String,
     facebook: String,
     website: String,
