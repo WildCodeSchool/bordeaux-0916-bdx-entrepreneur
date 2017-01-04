@@ -8,13 +8,12 @@ let mongoose = require('mongoose');
 //creating the eventschema with mongoose's constructor class method.
 let eventSchema = new mongoose.Schema({
 
-    name: String,
-    img: String,
-    date:String,
-  },
-    {
-    timestamps: true
-}
+        name: String,
+        img: String,
+        date: String
+    }, {
+        timestamps: true
+    }
 
 
 

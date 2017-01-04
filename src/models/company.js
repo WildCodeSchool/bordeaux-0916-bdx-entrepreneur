@@ -16,24 +16,29 @@ let companySchema = new mongoose.Schema({
     linkedin: String,
     twitter: String,
     facebook: String,
+    pinterest: String,
+    instagram: String,
+    youtube: String,
+
     website: String,
     littleContent: String,
     longContent: {
         type: String,
         required: true
     },
-    contacts: [{
+    search:String,
+    purpose:String,
+    note:String,
+    sector: String,
+    contact: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
-    founder: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    }]
-}, {
-    timestamps: true
-
-});
+},
+{
+  timestamps: true
+}
+);
 
 // creating and exporting model with the model method of mongoose.
 module.exports = mongoose.model('Company', companySchema);

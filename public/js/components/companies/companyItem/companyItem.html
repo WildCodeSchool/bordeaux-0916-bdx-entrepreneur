@@ -187,11 +187,14 @@
     <h3 ng-dblclick="editModelnkd = true" ng-hide="editModelnkd" class="md-display-1 editModelnkd-label">{{$ctrl.company.linkedin}}</h3>
     <input class="editlnkd" ng-class="md-display-4" ng-change="company.editModelnkd = true" ng-blur="editModelnkd = false;" ng-show="editModelnkd" for="company-{{$index}}" ng-model="$ctrl.company.linkedin" name="linkedin" type="text" edit-autofocus="editModelnkd" />
 
+
     <h3 ng-dblclick="editModetwt = true" ng-hide="editModetwt" class="md-display-1 editModetwt-label">{{$ctrl.company.twitter}}</h3>
     <input class="edittwt" ng-class="md-display-4" ng-change="company.editModetwt = true" ng-blur="editModetwt = false;" ng-show="editModetwt" for="company-{{$index}}" ng-model="$ctrl.company.twitter" name="twitter" type="text" edit-autofocus="editModetwt" />
+
   </md-card-title-text>
 
 </md-card>
 </center>
+
 
 <!-- End alexis' part -->
