@@ -11,5 +11,6 @@
     'app.home',
     'app.navbar',
     'app.company',
-    'app.event'
+    'app.event',
+    'app.admin'
 ]))
