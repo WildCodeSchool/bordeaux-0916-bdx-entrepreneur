@@ -42,6 +42,6 @@
 
 
 
-            
+
         }); //dont delete
 })(require('angular').module('app.company'))
