@@ -1,3 +1,121 @@
+<!-- Modifi alexis, je créer un truc a part pour eviter les conflits -->
+
+<center>
+  <md-card layout-padding flex-gt-xs="80">
+
+  <md-card-header layout-padding layout="column">
+    <div layout="row" flex="100">
+    <md-user-avatar  flex-gt-xs="25">
+      <img ng-src="/img/developer.jpg" class="md-card-image" alt="" />
+    </md-user-avatar>
+
+    <md-card-header-text  flex-gt-xs="60" style="display: initial; color: #3a88be;">
+        <h1>NOM DE LA BOITE</h1>
+        <h2>Secteur d'activité</h2>
+        <h3>#tag #tag2 #tag3</h3>
+    </md-card-header-text>
+
+    <md-user-avatar  flex-gt-xs="15">
+      <div layout="column">
+      <img ng-src="/img/facebook.png" class="md-icon socialicons">
+      <img ng-src="/img/linkedin.png" class="md-icon socialicons">
+      <img ng-src="/img/twitter.png" class="md-icon socialicons">
+      </div>
+    </md-user-avatar>
+    </div>
+  </md-card-header>
+
+  <md-card-content layout-padding layout="row" flex="100">
+    <p style="text-align: left;" ng-dblclick="editMode5 = true" ng-hide="editMode5" class=" md-headline editMode-label">{{$ctrl.company.longContent}} </p>
+    <textarea ng-change="company.editMode5 = true" ng-blur="editMode5 = false;" ng-show="editMode5" for="company-{{$index}}" ng-model="$ctrl.company.longContent" class="editMode5-label edit5" name="content" type="text" edit-autofocus="editMode5"></textarea>
+  </md-card-content>
+
+  <md-card-content>
+    <div flex-gt-xs="35">
+        <md-card flex id="usercard" style="color: #3a88be;">
+            <md-card-header layout="row">
+                <md-card-avatar>
+                    <img class="md-user-avatar" src="../img/gorille_en_colere.gif">
+                </md-card-avatar>
+                <md-card-header-text layout="column">
+                    <span class="md-title" style="font-size: medium;">Bonjour <strong>Audrey Alary</strong></span>
+                </md-card-header-text>
+            </md-card-header>
+            <md-card-actions layout="row" layout-align="start center">
+                <md-button>Ma Fiche</md-button>
+                <md-button>Déconnexion</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+
+    <div flex-gt-xs="35">
+        <md-card flex id="usercard" style="color: #3a88be;">
+            <md-card-header layout="row">
+                <md-card-avatar>
+                    <img class="md-user-avatar" src="../img/gorille_en_colere.gif">
+                </md-card-avatar>
+                <md-card-header-text layout="column">
+                    <span class="md-title" style="font-size: medium;">Bonjour <strong>Audrey Alary</strong></span>
+                </md-card-header-text>
+            </md-card-header>
+            <md-card-actions layout="row" layout-align="start center">
+                <md-button>Ma Fiche</md-button>
+                <md-button>Déconnexion</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+
+    <div flex-gt-xs="35">
+        <md-card flex id="usercard" style="color: #3a88be;">
+            <md-card-header layout="row">
+                <md-card-avatar>
+                    <img class="md-user-avatar" src="../img/gorille_en_colere.gif">
+                </md-card-avatar>
+                <md-card-header-text layout="column">
+                    <span class="md-title" style="font-size: medium;">Bonjour <strong>Audrey Alary</strong></span>
+                </md-card-header-text>
+            </md-card-header>
+            <md-card-actions layout="row" layout-align="start center">
+                <md-button>Ma Fiche</md-button>
+                <md-button>Déconnexion</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+  </md-card-content>
+
+  <md-card-content>
+    <textarea name="name" rows="9" cols="62" placeholder="Ce que nous recherchons"></textarea>
+    <textarea name="name" rows="9" cols="62" placeholder="Ce que nous proposons"></textarea>
+  </md-card-content>
+
+  <md-card-content>
+    <textarea name="name" rows="8" cols="128" placeholder="Notes"></textarea>
+  </md-card-content>
+
+  <!--Div containing buttons -->
+  <div layout="row" layout-padding>
+      <md-button ng-click="$ctrl.prev()" aria-label="label" class="md-fab md-primary md-icon-button">
+          <i class="material-icons">skip_previous</i>
+      </md-button>
+      <md-button ng-click="$ctrl.next()" aria-label="comment" class="md-fab md-primary md-icon-button">
+          <i class="material-icons">skip_next</i>
+      </md-button>
+      <md-button ng-click="$ctrl.saveCompanies($ctrl.company)" aria-label="photo" class="md-fab md-primary md-icon-button">
+          <i class="material-icons">save</i>
+      </md-button>
+      <md-button ng-click="$ctrl.delete($ctrl.company)" aria-label="photo" class="md-fab md-primary md-icon-button">
+          <i class="material-icons">delete_forever</i>
+      </md-button>
+  </div>
+
+</md-card>
+</center>
+
+
+
+
+
+
 <md-content layout-align="center" layout="row">
     <div layout="column" flex-xs="" flex-gt-xs="80">
 
