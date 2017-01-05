@@ -11,8 +11,12 @@ let userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    firstname: String,
+
     facebook: String,
     twitter: String,
+    linkedin: String,
+
     number: {
         type: String,
         required: true,
@@ -45,10 +49,9 @@ let userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     }
-  },
-  {
-  timestamps: true
-  });
+}, {
+    timestamps: true
+});
 
 // creating and exporting model with the model method of mongoose.
 module.exports = mongoose.model('User', userSchema);

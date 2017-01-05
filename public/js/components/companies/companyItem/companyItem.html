@@ -10,16 +10,22 @@
     </md-user-avatar>
 
     <md-card-header-text  flex-gt-xs="60" style="display: initial; color: #3a88be;">
-        <h1>NOM DE LA BOITE</h1>
-        <h2>Secteur d'activité</h2>
+        <!-- <h1>NOM DE LA BOITE</h1> -->
+        <h1 ng-dblclick="editMode1 = true" ng-hide="editMode1" class="md-display-2 editMode-label1">{{$ctrl.company.name}}</h1>
+        <input class="edit1" ng-class="md-display-2" ng-change="company.editMode1 = true" ng-blur="editMode1 = false;" ng-show="editMode1" for="company-{{$index}}" ng-model="$ctrl.company.name" type="text" edit-autofocus="editMode1" />
+
+        <!-- <h2>Secteur d'activité</h2> -->
+        <h3 ng-dblclick="editMode2 = true" ng-hide="editMode2" class="md-display-1 editMode2-label">{{$ctrl.company.sector}}</h3>
+        <input class="edit2" ng-class="md-display-4" ng-change="company.editMode2 = true" ng-blur="editMode2 = false;" ng-show="editMode2" for="company-{{$index}}" ng-model="$ctrl.company.sector" name="sector" type="text" edit-autofocus="editMode2" />
+
         <h3>#tag #tag2 #tag3</h3>
     </md-card-header-text>
 
     <md-user-avatar  flex-gt-xs="15">
       <div layout="column">
-      <img ng-src="/img/facebook.png" class="md-icon socialicons">
-      <img ng-src="/img/linkedin.png" class="md-icon socialicons">
-      <img ng-src="/img/twitter.png" class="md-icon socialicons">
+        <a href="{{$ctrl.company.facebook}}"><img ng-src="/img/facebook.png" class="md-icon socialicons"></a>
+        <a href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin.png" class="md-icon socialicons"></a>
+        <a href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
       </div>
     </md-user-avatar>
     </div>
@@ -30,66 +36,132 @@
     <textarea ng-change="company.editMode5 = true" ng-blur="editMode5 = false;" ng-show="editMode5" for="company-{{$index}}" ng-model="$ctrl.company.longContent" class="editMode5-label edit5" name="content" type="text" edit-autofocus="editMode5"></textarea>
   </md-card-content>
 
-  <md-card-content>
+  <md-card-content layout="row">
     <div flex-gt-xs="35">
-        <md-card flex id="usercard" style="color: #3a88be;">
-            <md-card-header layout="row">
-                <md-card-avatar>
-                    <img class="md-user-avatar" src="../img/gorille_en_colere.gif">
-                </md-card-avatar>
-                <md-card-header-text layout="column">
-                    <span class="md-title" style="font-size: medium;">Bonjour <strong>Audrey Alary</strong></span>
-                </md-card-header-text>
-            </md-card-header>
-            <md-card-actions layout="row" layout-align="start center">
-                <md-button>Ma Fiche</md-button>
-                <md-button>Déconnexion</md-button>
-            </md-card-actions>
+        <md-card flex style="color: #3a88be;">
+          <div layout="column">
+            <div flex><h2>Contact</h2></div>
+          </div>
+
+          <div layout="column">
+            <div layout="row">
+              <div flex><img class="md-user-avatar" src="../img/gorille_en_colere.gif" style="width: 60%;"></div>
+              <div flex>
+                <div layout="column" style="text-align: left;">
+                  <div flex>Nom Prénom</div>
+                  <div flex>E-mail</div>
+                  <div flex>Phone number</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div layout="column">
+            <div flex>
+              <img ng-src="/img/facebook.png" class="md-icon socialicons">
+              <img ng-src="/img/linkedin.png" class="md-icon socialicons">
+              <img ng-src="/img/twitter.png" class="md-icon socialicons">
+            </div>
+          </div>
+
         </md-card>
     </div>
 
     <div flex-gt-xs="35">
-        <md-card flex id="usercard" style="color: #3a88be;">
-            <md-card-header layout="row">
-                <md-card-avatar>
-                    <img class="md-user-avatar" src="../img/gorille_en_colere.gif">
-                </md-card-avatar>
-                <md-card-header-text layout="column">
-                    <span class="md-title" style="font-size: medium;">Bonjour <strong>Audrey Alary</strong></span>
-                </md-card-header-text>
-            </md-card-header>
-            <md-card-actions layout="row" layout-align="start center">
-                <md-button>Ma Fiche</md-button>
-                <md-button>Déconnexion</md-button>
-            </md-card-actions>
-        </md-card>
+      <md-card flex style="color: #3a88be;">
+        <div layout="column">
+          <div flex><h2>Fondateur</h2></div>
+        </div>
+
+        <div layout="column">
+          <div layout="row">
+            <div flex><img class="md-user-avatar" src="../img/gorille_en_colere.gif" style="width: 60%;"></div>
+            <div flex>
+              <div layout="column" style="text-align: left;">
+                <div flex>Nom Prénom</div>
+                <div flex>E-mail</div>
+                <div flex>Phone number</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div layout="column">
+          <div flex>
+            <img ng-src="/img/facebook.png" class="md-icon socialicons">
+            <img ng-src="/img/linkedin.png" class="md-icon socialicons">
+            <img ng-src="/img/twitter.png" class="md-icon socialicons">
+          </div>
+        </div>
+
+      </md-card>
     </div>
 
     <div flex-gt-xs="35">
-        <md-card flex id="usercard" style="color: #3a88be;">
-            <md-card-header layout="row">
-                <md-card-avatar>
-                    <img class="md-user-avatar" src="../img/gorille_en_colere.gif">
-                </md-card-avatar>
-                <md-card-header-text layout="column">
-                    <span class="md-title" style="font-size: medium;">Bonjour <strong>Audrey Alary</strong></span>
-                </md-card-header-text>
-            </md-card-header>
-            <md-card-actions layout="row" layout-align="start center">
-                <md-button>Ma Fiche</md-button>
-                <md-button>Déconnexion</md-button>
-            </md-card-actions>
-        </md-card>
+      <md-card flex style="color: #3a88be;">
+        <div layout="column">
+          <div flex><h2>Contact</h2></div>
+        </div>
+
+        <div layout="column">
+          <div layout="row">
+            <div flex><img class="md-user-avatar" src="../img/gorille_en_colere.gif" style="width: 60%;"></div>
+            <div flex>
+              <div layout="column" style="text-align: left;">
+                <div flex>Nom Prénom</div>
+                <div flex>E-mail</div>
+                <div flex>Phone number</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div layout="column">
+          <div flex>
+            <img ng-src="/img/facebook.png" class="md-icon socialicons">
+            <img ng-src="/img/linkedin.png" class="md-icon socialicons">
+            <img ng-src="/img/twitter.png" class="md-icon socialicons">
+          </div>
+        </div>
+
+      </md-card>
     </div>
   </md-card-content>
 
   <md-card-content>
-    <textarea name="name" rows="9" cols="62" placeholder="Ce que nous recherchons"></textarea>
-    <textarea name="name" rows="9" cols="62" placeholder="Ce que nous proposons"></textarea>
+    <div layout="row">
+      <div flex>
+        <md-card>
+          <h2 style="color: #3a88be;">Ce que nous vous proposons</h2>
+          <p layout-padding>
+            plein de choses absolument incroyable : des petits dej, des diners alcoolisé
+            des matchs de rugby etc...
+          </p>
+        </md-card>
+      </div>
+      <div flex>
+        <md-card>
+          <h2 style="color: #3a88be;">Ce que nous recherchons</h2>
+          <p layout-padding>
+            Des wilders ambitieux, grands, bruns, portants des T-shirts originaux,
+            un humour redoutable etc...
+          </p>
+        </md-card>
+      </div>
+    </div>
   </md-card-content>
 
-  <md-card-content>
-    <textarea name="name" rows="8" cols="128" placeholder="Notes"></textarea>
+  <md-card-content style="text-align: left;">
+    <div layout="row">
+      <div flex>
+        <md-card>
+          <h2 layout-padding style="color: #3a88be;">Notes</h2>
+          <p layout-padding>
+            Plein de notes et informations complémentaires....
+          </p>
+        </md-card>
+      </div>
+    </div>
   </md-card-content>
 
   <!--Div containing buttons -->
@@ -107,100 +179,22 @@
           <i class="material-icons">delete_forever</i>
       </md-button>
   </div>
+<!-- Edition social links idk where put them... -->
+  <md-card-title-text>
+    <h3 ng-dblclick="editModefb = true" ng-hide="editModefb" class="md-display-1 editModefb-label">{{$ctrl.company.facebook}}</h3>
+    <input class="editfb" ng-class="md-display-4" ng-change="company.editModefb = true" ng-blur="editModefb = false;" ng-show="editModefb" for="company-{{$index}}" ng-model="$ctrl.company.facebook" name="facebook" type="text" edit-autofocus="editModefb" />
+
+    <h3 ng-dblclick="editModelnkd = true" ng-hide="editModelnkd" class="md-display-1 editModelnkd-label">{{$ctrl.company.linkedin}}</h3>
+    <input class="editlnkd" ng-class="md-display-4" ng-change="company.editModelnkd = true" ng-blur="editModelnkd = false;" ng-show="editModelnkd" for="company-{{$index}}" ng-model="$ctrl.company.linkedin" name="linkedin" type="text" edit-autofocus="editModelnkd" />
+
+
+    <h3 ng-dblclick="editModetwt = true" ng-hide="editModetwt" class="md-display-1 editModetwt-label">{{$ctrl.company.twitter}}</h3>
+    <input class="edittwt" ng-class="md-display-4" ng-change="company.editModetwt = true" ng-blur="editModetwt = false;" ng-show="editModetwt" for="company-{{$index}}" ng-model="$ctrl.company.twitter" name="twitter" type="text" edit-autofocus="editModetwt" />
+
+  </md-card-title-text>
 
 </md-card>
 </center>
 
 
-
-
-
-
-<md-content layout-align="center" layout="row">
-    <div layout="column" flex-xs="" flex-gt-xs="80">
-
-      <md-card class="companyitem_image">
-            <!--Card content starts-->
-
-
-
-        <user-card name="User name" >
-            <md-card>
-
-            <md-card-title>
-
-              <md-card-title-media>
-                  <div class="md-media-sm card-media">
-                    <a href="{{$ctrl.company.facebook}}"><img ng-src="/img/facebook.png" class="md-icon socialicons"></a>
-                  </div>
-                  <div class="md-media-sm card-media" >
-                    <a href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin.png" class="md-icon socialicons"></a>
-                  </div>
-                  <div class="md-media-sm card-media">
-                    <a href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
-                  </div>
-              </md-card-title-media>
-
-                <md-card-title-text>
-
-                  <h3 ng-click="editModefb = true" ng-hide="editModefb" class="md-display-1 editModefb-label">{{$ctrl.company.facebook}}</h3>
-                  <input class="editfb" ng-class="md-display-4" ng-change="company.editModefb = true" ng-blur="editModefb = false; $ctrl.saveCompanies($ctrl.company);" ng-show="editModefb" for="company-{{$index}}" ng-model="$ctrl.company.facebook" name="facebook" type="text" edit-autofocus="editModefb" />
-
-                  <h3 ng-dblclick="editModelnkd = true" ng-hide="editModelnkd" class="md-display-1 editModelnkd-label">{{$ctrl.company.linkedin}}</h3>
-                  <input class="editlnkd" ng-class="md-display-4" ng-change="company.editModelnkd = true" ng-blur="editModelnkd = false;" ng-show="editModelnkd" for="company-{{$index}}" ng-model="$ctrl.company.linkedin" name="linkedin" type="text" edit-autofocus="editModelnkd" />
-
-                  <h3 ng-dblclick="editModetwt = true" ng-hide="editModetwt" class="md-display-1 editModetwt-label">{{$ctrl.company.twitter}}</h3>
-                  <input class="edittwt" ng-class="md-display-4" ng-change="company.editModetwt = true" ng-blur="editModetwt = false;" ng-show="editModetwt" for="company-{{$index}}" ng-model="$ctrl.company.twitter" name="twitter" type="text" edit-autofocus="editModetwt" />
-
-
-                </md-card-title-text>
-
-              </md-card-title>
-             </md-card>
-          </user-card>
-
-            <img ng-src="/img/developer.jpg" class="md-card-image" alt="" />
-            <!--Img Holder-->
-
-
-            <md-card-content>
-
-                <h1 ng-dblclick="editMode1 = true" ng-hide="editMode1" class="md-display-2 editMode-label1">{{$ctrl.company.name}}</h1>
-                <input class="edit1" ng-class="md-display-2" ng-change="company.editMode1 = true" ng-blur="editMode1 = false;" ng-show="editMode1" for="company-{{$index}}" ng-model="$ctrl.company.name" type="text" edit-autofocus="editMode1" />
-
-
-                <h3 ng-dblclick="editMode2 = true" ng-hide="editMode2" class="md-display-1 editMode2-label">{{$ctrl.company.sector}}</h3>
-                <input class="edit2" ng-class="md-display-4" ng-change="company.editMode2 = true" ng-blur="editMode2 = false;" ng-show="editMode2" for="company-{{$index}}" ng-model="$ctrl.company.sector" name="sector" type="text" edit-autofocus="editMode2" />
-
-                <h4 ng-dblclick="editMode4 = true" ng-hide="editMode4" class="md-display-1 editMode4-label">{{$ctrl.company.littleContent}}</h4>
-                <textarea ng-change="company.editMode4 = true" ng-blur="editMode4 = false;" ng-show="editMode4" for="company-{{$index}}" ng-model="$ctrl.company.littleContent" class="editMode4-label edit4" name="content" type="text" edit-autofocus="editMode4"></textarea>
-
-
-                <h6> {{$ctrl.company.PublishedAt | date }}</h6>
-
-
-                <p ng-dblclick="editMode5 = true" ng-hide="editMode5" class=" md-headline editMode-label">{{$ctrl.company.longContent}} </p>
-                <textarea ng-change="company.editMode5 = true" ng-blur="editMode5 = false;" ng-show="editMode5" for="company-{{$index}}" ng-model="$ctrl.company.longContent" class="editMode5-label edit5" name="content" type="text" edit-autofocus="editMode5"></textarea>
-
-
-
-                <!--Div containing buttons -->
-                <div layout="row">
-                    <md-button ng-click="$ctrl.prev()" aria-label="label" class="md-fab md-primary md-icon-button">
-                        <i class="material-icons">skip_previous</i>
-                    </md-button>
-                    <md-button ng-click="$ctrl.next()" aria-label="comment" class="md-fab md-primary md-icon-button">
-                        <i class="material-icons">skip_next</i>
-                    </md-button>
-                    <md-button ng-click="$ctrl.saveCompanies($ctrl.company)" aria-label="photo" class="md-fab md-primary md-icon-button">
-                        <i class="material-icons">save</i>
-                    </md-button>
-                    <md-button ng-click="$ctrl.delete($ctrl.company)" aria-label="photo" class="md-fab md-primary md-icon-button">
-                        <i class="material-icons">delete_forever</i>
-                    </md-button>
-                </div>
-
-            </md-card-content>
-        </md-card>
-    </div>
-</md-content>
+<!-- End alexis' part -->
