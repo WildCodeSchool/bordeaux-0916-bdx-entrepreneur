@@ -6,11 +6,12 @@
     require('angular-animate'),
     require('angular-messages'),
     require('angular-material'),
+    require('angular-cookies'),
+    'app.admin',
     'app.config',
     'app.services',
     'app.home',
     'app.navbar',
     'app.company',
-    'app.event',
-    'app.admin'
+    'app.event'
 ]))
