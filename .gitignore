@@ -4,3 +4,7 @@ node_modules/
 #Build files
 public/js/*.min.*
 public/css/
+
+# Config
+config/dev.js
+config/config.js

@@ -9,6 +9,17 @@
                     template: '<home></home>',
                     url: '/login'
                 })
+                .state('admin', {
+                    template: `<navbar></navbar>
+                    <ui-view></ui-view>
+                    <footer></footer>`,
+                    url: '/admin',
+                    abstract: true
+                })
+                .state('admin.new' , {
+                  template: '<admin-add-item></admin-add-item>',
+                  url: '/company'
+                })
                 .state('company', {
                     template: `<navbar></navbar>
                     <companies-search> </companies-search>
@@ -24,7 +35,7 @@
                 .state('company.item', {
                     template: '<company-item></company-item>',
                     url: '/company/:id'
-                });
+                })
         }
     ]);
 
