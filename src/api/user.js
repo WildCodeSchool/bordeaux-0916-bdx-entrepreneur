@@ -12,8 +12,8 @@ module.exports = (router) => {
                 res.sendStatus(500)
             } else {
                 //on cherche le company liée au user avec la value indiqué dans le corp (req.body.companyId)
-              Company.findById(req.body.companyId, function(err, company){
-                  if (err) {
+              Company.findById(req.body.company, function(err, company){
+                  if (err && !company) {
                       res.sendStatus(500)
                     }else {
                       company.users.push(user._id)

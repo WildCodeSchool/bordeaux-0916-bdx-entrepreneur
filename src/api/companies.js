@@ -12,10 +12,8 @@ let Company = require('../models/company');
 
 
 module.exports = (router) => {
-    //mounting router method to get crud restFull api
-    router.get('/companies', function(req, res) {
-      //add req.query for filter request
-        Company.find(req.query, function(err, companies) {
+  router.get('/companies', function(req, res) {
+        Company.find({}).populate('users').exec(function(err, companies) {
             if (err) {
                 return res.status(500).json({
                     message: err.message
@@ -23,11 +21,10 @@ module.exports = (router) => {
             }
             res.json(companies);
         });
-    });
-
-    //get contact by id
+      });
+      //get company by id
     router.get('/companies/:id', function(req, res) {
-        Company.findById(req.params.id, function(err, company) {
+        Company.findById(req.params.id).populate('users').exec(function(err, company) {
             if (err) {
                 return res.status(500).json({
                     message: err.message

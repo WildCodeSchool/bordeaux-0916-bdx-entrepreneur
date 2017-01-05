@@ -12,6 +12,11 @@
                     <a href="https://www.critikong.com/"><i class="material-icons">grade</i></a>
                     <a href="https://www.critikong.com/"><i class="material-icons">event</i></a>
                     <a href="https://www.critikong.com/"><i class="material-icons">face</i></a>
+                    <md-switch  ng-click="$ctrl.user.isAdmin = !$ctrl.user.isAdmin" aria-label="Switch 1">
+                        Admin
+                    </md-switch>
+                    <div ng-if="$ctrl.user.isAdmin"><p>Admin!!!</p></div>
+
                 </div>
             </div>
             <!-- user card -->
@@ -22,7 +27,7 @@
                             <img class="md-user-avatar" src="../img/gorille_en_colere.gif">
                         </md-card-avatar>
                         <md-card-header-text layout="column">
-                            <span class="md-title" style="font-size: medium;">Bonjour <strong>Audrey Alary</strong></span>
+                            <span class="md-title" style="font-size: medium;">Bonjour <strong>{{$ctrl.user.name}}</strong></span>
                         </md-card-header-text>
                     </md-card-header>
                     <md-card-actions layout="row" layout-align="start center">

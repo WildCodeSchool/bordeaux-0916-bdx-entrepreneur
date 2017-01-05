@@ -26,7 +26,7 @@
                     this.hhmm = (new Date(), 'hh:mm');
 
 
-                    this.carouselstate = 6
+                    this.carouselstate = 12
                     this.loadMore = () => {
                         this.carouselstate += 6
                     };
