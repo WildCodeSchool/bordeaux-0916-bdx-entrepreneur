@@ -19,7 +19,6 @@ let companySchema = new mongoose.Schema({
     pinterest: String,
     instagram: String,
     youtube: String,
-
     website: String,
     littleContent: String,
     longContent: {

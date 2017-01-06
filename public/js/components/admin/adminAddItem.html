@@ -1,5 +1,281 @@
 <!-- Display admin-add-menu component (see adminAddMenu.js ) and bind properties with all functions  -->
-<admin-add-menu on-save="$ctrl.save()"></admin-add-menu>
+
 <div>
-  <h1>ICI VOTRE FORMULAIRE</h1>
+<center>
+<md-card layout-padding flex-gt-xs="80">
+
+<md-card-header layout-padding layout="column">
+  <div layout="row" flex="100">
+      <md-user-avatar flex-gt-xs="25">
+          <img ng-src="/img/developer.jpg" class="md-card-image" alt="" />
+      </md-user-avatar>
+
+      <md-card-header-text flex-gt-xs="60" style="display: initial; color: #3a88be;">
+          <!-- <h1>NOM DE LA BOITE</h1> -->
+          <h1 ng-dblclick="editMode1 = true" ng-hide="editMode1" class="md-display-2 editMode-label1">{{$ctrl.company.name}}</h1>
+          <input class="edit1" ng-class="md-display-2" ng-change="company.editMode1 = true" ng-blur="editMode1 = false;" ng-show="editMode1" for="company-{{$index}}" ng-model="$ctrl.company.name" type="text" edit-autofocus="editMode1" />
+
+          <!-- <h2>Secteur d'activité</h2> -->
+          <h3 ng-dblclick="editMode2 = true" ng-hide="editMode2" class="md-display-1 editMode2-label">{{$ctrl.company.sector}}</h3>
+          <input class="edit2" ng-class="md-display-4" ng-change="company.editMode2 = true" ng-blur="editMode2 = false;" ng-show="editMode2" for="company-{{$index}}" ng-model="$ctrl.company.sector" name="sector" type="text" edit-autofocus="editMode2" />
+
+          <h3>#tag #tag2 #tag3</h3>
+      </md-card-header-text>
+
+      <md-user-avatar flex-gt-xs="15">
+          <div layout="column">
+              <a href="{{$ctrl.company.facebook}}"><img ng-src="/img/facebook.png" class="md-icon socialicons"></a>
+              <a href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin.png" class="md-icon socialicons"></a>
+              <a href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
+          </div>
+      </md-user-avatar>
+  </div>
+</md-card-header>
+
+<md-card-content layout-padding layout="row" flex="100">
+  <p style="text-align: left;" ng-dblclick="editMode5 = true" ng-hide="editMode5" class=" md-headline editMode-label">{{$ctrl.company.longContent}} </p>
+  <textarea ng-change="company.editMode5 = true" ng-blur="editMode5 = false;" ng-show="editMode5" for="company-{{$index}}" ng-model="$ctrl.company.longContent" class="editMode5-label edit5" name="content" type="text" edit-autofocus="editMode5"></textarea>
+</md-card-content>
+<!-- ////////////////////////
+First Contact Card
+////////////////////////////-->
+<md-card-content layout="row">
+  <div flex-gt-xs="35">
+      <md-card flex style="color: #3a88be;">
+          <div layout="column">
+              <div flex>
+                  <h2>
+<md-input-container class="md-block" flex-gt-xs="80">
+<label>Contact</label>
+<input ng-model="company.name">
+</md-input-container>
+</h2>
+              </div>
+          </div>
+
+          <div layout="column">
+              <div layout="row">
+                <!--<div flex><img class="md-user-avatar" src="../img/gorille_en_colere.gif" style="width: 60%;"></div>-->
+                <div flex>
+                      <div layout="column">
+                          <div>
+                              <md-input-container class="md-block" flex-gt-xs="80">
+                                  <label>Nom Prénom</label>
+                                  <input ng-model="company.user.name1">
+                              </md-input-container>
+                          </div>
+                          <div flex>
+                            <md-input-container class="md-block" flex-gt-xs="80">
+                              <label>Email</label>
+                              <input ng-model="company.user.mail1">
+                          </md-input-container>
+                        </div>
+                          <div flex>
+                            <md-input-container class="md-block" flex-gt-xs="80">
+                            <label>Phone Number</label>
+                            <input ng-model="company.user.number1">
+                        </md-input-container>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div layout="column">
+              <div flex>
+                  <img ng-src="/img/facebook.png" class="md-icon socialicons">
+                  <img ng-src="/img/linkedin.png" class="md-icon socialicons">
+                  <img ng-src="/img/twitter.png" class="md-icon socialicons">
+              </div>
+          </div>
+
+      </md-card>
+  </div>
+
+  <!-- ////////////////////////
+Fondateur Contact Card
+////////////////////////////-->
+
+  <div flex-gt-xs="35">
+      <md-card flex style="color: #3a88be;">
+          <div layout="column">
+              <div flex>
+                  <h2>
+              <md-input-container class="md-block" flex-gt-xs="80">
+                          <label>Fondateur</label>
+                          <input ng-model="company.foundateurname">
+              </md-input-container>
+            </h2>
+            </div>
+          </div>
+
+          <div layout="column">
+              <div layout="row">
+                  <!--<div flex><img class="md-user-avatar" src="../img/gorille_en_colere.gif" style="width: 60%;"></div>-->
+                  <div flex>
+                      <div layout="column">
+                          <div flex>
+                            <md-input-container class="md-block" flex-gt-xs="80">
+                                        <label>Nom Prénom</label>
+                                        <input ng-model="company.user.foundateurname">
+                            </md-input-container>
+                          </div>
+                          <div flex>
+                            <md-input-container class="md-block" flex-gt-xs="80">
+                                      <label>Email</label>
+                                      <input ng-model="company.user.foundateuremail">
+                          </md-input-container>
+                        </div>
+                          <div flex>
+                            <md-input-container class="md-block" flex-gt-xs="80">
+                                      <label>Phone Number</label>
+                                      <input ng-model="company.user.foundateurnumber2">
+                          </md-input-container>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div layout="column">
+              <div flex>
+                  <img ng-src="/img/facebook.png" class="md-icon socialicons">
+                  <img ng-src="/img/linkedin.png" class="md-icon socialicons">
+                  <img ng-src="/img/twitter.png" class="md-icon socialicons">
+              </div>
+          </div>
+
+      </md-card>
+  </div>
+
+  <!-- ////////////////////////
+Second Contact Card
+////////////////////////////-->
+
+
+  <div flex-gt-xs="35">
+      <md-card flex style="color: #3a88be;">
+          <div layout="column">
+              <div flex>
+                  <h2><md-input-container class="md-block" flex-gt-xs="80">
+                              <label>Contact</label>
+                              <input ng-model="company.user.contact2">
+                  </md-input-container>
+                </h2>
+              </div>
+          </div>
+
+          <div layout="column">
+              <div layout="row">
+                  <!--<div flex><img class="md-user-avatar" src="../img/gorille_en_colere.gif" style="width: 60%;"></div>-->
+                  <div flex>
+                      <div layout="column">
+                          <div flex>
+                            <md-input-container class="md-block" flex-gt-xs="80" >
+                                      <label>Nom Prénom</label>
+                                      <input ng-model="company.user.name2">
+                          </md-input-container>
+                        </div>
+                          <div flex>
+                            <md-input-container class="md-block" flex-gt-xs="80">
+                                      <label>Email</label>
+                                      <input ng-model="company.user.email2">
+                          </md-input-container>
+                        </div>
+                          <div flex>
+                            <md-input-container class="md-block" flex-gt-xs="80">
+                                      <label>Phone Number</label>
+                                      <input ng-model="company.user.number2">
+                          </md-input-container>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div layout="column">
+              <div flex>
+                  <img ng-src="/img/facebook.png" class="md-icon socialicons">
+                  <img ng-src="/img/linkedin.png" class="md-icon socialicons">
+                  <img ng-src="/img/twitter.png" class="md-icon socialicons">
+              </div>
+          </div>
+
+      </md-card>
+  </div>
+</md-card-content>
+
+<!-- ////////////////////////
+Ce que nous vous proposons
+////////////////////////////-->
+
+<md-card-content>
+  <div layout="row">
+      <div flex>
+          <md-card>
+              <h2 style="color: #3a88be;">Ce que nous vous proposons</h2>
+              <md-input-container class="md-block">
+          <label>Ce que nous vous proposons</label>
+          <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+
+          </md-card>
+      </div>
+      <!-- ////////////////////////
+Ce que nous recherchons
+////////////////////////////-->
+      <div flex>
+          <md-card>
+              <h2 style="color: #3a88be;">Ce que nous recherchons</h2>
+              <md-input-container class="md-block">
+          <label>Ce que nous recherchons</label>
+          <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+          </md-card>
+      </div>
+  </div>
+</md-card-content>
+
+<!-- ////////////////////////
+Notes
+////////////////////////////-->
+
+<md-card-content>
+  <div layout="row">
+      <div flex>
+          <md-card>
+              <h2 layout-padding style="color: #3a88be;">Notes</h2>
+              <md-input-container class="md-block">
+          <label>Notes</label>
+          <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+          </md-card>
+      </div>
+  </div>
+</md-card-content>
+
+<!--Div containing buttons -->
+<div layout="row" layout-padding>
+
+  <md-button ng-click="$ctrl.saveCompanies($ctrl.company)" aria-label="photo" class="md-fab md-primary md-icon-button">
+      <i class="material-icons">save</i>
+  </md-button>
+</div>
+
+<!-- Edition social links idk where put them... -->
+<md-card-title-text>
+  <h3 ng-dblclick="editModefb = true" ng-hide="editModefb" class="md-display-1 editModefb-label">{{$ctrl.company.facebook}}</h3>
+  <input class="editfb" ng-class="md-display-4" ng-change="company.editModefb = true" ng-blur="editModefb = false;" ng-show="editModefb" for="company-{{$index}}" ng-model="$ctrl.company.facebook" name="facebook" type="text" edit-autofocus="editModefb" />
+
+  <h3 ng-dblclick="editModelnkd = true" ng-hide="editModelnkd" class="md-display-1 editModelnkd-label">{{$ctrl.company.linkedin}}</h3>
+  <input class="editlnkd" ng-class="md-display-4" ng-change="company.editModelnkd = true" ng-blur="editModelnkd = false;" ng-show="editModelnkd" for="company-{{$index}}" ng-model="$ctrl.company.linkedin" name="linkedin" type="text" edit-autofocus="editModelnkd"
+  />
+
+  <h3 ng-dblclick="editModetwt = true" ng-hide="editModetwt" class="md-display-1 editModetwt-label">{{$ctrl.company.twitter}}</h3>
+  <input class="edittwt" ng-class="md-display-4" ng-change="company.editModetwt = true" ng-blur="editModetwt = false;" ng-show="editModetwt" for="company-{{$index}}" ng-model="$ctrl.company.twitter" name="twitter" type="text" edit-autofocus="editModetwt"
+  />
+</md-card-title-text>
+
+</md-card>
+</center>
 </div>
