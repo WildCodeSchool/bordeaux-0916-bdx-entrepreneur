@@ -16,20 +16,25 @@
                     url: '/admin',
                     abstract: true
                 })
+
                 .state('admin.new' , {
                   template: '<admin-add-item></admin-add-item>',
                   url: '/company/_new'
+
+                .state('admin.new', {
+                    template: '<admin-add-item></admin-add-item>',
+                    url: '/company'
+
                 })
                 .state('company', {
                     template: `<navbar></navbar>
-                    <companies-search> </companies-search>
                     <ui-view></ui-view>
                     <footer></footer>`,
                     url: '',
                     abstract: true
                 })
                 .state('company.list', {
-                    template: '<companies-list></companies-list>',
+                    template: '<companies-search name="$ctrl.name"></companies-search><companies-list name="$ctrl.name"></companies-list>',
                     url: '/:name'
                 })
                 .state('company.item', {

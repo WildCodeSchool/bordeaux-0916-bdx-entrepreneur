@@ -4,14 +4,20 @@
         <div layout="row" layout-padding layout-margin layout-xs="column" layout-sm="column">
             <!-- logo -->
             <div flex-gt-xs="35" layout="column" layout-align="center" id="logonav">
-                <a href="http://localhost:8080/#!/"><img src="../img/logo_BordeauxEntrepreneursV3.png" alt="logo" class="img-responsive" /></a>
+                <a ui-sref="company.list" title="Accueil"><img src="../img/logo_BordeauxEntrepreneursV3.png" alt="logo" class="img-responsive" /></a>
             </div>
             <!-- nav icons -->
             <div layout="column" flex-gt-xs="90" layout-align="center">
                 <div layout="row" id="iconrow">
-                    <a href="https://www.critikong.com/"><i class="material-icons">grade</i></a>
-                    <a href="https://www.critikong.com/"><i class="material-icons">event</i></a>
-                    <a href="https://www.critikong.com/"><i class="material-icons">face</i></a>
+
+                    <a title="Favoris" href=""><i class="material-icons">grade</i></a>
+                    <a title="Evènements" href=""><i class="material-icons">event</i></a>
+                    <a title="Adhérents" href=""><i class="material-icons">face</i></a>
+                    <md-switch  ng-click="$ctrl.user.isAdmin = !$ctrl.user.isAdmin" aria-label="Switch 1">
+                        Admin
+                    </md-switch>
+                    <div ng-if="$ctrl.user.isAdmin"><p>Admin!!!</p></div>
+
                 </div>
             </div>
             <!-- user card -->
@@ -19,10 +25,10 @@
                 <md-card flex id="usercard" style="color: #3a88be;">
                     <md-card-header layout="row">
                         <md-card-avatar>
-                            <img class="md-user-avatar" src="../img/gorille_en_colere.gif">
+                            <img class="md-user-avatar" src="../img/avatar_defaut.png">
                         </md-card-avatar>
                         <md-card-header-text layout="column">
-                            <span class="md-title" style="font-size: medium;">Bonjour <strong>Audrey Alary</strong></span>
+                            <span class="md-title" style="font-size: medium;">Bonjour <strong>{{$ctrl.user.name}}</strong></span>
                         </md-card-header-text>
                     </md-card-header>
                     <md-card-actions layout="row" layout-align="start center">

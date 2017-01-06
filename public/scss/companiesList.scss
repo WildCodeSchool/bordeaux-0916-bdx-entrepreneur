@@ -1,4 +1,14 @@
-
+#companiesList{
+  ._md{
+    width:20em;
+    height: 30em;
+  }
+  .md-button{
+    background-color: #3a88be;
+  }
+  button{
+    background-color: #3a88be ;
+  }
 body {
     margin-top: 2em;
 }
@@ -15,4 +25,5 @@ h3 {
 
 li {
     list-style-type: none;
+}
 }

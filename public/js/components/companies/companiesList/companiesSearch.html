@@ -9,11 +9,11 @@
                     <input type="text" ng-model="$ctrl.name" >
                 </md-input-container>
                 <!-- bouton for search by name -->
-                <button type="submit" name="button" ng-click="$ctrl.filter($ctrl.name)">chercher</button>
+                <!-- <button type="submit" name="button" ng-click="$ctrl.filter($ctrl.name)">chercher</button> -->
 
                 <div flex="50">
                     <md-select placeholder="Search by Sector of Activity" ng-model="user" md-on-open="loadUsers()" style="min-width: 200px;">
-                        <md-option ng-value="user" ng-repeat="user in users">{{user.name}}</md-option>
+                        <md-option ng-value="$ctrl.company.sector" ng-repeat="company in $ctrl.companies">{{$ctrl.company.sector}}</md-option>
                     </md-select>
                 </div>
             </div>

@@ -19,6 +19,11 @@ let companySchema = new mongoose.Schema({
     pinterest: String,
     instagram: String,
     youtube: String,
+
+
+    tag:String,
+
+
     website: String,
     littleContent: String,
     longContent: {
@@ -29,7 +34,7 @@ let companySchema = new mongoose.Schema({
     purpose:String,
     note:String,
     sector: String,
-    contact: [{
+    users: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
