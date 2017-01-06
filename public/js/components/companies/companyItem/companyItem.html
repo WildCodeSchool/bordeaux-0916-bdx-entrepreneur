@@ -1,15 +1,15 @@
 <!-- Modifi alexis, je créer un truc a part pour eviter les conflits -->
 
-<center>
+<center style="margin-top: 35px;">
   <md-card layout-padding flex-gt-xs="80" id="bigcard">
 
-  <md-card-header layout-padding layout="column">
+  <md-card-header layout-padding layout="column" id="headercard">
     <div layout="row" flex="100">
     <md-user-avatar  flex-gt-xs="25" style="display: -webkit-box;">
-      <img ng-src="/img/developer.jpg" class="md-card-image" alt="" />
+      <img ng-src="/img/wcs.jpg" class="md-card-image" alt="" />
     </md-user-avatar>
 
-    <md-card-header-text  flex-gt-xs="60" style="display: initial; color: #3a88be;">
+    <md-card-header-text  flex-gt-xs="60" style="display: initial;">
         <!-- <h1>NOM DE LA BOITE</h1> -->
         <h1 style="margin-top: 0px;" ng-dblclick="editMode1 = true" ng-hide="editMode1" class="md-display-2 editMode-label1">{{$ctrl.company.name}}</h1>
         <input class="edit1" ng-class="md-display-2" ng-change="company.editMode1 = true" ng-blur="editMode1 = false;" ng-show="editMode1" for="company-{{$index}}" ng-model="$ctrl.company.name" type="text" edit-autofocus="editMode1" />
@@ -43,7 +43,7 @@
 
           <div layout="column">
             <div layout="row">
-              <div flex><img class="md-user-avatar" src="../img/gorille_en_colere.gif" style="width: 60%;"></div>
+              <div flex><img class="md-user-avatar" src="../img/avatar_defaut.png" style="width: 60%;"></div>
               <div flex>
                 <div layout="column" style="text-align: left;">
                   <div flex>Nom Prénom</div>
@@ -73,7 +73,7 @@
 
         <div layout="column">
           <div layout="row">
-            <div flex><img class="md-user-avatar" src="../img/gorille_en_colere.gif" style="width: 60%;"></div>
+            <div flex><img class="md-user-avatar" src="../img/avatar_defaut.png" style="width: 60%;"></div>
             <div flex>
               <div layout="column" style="text-align: left;">
                 <div flex>Nom Prénom</div>
@@ -103,7 +103,7 @@
 
         <div layout="column">
           <div layout="row">
-            <div flex><img class="md-user-avatar" src="../img/gorille_en_colere.gif" style="width: 60%;"></div>
+            <div flex><img class="md-user-avatar" src="../img/avatar_defaut.png" style="width: 60%;"></div>
             <div flex>
               <div layout="column" style="text-align: left;">
                 <div flex>Nom Prénom</div>
@@ -179,7 +179,7 @@
   </div>
 <!-- Edition social links idk where put them... -->
   <md-card-title-text>
-    <h3 ng-dblclick="editModefb = true" ng-hide="editModefb" class="md-display-1 editModefb-label">{{$ctrl.company.facebook}}</h3>
+    <h5 ng-dblclick="editModefb = true" ng-hide="editModefb" class="md-display-1 editModefb-label">{{$ctrl.company.facebook}}</h3>
     <input class="editfb" ng-class="md-display-4" ng-change="company.editModefb = true" ng-blur="editModefb = false;" ng-show="editModefb" for="company-{{$index}}" ng-model="$ctrl.company.facebook" name="facebook" type="text" edit-autofocus="editModefb" />
 
     <h3 ng-dblclick="editModelnkd = true" ng-hide="editModelnkd" class="md-display-1 editModelnkd-label">{{$ctrl.company.linkedin}}</h3>
