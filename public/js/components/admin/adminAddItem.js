@@ -35,5 +35,5 @@
             };
 
           }]
-    }); //dont delete
+        }); //dont delete
 })(require('angular').module('app.admin'))
