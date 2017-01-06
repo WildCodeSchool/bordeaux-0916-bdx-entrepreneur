@@ -1,7 +1,8 @@
 ((app) => {
     app.component('companiesSearch', {
         bindings: {
-            name: "="
+            name: "=",
+            sector: "="
         },
         templateUrl: 'js/components/companies/companiesList/companiesSearch.html',
         controller: ['companiesService', '$state', function(companiesService, $state) {
