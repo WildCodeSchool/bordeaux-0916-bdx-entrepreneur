@@ -12,7 +12,6 @@ let userSchema = new mongoose.Schema({
         required: true
     },
     firstname: String,
-
     facebook: String,
     twitter: String,
     linkedin: String,
@@ -45,7 +44,7 @@ let userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    founder: {
+    foundateur: {
         type: Boolean,
         default: false
     }

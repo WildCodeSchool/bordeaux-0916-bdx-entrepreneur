@@ -1,7 +1,7 @@
 
 
 <div id="companiesList" layout="row" layout-padding layout-margin layout-wrap>
-    <div flex-gt-xs layout="column" layout-align="center" ng-repeat="company in $ctrl.companies |orderBy:'name' | limitTo : $ctrl.carouselstate track by $index">
+    <div flex-gt-xs layout="column" layout-align="center" ng-repeat="company in $ctrl.companies | orderBy:'name' | filterCompanyName :  $ctrl.name | limitTo : $ctrl.carouselstate track by $index ">
         <md-card>
 
             <img ng-src="/img/developer.jpg" class="md-card-image" alt="" />
@@ -31,4 +31,12 @@
     <a class="md-fab md-primary md-icon-button" ui-sref="company.item({id:'_new'})">
         <i class="material-icons" ng-click="$ctrl.loadMore()">add</i>
     </a>
+
+   <!--
+    Button for add page.
+    -->
+<md-button class="md-fab md-primary md-icon-button" ui-sref="admin.new({id:'_new'})">
+    <i class="material-icons">note_add</i>
+</md-button>
+
 </section>

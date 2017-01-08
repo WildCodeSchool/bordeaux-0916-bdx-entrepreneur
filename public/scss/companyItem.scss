@@ -3,6 +3,27 @@
   margin: 0 auto 0 auto;
 }*/
 
+#bigcard{
+  border-color: lightgray;
+  box-shadow: 1px 0px 3px 2px lightslategray;
+}
+
+#headercard{
+  color: white;
+  background-color: #3a88be;
+}
+
+#longcontent{
+  font-size: large;
+padding: 80px;
+text-align: justify;
+}
+
+#socialcompany{
+  justify-content: space-around;
+padding-bottom: inherit;
+}
+
 h1 {
     margin-bottom: 0.5em;
     font-size: 2.5rem;

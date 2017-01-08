@@ -93,7 +93,7 @@
 
             this.editMode = (company, index) => {
               this.company.editMode = true;
-              this.company.editMode.onblur=this.saveCompanies;
+              this.company.editMode.onblur = this.saveCompanies;
             };
 
             let date = new Date();
