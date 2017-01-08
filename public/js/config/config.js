@@ -17,15 +17,11 @@
                     abstract: true
                 })
 
-                .state('admin.new' , {
-                  template: '<admin-add-item></admin-add-item>',
-                  url: '/company/_new'
-
-                .state('admin.new', {
+            .state('admin.new', {
                     template: '<admin-add-item></admin-add-item>',
-                    url: '/company'
-
+                    url: '/company/_new'
                 })
+                
                 .state('company', {
                     template: `<navbar></navbar>
                     <ui-view></ui-view>
