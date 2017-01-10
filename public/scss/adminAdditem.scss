@@ -1,5 +1,5 @@
 
-.closeButton {
+        .closeButton {
            position: relative;
            height: 24px;
            width: 24px;
@@ -20,3 +20,10 @@
         .material-icons.md-48 { font-size: 48px; }
 
         .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+
+        .chipsdemoBasicUsage .custom-chips md-chip .md-chip-remove-container {
+            position: absolute;
+            right: 4px;
+            top: 4px;
+            margin-right: 0;
+            height: 24px; }

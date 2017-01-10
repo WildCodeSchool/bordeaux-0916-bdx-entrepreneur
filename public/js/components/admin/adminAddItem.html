@@ -28,7 +28,20 @@
                </md-input-container>
             </h3>
 
-          <h3>#tag #tag2 #tag3</h3>
+            <md-chips
+            class="chipsdemoBasicUsage custom-chips md-chip md-chip-remove-container"
+            ng-model="$ctrl.tags"
+            readonly="$ctrl.readonly"
+            md-removable="$ctrl.removable"
+            placeholder="Enter a tag"
+            delete-button-label="Remove Tag"
+            delete-hint="Press delete to remove tag"
+            secondary-placeholder="+Tag">
+            <md-chip-template>
+            <strong>{{$chip}}</strong>
+            </md-chip-template>
+            </md-chips>
+
 
       </md-card-header-text>
 
@@ -243,10 +256,10 @@ Ce que nous recherchons
 ////////////////////////////-->
       <div flex>
           <md-card>
-            <md-input-container class="md-block">
-                <h2 style="color: #3a88be;"><label>Ce que nous recherchons</label></h2>
-                <textarea ng-model="user.biography2" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-            </md-input-container>
+          <md-input-container class="md-block">
+          <h2 style="color: #3a88be;"><label>Ce que nous recherchons</label></h2>
+          <textarea ng-model="user.biography2" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+          </md-input-container>
           </md-card>
       </div>
   </div>
