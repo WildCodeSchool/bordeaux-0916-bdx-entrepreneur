@@ -17,7 +17,7 @@
                         params: filtre
                     })
             },
-
+          
             getById(id) {
                 return $http.get('/api/companies/' + id);
             },

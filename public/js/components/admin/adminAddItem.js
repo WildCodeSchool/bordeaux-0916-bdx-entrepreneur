@@ -1,7 +1,7 @@
 ((app) => {
     app.component('adminAddItem', {
         templateUrl: 'js/components/admin/adminAddItem.html',
-        controller: [function($stateParams, companiesService, $state, $mdToast) {
+        controller: function($stateParams, companiesService, $state, $mdToast) {
 
             this.saveCompanies = (company) => {
                 companiesService.save(company).then((res) => {
@@ -18,9 +18,7 @@
                         });
                     }
                 }).catch(function() {
-                    return res.status(500).json({
-                        message: err.message
-                    });
+                  
                 });
             };
             this.createCompanies = (company) => {
@@ -34,6 +32,6 @@
               this.company.editMode.onblur = this.saveCompanies;
             };
 
-          }]
+          }
         }); //dont delete
 })(require('angular').module('app.admin'))
