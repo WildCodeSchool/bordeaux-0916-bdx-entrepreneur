@@ -28,7 +28,7 @@
                     abstract: true
                 })
                 .state('company.list', {
-                    template: '<companies-search name="$ctrl.name"></companies-search><companies-list name="$ctrl.name"></companies-list>',
+                    template: '<companies-search sector="$ctrl.sector" name="$ctrl.name"></companies-search><companies-list sector="$ctrl.sector" name="$ctrl.name"></companies-list>',
                     url: '/:name'
                 })
                 .state('company.item', {

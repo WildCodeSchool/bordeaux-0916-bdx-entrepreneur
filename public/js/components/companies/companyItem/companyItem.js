@@ -90,6 +90,14 @@
                 })
             };
 
+            this.printDiv = (printableArea) => {
+              var printContents = document.getElementById(printableArea).innerHTML;
+              var popupWin = window.open('', '_blank', 'width=600,height=600');
+              popupWin.document.open();
+              popupWin.document.write('<html><head><link rel="stylesheet" href="css/printablearea.css" media="print"/></head><body onload="window.print()">' + printContents + '</body></html>');
+              popupWin.document.close();
+            }
+
 
             this.editMode = (company, index) => {
               this.company.editMode = true;

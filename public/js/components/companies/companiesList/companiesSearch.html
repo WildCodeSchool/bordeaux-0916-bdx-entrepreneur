@@ -12,8 +12,8 @@
                 <!-- <button type="submit" name="button" ng-click="$ctrl.filter($ctrl.name)">chercher</button> -->
 
                 <div flex="50">
-                    <md-select placeholder="Search by Sector of Activity" ng-model="user" md-on-open="loadUsers()" style="min-width: 200px;">
-                        <md-option ng-value="$ctrl.company.sector" ng-repeat="company in $ctrl.companies">{{$ctrl.company.sector}}</md-option>
+                    <md-select placeholder="Search by Sector of Activity" ng-model="user" style="min-width: 200px;">
+                        <md-option ng-value={{$ctrl.company.sector}} ng-repeat="$ctrl.company in $ctrl.companies">{{$ctrl.company.sector}}</md-option>
                     </md-select>
                 </div>
             </div>

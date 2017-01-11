@@ -1,15 +1,16 @@
 <!-- Modifi alexis, je créer un truc a part pour eviter les conflits -->
 
-<center style="margin-top: 35px;">
+<center style="margin-top: 35px;" id="printableArea" >
+  <a title="Imprimer" href="" class="btn" ng-click="$ctrl.printDiv('bigcard');" ><i id="iconprint" class="material-icons">print</i></a>
   <md-card layout-padding flex-gt-xs="80" id="bigcard">
 
   <md-card-header layout-padding layout="column" id="headercard">
-    <div layout="row" flex="100">
+    <div layout="row" flex="100" id="rowprint">
     <md-user-avatar  flex-gt-xs="25" style="display: -webkit-box;">
       <img ng-src="/img/wcs.jpg" class="md-card-image" alt="" />
     </md-user-avatar>
 
-    <md-card-header-text  flex-gt-xs="60" style="display: initial;">
+    <md-card-header-text flex-gt-xs="60" style="display: initial;" id="headertxtprint" >
         <!-- <h1>NOM DE LA BOITE</h1> -->
         <h1 style="margin-top: 0px;" ng-dblclick="editMode1 = true" ng-hide="editMode1" class="md-display-2 editMode-label1">{{$ctrl.company.name}}</h1>
         <input class="edit1" ng-class="md-display-2" ng-change="company.editMode1 = true" ng-blur="editMode1 = false;" ng-show="editMode1" for="company-{{$index}}" ng-model="$ctrl.company.name" type="text" edit-autofocus="editMode1" />
@@ -22,6 +23,7 @@
     </md-card-header-text>
 
     <md-user-avatar  flex-gt-xs="15" layout="column" id="socialcompany">
+        <a id="logobdx" title="Accueil"><img src="../img/logo_BordeauxEntrepreneursV3.png" alt="logo" class="img-responsive" /></a>
         <a href="{{$ctrl.company.facebook}}"><img ng-src="/img/facebook.png" class="md-icon socialicons"></a>
         <a href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin.png" class="md-icon socialicons"></a>
         <a href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
@@ -34,7 +36,7 @@
     <textarea ng-change="company.editMode5 = true" ng-blur="editMode5 = false;" ng-show="editMode5" for="company-{{$index}}" ng-model="$ctrl.company.longContent" class="editMode5-label edit5" name="content" type="text" edit-autofocus="editMode5"></textarea>
   </md-card-content>
 
-  <md-card-content layout="row">
+  <md-card-content layout="row" id="contactprint">
     <div flex-gt-xs="35">
         <md-card flex style="color: #3a88be;">
           <div layout="column">
@@ -43,9 +45,9 @@
 
           <div layout="column">
             <div layout="row">
-              <div flex><img class="md-user-avatar" src="../img/avatar_defaut.png" style="width: 60%;"></div>
+              <div flex><img id="contactimg1" class="md-user-avatar" src="../img/avatar_defaut.png" style="width: 60%;"></div>
               <div flex>
-                <div layout="column" style="text-align: left;">
+                <div layout="column" id="contactdescri1">
                   <div flex>Nom Prénom</div>
                   <div flex>E-mail</div>
                   <div flex>Phone number</div>
@@ -73,7 +75,7 @@
 
         <div layout="column">
           <div layout="row">
-            <div flex><img class="md-user-avatar" src="../img/avatar_defaut.png" style="width: 60%;"></div>
+            <div flex><img id="contactimg2" class="md-user-avatar" src="../img/avatar_defaut.png" style="width: 60%;"></div>
             <div flex>
               <div layout="column" style="text-align: left;">
                 <div flex>Nom Prénom</div>
@@ -103,7 +105,7 @@
 
         <div layout="column">
           <div layout="row">
-            <div flex><img class="md-user-avatar" src="../img/avatar_defaut.png" style="width: 60%;"></div>
+            <div flex><img id="contactimg3" class="md-user-avatar" src="../img/avatar_defaut.png" style="width: 60%;"></div>
             <div flex>
               <div layout="column" style="text-align: left;">
                 <div flex>Nom Prénom</div>
@@ -163,7 +165,7 @@
   </md-card-content>
 
   <!--Div containing buttons -->
-  <div layout="row" layout-padding>
+  <div layout="row" layout-padding id="btnprint">
       <md-button ng-click="$ctrl.prev()" aria-label="label" class="md-fab md-primary md-icon-button">
           <i class="material-icons">skip_previous</i>
       </md-button>
@@ -178,7 +180,7 @@
       </md-button>
   </div>
 <!-- Edition social links idk where put them... -->
-  <md-card-title-text>
+  <md-card-title-text id="btnprint">
     <h5 ng-dblclick="editModefb = true" ng-hide="editModefb" class="md-display-1 editModefb-label">{{$ctrl.company.facebook}}</h3>
     <input class="editfb" ng-class="md-display-4" ng-change="company.editModefb = true" ng-blur="editModefb = false;" ng-show="editModefb" for="company-{{$index}}" ng-model="$ctrl.company.facebook" name="facebook" type="text" edit-autofocus="editModefb" />
 
