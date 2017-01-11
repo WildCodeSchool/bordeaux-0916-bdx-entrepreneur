@@ -1,7 +1,6 @@
 
 
 <center style="margin-top: 35px;" id="printableArea" >
-  <a title="Imprimer" href="" class="btn" ng-click="$ctrl.printDiv('bigcard');" ><i id="iconprint" class="material-icons">print</i></a>
   <md-card layout-padding flex-gt-xs="80" id="bigcard">
 
   <md-card-header layout-padding layout="column" id="headercard">
@@ -22,14 +21,23 @@
         <h3 style="margin-top: 0px;">#tag #tag2 #tag3</h3>
     </md-card-header-text>
 
-    <md-user-avatar  flex-gt-xs="15" layout="column" id="socialcompany">
+    <md-user-avatar  flex-gt-xs="15" layout="column" style="text-align: right;">
         <a id="logobdx" title="Accueil"><img src="../img/logo_BordeauxEntrepreneursV3.png" alt="logo" class="img-responsive" /></a>
+        <a title="Imprimer" href="" class="btn" ng-click="$ctrl.printDiv('bigcard');" ><i id="iconprint" class="material-icons">print</i></a>
+    </md-user-avatar>
+    </div>
+  </md-card-header>
+
+  <md-card layout-padding layout="row" flex="100">
+    <md-user-avatar  flex-gt-xs="" layout="" id="socialcompany">
+        <a href="{{$ctrl.company.facebook}}"><img ng-src="/img/facebook.png" class="md-icon socialicons"></a>
+        <a href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin.png" class="md-icon socialicons"></a>
+        <a href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
         <a href="{{$ctrl.company.facebook}}"><img ng-src="/img/facebook.png" class="md-icon socialicons"></a>
         <a href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin.png" class="md-icon socialicons"></a>
         <a href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
     </md-user-avatar>
-    </div>
-  </md-card-header>
+  </md-card>
 
   <md-card-content layout-padding layout="row" flex="100">
     <p ng-dblclick="editMode5 = true" ng-hide="editMode5" class=" md-headline editMode-label" id="longcontent">{{$ctrl.company.longContent}} </p>
