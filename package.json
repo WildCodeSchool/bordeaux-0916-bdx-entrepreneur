@@ -2,10 +2,10 @@
   "name": "application",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.js",
+  "main": "entrepreneur.js",
   "scripts": {
     "postinstall": "brunch build --production",
-    "start": "node ./src/app.js",
+    "start": "node entrepreneur.js",
     "dev": "brunch watch --server"
   },
   "dependencies": {

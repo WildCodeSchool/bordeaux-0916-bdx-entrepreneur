@@ -1,7 +1,9 @@
 
+
 <div id="companiesList" layout="row" layout-padding layout-margin layout-wrap>
     <div flex-gt-xs layout="column" layout-align="center" ng-repeat="company in $ctrl.companies | orderBy:'name' | filterCompanyName :  $ctrl.name | limitTo : $ctrl.carouselstate track by $index ">
         <md-card>
+
             <img ng-src="/img/developer.jpg" class="md-card-image" alt="" />
             <md-card-title>
                 <md-card-title-text>
@@ -23,10 +25,10 @@
 </div>
 
 <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-    <md-button class="md-fab md-primary md-icon-button" aria-label="Load More">
-        <i class="material-icons" ng-click="$ctrl.loadMore()">expand_more</i>
-    </md-button>
-    <a class="md-fab md-primary md-icon-button" ui-sref="company.item({id:'_new'})">
+  <button ng-click="$ctrl.loadMore()">Voir plus</button>
+
+
+    <a id="addButton"class="md-fab md-primary md-icon-button" ui-sref="company.item({id:'_new'})">
         <i class="material-icons" ng-click="$ctrl.loadMore()">add</i>
     </a>
 
