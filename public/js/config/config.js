@@ -27,13 +27,9 @@
                     abstract: true
                 })
                 .state('company.list', {
-<<<<<<< Updated upstream
+
                     template: '<companies-search sector="$ctrl.sector" name="$ctrl.name"></companies-search><companies-list sector="$ctrl.sector" name="$ctrl.name"></companies-list>',
                     url: '/:name'
-=======
-                    template: '<companies-search name="$ctrl.name"></companies-search><companies-list name="$ctrl.name"></companies-list>',
-                    url: '/'
->>>>>>> Stashed changes
                 })
                 .state('company.item', {
                     template: '<company-item></company-item>',
