@@ -33,7 +33,6 @@ let companySchema = new mongoose.Schema({
     search:String,
     purpose:String,
     note:String,
-    sector: String,
     users: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
