@@ -83,7 +83,7 @@ router.get('/companies', function(req, res) {
         })
     })
 }*/
-let PromotionController = require('../controllers/CompanyController')
+let CompanyController = require('../controllers/CompanyController')
 
 module.exports = (app) => {
     // Create new controller

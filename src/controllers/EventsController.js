@@ -2,7 +2,7 @@
 // Require parent class
 let Controller = require('./Controller');
 // Require model (schema) use with this controller
-const EVENT = require('../models/event')
+const EVENT = require('../models/events')
 
 class EventController extends Controller {
 
