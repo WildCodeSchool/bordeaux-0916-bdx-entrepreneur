@@ -18,6 +18,20 @@ module.exports = {
         } else {
             res.sendStatus(401)
         }
+    },
+    isUser(req, res, next) {
+        if (req.headers.authorization) {
+            jwt.verify(req.headers.authorization, ENV.token, (err, decoded) => {
+                if (err) {
+                    next(err)
+                } else if (decoded._doc.isMember) {
+                    next()
+                } else {
+                    res.sendStatus(403)
+                }
+            })
+        } else {
+            res.sendStatus(401)
+        }
     }
-
 }
