@@ -29,6 +29,7 @@
             </h3>
 
             <md-chips
+            flex-gt-xs="80"
             class="chipsdemoBasicUsage custom-chips md-chip md-chip-remove-container"
             ng-model="$ctrl.tags"
             readonly="$ctrl.readonly"
@@ -48,8 +49,17 @@
       <md-user-avatar flex-gt-xs="15">
           <div layout="column">
               <a href="{{$ctrl.company.facebook}}"><img ng-src="/img/facebook.png" class="md-icon socialicons"></a>
+              <md-button class="md-primary md-raised dialogdemoBasicUsage" ng-click="$ctrl.showPrompt($event)" ng-model="$ctrl.company.facebook">
+              Facebook Link
+              </md-button>
               <a href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin.png" class="md-icon socialicons"></a>
+              <md-button class="md-primary md-raised dialogdemoBasicUsage" ng-click="$ctrl.showPrompt($event)" ng-model="$ctrl.company.linkedin">
+              Linkedin Link
+              </md-button>
               <a href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
+              <md-button class="md-primary md-raised dialogdemoBasicUsage" ng-click="$ctrl.showPrompt($event)" ng-model="$ctrl.company.twitter">
+              Twitter Link
+              </md-button>
           </div>
       </md-user-avatar>
   </div>
@@ -109,7 +119,7 @@ First Contact Card
 
           <div layout="column">
               <div flex>
-                  <img ng-src="/img/facebook.png" class="md-icon socialicons">
+                  <img ng-src="/img/facebook.png" class="md-icon socialicons" ng-model="$ctrl.company.user.facebook">
                   <img ng-src="/img/linkedin.png" class="md-icon socialicons">
                   <img ng-src="/img/twitter.png" class="md-icon socialicons">
               </div>
@@ -282,7 +292,10 @@ Notes
   </div>
 </md-card-content>
 
-<!--Div containing buttons -->
+<!-- ////////////////////////
+Div Containing Buttons
+////////////////////////////-->
+
 <div layout="row" layout-padding>
 
   <md-button ng-click="$ctrl.saveCompanies($ctrl.company)" aria-label="photo" class="md-fab md-primary md-icon-button">
@@ -290,7 +303,11 @@ Notes
   </md-button>
 </div>
 
-<!-- Edition social links idk where put them... -->
+<!-- ////////////////////////
+Edition social links idk where put them...
+////////////////////////////-->
+
+
 <md-card-title-text>
   <h3 ng-dblclick="editModefb = true" ng-hide="editModefb" class="md-display-1 editModefb-label">{{$ctrl.company.facebook}}</h3>
   <input class="editfb" ng-class="md-display-4" ng-change="company.editModefb = true" ng-blur="editModefb = false;" ng-show="editModefb" for="company-{{$index}}" ng-model="$ctrl.company.facebook" name="facebook" type="text" edit-autofocus="editModefb" />

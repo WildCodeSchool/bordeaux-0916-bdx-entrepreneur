@@ -1,3 +1,3 @@
 ((app) => {
 
-})(angular.module('app.navbar', []))
+})(angular.module('app.home', []))

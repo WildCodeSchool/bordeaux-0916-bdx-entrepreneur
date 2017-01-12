@@ -5,11 +5,7 @@
         function($locationProvider, $stateProvider, $urlRouterProvider) {
             $locationProvider.hashPrefix('!');
             $urlRouterProvider.otherwise('/');
-            $stateProvider.state('home', {
-                    template: '<home></home>',
-                    url: '/login'
-                })
-                .state('admin', {
+            $stateProvider.state('admin', {
                     template: `<navbar></navbar>
                     <ui-view></ui-view>
                     <footer></footer>`,
@@ -31,12 +27,17 @@
                     abstract: true
                 })
                 .state('company.list', {
+<<<<<<< Updated upstream
                     template: '<companies-search sector="$ctrl.sector" name="$ctrl.name"></companies-search><companies-list sector="$ctrl.sector" name="$ctrl.name"></companies-list>',
                     url: '/:name'
+=======
+                    template: '<companies-search name="$ctrl.name"></companies-search><companies-list name="$ctrl.name"></companies-list>',
+                    url: '/'
+>>>>>>> Stashed changes
                 })
                 .state('company.item', {
                     template: '<company-item></company-item>',
                     url: '/company/:id'
                 });
   }]);
-})(require('angular').module('app.config', []))
+})(require('angular').module('app.config'))

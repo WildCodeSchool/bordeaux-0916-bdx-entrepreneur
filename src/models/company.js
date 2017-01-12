@@ -21,7 +21,7 @@ let companySchema = new mongoose.Schema({
     youtube: String,
 
 
-    tag:String,
+    tag:[String],
 
 
     website: String,
@@ -33,7 +33,7 @@ let companySchema = new mongoose.Schema({
     search:String,
     purpose:String,
     note:String,
-    sector: String,
+
     users: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
