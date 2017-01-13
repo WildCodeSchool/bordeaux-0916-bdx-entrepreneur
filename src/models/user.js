@@ -88,10 +88,7 @@ let userSchema = new mongoose.Schema({
           default: false
     },
     foundateurnumber:{
-          default: false,
-          validate: [(number) => {
-              return /0[1-9]([-. ]?[0-9]{2}){4}/.test(number)
-      }, 'Merci d\'utiliser un numéro de téléphone valide'],
+          default: false
     },
     foundateurfacebook: String,
     foundateurlinkedin: String,
