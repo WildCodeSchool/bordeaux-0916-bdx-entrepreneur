@@ -1,18 +1,13 @@
-'use strict'
+/*'use strict'
 //All the get, contact, put/create Restfull/crud methods.
-
-
 // Contact Model of Mongoose requiring the company.js file from src/models
-
-
-
-// Contact Model of Mongoose requiring the company.js file from src/models
+let CompanyController = require('../controllers/CompanyController')
 
 let Company = require('../models/company');
 
-
 module.exports = (router) => {
-  router.get('/companies', function(req, res) {
+
+router.get('/companies', function(req, res) {
         Company.find({}).populate('users').exec(function(err, companies) {
             if (err) {
                 return res.status(500).json({
@@ -50,7 +45,7 @@ module.exports = (router) => {
         });
     });
 
-    //TODO: Add PUT route to update existng entries
+
 
     // add :id params at end of /contacts route.
     router.put('/companies/:id', function(req, res) {
@@ -76,7 +71,6 @@ module.exports = (router) => {
         });
     });
 
-    //TODO: Add DELETE route to create new entries
     router.delete('/companies/:id', function(req, res) {
         Company.findByIdAndRemove(req.params.id, function(err) {
             if (err) {
@@ -87,5 +81,31 @@ module.exports = (router) => {
                 res.sendStatus(200);
             }
         })
+    })
+}*/
+let CompanyController = require('../controllers/CompanyController')
+
+module.exports = (app) => {
+    // Create new controller
+    let ctrl = new CompanyController();
+
+    app.get('/companies', (req, res, next) => {
+        return ctrl.find(req, res, next)
+    })
+
+    app.get('/companies/:id', (req, res, next) => {
+        return ctrl.findById(req, res, next)
+    })
+
+    app.post('/companies', (req, res, next) => {
+        return ctrl.create(req, res, next)
+    })
+
+    app.put('/companies/:id', (req, res, next) => {
+        return ctrl.update(req, res, next)
+    });
+
+    app.delete('/companies/:id', (req, res, next) => {
+        return ctrl.delete(req, res, next)
     })
 }

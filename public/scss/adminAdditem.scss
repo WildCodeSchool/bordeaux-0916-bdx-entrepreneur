@@ -14,6 +14,10 @@
            transition: background 0.15s linear;
            display: block;
         }
+
+        /*-------------------------------------
+            Material Icons Sizes
+        ---------------------------------------*/
         .material-icons.md-18 { font-size: 18px; }
         .material-icons.md-24 { font-size: 24px; }
         .material-icons.md-36 { font-size: 36px; }
@@ -21,9 +25,37 @@
 
         .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
 
+
+        /*-------------------------------------
+            Tags
+        ---------------------------------------*/
+
         .chipsdemoBasicUsage .custom-chips md-chip .md-chip-remove-container {
             position: absolute;
             right: 4px;
             top: 4px;
             margin-right: 0;
             height: 24px; }
+
+
+          
+  .dialogdemoBasicUsage #popupContainer {
+    position: relative; }
+
+  .dialogdemoBasicUsage .footer {
+    width: 100%;
+    text-align: center;
+    margin-left: 20px; }
+
+  .dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer > code {
+    font-size: 0.8em;
+    margin-top: 50px; }
+
+  .dialogdemoBasicUsage button {
+    width: 200px; }
+
+  .dialogdemoBasicUsage div#status {
+    color: #c60008; }
+
+  .dialogdemoBasicUsage .dialog-demo-prerendered md-checkbox {
+    margin-bottom: 0; }

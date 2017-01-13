@@ -1,0 +1,35 @@
+#bigcard{
+  color: red !important;
+}
+img{
+  width:150px;
+}
+#headertxtprint{
+  text-align: center;
+}
+.socialicons{
+  display: none;
+}
+.md-user-avatar{
+  width: 100px !important;
+}
+#iconprint{
+  display: none;
+}
+#contactprint{
+  display: flex !important;
+  justify-content: space-around !important;
+}
+#rowprint{
+  display: flex !important;
+  justify-content: space-around !important;
+}
+#btnprint{
+  display: none;
+}
+textarea{
+  display: none;
+}
+input{
+  display: none;
+}

@@ -3,7 +3,7 @@
   app.filter('filterCompanyName', function(){
     return function(arr, name){
       if (!arr) return [];
-      if (!name) return arr; 
+      if (!name) return arr;
        return arr.filter(function(v){
         return v.name.toLowerCase().startsWith(name.toLowerCase())
       })
@@ -16,11 +16,11 @@
     require('angular-messages'),
     require('angular-material'),
     require('angular-cookies'),
-    'app.admin',
     'app.config',
     'app.services',
+    'app.login',
     'app.home',
-    'app.navbar',
+    'app.admin',
     'app.company',
     'app.event'
 ]))

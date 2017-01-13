@@ -4,7 +4,7 @@ module.exports = {
         token : process.env.SECRET_TOKEN || 'secretToken'
       },
   "production": {
-      db: process.env.MONGODB_URI ||  'mongodb://localhost:27017/mean-blog',
+      db: process.env.MONGODB_URI ||  require('./dev').db,
       token : process.env.SECRET_TOKEN || "secretToken"
     }
   }

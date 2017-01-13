@@ -21,7 +21,7 @@ let companySchema = new mongoose.Schema({
     youtube: String,
 
 
-    tag:String,
+    tag:[String],
 
 
     website: String,
