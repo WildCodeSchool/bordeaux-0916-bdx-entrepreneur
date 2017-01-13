@@ -19,7 +19,6 @@
                </md-input-container>
             </h2>
 
-
           <!-- <h2>Secteur d'activité</h2> -->
             <h3>
               <md-input-container class="md-block" flex-gt-xs="80">
@@ -42,33 +41,79 @@
             <strong>{{$chip}}</strong>
             </md-chip-template>
             </md-chips>
-
-
       </md-card-header-text>
-
-      <md-user-avatar flex-gt-xs="15">
-          <div layout="column">
-              <a href="{{$ctrl.company.facebook}}"><img ng-src="/img/facebook.png" class="md-icon socialicons"></a>
-              <md-button class="md-primary md-raised dialogdemoBasicUsage" ng-click="$ctrl.showPrompt($event)" ng-model="$ctrl.company.facebook">
-              Facebook Link
-              </md-button>
-              <a href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin.png" class="md-icon socialicons"></a>
-              <md-button class="md-primary md-raised dialogdemoBasicUsage" ng-click="$ctrl.showPrompt($event)" ng-model="$ctrl.company.linkedin">
-              Linkedin Link
-              </md-button>
-              <a href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
-              <md-button class="md-primary md-raised dialogdemoBasicUsage" ng-click="$ctrl.showPrompt($event)" ng-model="$ctrl.company.twitter">
-              Twitter Link
-              </md-button>
-          </div>
-      </md-user-avatar>
   </div>
 </md-card-header>
 
-<md-card-content layout-padding layout="row" flex="100">
-  <p style="text-align: left;" ng-dblclick="editMode5 = true" ng-hide="editMode5" class=" md-headline editMode-label">{{$ctrl.company.longContent}} </p>
-  <textarea ng-change="company.editMode5 = true" ng-blur="editMode5 = false;" ng-show="editMode5" for="company-{{$index}}" ng-model="$ctrl.company.longContent" class="editMode5-label edit5" name="content" type="text" edit-autofocus="editMode5"></textarea>
-</md-card-content>
+
+
+<md-card layout-padding layout="row" flex="100">
+  <md-user-avatar  flex-gt-xs="" layout="row" id="socialcompany">
+      <a ng-href="{{$ctrl.company.facebook}}"><img ng-src="/img/facebook2.png" class="md-icon socialicons"></a>
+      <a ng-href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin2.png" class="md-icon socialicons"></a>
+      <a ng-href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
+      <a ng-href="{{$ctrl.company.facebook}}"><img ng-src="/img/youtube.png" class="md-icon socialicons"></a>
+      <a ng-href="{{$ctrl.company.linkedin}}"><img ng-src="/img/instagram.png" class="md-icon socialicons"></a>
+      <a ng-href="{{$ctrl.company.twitter}}"><img ng-src="/img/pininterest.png" class="md-icon socialicons"></a>
+  </md-user-avatar>
+</md-card>
+
+<!-- ////////////////////////////////
+TOOLBAR
+////////////////////////////////////-->
+
+<md-fab-toolbar md-open="$ctrl.toolbar.isOpen" count="$ctrl.toolbar.count"
+                md-direction="{{$ctrl.demo.selectedDirection}}" style=>
+  <md-fab-trigger class="align-with-text">
+    <md-button aria-label="menu" class="md-fab md-primary md-icon-button" ng-click="">
+      <md-icon><i class="material-icons">menu</i></md-icon>
+    </md-button>
+  </md-fab-trigger>
+
+  <md-toolbar>
+      <md-fab-actions class="md-toolbar-tools">
+        <div layout="row">
+            <md-input-container class="md-block" flex-gt-xs="80">
+                <label>Facebook Link</label>
+                <md-icon class="name"><img ng-src="/img/facebook2.png" class="md-icon socialicons"></md-icon>
+                <input ng-model="$ctrl.company.facebook">
+           </md-input-container>
+
+           <md-input-container class="md-block" flex-gt-xs="80">
+               <label>Linkedin Link</label>
+               <md-icon class="name"><img ng-src="/img/linkedin2.png" class="md-icon socialicons"></md-icon>
+               <input ng-model="$ctrl.company.linkeden">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-xs="80">
+              <label>Twitter Link</label>
+              <md-icon class="name"><img ng-src="/img/twitter.png" class="md-icon socialicons"></md-icon>
+              <input ng-model="$ctrl.company.twitter" >
+         </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-xs="80">
+             <label>You Tube Link</label>
+             <md-icon class="name"><img ng-src="/img/youtube.png" class="md-icon socialicons"></md-icon>
+             <input ng-model="$ctrl.company.youtube" >
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-xs="80">
+            <label>Instagram Link</label>
+            <md-icon class="name"><img ng-src="/img/instagram.png" class="md-icon socialicons"></md-icon>
+            <input ng-model="$ctrl.company.instagram">
+       </md-input-container>
+
+       <md-input-container class="md-block" flex-gt-xs="80">
+           <label>Pininterest Link</label>
+           <md-icon class="name"><img ng-src="/img/pininterest.png" class="md-icon socialicons"></md-icon>
+           <input ng-model="$ctrl.company.pininterest">
+      </md-input-container>
+  </div>
+
+      </md-fab-actions>
+    </md-toolbar>
+  </md-fab-toolbar>
+
 <!-- ////////////////////////
 First Contact Card
 ////////////////////////////-->
@@ -119,8 +164,8 @@ First Contact Card
 
           <div layout="column">
               <div flex>
-                  <img ng-src="/img/facebook.png" class="md-icon socialicons" ng-model="$ctrl.company.user.facebook">
-                  <img ng-src="/img/linkedin.png" class="md-icon socialicons">
+                  <img ng-src="/img/facebook2.png" class="md-icon socialicons" ng-model="$ctrl.company.user.facebook">
+                  <img ng-src="/img/linkedin2.png" class="md-icon socialicons">
                   <img ng-src="/img/twitter.png" class="md-icon socialicons">
               </div>
           </div>
@@ -178,8 +223,8 @@ Fondateur Contact Card
 
           <div layout="column">
               <div flex>
-                  <img ng-src="/img/facebook.png" class="md-icon socialicons">
-                  <img ng-src="/img/linkedin.png" class="md-icon socialicons">
+                  <img ng-src="/img/facebook2.png" class="md-icon socialicons">
+                  <img ng-src="/img/linkedin2.png" class="md-icon socialicons">
                   <img ng-src="/img/twitter.png" class="md-icon socialicons">
               </div>
           </div>
@@ -237,8 +282,8 @@ Second Contact Card
 
           <div layout="column">
               <div flex>
-                  <img ng-src="/img/facebook.png" class="md-icon socialicons">
-                  <img ng-src="/img/linkedin.png" class="md-icon socialicons">
+                  <img ng-src="/img/facebook2.png" class="md-icon socialicons">
+                  <img ng-src="/img/linkedin2.png" class="md-icon socialicons">
                   <img ng-src="/img/twitter.png" class="md-icon socialicons">
               </div>
           </div>
@@ -257,7 +302,7 @@ Ce que nous vous proposons
           <md-card>
               <md-input-container class="md-block">
                   <h2 style="color: #3a88be;"><label>Ce que nous vous proposons</label></h2>
-                  <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                  <textarea ng-model="company.purpose" md-maxlength="150" rows="5" md-select-on-focus></textarea>
               </md-input-container>
           </md-card>
       </div>
@@ -268,7 +313,7 @@ Ce que nous recherchons
           <md-card>
           <md-input-container class="md-block">
           <h2 style="color: #3a88be;"><label>Ce que nous recherchons</label></h2>
-          <textarea ng-model="user.biography2" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+          <textarea ng-model="company.search" md-maxlength="150" rows="5" md-select-on-focus></textarea>
           </md-input-container>
           </md-card>
       </div>
@@ -285,7 +330,7 @@ Notes
           <md-card>
             <md-input-container class="md-block">
               <h2 layout-padding style="color: #3a88be;"><label>Notes</label></h2>
-                <textarea ng-model="user.notes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                <textarea ng-model="company.notes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
             </md-input-container>
           </md-card>
       </div>
@@ -310,10 +355,10 @@ Edition social links idk where put them...
 
 <md-card-title-text>
   <h3 ng-dblclick="editModefb = true" ng-hide="editModefb" class="md-display-1 editModefb-label">{{$ctrl.company.facebook}}</h3>
-  <input class="editfb" ng-class="md-display-4" ng-change="company.editModefb = true" ng-blur="editModefb = false;" ng-show="editModefb" for="company-{{$index}}" ng-model="$ctrl.company.facebook" name="facebook" type="text" edit-autofocus="editModefb" />
+  <input class="editfb" ng-class="md-display-4" ng-change="company.editModefb = true" ng-blur="editModefb = false;" ng-show="editModefb" for="company-{{$index}}" ng-model="$ctrl.company.facebook2" name="facebook" type="text" edit-autofocus="editModefb" />
 
   <h3 ng-dblclick="editModelnkd = true" ng-hide="editModelnkd" class="md-display-1 editModelnkd-label">{{$ctrl.company.linkedin}}</h3>
-  <input class="editlnkd" ng-class="md-display-4" ng-change="company.editModelnkd = true" ng-blur="editModelnkd = false;" ng-show="editModelnkd" for="company-{{$index}}" ng-model="$ctrl.company.linkedin" name="linkedin" type="text" edit-autofocus="editModelnkd"
+  <input class="editlnkd" ng-class="md-display-4" ng-change="company.editModelnkd = true" ng-blur="editModelnkd = false;" ng-show="editModelnkd" for="company-{{$index}}" ng-model="$ctrl.company.linkedin2" name="linkedin" type="text" edit-autofocus="editModelnkd"
   />
 
   <h3 ng-dblclick="editModetwt = true" ng-hide="editModetwt" class="md-display-1 editModetwt-label">{{$ctrl.company.twitter}}</h3>

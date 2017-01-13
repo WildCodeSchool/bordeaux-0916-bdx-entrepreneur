@@ -15,15 +15,21 @@
            display: block;
         }
 
-        /*-------------------------------------
-            Material Icons Sizes
-        ---------------------------------------*/
+
         .material-icons.md-18 { font-size: 18px; }
         .material-icons.md-24 { font-size: 24px; }
         .material-icons.md-36 { font-size: 36px; }
         .material-icons.md-48 { font-size: 48px; }
 
         .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+
+        /*-------------------------------------
+            Toolbar
+        ---------------------------------------*/
+
+          div>md-fab-toolbar-background{
+                  width: 0px;
+                }
 
 
         /*-------------------------------------
@@ -38,7 +44,7 @@
             height: 24px; }
 
 
-          
+
   .dialogdemoBasicUsage #popupContainer {
     position: relative; }
 
