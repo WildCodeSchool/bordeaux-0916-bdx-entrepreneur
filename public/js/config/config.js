@@ -29,7 +29,7 @@
                 .state('company.list', {
 
                     template: '<companies-search sector="$ctrl.sector" name="$ctrl.name"></companies-search><companies-list sector="$ctrl.sector" name="$ctrl.name"></companies-list>',
-                    url: '/:name'
+                    url: '/'
                 })
                 .state('company.item', {
                     template: '<company-item></company-item>',
