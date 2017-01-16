@@ -13,7 +13,7 @@
 
                 <div flex="50">
                     <md-select placeholder="Search by Sector of Activity" ng-model="user" style="min-width: 200px;">
-                        <md-option ng-value={{$ctrl.company.sector}} ng-repeat="$ctrl.company in $ctrl.companies">{{$ctrl.company.sector}}</md-option>
+                        <md-option ng-value={{company.sector}} ng-repeat="company in $ctrl.companies">{{company.sector}}</md-option>
                     </md-select>
                 </div>
             </div>
