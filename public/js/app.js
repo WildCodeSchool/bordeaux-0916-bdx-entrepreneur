@@ -22,5 +22,6 @@
     'app.home',
     'app.admin',
     'app.company',
+    'app.dashboard',
     'app.event'
 ]))

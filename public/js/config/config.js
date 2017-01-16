@@ -25,6 +25,13 @@
                     url: '/events'
                 })
 
+                .state('dashboard', {
+                    template: `<navbar></navbar>
+                    <dashboard></dashboard>
+                    <footer></footer>`,
+                    url: '/dashboard'
+                })
+
                 .state('company', {
                     template: `<navbar></navbar>
                     <ui-view></ui-view>
