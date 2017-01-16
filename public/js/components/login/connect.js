@@ -2,7 +2,7 @@
     'use strict'
     app.component('connect', {
         templateUrl: 'js/components/login/connect.html',
-        controller: ['usersService', '$state', function(usersService, $state) {
+        controller: ['usersService', '$state', '$mdToast',function(usersService, $state,$mdToast) {
             let $ctrl = this
             angular.extend(this, {
                 connect() {

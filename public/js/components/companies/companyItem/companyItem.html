@@ -1,206 +1,488 @@
+<div>
+    <center id="printableArea">
+        <md-card layout-padding flex-gt-xs="80" id="bigcard">
+
+            <md-card-header layout-padding layout="column">
+                <div layout="row" flex="100">
+                    <md-user-avatar flex-gt-xs="25">
+                        <a ng-href="{{$ctrl.company.website}}"><img ng-src="/img/developer.jpg" class="md-card-image" alt="" /></a>
+                    </md-user-avatar>
+                    <md-card-header-text flex-gt-xs="60" style="display: initial; color: #3a88be;">
+
+                        <section flex="100" style="text-align: right;">
+                            <a title="Imprimer" href="" class="btn" ng-click="$ctrl.printDiv('bigcard');"><i id="iconprint" class="material-icons">print</i></a>
+                        </section>
+
+                        <!--///////////////////////////
+                   Company Name
+               //////////////////////////////// -->
+                        <h2>
+
+              <md-input-container class="md-block" flex-gt-xs="80">
+                    <p ng-if="!$ctrl.editable">{{$ctrl.company.name}}</p>
+                    <label>Company Name</label>
+                    <input ng-if="$ctrl.editable" ng-model="$ctrl.company.name">
+               </md-input-container>
+            </h2>
+
+                        <!--////////////////////////////
+              Sector of Activity
+            ////////////////////////////// -->
+
+                        <h3>
+              <md-input-container class="md-block" flex-gt-xs="80">
+                  <label>Sector of Activity</label>
+                  <p ng-if="!$ctrl.editable">{{$ctrl.company.sector}}</p>
+                  <input ng-if="(!$ctrl.editable || ($ctrl.editable && !$ctrl.editMode))" ng-model="$ctrl.company.sector">
+               </md-input-container>
+            </h3>
+
+                        <h3>
+              <md-input-container class="md-block" flex-gt-xs="80">
+                  <label>Company Website</label>
+                  <input ng-if="(!$ctrl.editable || ($ctrl.editable && !$ctrl.editMode))" ng-model="$ctrl.company.website">
+               </md-input-container>
+            </h3>
 
 
-<center style="margin-top: 35px;" id="printableArea" >
-  <md-card layout-padding flex-gt-xs="80" id="bigcard">
 
-  <md-card-header layout-padding layout="column" id="headercard">
-    <div layout="row" flex="100" id="rowprint">
-    <md-user-avatar  flex-gt-xs="25" style="display: -webkit-box;">
-      <img ng-src="/img/wcs.jpg" class="md-card-image" alt="" />
-    </md-user-avatar>
-
-    <md-card-header-text flex-gt-xs="60" style="display: initial;" id="headertxtprint" >
-        <!-- <h1>NOM DE LA BOITE</h1> -->
-        <h1 style="margin-top: 0px;" ng-dblclick="editMode1 = true" ng-hide="editMode1" class="md-display-2 editMode-label1">{{$ctrl.company.name}}</h1>
-        <input class="edit1" ng-class="md-display-2" ng-change="company.editMode1 = true" ng-blur="editMode1 = false;" ng-show="editMode1" for="company-{{$index}}" ng-model="$ctrl.company.name" type="text" edit-autofocus="editMode1" />
-
-        <!-- <h2>Secteur d'activité</h2> -->
-        <h3 style="margin-top: 0px;" ng-dblclick="editMode2 = true" ng-hide="editMode2" class="md-display-1 editMode2-label">{{$ctrl.company.sector}}</h3>
-        <input class="edit2" ng-class="md-display-4" ng-change="company.editMode2 = true" ng-blur="editMode2 = false;" ng-show="editMode2" for="company-{{$index}}" ng-model="$ctrl.company.sector" name="sector" type="text" edit-autofocus="editMode2" />
-
-        <h3 style="margin-top: 0px;">#tag #tag2 #tag3</h3>
-    </md-card-header-text>
-
-    <md-user-avatar  flex-gt-xs="15" layout="column" style="text-align: right;">
-        <a id="logobdx" title="Accueil"><img src="../img/logo_BordeauxEntrepreneursV3.png" alt="logo" class="img-responsive" /></a>
-        <a title="Imprimer" href="" class="btn" ng-click="$ctrl.printDiv('bigcard');" ><i id="iconprint" class="material-icons">print</i></a>
-    </md-user-avatar>
-    </div>
-  </md-card-header>
-
-  <md-card layout-padding layout="row" flex="100">
-    <md-user-avatar  flex-gt-xs="" layout="" id="socialcompany">
-        <a href="{{$ctrl.company.facebook}}"><img ng-src="/img/facebook.png" class="md-icon socialicons"></a>
-        <a href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin.png" class="md-icon socialicons"></a>
-        <a href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
-        <a href="{{$ctrl.company.facebook}}"><img ng-src="/img/facebook.png" class="md-icon socialicons"></a>
-        <a href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin.png" class="md-icon socialicons"></a>
-        <a href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
-    </md-user-avatar>
-  </md-card>
-
-  <md-card-content layout-padding layout="row" flex="100">
-    <p ng-dblclick="editMode5 = true" ng-hide="editMode5" class=" md-headline editMode-label" id="longcontent">{{$ctrl.company.longContent}} </p>
-    <textarea ng-change="company.editMode5 = true" ng-blur="editMode5 = false;" ng-show="editMode5" for="company-{{$index}}" ng-model="$ctrl.company.longContent" class="editMode5-label edit5" name="content" type="text" edit-autofocus="editMode5"></textarea>
-  </md-card-content>
-
-  <md-card-content layout="row" id="contactprint">
-    <div flex-gt-xs="35">
-        <md-card flex style="color: #3a88be;">
-          <div layout="column">
-            <div flex><h2>Contact</h2></div>
-          </div>
-
-          <div layout="column">
-            <div layout="row">
-              <div flex><img id="contactimg1" class="md-user-avatar" src="../img/avatar_defaut.png" style="width: 60%;"></div>
-              <div flex>
-                <div layout="column" id="contactdescri1">
-                  <div flex>Nom Prénom</div>
-                  <div flex>E-mail</div>
-                  <div flex>Phone number</div>
+                        <md-chips flex-gt-xs="80" class="chipsdemoBasicUsage custom-chips md-chip md-chip-remove-container" ng-model="$ctrl.tags" readonly="$ctrl.readonly" md-removable="$ctrl.removable" placeholder="Enter a tag" delete-button-label="Remove Tag" delete-hint="Press delete to remove tag"
+                            secondary-placeholder="+Tag">
+                            <md-chip-template>
+                                <strong>{{$chip}}</strong>
+                            </md-chip-template>
+                        </md-chips>
+                    </md-card-header-text>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <div layout="column">
-            <div flex>
-              <img ng-src="/img/facebook.png" class="md-icon socialicons">
-              <img ng-src="/img/linkedin.png" class="md-icon socialicons">
-              <img ng-src="/img/twitter.png" class="md-icon socialicons">
-            </div>
-          </div>
+            </md-card-header>
 
 
+
+            <md-card layout-padding layout="row" flex="100">
+                <md-user-avatar flex-gt-xs="" layout="row" id="socialcompany">
+                    <div layout="column">
+                        <md-input-container class="md-block" flex-gt-xs="80">
+                            <label>Facebook</label>
+                            <md-icon class="name">
+                                <a ng-href="{{$ctrl.company.facebook}}"><img ng-src="/img/facebook2.png" class="md-icon socialicons"></a>
+                            </md-icon>
+                            <input ng-model="$ctrl.company.facebook">
+                        </md-input-container>
+                    </div>
+
+                    <div layout="column">
+                        <md-input-container class="md-block" flex-gt-xs="80">
+                            <label>Linkedin</label>
+                            <md-icon class="name">
+                                <a ng-href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin2.png" class="md-icon socialicons"></a>
+                            </md-icon>
+                            <input ng-model="$ctrl.company.linkedin">
+                        </md-input-container>
+                    </div>
+
+                    <div layout="column">
+                        <md-input-container class="md-block" flex-gt-xs="80">
+                            <label>Twitter</label>
+                            <md-icon class="name">
+                                <a ng-href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
+                            </md-icon>
+                            <input ng-model="$ctrl.company.twitter">
+                        </md-input-container>
+                    </div>
+
+                    <div layout="column">
+                        <md-input-container class="md-block" flex-gt-xs="80">
+                            <label>You Tube</label>
+                            <md-icon class="name">
+                                <a ng-href="{{$ctrl.company.youtube}}"><img ng-src="/img/youtube.png" class="md-icon socialicons"></a>
+                            </md-icon>
+                            <input ng-model="$ctrl.company.youtube">
+                        </md-input-container>
+                    </div>
+
+                    <div layout="column">
+                        <md-input-container class="md-block" flex-gt-xs="80">
+                            <label>Instagram</label>
+                            <md-icon class="name">
+                                <a ng-href="{{$ctrl.company.instagram}}"><img ng-src="/img/instagram.png" class="md-icon socialicons"></a>
+                            </md-icon>
+                            <input ng-model="$ctrl.company.instagram">
+                        </md-input-container>
+                    </div>
+
+                    <div layout="column">
+                        <md-input-container class="md-block" flex-gt-xs="80">
+                            <label>Pininterest</label>
+                            <md-icon class="name">
+                                <a ng-href="{{$ctrl.company.pininterest}}"><img ng-src="/img/pininterest.png" class="md-icon socialicons"></a>
+                            </md-icon>
+                            <input ng-model="$ctrl.company.pininterest">
+                        </md-input-container>
+                    </div>
+                </md-user-avatar>
+
+            </md-card>
+
+            <!-- ////////////////////////////////
+              LongContent
+              ////////////////////////////////////-->
+            <md-card-content>
+                <div layout="row">
+                    <div flex>
+                        <md-card>
+                            <md-input-container class="md-block">
+                                <h2 layout-padding style="color: #3a88be;"><label>Company Description</label></h2>
+                                <textarea ng-model="$ctrl.company.longContent" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                            </md-input-container>
+                        </md-card>
+                    </div>
+                </div>
+            </md-card-content>
+            <!-- ////////////////////////
+First Contact Card
+////////////////////////////-->
+            <md-card-content layout="row">
+                <div flex-gt-xs="35">
+                    <md-card flex style="color: #3a88be;">
+                        <div layout="column">
+                            <div flex>
+                                <h2>
+                      <md-input-container class="md-block" flex-gt-xs="80">
+                            <label>Contact</label>
+                            <div></div>
+                      </md-input-container>
+                  </h2>
+                            </div>
+                        </div>
+
+                        <div layout="column">
+                            <div layout="row">
+                                <!--<div flex><img class="md-user-avatar" src="../img/gorille_en_colere.gif" style="width: 60%;"></div>-->
+                                <div flex>
+                                    <div layout="column">
+                                        <div>
+                                            <md-input-container class="md-block" flex-gt-xs="80">
+                                                <label>Nom Prénom</label>
+                                                <md-icon class="name"><i class="material-icons md-24 md-dark">person</i></md-icon>
+                                                <input ng-model="$ctrl.company.user.contactname">
+                                            </md-input-container>
+                                        </div>
+                                        <div flex>
+                                            <md-input-container class="md-block" flex-gt-xs="80">
+                                                <label>Email</label>
+                                                <md-icon class="name"><i class="material-icons md-24 md-dark">email</i></md-icon>
+                                                <input ng-model="$ctrl.company.user.contactmail">
+                                            </md-input-container>
+                                        </div>
+                                        <div flex>
+                                            <md-input-container class="md-block" flex-gt-xs="80">
+                                                <label>Phone Number</label>
+                                                <md-icon class="name"><i class="material-icons md-24 md-dark">phone</i></md-icon>
+                                                <input ng-model="$ctrl.company.user.contactnumber">
+                                            </md-input-container>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div layout="column">
+                            <div flex>
+
+                                <md-input-container class="md-block" flex-gt-xs="80">
+                                    <label>Facebook</label>
+                                    <md-icon class="name">
+                                        <a ng-href="{{$ctrl.company.facebook}}"><img ng-src="/img/facebook2.png" class="md-icon socialicons"></a>
+                                    </md-icon>
+                                    <input ng-model="$ctrl.company.user.facebook">
+                                </md-input-container>
+
+
+                                <md-input-container class="md-block" flex-gt-xs="80">
+                                    <label>linkedin</label>
+                                    <md-icon class="name">
+                                        <a ng-href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin2.png" class="md-icon socialicons"></a>
+                                    </md-icon>
+                                    <input ng-model="$ctrl.company.user.linkedin">
+                                </md-input-container>
+
+
+                                <md-input-container class="md-block" flex-gt-xs="80">
+                                    <label>Twitter</label>
+                                    <md-icon class="name">
+                                        <a ng-href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
+                                    </md-icon>
+                                    <input ng-model="$ctrl.company.user.twitter">
+                                </md-input-container>
+
+
+                            </div>
+                        </div>
+
+                    </md-card>
+                </div>
+
+                <!-- ////////////////////////
+                Fondateur Contact Card
+                ////////////////////////////-->
+
+                <div flex-gt-xs="35">
+                    <md-card flex style="color: #3a88be;">
+                        <div layout="column">
+                            <div flex>
+                                <h2>
+              <md-input-container class="md-block" flex-gt-xs="80">
+                          <label>Fondateur</label>
+                          <div></div>
+              </md-input-container>
+            </h2>
+                            </div>
+                        </div>
+
+                        <div layout="column">
+                            <div layout="row">
+                                <!--<div flex><img class="md-user-avatar" src="../img/gorille_en_colere.gif" style="width: 60%;"></div>-->
+                                <div flex>
+                                    <div layout="column">
+                                        <div flex>
+                                            <md-input-container class="md-block" flex-gt-xs="80">
+                                                <label>Nom Prénom</label>
+                                                <md-icon class="name"><i class="material-icons md-24 md-dark">person</i></md-icon>
+                                                <input ng-model="$ctrl.company.user.foundateur">
+                                            </md-input-container>
+                                        </div>
+                                        <div flex>
+                                            <md-input-container class="md-block" flex-gt-xs="80">
+                                                <md-icon class="name"><i class="material-icons md-24 md-dark">email</i></md-icon>
+                                                <label>Email</label>
+                                                <input ng-model="$ctrl.company.user.foundateuremail">
+                                            </md-input-container>
+                                        </div>
+                                        <div flex>
+                                            <md-input-container class="md-block" flex-gt-xs="80">
+                                                <label>Phone Number</label>
+                                                <md-icon class="name"><i class="material-icons md-24 md-dark">phone</i></md-icon>
+                                                <input ng-model="$ctrl.company.user.foundateurnumber">
+                                            </md-input-container>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div layout="column">
+                            <div flex>
+                                <md-input-container class="md-block" flex-gt-xs="80">
+                                    <label>Facebook</label>
+                                    <md-icon class="name">
+                                        <a ng-href="{{$ctrl.company.user.foundateurfacebook}}"><img ng-src="/img/facebook2.png" class="md-icon socialicons"></a>
+                                    </md-icon>
+                                    <input ng-model="$ctrl.company.user.foundateurfacebook">
+                                </md-input-container>
+
+
+                                <md-input-container class="md-block" flex-gt-xs="80">
+                                    <label>linkedin</label>
+                                    <md-icon class="name">
+                                        <a ng-href="{{$ctrl.company.user.foundateurlinkedin}}"><img ng-src="/img/linkedin2.png" class="md-icon socialicons"></a>
+                                    </md-icon>
+                                    <input ng-model="$ctrl.company.user.foundateurlinkedin">
+                                </md-input-container>
+
+
+                                <md-input-container class="md-block" flex-gt-xs="80">
+                                    <label>Twitter</label>
+                                    <md-icon class="name">
+                                        <a ng-href="{{$ctrl.company.user.foundateurtwitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
+                                    </md-icon>
+                                    <input ng-model="$ctrl.company.user.foundateurtwitter">
+                                </md-input-container>
+                            </div>
+                        </div>
+
+                    </md-card>
+                </div>
+
+                <!-- ////////////////////////
+Second Contact Card
+////////////////////////////-->
+
+
+                <div flex-gt-xs="35">
+                    <md-card flex style="color: #3a88be;">
+                        <div layout="column">
+                            <div flex>
+                                <h2><md-input-container class="md-block" flex-gt-xs="80">
+                              <label>Contact</label>
+                              <div></div>
+                  </md-input-container>
+                </h2>
+                            </div>
+                        </div>
+
+                        <div layout="column">
+                            <div layout="row">
+                                <!--<div flex><img class="md-user-avatar" src="../img/gorille_en_colere.gif" style="width: 60%;"></div>-->
+                                <div flex>
+                                    <div layout="column">
+                                        <div flex>
+                                            <md-input-container class="md-block" flex-gt-xs="80">
+                                                <label>Nom Prénom</label>
+                                                <md-icon class="name"><i class="material-icons md-24 md-dark">person</i></md-icon>
+                                                <input ng-model="$ctrl.company.user.contactname2">
+                                            </md-input-container>
+                                        </div>
+                                        <div flex>
+                                            <md-input-container class="md-block" flex-gt-xs="80">
+                                                <md-icon class="name"><i class="material-icons md-24 md-dark ">email</i></md-icon>
+                                                <label>Email</label>
+                                                <input ng-model="$ctrl.company.user.contactemail2">
+                                            </md-input-container>
+                                        </div>
+                                        <div flex>
+                                            <md-input-container class="md-block" flex-gt-xs="80">
+                                                <label>Phone Number</label>
+                                                <md-icon class="name"><i class="material-icons md-24 md-dark">phone</i></md-icon>
+                                                <input ng-model="$ctrl.company.user.contactnumber2">
+                                            </md-input-container>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div layout="column">
+                            <div flex>
+                                <md-input-container class="md-block" flex-gt-xs="80">
+                                    <label>Facebook</label>
+                                    <md-icon class="name">
+                                        <a ng-href="{{$ctrl.company.user.contact2facebook}}"><img ng-src="/img/facebook2.png" class="md-icon socialicons"></a>
+                                    </md-icon>
+                                    <input ng-model="$ctrl.company.user.contact2facebook">
+                                </md-input-container>
+
+
+                                <md-input-container class="md-block" flex-gt-xs="80">
+                                    <label>linkedin</label>
+                                    <md-icon class="name">
+                                        <a ng-href="{{$ctrl.company.user.contact2linkedin}}"><img ng-src="/img/linkedin2.png" class="md-icon socialicons"></a>
+                                    </md-icon>
+                                    <input ng-model="$ctrl.company.user.contact2linkedin">
+                                </md-input-container>
+
+
+                                <md-input-container class="md-block" flex-gt-xs="80">
+                                    <label>Twitter</label>
+                                    <md-icon class="name">
+                                        <a ng-href="{{$ctrl.company.contact2twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
+                                    </md-icon>
+                                    <input ng-model="$ctrl.company.user.contact2twitter">
+                                </md-input-container>
+
+                            </div>
+                        </div>
+
+                    </md-card>
+                </div>
+            </md-card-content>
+
+            <!-- ////////////////////////
+Ce que nous vous proposons
+////////////////////////////-->
+
+            <md-card-content>
+                <div layout="row">
+                    <div flex>
+                        <md-card>
+                            <md-input-container class="md-block">
+                                <h2 style="color: #3a88be;"><label>Ce que nous vous proposons</label></h2>
+                                <textarea ng-model="$ctrl.company.purpose" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                            </md-input-container>
+                        </md-card>
+                    </div>
+                    <!-- ////////////////////////
+                    Ce que nous recherchons
+                    ////////////////////////////-->
+                    <div flex>
+                        <md-card>
+                            <md-input-container class="md-block">
+                                <h2 style="color: #3a88be;"><label>Ce que nous recherchons</label></h2>
+                                <textarea ng-model="$ctrl.company.search" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                            </md-input-container>
+                        </md-card>
+                    </div>
+                </div>
+            </md-card-content>
+
+            <!-- ////////////////////////
+              Notes
+              ////////////////////////////-->
+
+            <md-card-content>
+                <div layout="row">
+                    <div flex>
+                        <md-card>
+                            <md-input-container class="md-block">
+                                <h2 layout-padding style="color: #3a88be;"><label>Notes</label></h2>
+                                <textarea ng-model="$ctrl.company.notes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                            </md-input-container>
+                        </md-card>
+                    </div>
+                </div>
+            </md-card-content>
+
+            <!-- ////////////////////////
+                  Speed Dial
+             ////////////////////////////-->
+
+            <md-toolbar style="background-color: #3a88be;">
+                <md-fab-speed-dial ng-hide="$ctrl.hidden" md-direction="right" md-open="$ctrl.isOpen" class="md-scale" ng-class="{ 'md-hover-full': $ctrl.hover }" ng-mouseenter="$ctrl.isOpen=true" ng-mouseleave="$ctrl.isOpen=false">
+                    <!-- ////////////////////////
+                        Speed Dial Trigger
+                   ////////////////////////////-->
+
+                    <md-fab-trigger>
+                        <md-button aria-label="menu" class="md-fab md-warning md-fab:hover">
+                            <md-tooltip md-direction="bottom" md-visible="tooltipVisible">Menu</md-tooltip>
+                            <md-icon aria-label="menu"><i class="material-icons">menu</i></md-icon>
+                        </md-button>
+                    </md-fab-trigger>
+
+                    <!-- ////////////////////////
+                          Speed Dial Actions
+                     ////////////////////////////-->
+
+                    <md-fab-actions>
+                        <md-button ng-click="$ctrl.prev()" aria-label="label" class="md-fab md-icon-button">
+                            <md-tooltip md-direction="top" md-visible="tooltipVisible">Previous</md-tooltip>
+                            <i class="material-icons">skip_previous</i>
+                        </md-button>
+                        <md-button ng-click="$ctrl.next()" aria-label="comment" class="md-fab md-icon-button">
+                            <md-tooltip md-direction="bottom" md-visible="tooltipVisible">Next</md-tooltip>
+                            <i class="material-icons">skip_next</i>
+                        </md-button>
+                        <md-button ng-if="$ctrl.editable"
+                        user="$ctrl.user"
+                        edit-mode="$ctrl.editMode"
+                        on-edit="$ctrl.editMode = !$ctrl.editMode"
+                        ng-click="$ctrl.onEdit()"
+                        aria-label="photo"
+                        class="md-fab md-icon-button">
+                            <md-tooltip md-direction="top" md-visible="tooltipVisible">Edit</md-tooltip>
+                            <i class="material-icons">mode_edit</i>
+                        </md-button>
+                        <md-button ng-click="$ctrl.saveCompanies($ctrl.company)" aria-label="photo" class="md-fab md-icon-button">
+                            <md-tooltip md-direction="top" md-visible="tooltipVisible">Save</md-tooltip>
+                            <i class="material-icons">save</i>
+                        </md-button>
+                        <md-button ng-click="$ctrl.delete($ctrl.company)" aria-label="photo" class="md-fab md-icon-button">
+                            <md-tooltip md-direction="bottom" md-visible="tooltipVisible">Delete</md-tooltip>
+                            <i class="material-icons">delete_forever</i>
+                        </md-button>
+                    </md-fab-actions>
+                </md-fab-speed-dial>
+
+            </md-toolbar>
         </md-card>
-    </div>
-
-    <div flex-gt-xs="35">
-      <md-card flex style="color: #3a88be;">
-        <div layout="column">
-          <div flex><h2>Fondateur</h2></div>
-        </div>
-
-        <div layout="column">
-          <div layout="row">
-            <div flex><img id="contactimg2" class="md-user-avatar" src="../img/avatar_defaut.png" style="width: 60%;"></div>
-            <div flex>
-              <div layout="column" style="text-align: left;">
-                <div flex>Nom Prénom</div>
-                <div flex>E-mail</div>
-                <div flex>Phone number</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div layout="column">
-          <div flex>
-            <img ng-src="/img/facebook.png" class="md-icon socialicons">
-            <img ng-src="/img/linkedin.png" class="md-icon socialicons">
-            <img ng-src="/img/twitter.png" class="md-icon socialicons">
-          </div>
-        </div>
-
-      </md-card>
-    </div>
-
-    <div flex-gt-xs="35">
-      <md-card flex style="color: #3a88be;">
-        <div layout="column">
-          <div flex><h2>Contact</h2></div>
-        </div>
-
-        <div layout="column">
-          <div layout="row">
-            <div flex><img id="contactimg3" class="md-user-avatar" src="../img/avatar_defaut.png" style="width: 60%;"></div>
-            <div flex>
-              <div layout="column" style="text-align: left;">
-                <div flex>Nom Prénom</div>
-                <div flex>E-mail</div>
-                <div flex>Phone number</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div layout="column">
-          <div flex>
-            <img ng-src="/img/facebook.png" class="md-icon socialicons">
-            <img ng-src="/img/linkedin.png" class="md-icon socialicons">
-            <img ng-src="/img/twitter.png" class="md-icon socialicons">
-          </div>
-        </div>
-
-      </md-card>
-    </div>
-  </md-card-content>
-
-  <md-card-content>
-    <div layout="row">
-      <div flex>
-        <md-card>
-          <h2 style="color: #3a88be;">Ce que nous vous proposons</h2>
-          <p layout-padding>
-            plein de choses absolument incroyable : des petits dej, des diners alcoolisé
-            des matchs de rugby etc...
-          </p>
-        </md-card>
-      </div>
-      <div flex>
-        <md-card>
-          <h2 style="color: #3a88be;">Ce que nous recherchons</h2>
-          <p layout-padding>
-            Des wilders ambitieux, grands, bruns, portants des T-shirts originaux,
-            un humour redoutable etc...
-          </p>
-        </md-card>
-      </div>
-    </div>
-  </md-card-content>
-
-  <md-card-content style="text-align: left;">
-    <div layout="row">
-      <div flex>
-        <md-card>
-          <h2 layout-padding style="color: #3a88be;">Notes</h2>
-          <p layout-padding>
-            Plein de notes et informations complémentaires....
-          </p>
-        </md-card>
-      </div>
-    </div>
-  </md-card-content>
-
-  <!--Div containing buttons -->
-  <div layout="row" layout-padding id="btnprint">
-      <md-button ng-click="$ctrl.prev()" aria-label="label" class="md-fab md-primary md-icon-button">
-          <i class="material-icons">skip_previous</i>
-      </md-button>
-      <md-button ng-click="$ctrl.next()" aria-label="comment" class="md-fab md-primary md-icon-button">
-          <i class="material-icons">skip_next</i>
-      </md-button>
-      <md-button ng-click="$ctrl.saveCompanies($ctrl.company)" aria-label="photo" class="md-fab md-primary md-icon-button">
-          <i class="material-icons">save</i>
-      </md-button>
-      <md-button ng-click="$ctrl.delete($ctrl.company)" aria-label="photo" class="md-fab md-primary md-icon-button">
-          <i class="material-icons">delete_forever</i>
-      </md-button>
-  </div>
-<!-- Edition social links idk where put them... -->
-  <md-card-title-text id="btnprint">
-    <h5 ng-dblclick="editModefb = true" ng-hide="editModefb" class="md-display-1 editModefb-label">{{$ctrl.company.facebook}}</h3>
-    <input class="editfb" ng-class="md-display-4" ng-change="company.editModefb = true" ng-blur="editModefb = false;" ng-show="editModefb" for="company-{{$index}}" ng-model="$ctrl.company.facebook" name="facebook" type="text" edit-autofocus="editModefb" />
-
-    <h3 ng-dblclick="editModelnkd = true" ng-hide="editModelnkd" class="md-display-1 editModelnkd-label">{{$ctrl.company.linkedin}}</h3>
-    <input class="editlnkd" ng-class="md-display-4" ng-change="company.editModelnkd = true" ng-blur="editModelnkd = false;" ng-show="editModelnkd" for="company-{{$index}}" ng-model="$ctrl.company.linkedin" name="linkedin" type="text" edit-autofocus="editModelnkd" />
-
-
-    <h3 ng-dblclick="editModetwt = true" ng-hide="editModetwt" class="md-display-1 editModetwt-label">{{$ctrl.company.twitter}}</h3>
-    <input class="edittwt" ng-class="md-display-4" ng-change="company.editModetwt = true" ng-blur="editModetwt = false;" ng-show="editModetwt" for="company-{{$index}}" ng-model="$ctrl.company.twitter" name="twitter" type="text" edit-autofocus="editModetwt" />
-
-  </md-card-title-text>
-
-</md-card>
-</center>
+    </center>
+</div>

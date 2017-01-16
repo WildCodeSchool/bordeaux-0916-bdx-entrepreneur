@@ -11,7 +11,7 @@
         }
 
         create(user) {
-            return this.$http.post('/api/users', user)
+            return this.post('/api/users', user)
         }
 
         update(user) {
@@ -46,15 +46,6 @@
                 this.currentUser = payload._doc
                 resolve(this.currentUser)
             })
-        }
-
-        getCurrentUser(){
-          //FAKE DATA REPLACE AFTER WITH GET CURRENT
-          return {
-              _id: "azzaqsqs",
-              name: "MOURGUES",
-              isAdmin: false
-          }
         }
 
         getCurrent() {

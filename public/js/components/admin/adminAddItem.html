@@ -1,4 +1,4 @@
-<!-- Display admin-add-menu component (see adminAddMenu.js ) and bind properties with all functions  -->
+<!----><!-- Display admin-add-menu component (see adminAddMenu.js ) and bind properties with all functions  -->
 
 <div>
 <center>
@@ -11,6 +11,7 @@
       </md-user-avatar>
 
       <md-card-header-text flex-gt-xs="60" style="display: initial; color: #3a88be;">
+
           <!--///////////////////////////
              Company Name
         //////////////////////////////// -->
@@ -32,12 +33,20 @@
                </md-input-container>
             </h3>
 
+            <!--////////////////////////////
+                Company Website
+              ////////////////////////////// -->
+
             <h3>
               <md-input-container class="md-block" flex-gt-xs="80">
                   <label>Company Website</label>
                   <input ng-model="$ctrl.company.website">
                </md-input-container>
             </h3>
+
+            <!--////////////////////////////
+                Chips
+              ////////////////////////////// -->
 
             <md-chips
             flex-gt-xs="80"
@@ -53,14 +62,18 @@
             <strong>{{$chip}}</strong>
             </md-chip-template>
             </md-chips>
+
       </md-card-header-text>
   </div>
 </md-card-header>
 
-
+<!--////////////////////////////
+    Social inputs
+  ////////////////////////////// -->
 
 <md-card layout-padding layout="row" flex="100">
   <md-user-avatar  flex-gt-xs="" layout="row" id="socialcompany">
+
     <div layout="column">
       <md-input-container class="md-block" flex-gt-xs="80">
           <label>Facebook</label>
@@ -68,6 +81,7 @@
           <input ng-model="$ctrl.company.facebook">
      </md-input-container>
    </div>
+
    <div layout="column">
      <md-input-container class="md-block" flex-gt-xs="80">
          <label>linkedin</label>
@@ -75,6 +89,7 @@
          <input ng-model="$ctrl.company.linkedin">
     </md-input-container>
   </div>
+
   <div layout="column">
     <md-input-container class="md-block" flex-gt-xs="80">
         <label>Twitter</label>
@@ -121,9 +136,11 @@ LongContent
       </div>
   </div>
 </md-card-content>
+
 <!-- ////////////////////////
 First Contact Card
 ////////////////////////////-->
+
 <md-card-content layout="row">
   <div flex-gt-xs="35">
       <md-card flex style="color: #3a88be;">

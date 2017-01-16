@@ -17,7 +17,7 @@
                         params: filtre
                     })
             },
-          
+
             getById(id) {
                 return $http.get('/api/companies/' + id);
             },
@@ -25,7 +25,7 @@
                 return $http.delete('/api/companies/' + company._id);
             },
             save(company) {
-                if (!company._id) {
+                if (!company.id) {
                     request = $http.post('/api/companies', company)
                 } else {
                     request = $http.put('/api/companies/' + company._id, company)
