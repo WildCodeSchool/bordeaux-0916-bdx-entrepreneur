@@ -1,5 +1,5 @@
 'use strict'
-let EventsController = require('../controllers/Eventscontroller')
+let EventsController = require('../controllers/EventsController')
 
 module.exports = (app) => {
     // Create new controller

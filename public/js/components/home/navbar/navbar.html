@@ -11,8 +11,8 @@
                 <div layout="row" id="iconrow">
 
                     <a title="Favoris" href=""><i class="material-icons">grade</i></a>
-                    <a title="Evènements" href=""><i class="material-icons">event</i></a>
-                    <a title="Adhérents" href=""><i class="material-icons">face</i></a>
+                    <a title="Evènements" ui-sref="event"><i class="material-icons">event</i></a>
+                    <a title="Adhérents" ui-sref="company.list"><i class="material-icons">face</i></a>
                     <md-switch  ng-click="$ctrl.user.isAdmin = !$ctrl.user.isAdmin" aria-label="Switch 1">
                         Admin
                     </md-switch>

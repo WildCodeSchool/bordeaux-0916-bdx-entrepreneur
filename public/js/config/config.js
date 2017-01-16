@@ -16,7 +16,13 @@
                 .state('admin.new' , {
                   template: '<admin-add-item></admin-add-item>',
                   url: '/company/_new'
+                })
 
+                .state('event', {
+                    template: `<navbar></navbar>
+                    <events-list></events-list>
+                    <footer></footer>`,
+                    url: '/events'
                 })
 
                 .state('company', {
