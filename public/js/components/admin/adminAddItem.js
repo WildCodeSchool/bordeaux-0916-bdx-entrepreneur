@@ -54,6 +54,12 @@ app.component('adminAddItem', {
       });
       };
 
+      this.toolbar = {
+       isOpen: false,
+       count:0,
+       selectedDirection: 'right'
+     };
+
 
 
 
