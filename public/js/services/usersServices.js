@@ -14,6 +14,11 @@
             return this.$http.post('/api/users', user)
         }
 
+        //add code for get all users based on api.user
+        get() {
+            return this.$http.get('/api/user');
+        }
+
         update(user) {
             return this.$http.put('/api/users/' + user._id, user)
         }

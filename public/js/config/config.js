@@ -6,20 +6,34 @@
             $locationProvider.hashPrefix('!');
             $urlRouterProvider.otherwise('/');
             $stateProvider.state('admin', {
-                    template: `<navbar></navbar>
+                template: `<navbar></navbar>
                     <ui-view></ui-view>
                     <footer></footer>`,
-                    url: '/admin',
-                    abstract: true
-                })
+                url: '/admin',
+                abstract: true
+            })
 
-                .state('admin.new' , {
-                  template: '<admin-add-item></admin-add-item>',
-                  url: '/company/_new'
+            .state('admin.new', {
+                template: '<admin-add-item></admin-add-item>',
+                url: '/company/_new'
 
-                })
+            })
 
-                .state('company', {
+            .state('event', {
+                template: `<navbar></navbar>
+                                    <events-list></events-list>
+                                    <footer></footer>`,
+                url: '/events'
+            })
+
+            .state('dashboard', {
+                template: `<navbar></navbar>
+                                    <dashboard></dashboard>
+                                    <footer></footer>`,
+                url: '/dashboard'
+            })
+
+            .state('company', {
                     template: `<navbar></navbar>
                     <ui-view></ui-view>
                     <footer></footer>`,
@@ -35,5 +49,6 @@
                     template: '<company-item></company-item>',
                     url: '/company/:id'
                 });
-  }]);
+        }
+    ]);
 })(require('angular').module('app.config'))

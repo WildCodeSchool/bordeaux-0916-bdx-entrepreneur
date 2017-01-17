@@ -1,6 +1,6 @@
 ((app) => {
     app.component('eventsList', {
-            templateUrl: 'js/components/companies/companiesList/companiesList.html',
+            templateUrl: 'js/components/events/eventsList/eventsList.html',
 
 
             controller: function(contactsService) {
