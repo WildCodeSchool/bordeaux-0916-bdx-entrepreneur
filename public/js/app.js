@@ -19,6 +19,7 @@
     'app.config',
     'app.services',
     'app.login',
+    'app.dashboard',
     'app.home',
     'app.admin',
     'app.company',
