@@ -1,33 +1,17 @@
-
 <div id="footer">
-  <div  layout="row" layout-padding layout-margin layout-fill layout-sm="column"   layout-align="center center" layout-xs="column">
+    <div layout="row" layout-padding layout-margin layout-fill layout-sm="column" layout-align="center center" layout-xs="column">
 
 
 
         <!-- First column -->
         <div flex-xs="100" flex-gt-xs="33" layout="column" layout-align="center">
             <h4 layout-align="center">Nouveaux adhérents</h4>
-            <md-card>
-                <div layout="row">
+            <md-card ng-repeat="company in $ctrl.companies | orderBy: 'created_at':true | limitTo: 3">
+                <a  ui-sref="company.item({id:company._id})" layout="row">
                     <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
-                    <p>Azendoo nous a rejoints</p>
-                </div>
-
-            </md-card>
-            <md-card hide-md hide-xs hide-sm>
-                <div layout="row">
-                    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
-                    <p>Azendoo nous a rejoints</p>
-                </div>
-
-            </md-card>
-            <md-card hide-md hide-xs hide-sm>
-                <div layout="row">
-                    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
-                    <p>Azendoo nous a rejoints</p>
-                </div>
-
-            </md-card>
+                    <p><b>{{company.name}}</b> nous a rejoints</p>
+                  </a>
+              </md-card>
         </div>
 
 
@@ -81,7 +65,5 @@
             </md-card>
         </div>
     </div>
-
-</div>
 
 </div>

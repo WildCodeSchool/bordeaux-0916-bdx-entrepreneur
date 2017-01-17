@@ -1,8 +1,4 @@
 
-/*h3 .md-display-1{
-  margin: 0 auto 0 auto;
-}*/
-
 #iconprint{
   color: white;
   font-size: 45px;
@@ -15,6 +11,7 @@
 #bigcard{
   border-color: lightgray;
   box-shadow: 1px 0px 3px 2px lightslategray;
+  margin: auto;
 }
 
 #headercard{
@@ -32,7 +29,8 @@ text-align: justify;
   justify-content: space-around;
 padding-bottom: inherit;
 }
-
+#companyItem{
+  text-align: center;
 h1 {
     margin-bottom: 0.5em;
     font-size: 2.5rem;
@@ -92,4 +90,5 @@ h1 {
 
 #contactdescri1{
   text-align: left;
+}
 }

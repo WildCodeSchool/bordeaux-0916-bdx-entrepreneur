@@ -1,6 +1,7 @@
 #footer {
     background-color: #3a88be;
     overflow: hidden;
+    margin-top:5em;
     md-button{
       background-color: #3a88be;
     }
@@ -34,4 +35,7 @@
     p {
         color: black;
     }
+a:link{
+ text-decoration:none;
+}
 }
