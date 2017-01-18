@@ -2,7 +2,7 @@
 *.log
 *.DS_Store
 #Build files
-public/js/
+public/js/*.min.*
 public/css/
 
 # Config
