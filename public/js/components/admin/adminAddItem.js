@@ -5,6 +5,8 @@
                 angular.extend(this, {
                     $onInit() {
 
+                        this.infos = {}
+
                         // this.editMode = (company, index) => {
                         //     this.company.editMode = true;
                         //     this.company.editMode.onblur = this.saveCompanies;
@@ -38,8 +40,12 @@
 
 
                     },
-                    saveCompanies(company) {
-                        companiesService.add(company).then((res) => {
+                    saveCompanies(company, fondateur, cofond, cfondbis) {
+                        this.infos.company = company
+                        this.infos.fondateur = fondateur
+                        this.infos.cofond = cofond
+                        this.infos.cofondbis = cfondbis
+                        companiesService.add(this.infos).then((res) => {
                             this.newCompany = res.data
                             console.log(this.newCompany);
                         }).catch(() => {

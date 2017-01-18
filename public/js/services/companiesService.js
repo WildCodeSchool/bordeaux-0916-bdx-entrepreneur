@@ -9,12 +9,12 @@
                 return $http.get('/api/companies/' + id);
             },
             add(company) {
-              debugger
                 return $http.post('/api/companies', company)
             },
-
+            edit(company) {
+                return $http.put('/api/companies/' + company._id, company)
+            },
             filter(filtre) {
-
                 if (!filtre.name)
                     delete filtre.name
                 return $http.get('/api/companies', {

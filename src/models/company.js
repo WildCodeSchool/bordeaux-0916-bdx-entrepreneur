@@ -25,8 +25,8 @@ module.exports = mongoose.model('Companie', new mongoose.Schema({
     prestations: String,
     attentes: String,
     notes: String,
-    membres: [mongoose.Schema.Types.Mixed],
-    gerants: [{
+    cofond: [mongoose.Schema.Types.Mixed],
+    fondateur: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],

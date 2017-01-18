@@ -3,10 +3,12 @@ let mongoose = require('mongoose');
 let userSchema = new mongoose.Schema({
 
 
-    name: {
-        type: String
-    },
-    company: String,
+    name: String,
+    prenom: String,
+    company: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Companie'
+    }],
     firstname: String,
     social: [mongoose.Schema.Types.Mixed],
     number: {
@@ -24,32 +26,15 @@ let userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    contact: {
-        type: Boolean,
-        default: false
-    },
-    contactname: {
-        type: String,
-        default: false
-    },
-    contactemail: {
-        type: String,
-        default: false
-    },
-    contactnumber: {
-        type: Number,
-        default: false
-    },
-    contactname2: String,
-    contactemail2: {
-        type: String,
-        default: false,
-    },
-    contactnumber2: Number,
     fondateur: {
         type: Boolean,
         default: false
+    },
+    cofondateur: {
+        type: Boolean,
+        default: true
     }
+
 }, {
     timestamps: true
 });
