@@ -1,0 +1,10 @@
+**/node_modules
+*.log
+*.DS_Store
+#Build files
+public/js/
+public/css/
+
+# Config
+config/dev.js
+config/config.js
