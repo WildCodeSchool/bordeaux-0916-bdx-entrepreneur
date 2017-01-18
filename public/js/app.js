@@ -9,6 +9,32 @@
       })
     }
   })
+
+  const file = [() => {
+    return {
+        restrict: 'E',
+        template: '<input type="file">',
+        replace: true,
+        transclude: true,
+        require: 'ngModel',
+        link(scope, element, attr, ctrl) {
+
+            if (!attr.class && !attr.ngClass) {
+                element.addClass('btn');
+            }
+
+            let listener = () => {
+                scope.$apply(() => {
+                    attr.multiple ? ctrl.$setViewValue(element[0].files) : ctrl.$setViewValue(element[0].files[0])
+                });
+            }
+            element.bind('change', listener)
+        }
+    }
+}]
+
+app.directive('file', file)
+
 })(require('angular').module('app', [
     require('angular-ui-router'),
     require('angular-aria'),

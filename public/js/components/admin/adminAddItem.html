@@ -8,7 +8,9 @@
   <div layout="row" flex="100">
       <md-user-avatar flex-gt-xs="25">
       <a ui-sref="{{$ctrl.company.siteweb}}"><img ng-src="/img/developer.jpg" class="md-card-image" alt="" /></a>
+      <file name="file" ng-model="$ctrl.image" accept="image/jpeg, image/png, image/jpg" ng-change="$ctrl.preview()"></file>
       </md-user-avatar>
+
 
       <md-card-header-text flex-gt-xs="60" style="display: initial; color: #3a88be;">
 
@@ -395,7 +397,7 @@ Div Containing Buttons
 
 <div layout="row" layout-padding>
 
-  <md-button ng-click="$ctrl.saveCompanies($ctrl.company,$ctrl.fondateur,$ctrl.cofondateur, $ctrl.cofondateurbis)" aria-label="photo" class="md-fab md-primary md-icon-button">
+  <md-button ng-click="$ctrl.saveCompanies($ctrl.company,$ctrl.fondateur,$ctrl.cofondateur, $ctrl.cofondateurbis, $ctrl.image)" aria-label="photo" class="md-fab md-primary md-icon-button">
       <i class="material-icons">save</i>
   </md-button>
 </div>

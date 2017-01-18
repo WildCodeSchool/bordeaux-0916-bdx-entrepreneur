@@ -17,6 +17,10 @@ module.exports = (app) => {
         return ctrl.create(req, res, next)
     })
 
+    app.post('/upload', (req, res, next) => {
+        return ctrl.upload(req, res, next)
+    })
+
     app.put('/companies/:id', (req, res, next) => {
         return ctrl.update(req, res, next)
     });

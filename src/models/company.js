@@ -22,7 +22,7 @@ module.exports = mongoose.model('Companie', new mongoose.Schema({
         type: String,
         required: true
     },
-    prestations: String,
+    prestation: String,
     attentes: String,
     notes: String,
     cofond: [mongoose.Schema.Types.Mixed],

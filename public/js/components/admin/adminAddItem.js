@@ -40,8 +40,10 @@
 
 
                     },
-                    saveCompanies(company, fondateur, cofond, cfondbis) {
+                    saveCompanies(company, fondateur, cofond, cfondbis, image) {
+                      companiesService.upload(this.image)
                         this.infos.company = company
+                        this.infos.company.image = `img/${this.image.name}`
                         this.infos.fondateur = fondateur
                         this.infos.cofond = cofond
                         this.infos.cofondbis = cfondbis
