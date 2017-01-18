@@ -1,0 +1,43 @@
+<div layout="row" layout-padding layout-margin>
+  <div flex>
+    <h3>creer une new company :</h3>
+    <md-button class="md-fab md-primary md-icon-button" ui-sref="admin.new({id:'_new'})">
+        <i class="material-icons">note_add</i>
+    </md-button>
+  </div>
+
+  <div flex>
+    <h3>creer un new user :</h3>
+    <md-button class="md-fab md-primary md-icon-button">
+        <i class="material-icons">note_add</i>
+    </md-button>
+  </div>
+</div>
+
+
+<div layout="row" layout-padding layout-margin>
+  <div flex>
+    <md-list>
+      <h3>List of companies</h3>
+      <md-list-item ng-repeat="company in $ctrl.companies">
+        <md-checkbox></md-checkbox>
+        <div class="md-list-item-text">
+          <p>{{company.name}}</p>
+
+        </div>
+      </md-list-item>
+    </md-list>
+  </div>
+<!-- get the users but not populate with companies... -->
+  <div flex>
+    <md-list>
+      <h3>List of users</h3>
+      <md-list-item ng-repeat="user in $ctrl.users">
+        <md-checkbox></md-checkbox>
+        <div class="md-list-item-text">
+          <p>{{user.name}}</p>
+        </div>
+      </md-list-item>
+    </md-list>
+  </div>
+</div>

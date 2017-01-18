@@ -1,0 +1,29 @@
+<div layout="row">
+    <div layout="column" flex role="main">
+        <md-card layout="vertical" flex id="homeback">
+            <div layout="row" layout-align="center center" layout-fill>
+                <md-whiteframe class="md-whiteframe-z1" layout="column" flex-gt-xs="30" layout-wrap layout-padding style="box-shadow:none;">
+                    <md-content>
+                        <h3>New Connection</h3>
+                        <md-input-container>
+                            <label style="color: #3a88be;">Email</label>
+                            <input ng-model="$ctrl.user.email">
+                        </md-input-container>
+                        <md-input-container>
+                            <label style="color: #3a88be;">Mot de passe</label>
+                            <input ng-model="$ctrl.user.password" type="password">
+                        </md-input-container>
+                        <md-input-container layout-align="center center">
+                            <div layout="row" layout-sm="column" layout-margin>
+                                <a ui-sref="company.list">
+                                    <md-button class="md-raised" flex="50" flex-sm="100" ng-click="$ctrl.connect()" style="color: #3a88be;">Connexion</md-button>
+                                </a>
+                            </div>
+                        </md-input-container>
+
+                    </md-content>
+                </md-whiteframe>
+            </div>
+        </md-card>
+    </div>
+</div>
