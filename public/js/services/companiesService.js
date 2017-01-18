@@ -5,32 +5,24 @@
             get() {
                 return $http.get('/api/companies');
             },
+            getById(id) {
+                return $http.get('/api/companies/' + id);
+            },
+            add(company) {
+              debugger
+                return $http.post('/api/companies', company)
+            },
 
-//Service for filtering
             filter(filtre) {
 
                 if (!filtre.name)
                     delete filtre.name
-//just here to anticipate if many filters...
-
                 return $http.get('/api/companies', {
-                        params: filtre
-                    })
-            },
-
-            getById(id) {
-                return $http.get('/api/companies/' + id);
+                    params: filtre
+                })
             },
             delete(company) {
                 return $http.delete('/api/companies/' + company._id);
-            },
-            save(company) {
-                if (!company.id) {
-                    request = $http.post('/api/companies', company)
-                } else {
-                    request = $http.put('/api/companies/' + company._id, company)
-                }
-                return request
             }
         }
     })

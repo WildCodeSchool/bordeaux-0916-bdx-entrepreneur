@@ -21,7 +21,6 @@
             },
 
             connect(data) {
-              debugger
                 return $http.post('/api/admin', data).then((res) => {
                     this.currentUser = res.data.user
                     $cookies.put('token', res.data.token)

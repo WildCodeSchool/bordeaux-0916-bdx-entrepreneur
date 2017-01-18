@@ -22,6 +22,10 @@ module.exports = mongoose.model('Companie', new mongoose.Schema({
         type: String,
         required: true
     },
+    prestations: String,
+    attentes: String,
+    notes: String,
+    membres: [mongoose.Schema.Types.Mixed],
     gerants: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
