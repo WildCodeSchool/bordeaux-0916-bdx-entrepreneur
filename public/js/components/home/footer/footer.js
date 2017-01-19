@@ -6,5 +6,5 @@
                 this.companies = response.data
             })
         }
-    }); //dont delete
-})(require('angular').module('app.home'))
+    });
+})(angular.module('app.footer'))

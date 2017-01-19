@@ -5,11 +5,13 @@
 
             usersService.getCurrent().then((user) => {
                 this.user = user
+
             }).catch(() => {
                 $state.go('login.connect')
             })
             angular.extend(this, {
                 $onInit() {
+
 
                 },
                 disconnect() {
@@ -20,4 +22,4 @@
             })
         }]
     }); //dont delete
-})(angular.module('app.home'))
+})(angular.module('app.navbar'))

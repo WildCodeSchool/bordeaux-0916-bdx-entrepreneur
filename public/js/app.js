@@ -48,6 +48,10 @@ app.directive('file', file)
     'app.home',
     'app.admin',
     'app.company',
+    'app.newCompany',
     'app.dashboard',
-    'app.event'
+    'app.event',
+    'app.adherents',
+    'app.navbar',
+    'app.footer'
 ]))

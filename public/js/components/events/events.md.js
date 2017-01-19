@@ -1,3 +1,10 @@
-((app)=>{
-//Declaration of the module/component
-})(require('angular').module('app.event', []))
+((app) => {
+      'use strict'
+      app.config(['$stateProvider', ($stateProvider) => {
+          $stateProvider.state('app.event', {
+              url: '/events',
+              template: '<events></events>'
+          })
+      }])
+
+  })(angular.module('app.event',['ui.router']));

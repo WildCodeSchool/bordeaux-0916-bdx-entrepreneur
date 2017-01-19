@@ -3,7 +3,7 @@
     app.config(['$stateProvider', ($stateProvider) => {
         $stateProvider.state('app.dashboard', {
             url: '/dashboard',
-            template: '<dashboard/></dashboard>'
+            template: '<dashboard></dashboard>'
         })
     }])
 

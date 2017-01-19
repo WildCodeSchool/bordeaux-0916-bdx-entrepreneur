@@ -1,25 +1,16 @@
 <div id="navbar">
-
     <md-card>
         <div layout="row" layout-padding layout-margin layout-xs="column" layout-sm="column">
             <!-- logo -->
             <div flex-gt-xs="35" layout="column" layout-align="center" id="logonav">
-                <a ui-sref="company.list" title="Accueil"><img src="../img/logo_BordeauxEntrepreneursV3.png" alt="logo" class="img-responsive" /></a>
+                <a ui-sref="app.home" title="Accueil"><img src="../img/logo_BordeauxEntrepreneursV3.png" alt="logo" class="img-responsive" /></a>
             </div>
             <!-- nav icons -->
             <div layout="column" flex-gt-xs="90" layout-align="center">
                 <div layout="row" id="iconrow">
-
                     <a title="Favoris" href=""><i class="material-icons">grade</i></a>
-                    <a title="Evènements" ui-sref="event"><i class="material-icons">event</i></a>
-                    <a title="Adhérents" ui-sref="company.list"><i class="material-icons">face</i></a>
-                    <md-switch ng-click="$ctrl.user.isAdmin = !$ctrl.user.isAdmin" aria-label="Switch 1">
-                        Admin
-                    </md-switch>
-                    <div ng-if="$ctrl.user.isAdmin">
-                        <p>Mode Administrateur</p>
-                    </div>
-
+                    <a title="Evènements" ui-sref="app.event"><i class="material-icons">event</i></a>
+                    <a title="Adhérents" ui-sref="app.adherents"><i class="material-icons">face</i></a>
                 </div>
             </div>
             <!-- user card -->
@@ -27,14 +18,14 @@
                 <md-card flex id="usercard" style="color: #3a88be;">
                     <md-card-header layout="row">
                         <md-card-avatar>
-                            <img class="md-user-avatar" ng-src="{{($ctrl.user.image ? '$ctrl.user.image' : '../img/avatar_defaut.png')}}">
+                            <img class="md-user-avatar" ng-src="{{($ctrl.user.image ? $ctrl.user.image : '../img/avatar_defaut.png')}}">
                         </md-card-avatar>
                         <md-card-header-text layout="column">
                             <span class="md-title" style="font-size: medium;">Bonjour <strong>{{$ctrl.user.name}}</strong></span>
                         </md-card-header-text>
                     </md-card-header>
                     <md-card-actions layout="row" layout-align="start center">
-                        <md-button ui-sref="dashboard">Ma Fiche</md-button>
+                        <md-button ui-sref="app.company({id:$ctrl.user.company})">Ma Fiche</md-button>
                         <md-button ng-click="$ctrl.disconnect()">Déconnexion</md-button>
                     </md-card-actions>
                 </md-card>

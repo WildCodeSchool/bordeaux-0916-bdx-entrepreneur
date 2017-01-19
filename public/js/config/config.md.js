@@ -1,3 +1,3 @@
 ((app)=>{
-
-})(require('angular').module('app.config', []))
+  'use strict'
+})(require('angular').module('app.config', ['ui.router']))
