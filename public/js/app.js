@@ -10,6 +10,7 @@
     }
   })
 
+
   const file = [() => {
     return {
         restrict: 'E',
@@ -46,12 +47,14 @@ app.directive('file', file)
     'app.services',
     'app.login',
     'app.home',
-    'app.admin',
     'app.company',
     'app.newCompany',
     'app.dashboard',
     'app.event',
     'app.adherents',
     'app.navbar',
-    'app.footer'
+    'app.footer',
+    'app.newAccount',
+    'ngJsonExportExcel',
+    'app.profile'
 ]))

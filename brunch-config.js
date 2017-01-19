@@ -27,7 +27,7 @@ exports.config = {
     },
     npm: {
         enabled: true,
-        compilers: ['angular', 'angular-ui-router', 'angular-aria', 'angular-animate', 'angular-messages', 'angular-material', 'angular-cookies']
+        compilers: ['angular', 'angular-ui-router', 'angular-aria', 'angular-animate', 'angular-messages', 'angular-material', 'angular-cookies', 'file-saver']
     },
     conventions: {
         assets: /static[\\/]/,

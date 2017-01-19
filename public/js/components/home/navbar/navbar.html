@@ -18,7 +18,7 @@
                 <md-card flex id="usercard" style="color: #3a88be;">
                     <md-card-header layout="row">
                         <md-card-avatar>
-                            <img class="md-user-avatar" ng-src="{{($ctrl.user.image ? $ctrl.user.image : '../img/avatar_defaut.png')}}">
+                            <a ui-sref="app.profile"><img class="md-user-avatar" ng-src="{{($ctrl.user.image ? $ctrl.user.image : '../img/avatar_defaut.png')}}"></a>
                         </md-card-avatar>
                         <md-card-header-text layout="column">
                             <span class="md-title" style="font-size: medium;">Bonjour <strong>{{$ctrl.user.name}}</strong></span>

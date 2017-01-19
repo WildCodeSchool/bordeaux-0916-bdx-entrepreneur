@@ -5,9 +5,8 @@
 
             usersService.getCurrent().then((user) => {
                 this.user = user
-
             }).catch(() => {
-                $state.go('login.connect')
+                $state.go('app.login')
             })
             angular.extend(this, {
                 $onInit() {
@@ -16,7 +15,7 @@
                 },
                 disconnect() {
                     usersService.disconnect().then(() => {
-                        $state.go('login.connect')
+                        $state.go('app.login')
                     })
                 }
             })

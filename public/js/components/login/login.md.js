@@ -1,20 +1,9 @@
-((app)=>{
-
-  'use strict'
-      app.config(['$stateProvider', ($stateProvider) => {
-          $stateProvider
-              .state('login', {
-                  url: '/login',
-                  abstract: true,
-                  templateUrl: 'js/components/login/login.html'
-              })
-              .state('login.connect', {
-                  url: '',
-                  template: '<connect></connect>'
-              })
-              .state('login.create', {
-                  url: '/new/account',
-                  template: '<account></account>'
-              });
-      }]);
-})(require('angular').module('app.login', []));
+((app) => {
+    'use strict'
+    app.config(['$stateProvider', ($stateProvider) => {
+        $stateProvider.state('app.login', {
+            url: '/login',
+            template: '<login></login>'
+        })
+    }])
+})(angular.module('app.login', ['ui.router']));

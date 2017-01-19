@@ -10,6 +10,7 @@ let userSchema = new mongoose.Schema({
         ref: 'Companie'
     }],
     firstname: String,
+    addresse:[mongoose.Schema.Types.Mixed],
     social: [mongoose.Schema.Types.Mixed],
     number: {
         type: Number
@@ -33,8 +34,11 @@ let userSchema = new mongoose.Schema({
     cofondateur: {
         type: Boolean,
         default: true
-    }
-
+    },
+    active: {
+        type: Boolean,
+        default: true
+    },
 }, {
     timestamps: true
 });
