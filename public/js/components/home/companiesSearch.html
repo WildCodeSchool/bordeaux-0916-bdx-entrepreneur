@@ -1,0 +1,22 @@
+<div flex layout="row" layout-padding layout-margin layout-wrap>
+    <div flex-xs flex-gt-xs="100" layout="column">
+
+        <form ng-submit="$event.preventDefault()" name="searchForm" flex="100">
+            <div layout-gt-sm="row">
+          <!-- I change the type of input because it did not work whit the previous one... -->
+                <md-input-container flex="50">
+                    <label>Enter a company name or a #tag</label>
+                    <input type="text" ng-model="$ctrl.name" >
+                </md-input-container>
+                <!-- bouton for search by name -->
+                <!-- <button type="submit" name="button" ng-click="$ctrl.filter($ctrl.name)">chercher</button> -->
+
+                <div flex="50">
+                    <md-select placeholder="Search by Sector of Activity" ng-model="user" style="min-width: 200px;">
+                        <md-option ng-value={{company.sector}} ng-repeat="company in $ctrl.companies">{{company.sector}}</md-option>
+                    </md-select>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div id="adherentsList" layout="row" layout-padding layout-margin layout-wrap>
+    <!-- <h1>Utilisaters actifs</h1> -->
+    <md-content ng-repeat="adherent in $ctrl.active">
+        <md-card md-theme="default" md-theme-watch="" class="_md md-default-theme">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{adherent.name}}</span>
+                    <span class="md-subhead">Membre de la compagnie {{adherent.company.name}}</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-sm card-media">
+                        <img ng-src="{{adherent.image}}" alt="" />
+                    </div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="$ctrl.disable($index)" class="md-icon-button md-fab md-primary md-hue-2" aria-label="Settings">
+                    <i class="material-icons">delete</i>
+                </md-button>
+            </md-card-actions>
+        </md-card>
+    </md-content>
+
+    <!-- <h1>Utilisaters inactifs</h1> -->
+
+    <md-content ng-repeat="adherent in $ctrl.inactive">
+        <md-card md-theme="default" md-theme-watch="" class="_md md-default-theme">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{adherent.name}}</span>
+                    <span class="md-subhead">Membre de la compagnie {{adherent.company.name}}</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-sm card-media">
+                        <img ng-src="{{adherent.image}}" alt="" />
+                    </div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="$ctrl.activate($index)" class="md-icon-button md-fab md-primary md-hue-2" aria-label="Settings">
+                    <i class="material-icons">done</i>
+                </md-button>
+            </md-card-actions>
+        </md-card>
+    </md-content>
+</div>
+
+<div class="container">
+    <button ng-json-export-excel data="$ctrl.adherents" report-fields="{name: 'Name', company:'Société',social:'Réseaux sociaux', email:'Email'}" filename="'Player'" class="btn btn-primary">Export Excel</button>
+</div>
+
+
+<section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    <md-button class="md-raised md-primary" ng-click="$ctrl.loadMore()">Charger Plus
+    </md-button>
+    <!--
+    Button for add page.
+    -->
+    <md-button class="md-fab md-primary md-icon-button" ui-sref="admin.new">
+        <i class="material-icons">note_add</i>
+    </md-button>
+
+</section>
