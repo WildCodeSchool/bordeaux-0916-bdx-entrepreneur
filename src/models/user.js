@@ -18,7 +18,7 @@ let userSchema = new mongoose.Schema({
         type: String,
         unique: true
     },
-    img: String,
+    image: String,
     password: {
         type: String,
     },

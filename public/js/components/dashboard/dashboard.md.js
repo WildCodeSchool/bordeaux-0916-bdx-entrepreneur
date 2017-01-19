@@ -1,6 +1,10 @@
-
 ((app) => {
-    //Declaration of the module/component
+    'use strict'
+    app.config(['$stateProvider', ($stateProvider) => {
+        $stateProvider.state('app.dashboard', {
+            url: '/dashboard',
+            template: '<dashboard/></dashboard>'
+        })
+    }])
 
-
-})(require('angular').module('app.dashboard',[]));
+})(angular.module('app.dashboard',['ui.router']));

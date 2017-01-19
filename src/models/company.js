@@ -8,6 +8,7 @@ module.exports = mongoose.model('Companie', new mongoose.Schema({
         type: String,
         required: true
     },
+    image:String,
     secteur: String,
     logo: String,
     social: [mongoose.Schema.Types.Mixed],

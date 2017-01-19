@@ -19,10 +19,10 @@
 
                     companiesService.getById($stateParams.id).then((response) => {
                         this.company = response.data
-                        this.company.users.forEach((creator) => {
-                            if (creator === this.user._id)
-                                this.editable = true
-                        })
+                        console.log(this.company)
+                        this.fondateur = this.company.fondateur[0]
+                        this.cofond = this.company.cofond[0]
+                        this.cofondbis = this.company.cofond[1]
 
                     });
 

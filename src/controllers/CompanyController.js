@@ -67,14 +67,16 @@ class CompanyController extends Controller {
                     company.fondateur.push(this.fondateurId)
                     company.cofond.push(this.cofondateurs)
                     company.save()
+                    this.cofondateurs = null
+                    this.fondateurId = null
                 })
             }
         })
     }
 
 
-    find(req, res, next) {
-        this.model.find(req.query).populate('fondateur').exec((err, documents) => {
+    findById(req, res, next) {
+        this.model.findById(req.params.id).populate('fondateur').exec((err, documents) => {
             res.json(documents)
         })
     }
