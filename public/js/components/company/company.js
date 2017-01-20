@@ -16,6 +16,7 @@
 
                     companiesService.getById($stateParams.id).then((response) => {
                         this.company = response.data
+                        this.tags = this.company.tags.join(',')
                         this.social = this.company.social[0]
                         this.fondateur = this.company.fondateur[0]
                         this.cofond = this.company.cofond[0]
@@ -25,16 +26,15 @@
 
 
                 },
-                edit(company, social ,image) {
-
+                edit(company, social, tag, image) {
                     if (this.editMode) {
-                      if(this.image){
-                        companiesService.upload(this.image)
-                        this.infos.image = `img/${this.image.name}`
-                      }
+                        if (this.image) {
+                            companiesService.upload(this.image)
+                            this.infos.image = `img/${this.image.name}`
+                        }
                         this.infos = company
                         this.infos.social = social
-                        console.log(this.infos);
+                        this.infos.tags.push(tag)
                         companiesService.edit(this.infos).then((res) => {
                             this.newCompany = res.config.data
                             console.log(this.newCompany);

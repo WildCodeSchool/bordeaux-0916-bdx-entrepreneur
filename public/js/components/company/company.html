@@ -273,11 +273,12 @@
                         <h3>
                 <md-input-container class="md-block" flex-gt-xs="80">
                       <label>Tags</label>
-                        <input ng-repeat="tag in $ctrl.company.tags" ng-model="tag">
+                        <input ng-model="$ctrl.tags" placeholder="Entrer les mots clés séparés par une ,">
                        </md-input-container>
                     </h3>
 
 
+                    
                     </md-card-header-text>
                 </div>
             </md-card-header>
@@ -710,7 +711,7 @@ Div Containing Buttons
 
             <div layout="row" layout-padding>
 
-                <md-button ng-click="$ctrl.edit($ctrl.company, $ctrl.social,$ctrl.image)" aria-label="photo" class="md-fab md-primary md-icon-button">
+                <md-button ng-click="$ctrl.edit($ctrl.company, $ctrl.social,$ctrl.tags,$ctrl.image)" aria-label="photo" class="md-fab md-primary md-icon-button">
                     <i class="material-icons">save</i>
                 </md-button>
 
