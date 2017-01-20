@@ -37,7 +37,9 @@ class CompanyController extends Controller {
 
         let create = (membre) => {
             USER.create(membre, (err, user) => {
+              console.log(user);
                 if (err) next(err)
+                else
                 user.fondateur === true ? this.fondateurId = user._id : this.cofondateurs[user._id] = user
             })
         }
