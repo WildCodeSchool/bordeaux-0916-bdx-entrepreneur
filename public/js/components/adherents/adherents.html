@@ -6,12 +6,16 @@
                 <div class="card-content">
                     <div class="row valign-wrapper">
                         <div class="col s3">
-                            <img ng-src="{{adherent.image}}" alt="" />
+                            <img class="responsive-img circle" ng-src="{{adherent.image}}" alt="" />
                         </div>
                         <div class="col s9">
                             <div class="card-title">
                                 <p>{{adherent.name}}</p>
-                                <p>Membre de la compagnie {{adherent.company.name}}</p>
+                                <p>
+                                    Membre de la compagnie
+                                    <br>
+                                    <strong>{{adherent.company.name}}</strong>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -34,7 +38,11 @@
                         <div class="col s9">
                             <div class="card-title">
                                 <p>{{adherent.name}}</p>
-                                <p>Membre de la compagnie {{adherent.company.name}}</p>
+                                <p>
+                                    Membre de la compagnie
+                                    <br>
+                                    <strong>{{adherent.company.name}}</strong>
+                                </p>
                             </div>
                         </div>
                     </div>

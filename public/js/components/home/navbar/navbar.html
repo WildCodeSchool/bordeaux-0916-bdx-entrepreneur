@@ -1,36 +1,29 @@
-<nav id="navbar">
-    <div class="nav-wrapper blue lighten-4">
-        <!-- <div class="row"> -->
-        <div class="left">
+<section id="navbar" class="white">
+    <div class="row">
+        <div class="col s4 left">
             <a ui-sref="app.home" title="Accueil">
                 <img src="../img/logo_BordeauxEntrepreneursV3.png" alt="logo" class="img-responsive" />
             </a>
         </div>
-        <ul class="center">
-            <li><a title="Favoris" href=""><i class="material-icons">grade</i></a></li>
-            <li><a title="Evènements" ui-sref="app.event"><i class="material-icons">event</i></a></li>
-            <li><a title="Adhérents" ui-sref="app.adherents"><i class="material-icons">face</i></a></li>
-        </ul>
-        <div class="right">
-            <div class="card card-panel hoverable">
-                <div class="card-content">
-                    <div class="row valign-wrapper">
-                        <div class="col s3">
-                            <a ui-sref="app.profile"><img class="responsive-img circle" ng-src="{{($ctrl.user.image ? $ctrl.user.image : '../img/avatar_defaut.png')}}" alt="" /></a>
-                        </div>
-                        <div class="col s9">
-                            <div class="card-title">
-                                Bonjour <strong>{{$ctrl.user.name}}</strong>
-                            </div>
-                        </div>
+        <div class="col s4 center" id="iconNav">
+            <a title="Favoris" href=""><i class="material-icons">grade</i></a>
+            <a title="Evènements" ui-sref="app.event"><i class="material-icons">event</i></a>
+            <a title="Adhérents" ui-sref="app.adherents"><i class="material-icons">face</i></a>
+        </div>
+
+        <div class="col s4 right">
+            <div class="card-panel">
+                <div class="row">
+                    <div class="col s3">
+                        <a ui-sref="app.profile"><img class="responsive-img circle" ng-src="{{($ctrl.user.image ? $ctrl.user.image : '../img/avatar_defaut.png')}}" alt="" /></a>
                     </div>
-                    <div class="card-action">
+                    <div class="col s9">
+                        <h6>Bonjour <strong>{{$ctrl.user.name}}</strong></h6>
                         <a class="waves-effect waves-light btn" ui-sref="app.company({id:$ctrl.user.company})"><i class="material-icons left">assignment_ind</i>Ma Fiche</a>
-                        <a class="waves-effect waves-light btn" ng-click="$ctrl.disconnect()"><i class="material-icons right">exit_to_app</i>Déconnexion</a>
+                        <a class="waves-effect waves-light btn" ng-click="$ctrl.disconnect()"><i class="material-icons">exit_to_app</i></a>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-</nav>
+</section>
