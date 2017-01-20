@@ -3,14 +3,13 @@
     app.component('newAccount', {
         templateUrl: 'js/components/newAccount/newAccount.html',
         controller: ['usersService', '$state', function(usersService, $state) {
-            let $ctrl = this
             angular.extend(this, {
                 $onInit() {
 
                 },
-                create() {
-                    usersService.create($ctrl.user).then((res) => {
-                        debugger
+                add(user) {
+                    usersService.add(user).then((res) => {
+                     $state.go("app.login")
                     }).catch(()=>{
                       console.log("Error adding user")
                     })

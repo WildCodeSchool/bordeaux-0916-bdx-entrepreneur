@@ -1,15 +1,6 @@
 ((app) => {
 
 
-
-    $(document).ready(function() {
-        $('select').material_select();
-    });
-
-    $('select').material_select('destroy');
-
-    
-
     //creation of our proper filter function
     app.filter('filterCompanyName', function() {
         return function(arr, name) {
@@ -68,5 +59,6 @@
     'app.footer',
     'app.newAccount',
     'ngJsonExportExcel',
-    'app.profile'
+    'app.profile',
+    'app.newAdherent'
 ]))

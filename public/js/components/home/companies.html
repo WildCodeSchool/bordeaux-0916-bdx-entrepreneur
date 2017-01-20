@@ -1,4 +1,12 @@
 <section id="companiesList" class="row">
+    <div class="row">
+        <div class="col s12">
+            <h1 class="titre">Compagnies membres</h1>
+        </div>
+    </div>
+
+
+    
     <div class="col s6" ng-repeat="company in $ctrl.companies | orderBy:'name' | filterCompanyName :  $ctrl.name | limitTo : $ctrl.carouselstate track by $index">
         <div class="card card-panel hoverable">
             <div class="card-content">

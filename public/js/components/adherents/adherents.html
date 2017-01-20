@@ -1,6 +1,16 @@
 <section>
     <div id="adherentsList" class="row">
-        <!-- <h1>Utilisaters actifs</h1> -->
+        <div class="row">
+            <div class="col s12">
+                <h1 class="titre">Adhérents</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <h1 class="titre">Actifs</h1>
+            </div>
+        </div>
+
         <div class="col s3" ng-repeat="adherent in $ctrl.active">
             <div class="card card-panel hoverable">
                 <div class="card-content">
@@ -24,7 +34,11 @@
             </div>
         </div>
 
-        <!-- <h1>Utilisaters inactifs</h1> -->
+        <div class="row">
+            <div class="col s12">
+                <h1 class="titre">Inactifs</h1>
+            </div>
+        </div>
 
         <div class="col s3" ng-repeat="adherent in $ctrl.inactive">
             <div class="card card-panel hoverable">
@@ -53,7 +67,7 @@
         <div class="center-align">
             <a class="waves-effect waves-light btn" ng-click="$ctrl.loadMore()">Charger Plus<i class="material-icons right">add</i></a>
             <!--Button for add page.-->
-            <a class="waves-effect waves-light btn" ui-sref="admin.new"><i class="material-icons">note_add</i></a>
+            <a class="waves-effect waves-light btn" ui-sref="app.newAdherent"><i class="material-icons">note_add</i></a>
             <!-- Button export -->
             <a ng-json-export-excel data="$ctrl.adherents" report-fields="{name: 'Name', company:'Société',social:'Réseaux sociaux', email:'Email'}" filename="'Player'" class="waves-effect waves-light btn" ng-click="$ctrl.loadMore()">
                 <i class="material-icons right">save</i> Export Excel

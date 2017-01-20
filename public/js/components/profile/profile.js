@@ -6,6 +6,10 @@
                 $onInit() {
 
 
+                      $(document).ready(function() {
+                          $('select').material_select();
+                      });
+                    
                     this.showHints = true;
 
                     this.regions = ('Auvergne-Rhône-Alpes Bourgogne-Franche-Comté Bretagne Centre-Val-de-Loire Corse Grand-Est ' +
