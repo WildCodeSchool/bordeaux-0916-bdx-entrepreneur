@@ -14,7 +14,7 @@
 
                 },
                 get() {
-                    if (this.search.length != 0) {
+                    if (this.search.length > 0) {
                         companiesService.findOne(this.search).then((res) => {
                             this.companies = res.data
                             console.log(this.companies);
