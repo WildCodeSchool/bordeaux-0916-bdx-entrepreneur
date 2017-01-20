@@ -4,21 +4,21 @@
             <div class="card-content">
                 <div class="row">
                     <div class="col s3">
-                        <a ui-href="{{$ctrl.company.siteweb}}">
+                        <a href="{{$ctrl.company.siteweb}}" target="_blank">
                             <img ng-src="/img/developer.jpg" class="responsive-img" alt="" />
-                            <form action="#" >
-                                <div class="file-field input-field">
-                                    <div class="btn">
-                                        <span>File</span>
-                                        <input type="file" ng-model="$ctrl.image" ng-change="$ctrl.preview()">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text">
-                                    </div>
-                                </div>
-                            </form>
-
                         </a>
+                        <form action="#">
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span>File</span>
+                                    <input type="file" ng-model="$ctrl.image" ng-change="$ctrl.preview()">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text">
+                                </div>
+                            </div>
+                        </form>
+
                     </div>
                     <div class="col s9">
                         <div class="input-field">
