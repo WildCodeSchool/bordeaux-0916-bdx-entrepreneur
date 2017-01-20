@@ -36,7 +36,7 @@ class Controller {
     }
     
     update(req, res, next) {
-      console.log(req.body);
+        // Update a document by request param, this param need to be id with data from body request (req.body)
         this.model.update({
             _id: req.params.id
         }, req.body, (err, document) => {
