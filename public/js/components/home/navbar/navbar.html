@@ -1,36 +1,29 @@
-<div id="navbar">
-    <md-card>
-        <div layout="row" layout-padding layout-margin layout-xs="column" layout-sm="column">
-            <!-- logo -->
-            <div flex-gt-xs="35" layout="column" layout-align="center" id="logonav">
-                <a ui-sref="app.home" title="Accueil"><img src="../img/logo_BordeauxEntrepreneursV3.png" alt="logo" class="img-responsive" /></a>
-            </div>
-            <!-- nav icons -->
-            <div layout="column" flex-gt-xs="90" layout-align="center">
-                <div layout="row" id="iconrow">
-                    <a title="Favoris" href=""><i class="material-icons">grade</i></a>
-                    <a title="Evènements" ui-sref="app.event"><i class="material-icons">event</i></a>
-                    <a title="Adhérents" ui-sref="app.adherents"><i class="material-icons">face</i></a>
+<section id="navbar" class="white">
+    <div class="row">
+        <div class="col s4 left">
+            <a ui-sref="app.home" title="Accueil">
+                <img src="../img/logo_BordeauxEntrepreneursV3.png" alt="logo" class="img-responsive" />
+            </a>
+        </div>
+        <div class="col s4 center" id="iconNav">
+            <a title="Favoris" href=""><i class="material-icons">grade</i></a>
+            <a title="Evènements" ui-sref="app.event"><i class="material-icons">event</i></a>
+            <a title="Adhérents" ui-sref="app.adherents"><i class="material-icons">face</i></a>
+        </div>
+
+        <div class="col s4 right">
+            <div class="card-panel">
+                <div class="row">
+                    <div class="col s3">
+                        <a ui-sref="app.profile"><img class="responsive-img circle" ng-src="{{($ctrl.user.image ? $ctrl.user.image : '../img/avatar_defaut.png')}}" alt="" /></a>
+                    </div>
+                    <div class="col s9">
+                        <h6>Bonjour <strong>{{$ctrl.user.name}}</strong></h6>
+                        <a class="waves-effect waves-light btn" ui-sref="app.company({id:$ctrl.user.company})"><i class="material-icons left">assignment_ind</i>Ma Fiche</a>
+                        <a class="waves-effect waves-light btn" ng-click="$ctrl.disconnect()"><i class="material-icons">exit_to_app</i></a>
+                    </div>
                 </div>
             </div>
-            <!-- user card -->
-            <div flex-gt-xs="35" layout="column" layout-align="center">
-                <md-card flex id="usercard" style="color: #3a88be;">
-                    <md-card-header layout="row">
-                        <md-card-avatar>
-                            <a ui-sref="app.profile"><img class="md-user-avatar" ng-src="{{($ctrl.user.image ? $ctrl.user.image : '../img/avatar_defaut.png')}}"></a>
-                        </md-card-avatar>
-                        <md-card-header-text layout="column">
-                            <span class="md-title" style="font-size: medium;">Bonjour <strong>{{$ctrl.user.name}}</strong></span>
-                        </md-card-header-text>
-                    </md-card-header>
-                    <md-card-actions layout="row" layout-align="start center">
-                        <md-button ui-sref="app.company({id:$ctrl.user.company})">Ma Fiche</md-button>
-                        <md-button ng-click="$ctrl.disconnect()">Déconnexion</md-button>
-                    </md-card-actions>
-                </md-card>
-            </div>
-
         </div>
-    </md-card>
-</div>
+    </div>
+</section>

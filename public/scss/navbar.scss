@@ -1,18 +1,16 @@
 #navbar {
+    height: 140px;
 
-md-card md-card-header md-card-avatar {
-    width: 64px;
-    height: 45px;
-  }
-  #logonav {
-    align-self: baseline;
-  }
-  #iconrow {
-    justify-content: space-around;
-  }
-  .material-icons {
-      color: #3a88be;
-      font-size: 48px;
-  }
+    #iconNav .material-icons{
+        font-size: 50px;
+        padding: 10%;
+    }
 
+    .card-panel {
+        margin: 5px 0 0;
+
+        .row {
+            margin-bottom: 0;
+        }
+    }
 }
