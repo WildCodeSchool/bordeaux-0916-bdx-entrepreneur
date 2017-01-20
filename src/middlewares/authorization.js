@@ -1,6 +1,6 @@
 'use strict'
 let jwt = require('jsonwebtoken')
-const ENV = require('../../config/dev')
+const ENV = require('../../config/env')
 
 exports.user = {
 

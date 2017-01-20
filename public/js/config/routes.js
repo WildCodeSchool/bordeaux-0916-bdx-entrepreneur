@@ -5,7 +5,7 @@
         $stateProvider.state('app', {
             url: '',
             abstract: true,
-            template: '<ui-view></ui-view>'
+            template: '<navbar></navbar><ui-view></ui-view><footer></footer>'
         })
     }])
 
