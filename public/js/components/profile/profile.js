@@ -5,6 +5,7 @@
             angular.extend(this, {
                 $onInit() {
 
+
                     this.showHints = true;
 
                     this.regions = ('Auvergne-Rhône-Alpes Bourgogne-Franche-Comté Bretagne Centre-Val-de-Loire Corse Grand-Est ' +
@@ -22,12 +23,12 @@
                             this.company = res.data
                         })
                     })
-                    
+
 
                 },
                 edit(user) {
                     usersService.edit(user).then((res) => {
-                        this.currentUser = res.config
+                        this.currentUser = res.config.data
                         console.log(res);
                         $state.reload()
                     })
