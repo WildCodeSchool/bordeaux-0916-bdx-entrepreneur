@@ -33,7 +33,7 @@
                     this.selected = this.active[index]
                     this.active.splice(index, 1)
                     this.selected.active = false
-                    this.inactive.push(this.active[index])
+                    this.inactive.push(this.selected)
                     usersService.edit(this.selected).then((res) => {
                         console.log(res);
                     })
@@ -42,7 +42,7 @@
                     this.selected = this.inactive[index]
                     this.inactive.splice(index, 1)
                     this.selected.active = true
-                    this.active.push(this.inactive[index])
+                    this.active.push(this.selected)
                     usersService.edit(this.selected).then((res) => {
                         console.log(res);
                     })
