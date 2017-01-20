@@ -3,7 +3,7 @@
     app.config(['$stateProvider', ($stateProvider) => {
         $stateProvider.state('app.newCompany', {
             url: '/newCompany',
-            template: '<newCompany></newCompany>'
+            template: '<new-company></new-company>'
         })
     }])
-})(angular.module('app.newCompany', ['ui.router']));
+  })(angular.module('app.newCompany',['ui.router']));

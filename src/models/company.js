@@ -20,8 +20,7 @@ module.exports = mongoose.model('Companie', new mongoose.Schema({
     siteweb: String,
     introduction: String,
     presentation: {
-        type: String,
-        required: true
+        type: String
     },
     prestation: String,
     attentes: String,
