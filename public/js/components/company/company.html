@@ -266,16 +266,17 @@
                         <h3>
               <md-input-container class="md-block" flex-gt-xs="80">
                   <label>Site Web de la compagnie</label>
-                  <input ng-model="$ctrl.company.sitweb">
+                  <input ng-model="$ctrl.company.siteweb">
                </md-input-container>
             </h3>
 
-                        <md-chips flex-gt-xs="80" class="chipsdemoBasicUsage custom-chips md-chip md-chip-remove-container" ng-model="$ctrl.tags" readonly="$ctrl.readonly" md-removable="$ctrl.removable" placeholder="Enter a tag" delete-button-label="Remove Tag" delete-hint="Press delete to remove tag"
-                            secondary-placeholder="+Tag">
-                            <md-chip-template>
-                                <strong>{{$chip}}</strong>
-                            </md-chip-template>
-                            </md-chips>
+                        <h3>
+                <md-input-container class="md-block" flex-gt-xs="80">
+                      <label>Tags</label>
+                        <input ng-repeat="tag in $ctrl.company.tags" ng-model="tag">
+                       </md-input-container>
+                    </h3>
+
 
                     </md-card-header-text>
                 </div>
@@ -292,9 +293,9 @@
                         <md-input-container class="md-block" flex-gt-xs="80">
                             <label>Facebook</label>
                             <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.facebook}}"><img ng-src="/img/facebook2.png" class="md-icon socialicons"></a>
+                                <a ng-href="{{$ctrl.social.facebook}}"><img ng-src="/img/facebook2.png" class="md-icon socialicons"></a>
                             </md-icon>
-                            <input ng-model="$ctrl.company.social.facebook">
+                            <input ng-model="$ctrl.social.facebook">
                         </md-input-container>
                     </div>
 
@@ -302,9 +303,9 @@
                         <md-input-container class="md-block" flex-gt-xs="80">
                             <label>linkedin</label>
                             <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin2.png" class="md-icon socialicons"></a>
+                                <a ng-href="{{$ctrl.linkedin}}"><img ng-src="/img/linkedin2.png" class="md-icon socialicons"></a>
                             </md-icon>
-                            <input ng-model="$ctrl.company.social.linkedin">
+                            <input ng-model="$ctrl.social.linkedin">
                         </md-input-container>
                     </div>
 
@@ -312,36 +313,36 @@
                         <md-input-container class="md-block" flex-gt-xs="80">
                             <label>Twitter</label>
                             <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
+                                <a ng-href="{{$ctrl.social.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
                             </md-icon>
-                            <input ng-model="$ctrl.company.social.twitter">
+                            <input ng-model="$ctrl.social.twitter">
                         </md-input-container>
                     </div>
                     <div layout="column">
                         <md-input-container class="md-block" flex-gt-xs="80">
                             <label>You Tube</label>
                             <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.youtube}}"><img ng-src="/img/youtube.png" class="md-icon socialicons"></a>
+                                <a ng-href="{{$ctrl.social.youtube}}"><img ng-src="/img/youtube.png" class="md-icon socialicons"></a>
                             </md-icon>
-                            <input ng-model="$ctrl.company.social.youtube">
+                            <input ng-model="$ctrl.social.youtube">
                         </md-input-container>
                     </div>
                     <div layout="column">
                         <md-input-container class="md-block" flex-gt-xs="80">
                             <label>Instagram</label>
                             <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.instagram}}"><img ng-src="/img/instagram.png" class="md-icon socialicons"></a>
+                                <a ng-href="{{$ctrl.social.instagram}}"><img ng-src="/img/instagram.png" class="md-icon socialicons"></a>
                             </md-icon>
-                            <input ng-model="$ctrl.company.social.instagram">
+                            <input ng-model="$ctrl.social.instagram">
                         </md-input-container>
                     </div>
                     <div layout="column">
                         <md-input-container class="md-block" flex-gt-xs="80">
-                            <label>Pininterest</label>
+                            <label>Pinterest</label>
                             <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.pininterest}}"><img ng-src="/img/pininterest.png" class="md-icon socialicons"></a>
+                                <a ng-href="{{$ctrl.social.pinterest}}"><img ng-src="/img/pininterest.png" class="md-icon socialicons"></a>
                             </md-icon>
-                            <input ng-model="$ctrl.company.social.pinterest">
+                            <input ng-model="$ctrl.social.pinterest">
                         </md-input-container>
                     </div>
                 </md-user-avatar>
@@ -545,7 +546,6 @@ Second Contact Card
 
                         <div layout="column">
                             <div layout="row">
-                                <!--<div flex><img class="md-user-avatar" src="../img/gorille_en_colere.gif" style="width: 60%;"></div>-->
                                 <div flex>
                                     <div layout="column">
                                         <div flex>
@@ -613,7 +613,7 @@ Second Contact Card
                         <md-card>
                             <md-input-container class="md-block">
                                 <h2 style="color: #3a88be;"><label>Ce que nous vous proposons</label></h2>
-                                <textarea ng-model="$ctrl.company.prestations" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                                <textarea ng-model="$ctrl.company.prestation" md-maxlength="150" rows="5" md-select-on-focus></textarea>
                             </md-input-container>
                         </md-card>
                     </div>
@@ -710,7 +710,7 @@ Div Containing Buttons
 
             <div layout="row" layout-padding>
 
-                <md-button ng-click="$ctrl.edit($ctrl.company, $ctrl.image)" aria-label="photo" class="md-fab md-primary md-icon-button">
+                <md-button ng-click="$ctrl.edit($ctrl.company, $ctrl.social,$ctrl.image)" aria-label="photo" class="md-fab md-primary md-icon-button">
                     <i class="material-icons">save</i>
                 </md-button>
 

@@ -12,7 +12,7 @@ module.exports = mongoose.model('Companie', new mongoose.Schema({
     secteur: String,
     logo: String,
     social: [mongoose.Schema.Types.Mixed],
-    tag: [],
+    tags: [],
     active: {
         type: Boolean,
         default: true

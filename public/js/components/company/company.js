@@ -25,7 +25,7 @@
 
 
                 },
-                edit(company, image) {
+                edit(company, social ,image) {
 
                     if (this.editMode) {
                       if(this.image){
@@ -33,9 +33,10 @@
                         this.infos.image = `img/${this.image.name}`
                       }
                         this.infos = company
-                        debugger
+                        this.infos.social = social
+                        console.log(this.infos);
                         companiesService.edit(this.infos).then((res) => {
-                            this.newCompany = res.data
+                            this.newCompany = res.config.data
                             console.log(this.newCompany);
                         }).catch(() => {
 
@@ -45,7 +46,6 @@
                     } else {
                         copie[company._id] = angular.copy(this.company)
                         this.editMode = true
-                        console.log(copie);
                     }
 
                 },
