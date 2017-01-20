@@ -50,22 +50,22 @@
 
                 <md-input-container class="md-block">
                     <label>Address</label>
-                    <input ng-model="$ctrl.currentUser.addresse.rue">
+                    <input ng-model="$ctrl.currentUser.address.rue">
                 </md-input-container>
 
                 <md-input-container md-no-float class="md-block">
-                    <input ng-model="$ctrl.currentUser.addresse.rue2" placeholder="Address 2">
+                    <input ng-model="$ctrl.currentUser.address.rue2" placeholder="Address 2">
                 </md-input-container>
-
+                
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Ville</label>
-                        <input ng-model="$ctrl.currentUser.addresse.ville">
+                        <input ng-model="$ctrl.currentUser.address.ville">
                     </md-input-container>
 
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Région</label>
-                        <md-select ng-model="$ctrl.currentUser.addresse.region">
+                        <md-select ng-model="$ctrl.currentUser.address.region">
                             <md-option ng-repeat="region in $ctrl.regions" value="{{region.abbrev}}">
                                 {{region.abbrev}}
                             </md-option>
@@ -74,7 +74,7 @@
 
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Code postal</label>
-                        <input name="postalCode" ng-model="$ctrl.currentUser.addresse.codePostal" placeholder="75000" required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+                        <input name="postalCode" ng-model="$ctrl.currentUser.address.codePostal" placeholder="75000" required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
 
                         <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
                             <div ng-message="required" class="my-message">Code Postal requis</div>

@@ -10,8 +10,9 @@
                 },
                 connect() {
                     usersService.connect($ctrl.user).then((user) => {
-                      this.currentUser = user
+                      this.currentUser = user                      
                       $state.go('app.home')
+
                     }).catch((err) => {
                         let textContent = `Error : ${err.data} !`
                     })

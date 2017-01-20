@@ -17,6 +17,7 @@
 
                     usersService.getCurrent().then((res) => {
                         this.currentUser = res
+                        console.log(this.currentUser._id);
                         companiesService.getById(this.currentUser.company).then((res) => {
                             this.company = res.data
                         })
@@ -25,9 +26,9 @@
 
                 },
                 edit(user) {
-                  debugger
                     usersService.edit(user).then((res) => {
                         this.currentUser = res.config
+                        console.log(res);
                         $state.reload()
                     })
                 }

@@ -10,7 +10,9 @@ let userSchema = new mongoose.Schema({
         ref: 'Companie'
     }],
     firstname: String,
-    addresse:[mongoose.Schema.Types.Mixed],
+    address: {
+        type: mongoose.Schema.Types.Mixed
+    },
     social: [mongoose.Schema.Types.Mixed],
     number: {
         type: Number
