@@ -1,63 +1,59 @@
-<div id="adherentsList" layout="row" layout-padding layout-margin layout-wrap>
-    <!-- <h1>Utilisaters actifs</h1> -->
-    <md-content ng-repeat="adherent in $ctrl.active">
-        <md-card md-theme="default" md-theme-watch="" class="_md md-default-theme">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">{{adherent.name}}</span>
-                    <span class="md-subhead">Membre de la compagnie {{adherent.company.name}}</span>
-                </md-card-title-text>
-                <md-card-title-media>
-                    <div class="md-media-sm card-media">
-                        <img ng-src="{{adherent.image}}" alt="" />
+<section>
+    <div id="adherentsList" class="row">
+        <!-- <h1>Utilisaters actifs</h1> -->
+        <div class="col s6" ng-repeat="adherent in $ctrl.active">
+            <div class="card card-panel hoverable">
+                <div class="card-content">
+                    <div class="row valign-wrapper">
+                        <div class="col s3">
+                            <img ng-src="{{adherent.image}}" alt="" />
+                        </div>
+                        <div class="col s9">
+                            <div class="card-title">
+                                <p>{{adherent.name}}</p>
+                                <p>Membre de la compagnie {{adherent.company.name}}</p>
+                            </div>
+                        </div>
                     </div>
-                </md-card-title-media>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-                <md-button ng-click="$ctrl.disable($index)" class="md-icon-button md-fab md-primary md-hue-2" aria-label="Settings">
-                    <i class="material-icons">delete</i>
-                </md-button>
-            </md-card-actions>
-        </md-card>
-    </md-content>
-
-    <!-- <h1>Utilisaters inactifs</h1> -->
-
-    <md-content ng-repeat="adherent in $ctrl.inactive">
-        <md-card md-theme="default" md-theme-watch="" class="_md md-default-theme">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">{{adherent.name}}</span>
-                    <span class="md-subhead">Membre de la compagnie {{adherent.company.name}}</span>
-                </md-card-title-text>
-                <md-card-title-media>
-                    <div class="md-media-sm card-media">
-                        <img ng-src="{{adherent.image}}" alt="" />
+                    <div class="card-action">
+                        <a class="waves-effect waves-light btn right" ng-click="$ctrl.disable($index)"><i class="material-icons">delete</i></a>
                     </div>
-                </md-card-title-media>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-                <md-button ng-click="$ctrl.activate($index)" class="md-icon-button md-fab md-primary md-hue-2" aria-label="Settings">
-                    <i class="material-icons">done</i>
-                </md-button>
-            </md-card-actions>
-        </md-card>
-    </md-content>
-</div>
+                </div>
+            </div>
+        </div>
 
-<div class="container">
-    <button ng-json-export-excel data="$ctrl.adherents" report-fields="{name: 'Name', company:'Société',social:'Réseaux sociaux', email:'Email'}" filename="'Player'" class="btn btn-primary">Export Excel</button>
-</div>
+        <!-- <h1>Utilisaters inactifs</h1> -->
 
-
-<section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-    <md-button class="md-raised md-primary" ng-click="$ctrl.loadMore()">Charger Plus
-    </md-button>
-    <!--
-    Button for add page.
-    -->
-    <md-button class="md-fab md-primary md-icon-button" ui-sref="admin.new">
-        <i class="material-icons">note_add</i>
-    </md-button>
-
+        <div class="col s6" ng-repeat="adherent in $ctrl.inactive">
+            <div class="card card-panel hoverable">
+                <div class="card-content">
+                    <div class="row valign-wrapper">
+                        <div class="col s3">
+                            <img class="responsive-img circle" ng-src="{{adherent.image}}" alt="" />
+                        </div>
+                        <div class="col s9">
+                            <div class="card-title">
+                                <p>{{adherent.name}}</p>
+                                <p>Membre de la compagnie {{adherent.company.name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a class="waves-effect waves-light btn right" ng-click="$ctrl.activate($index)"><i class="material-icons">done</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="center-align">
+            <a class="waves-effect waves-light btn" ng-click="$ctrl.loadMore()">Charger Plus<i class="material-icons right">add</i></a>
+            <!--Button for add page.-->
+            <a class="waves-effect waves-light btn" ui-sref="admin.new"><i class="material-icons">note_add</i></a>
+            <!-- Button export -->
+            <a ng-json-export-excel data="$ctrl.adherents" report-fields="{name: 'Name', company:'Société',social:'Réseaux sociaux', email:'Email'}" filename="'Player'" class="waves-effect waves-light btn" ng-click="$ctrl.loadMore()">
+                <i class="material-icons right">save</i> Export Excel
+            </a>
+        </div>
+    </div>
 </section>

@@ -1,69 +1,60 @@
-<div id="footer">
-    <div layout="row" layout-padding layout-margin layout-fill layout-sm="column" layout-align="center center" layout-xs="column">
-
-
-
-        <!-- First column -->
-        <div flex-xs="100" flex-gt-xs="33" layout="column" layout-align="center">
-            <h4 layout-align="center">Nouveaux adhérents</h4>
-            <md-card ng-repeat="company in $ctrl.companies | orderBy: 'created_at':true | limitTo: 3">
-                <a  ui-sref="company.item({id:company._id})" layout="row">
-                    <span> <img ng-src="{{$ctrl.company.image}}" alt=""></span>
-                    <p>{{company.name}} nous a rejoints</p>
-                  </a>
-              </md-card>
-        </div>
-
-
-        <!-- Second column -->
-        <div flex-xs flex-gt-xs="33" layout="column" layout-align="center">
-            <h4 layout-align="center">Prochains évenements</h4>
-            <md-card>
-                <div layout="row">
-                    <span> <img ng-src="{{$ctrl.company.image}}" alt=""></span>
-                    <p>Azendoo nous a rejoints</p>
+<div id="footer" class="page-footer">
+    <div class="container">
+        <div class="row">
+            <!-- First column -->
+            <div class="col l4 s12">
+                <h5 class="white-text">Nouveaux adhérents</h5>
+                <div class="card horizontal" ng-repeat="company in $ctrl.companies | orderBy: 'created_at':true | limitTo: 3">
+                    <a ui-sref="company.item({id:company._id})">
+                        <div class="card-image">
+                            <img ng-src="{{$ctrl.company.image}}" alt="">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p>{{company.name}} nous a rejoints</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-
-            </md-card>
-            <md-card hide-md hide-xs hide-sm>
-                <div layout="row">
-                    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
-                    <p>Azendoo nous a rejoints</p>
+            </div>
+            <!-- Second column -->
+            <div class="col l4 s12">
+                <h5 class="white-text">Prochains évenements</h5>
+                <div class="card horizontal" ng-repeat="company in $ctrl.companies | orderBy: 'created_at':true | limitTo: 3">
+                    <a ui-sref="company.item({id:company._id})">
+                        <div class="card-image">
+                            <img ng-src="{{$ctrl.company.image}}" alt="">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p>{{company.name}} nous a rejoints</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-
-            </md-card>
-            <md-card hide-md hide-xs hide-sm>
-                <div layout="row">
-                    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
-                    <p>Azendoo nous a rejoints</p>
+            </div>
+            <!-- Third column -->
+            <div class="col l4 s12">
+                <h5 class="white-text">Nouveaux adhérents</h5>
+                <div class="card horizontal" ng-repeat="company in $ctrl.companies | orderBy: 'created_at':true | limitTo: 3">
+                    <a ui-sref="company.item({id:company._id})">
+                        <div class="card-image">
+                            <img ng-src="{{$ctrl.company.image}}" alt="">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p>{{company.name}} nous a rejoints</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-
-            </md-card>
-        </div>
-        <!-- Third column -->
-        <div flex-xs flex-gt-xs="33" layout="column" layout-align="center">
-            <h4 layout-align="center">Mes évenements</h4>
-            <md-card>
-                <div layout="row">
-                    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
-                    <p>Azendoo nous a rejoints</p>
-                </div>
-
-            </md-card>
-            <md-card hide-md hide-xs hide-sm>
-                <div layout="row">
-                    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
-                    <p>Azendoo nous a rejoints</p>
-                </div>
-            </md-card>
-            <md-card hide-md hide-xs hide-sm>
-                <div layout="row" hide-xs>
-                    <span> <img src="http://chaineelephant.net/wp-content/uploads/2013/06/Logo-Azendoo-300x300.png" alt=""></span>
-                    <p>Azendoo nous a rejoints</p>
-                </div>
-
-            </md-card>
+            </div>
         </div>
     </div>
-
+    <div class="footer-copyright">
+        <div class="container">
+            © 2017
+            <a class="grey-text text-lighten-4 right" href="//www.wildcodeschool.fr" target="_blank">Made by Wild Code School</a>
+        </div>
+    </div>
 </div>
