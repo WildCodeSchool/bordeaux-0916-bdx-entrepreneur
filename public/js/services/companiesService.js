@@ -8,6 +8,9 @@
             getById(id) {
                 return $http.get('/api/companies/' + id);
             },
+            findOne(recherche) {
+                return $http.get('/api/search/' + recherche)
+            },
             add(company) {
                 return $http.post('/api/companies', company)
             },
@@ -17,7 +20,7 @@
                     let xhr = new XMLHttpRequest()
                     let fd = new FormData()
                     xhr.open("POST", url, true);
-                  //  xhr.setRequestHeader("Authorization", $cookies.get('token'));
+                    //  xhr.setRequestHeader("Authorization", $cookies.get('token'));
                     xhr.onreadystatechange = function(e) {
                         if (xhr.readyState === 4) {
                             if (xhr.status === 200) {

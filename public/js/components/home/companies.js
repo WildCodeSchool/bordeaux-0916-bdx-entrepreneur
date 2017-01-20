@@ -1,50 +1,31 @@
 ((app) => {
     app.component('companies', {
-        bindings: {
-            name: "<",
-            sector: "<"
-        },
         templateUrl: 'js/components/home/companies.html',
-        controller: ['companiesService', '$stateParams', '$state', '$scope', '$mdDialog', function(companiesService, ngJsonExportExcel,$stateParams, $state, $scope, $mdDialog) {
-
-                // adding request params : if filter by name or not
-                if ($stateParams.name) {
-                    companiesService.filter($stateParams).then((response) => {
-                        this.companies = response.data
-                        console.log(this.companies);
-                    })
-
-                } else {
+        controller: ['companiesService', '$stateParams', '$state', '$scope', function(companiesService, ngJsonExportExcel, $stateParams, $state, $scope, $mdDialog) {
+            angular.extend(this, {
+                $onInit() {
+                    let date = new Date();
+                    this.hhmm = (new Date(), 'hh:mm');
+                    this.carouselstate = 10
 
                     companiesService.get().then((response) => {
                         this.companies = response.data
-                        console.log(this.companies);
-
                     })
 
-                }
+                },
+                get() {
+                    if (this.search.length != 0) {
+                        companiesService.findOne(this.search).then((res) => {
+                            this.companies = res.data
+                            console.log(this.companies);
+                        })
+                    }
+                },
 
-                /*  ======================================
-                      Add, Date & Load More Functions
-                  ====================================== */
-
-                let date = new Date();
-                this.hhmm = (new Date(), 'hh:mm');
-
-
-                this.carouselstate = 10
-                this.loadMore = () => {
+                loadMore() {
                     this.carouselstate += 6
-                };
-
-                /*  ======================================
-                    For Card Styles
-                    ====================================== */
-
-                $scope.status = ' ';
-                $scope.customFullscreen = false;
-
-            }] //dont delete
-
-    }); //dont delete
+                }
+            })
+        }]
+    });
 })(angular.module('app.home'))

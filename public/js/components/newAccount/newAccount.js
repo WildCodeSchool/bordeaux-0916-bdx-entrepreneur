@@ -9,7 +9,7 @@
                 },
                 add(user) {
                     usersService.add(user).then((res) => {
-                    //  $state.go("app.confirm")
+                     $state.go("app.login")
                     }).catch(()=>{
                       console.log("Error adding user")
                     })

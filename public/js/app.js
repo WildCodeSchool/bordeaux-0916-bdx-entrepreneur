@@ -59,5 +59,6 @@
     'app.footer',
     'app.newAccount',
     'ngJsonExportExcel',
-    'app.profile'
+    'app.profile',
+    'app.newAdherent'
 ]))

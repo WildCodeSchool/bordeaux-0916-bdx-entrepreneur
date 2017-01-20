@@ -37,10 +37,10 @@ class CompanyController extends Controller {
 
         let create = (membre) => {
             USER.create(membre, (err, user) => {
-              console.log(user);
+                console.log(user);
                 if (err) next(err)
                 else
-                user.fondateur === true ? this.fondateurId = user._id : this.cofondateurs[user._id] = user
+                    user.fondateur === true ? this.fondateurId = user._id : this.cofondateurs[user._id] = user
             })
         }
 
@@ -84,6 +84,18 @@ class CompanyController extends Controller {
     //     })
     // }
     //
+
+    findOne(req, res, next) {
+        let search = new RegExp("(" + req.params.recherche + ")", "igm")
+        this.model.find({
+            'name': search
+        }, (err, companies) => {
+            if (err) next(err)
+            else
+                res.json(companies)
+        });
+    }
+
 
     findById(req, res, next) {
         this.model.findById(req.params.id).populate('fondateur').exec((err, documents) => {

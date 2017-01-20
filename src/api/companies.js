@@ -13,6 +13,10 @@ module.exports = (app) => {
         return ctrl.findById(req, res, next)
     })
 
+    app.get('/search/:recherche', (req, res, next) => {
+        return ctrl.findOne(req, res, next)
+    })
+
     app.post('/companies', (req, res, next) => {
         return ctrl.create(req, res, next)
     })
