@@ -8,9 +8,9 @@
                 $onInit() {
 
                 },
-                connect() {
-                    usersService.connect($ctrl.user).then((user) => {
-                      this.currentUser = user                      
+                connect(user) {
+                    usersService.connect(user).then((user) => {
+                      this.currentUser = user
                       $state.go('app.home')
 
                     }).catch((err) => {

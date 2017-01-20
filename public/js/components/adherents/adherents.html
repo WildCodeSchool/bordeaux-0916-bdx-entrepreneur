@@ -1,6 +1,12 @@
 <section>
     <div id="adherentsList" class="row">
-        <!-- <h1>Utilisaters actifs</h1> -->
+
+        <div class="row">
+            <div class="col s12">
+                <h1>Actifs</h1>
+            </div>
+        </div>
+        
         <div class="col s3" ng-repeat="adherent in $ctrl.active">
             <div class="card card-panel hoverable">
                 <div class="card-content">
@@ -24,7 +30,11 @@
             </div>
         </div>
 
-        <!-- <h1>Utilisaters inactifs</h1> -->
+        <div class="row">
+            <div class="col s12">
+                <h1>Inactifs</h1>
+            </div>
+        </div>
 
         <div class="col s3" ng-repeat="adherent in $ctrl.inactive">
             <div class="card card-panel hoverable">
