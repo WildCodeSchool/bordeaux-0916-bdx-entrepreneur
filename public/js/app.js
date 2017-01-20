@@ -8,7 +8,7 @@
 
     $('select').material_select('destroy');
 
-
+    
 
     //creation of our proper filter function
     app.filter('filterCompanyName', function() {

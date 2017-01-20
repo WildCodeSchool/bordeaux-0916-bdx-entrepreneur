@@ -13,7 +13,9 @@ let userSchema = new mongoose.Schema({
     address: {
         type: mongoose.Schema.Types.Mixed
     },
-    social: [mongoose.Schema.Types.Mixed],
+    social: {
+        type: mongoose.Schema.Types.Mixed
+    },
     number: {
         type: Number
     },
@@ -25,6 +27,7 @@ let userSchema = new mongoose.Schema({
     password: {
         type: String,
     },
+    remarques:String,
     isAdmin: {
         type: Boolean,
         default: false
