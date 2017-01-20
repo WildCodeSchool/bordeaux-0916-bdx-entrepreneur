@@ -16,19 +16,10 @@
                     <p>{{$ctrl.company.presentation}} </p>
                 </md-card-content>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-icon-button" aria-label="Favorite" ng-click="$ctrl.edit()">
+                    <md-button class="md-icon-button" aria-label="Favorite" ng-click="$ctrl.edit($ctrl.company, $ctrl.image)">
                         <i class="material-icons">border_color</i>
                     </md-button>
                 </md-card-actions>
-
-
-
-                <md-chips flex-gt-xs="80" class="chipsdemoBasicUsage custom-chips md-chip md-chip-remove-container" ng-model="$ctrl.tag" readonly="$ctrl.readonly" md-removable="$ctrl.removable" placeholder="Enter a tag" delete-button-label="Remove Tag" delete-hint="Press delete to remove tag"
-                    secondary-placeholder="+Tag">
-                    <md-chip-template>
-                        <strong>{{$chip}}</strong>
-                    </md-chip-template>
-                    </md-chips>
 
             </md-card-header>
 
@@ -150,7 +141,7 @@
             <md-container class="md-block">
                 <h2 layout-padding style="color: #3a88be;"><label>Membres de la compagnie {{$ctrl.company.name}}</label></h2>
             </md-container>
-            <div class="" layout="row" >
+            <div class="" layout="row">
                 <md-card md-theme="default" md-theme-watch="" class="_md md-default-theme">
                     <md-card-title>
                         <md-card-title-text>
@@ -167,7 +158,7 @@
                 </md-card>
 
 
-            <!-- Seconde carte contact -->
+                <!-- Seconde carte contact -->
                 <md-card md-theme="default" md-theme-watch="" class="_md md-default-theme">
                     <md-card-title>
                         <md-card-title-text>
@@ -183,7 +174,7 @@
 
                 </md-card>
 
-            <!-- Troisième carte contact -->
+                <!-- Troisième carte contact -->
                 <md-card md-theme="default" md-theme-watch="" class="_md md-default-theme">
                     <md-card-title>
                         <md-card-title-text>
@@ -223,7 +214,7 @@
 
                     <md-fab-actions>
 
-                        <md-button ng-click="$ctrl.edit()" user="$ctrl.user" aria-label="photo" class="md-fab md-icon-button">
+                        <md-button ng-click="$ctrl.edit($ctrl.company, $ctrl.image)" user="$ctrl.user" aria-label="photo" class="md-fab md-icon-button">
                             <md-tooltip md-direction="top" md-visible="tooltipVisible">Edit</md-tooltip>
                             <i class="material-icons">mode_edit</i>
                         </md-button>
@@ -232,6 +223,7 @@
                             <md-tooltip md-direction="bottom" md-visible="tooltipVisible">Delete</md-tooltip>
                             <i class="material-icons">delete_forever</i>
                         </md-button>
+
                     </md-fab-actions>
                 </md-fab-speed-dial>
 
@@ -253,7 +245,7 @@
             <md-card-header layout-padding layout="column">
                 <div layout="row" flex="100">
                     <md-user-avatar flex-gt-xs="25">
-                        <a ui-href="{{$ctrl.company.siteweb}}"><img ng-src="/img/developer.jpg" class="md-card-image" alt="" /></a>
+                        <a ui-href="{{$ctrl.company.siteweb}}"><img ng-src="{{$ctrl.company.image}}" class="md-card-image" alt="" /></a>
                         <file name="file" ng-model="$ctrl.image" accept="image/jpeg, image/png, image/jpg" ng-change="$ctrl.preview()"></file>
                     </md-user-avatar>
 
@@ -274,17 +266,19 @@
                         <h3>
               <md-input-container class="md-block" flex-gt-xs="80">
                   <label>Site Web de la compagnie</label>
-                  <input ng-model="$ctrl.company.sitweb">
+                  <input ng-model="$ctrl.company.siteweb">
                </md-input-container>
             </h3>
 
-                        <md-chips flex-gt-xs="80" class="chipsdemoBasicUsage custom-chips md-chip md-chip-remove-container" ng-model="$ctrl.tags" readonly="$ctrl.readonly" md-removable="$ctrl.removable" placeholder="Enter a tag" delete-button-label="Remove Tag" delete-hint="Press delete to remove tag"
-                            secondary-placeholder="+Tag">
-                            <md-chip-template>
-                                <strong>{{$chip}}</strong>
-                            </md-chip-template>
-                            </md-chips>
+                        <h3>
+                <md-input-container class="md-block" flex-gt-xs="80">
+                      <label>Tags</label>
+                        <input ng-model="$ctrl.tags" placeholder="Entrer les mots clés séparés par une ,">
+                       </md-input-container>
+                    </h3>
 
+
+                    
                     </md-card-header-text>
                 </div>
             </md-card-header>
@@ -300,9 +294,9 @@
                         <md-input-container class="md-block" flex-gt-xs="80">
                             <label>Facebook</label>
                             <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.facebook}}"><img ng-src="/img/facebook2.png" class="md-icon socialicons"></a>
+                                <a ng-href="{{$ctrl.social.facebook}}"><img ng-src="/img/facebook2.png" class="md-icon socialicons"></a>
                             </md-icon>
-                            <input ng-model="$ctrl.company.social.facebook">
+                            <input ng-model="$ctrl.social.facebook">
                         </md-input-container>
                     </div>
 
@@ -310,9 +304,9 @@
                         <md-input-container class="md-block" flex-gt-xs="80">
                             <label>linkedin</label>
                             <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin2.png" class="md-icon socialicons"></a>
+                                <a ng-href="{{$ctrl.linkedin}}"><img ng-src="/img/linkedin2.png" class="md-icon socialicons"></a>
                             </md-icon>
-                            <input ng-model="$ctrl.company.social.linkedin">
+                            <input ng-model="$ctrl.social.linkedin">
                         </md-input-container>
                     </div>
 
@@ -320,36 +314,36 @@
                         <md-input-container class="md-block" flex-gt-xs="80">
                             <label>Twitter</label>
                             <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
+                                <a ng-href="{{$ctrl.social.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
                             </md-icon>
-                            <input ng-model="$ctrl.company.social.twitter">
+                            <input ng-model="$ctrl.social.twitter">
                         </md-input-container>
                     </div>
                     <div layout="column">
                         <md-input-container class="md-block" flex-gt-xs="80">
                             <label>You Tube</label>
                             <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.youtube}}"><img ng-src="/img/youtube.png" class="md-icon socialicons"></a>
+                                <a ng-href="{{$ctrl.social.youtube}}"><img ng-src="/img/youtube.png" class="md-icon socialicons"></a>
                             </md-icon>
-                            <input ng-model="$ctrl.company.social.youtube">
+                            <input ng-model="$ctrl.social.youtube">
                         </md-input-container>
                     </div>
                     <div layout="column">
                         <md-input-container class="md-block" flex-gt-xs="80">
                             <label>Instagram</label>
                             <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.instagram}}"><img ng-src="/img/instagram.png" class="md-icon socialicons"></a>
+                                <a ng-href="{{$ctrl.social.instagram}}"><img ng-src="/img/instagram.png" class="md-icon socialicons"></a>
                             </md-icon>
-                            <input ng-model="$ctrl.company.social.instagram">
+                            <input ng-model="$ctrl.social.instagram">
                         </md-input-container>
                     </div>
                     <div layout="column">
                         <md-input-container class="md-block" flex-gt-xs="80">
-                            <label>Pininterest</label>
+                            <label>Pinterest</label>
                             <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.pininterest}}"><img ng-src="/img/pininterest.png" class="md-icon socialicons"></a>
+                                <a ng-href="{{$ctrl.social.pinterest}}"><img ng-src="/img/pininterest.png" class="md-icon socialicons"></a>
                             </md-icon>
-                            <input ng-model="$ctrl.company.social.pinterest">
+                            <input ng-model="$ctrl.social.pinterest">
                         </md-input-container>
                     </div>
                 </md-user-avatar>
@@ -553,7 +547,6 @@ Second Contact Card
 
                         <div layout="column">
                             <div layout="row">
-                                <!--<div flex><img class="md-user-avatar" src="../img/gorille_en_colere.gif" style="width: 60%;"></div>-->
                                 <div flex>
                                     <div layout="column">
                                         <div flex>
@@ -621,13 +614,14 @@ Second Contact Card
                         <md-card>
                             <md-input-container class="md-block">
                                 <h2 style="color: #3a88be;"><label>Ce que nous vous proposons</label></h2>
-                                <textarea ng-model="$ctrl.company.prestations" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                                <textarea ng-model="$ctrl.company.prestation" md-maxlength="150" rows="5" md-select-on-focus></textarea>
                             </md-input-container>
                         </md-card>
                     </div>
-                    <!-- ////////////////////////
-Ce que nous recherchons
-////////////////////////////-->
+
+                    <!-- Attentes -->
+
+
                     <div flex>
                         <md-card>
                             <md-input-container class="md-block">
@@ -639,9 +633,7 @@ Ce que nous recherchons
                 </div>
             </md-card-content>
 
-            <!-- ////////////////////////
-Notes
-////////////////////////////-->
+            <!-- Notes -->
 
             <md-card-content>
                 <div layout="row">
@@ -656,14 +648,76 @@ Notes
                 </div>
             </md-card-content>
 
+
+            <!-- Utilisateurs déjà présents - Pas d'editMode sur cela -->
+
+            <!-- Première carte contact -->
+            <md-container class="md-block">
+                <h2 layout-padding style="color: #3a88be;"><label>Membres de la compagnie {{$ctrl.company.name}}</label></h2>
+            </md-container>
+            <div class="" layout="row">
+                <md-card md-theme="default" md-theme-watch="" class="_md md-default-theme">
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{$ctrl.fondateur.name}}</span>
+                            <span class="md-subhead">Membre de la compagnie <em>{{$ctrl.company.name}}</em></span>
+                        </md-card-title-text>
+                        <md-card-title-media>
+                            <div class="md-media-sm card-media">
+                                <img ng-src="{{adherent.image}}" alt="" />
+                            </div>
+                        </md-card-title-media>
+                    </md-card-title>
+
+                </md-card>
+
+
+                <!-- Seconde carte contact -->
+                <md-card md-theme="default" md-theme-watch="" class="_md md-default-theme">
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{$ctrl.fondateur.name}}</span>
+                            <span class="md-subhead">Membre de la compagnie {{$ctrl.company.name}}</span>
+                        </md-card-title-text>
+                        <md-card-title-media>
+                            <div class="md-media-sm card-media">
+                                <img ng-src="{{adherent.image}}" alt="" />
+                            </div>
+                        </md-card-title-media>
+                    </md-card-title>
+
+                </md-card>
+
+                <!-- Troisième carte contact -->
+                <md-card md-theme="default" md-theme-watch="" class="_md md-default-theme">
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{$ctrl.fondateur.name}}</span>
+                            <span class="md-subhead">Membre de la compagnie {{$ctrl.company.name}}</span>
+                        </md-card-title-text>
+                        <md-card-title-media>
+                            <div class="md-media-sm card-media">
+                                <img ng-src="{{adherent.image}}" alt="" />
+                            </div>
+                        </md-card-title-media>
+                    </md-card-title>
+                </md-card>
+
+            </div>
+
             <!-- ////////////////////////
 Div Containing Buttons
 ////////////////////////////-->
 
             <div layout="row" layout-padding>
 
-                <md-button ng-click="$ctrl.saveCompanies($ctrl.company,$ctrl.fondateur,$ctrl.cofondateur, $ctrl.cofondateurbis, $ctrl.image)" aria-label="photo" class="md-fab md-primary md-icon-button">
+                <md-button ng-click="$ctrl.edit($ctrl.company, $ctrl.social,$ctrl.tags,$ctrl.image)" aria-label="photo" class="md-fab md-primary md-icon-button">
                     <i class="material-icons">save</i>
+                </md-button>
+
+
+                <md-button ng-click="$ctrl.cancel($ctrl.company)" aria-label="photo" class="md-fab md-primary md-icon-button">
+                    <i class="material-icons">cancel</i>
                 </md-button>
             </div>
 
