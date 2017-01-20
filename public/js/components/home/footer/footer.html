@@ -4,30 +4,31 @@
             <!-- First column -->
             <div class="col l4 s12">
                 <h5 class="white-text">Nouveaux adhérents</h5>
-                <div class="card horizontal" ng-repeat="company in $ctrl.companies | orderBy: 'created_at':true | limitTo: 3">
+                <div class="card-panel" ng-repeat="company in $ctrl.companies | orderBy: 'created_at':true | limitTo: 3">
                     <a ui-sref="company.item({id:company._id})">
-                        <div class="card-image">
-                            <img ng-src="{{$ctrl.company.image}}" alt="">
-                        </div>
-                        <div class="card-stacked">
-                            <div class="card-content">
-                                <p>{{company.name}} nous a rejoints</p>
+                        <div class="row">
+                            <div class="col s3">
+                                <img class="responsive-img circle" ng-src="{{$ctrl.company.image}}" alt="" />
+                            </div>
+                            <div class="col s9">
+                                <h6>{{company.name}} nous a rejoints</h6>
                             </div>
                         </div>
                     </a>
                 </div>
             </div>
+
             <!-- Second column -->
             <div class="col l4 s12">
                 <h5 class="white-text">Prochains évenements</h5>
-                <div class="card horizontal" ng-repeat="company in $ctrl.companies | orderBy: 'created_at':true | limitTo: 3">
+                <div class="card-panel" ng-repeat="company in $ctrl.companies | orderBy: 'created_at':true | limitTo: 3">
                     <a ui-sref="company.item({id:company._id})">
-                        <div class="card-image">
-                            <img ng-src="{{$ctrl.company.image}}" alt="">
-                        </div>
-                        <div class="card-stacked">
-                            <div class="card-content">
-                                <p>{{company.name}} nous a rejoints</p>
+                        <div class="row">
+                            <div class="col s3">
+                                <img class="responsive-img circle" ng-src="{{$ctrl.company.image}}" alt="" />
+                            </div>
+                            <div class="col s9">
+                                <h6>{{company.name}} nous a rejoints</h6>
                             </div>
                         </div>
                     </a>
@@ -35,15 +36,15 @@
             </div>
             <!-- Third column -->
             <div class="col l4 s12">
-                <h5 class="white-text">Nouveaux adhérents</h5>
-                <div class="card horizontal" ng-repeat="company in $ctrl.companies | orderBy: 'created_at':true | limitTo: 3">
+                <h5 class="white-text">Mes évenements</h5>
+                <div class="card-panel" ng-repeat="company in $ctrl.companies | orderBy: 'created_at':true | limitTo: 3">
                     <a ui-sref="company.item({id:company._id})">
-                        <div class="card-image">
-                            <img ng-src="{{$ctrl.company.image}}" alt="">
-                        </div>
-                        <div class="card-stacked">
-                            <div class="card-content">
-                                <p>{{company.name}} nous a rejoints</p>
+                        <div class="row">
+                            <div class="col s3">
+                                <img class="responsive-img circle" ng-src="{{$ctrl.company.image}}" alt="" />
+                            </div>
+                            <div class="col s9">
+                                <h6>{{company.name}} nous a rejoints</h6>
                             </div>
                         </div>
                     </a>
