@@ -1,426 +1,271 @@
-<div>
+<section>
     <center>
-        <md-card layout-padding flex-gt-xs="80">
-            <md-card-header layout-padding layout="column">
-                <div layout="row" flex="100">
-                    <md-user-avatar flex-gt-xs="25">
-                        <a ui-href="{{$ctrl.company.siteweb}}"><img ng-src="/img/developer.jpg" class="md-card-image" alt="" /></a>
-                        <file name="file" ng-model="$ctrl.image" accept="image/jpeg, image/png, image/jpg" ng-change="$ctrl.preview()"></file>
-                    </md-user-avatar>
-
-
-                    <md-card-header-text flex-gt-xs="60" style="display: initial; color: #3a88be;">
-
-                        <h2>
-              <md-input-container class="md-block" flex-gt-xs="80">
-                    <label>Company Name</label>
-                    <input ng-model="$ctrl.company.name">
-               </md-input-container>
-            </h2>
-
-                        <h3>
-              <md-input-container class="md-block" flex-gt-xs="80">
-                  <label>Sector of Activity</label>
-                  <input ng-model="$ctrl.company.secteur">
-               </md-input-container>
-            </h3>
-
-                        <h3>
-              <md-input-container class="md-block" flex-gt-xs="80">
-                  <label>Company Website</label>
-                  <input ng-model="$ctrl.company.sitweb">
-               </md-input-container>
-            </h3>
-
-            <h3>
-    <md-input-container class="md-block" flex-gt-xs="80">
-          <label>Tags</label>
-            <input ng-model="$ctrl.tags" placeholder="Entrer les mots clés séparés par une ,">
-           </md-input-container>
-        </h3>
-
-                    </md-card-header-text>
-                </div>
-            </md-card-header>
-
-            <!--////////////////////////////
-    Social inputs
-  ////////////////////////////// -->
-
-            <md-card layout-padding layout="row" flex="100">
-                <md-user-avatar flex-gt-xs="" layout="row" id="socialcompany">
-
-                    <div layout="column">
-                        <md-input-container class="md-block" flex-gt-xs="80">
-                            <label>Facebook</label>
-                            <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.facebook}}"><img ng-src="/img/facebook2.png" class="md-icon socialicons"></a>
-                            </md-icon>
-                            <input ng-model="$ctrl.company.social.facebook">
-                        </md-input-container>
-                    </div>
-
-                    <div layout="column">
-                        <md-input-container class="md-block" flex-gt-xs="80">
-                            <label>linkedin</label>
-                            <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin2.png" class="md-icon socialicons"></a>
-                            </md-icon>
-                            <input ng-model="$ctrl.company.social.linkedin">
-                        </md-input-container>
-                    </div>
-
-                    <div layout="column">
-                        <md-input-container class="md-block" flex-gt-xs="80">
-                            <label>Twitter</label>
-                            <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
-                            </md-icon>
-                            <input ng-model="$ctrl.company.social.twitter">
-                        </md-input-container>
-                    </div>
-                    <div layout="column">
-                        <md-input-container class="md-block" flex-gt-xs="80">
-                            <label>You Tube</label>
-                            <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.youtube}}"><img ng-src="/img/youtube.png" class="md-icon socialicons"></a>
-                            </md-icon>
-                            <input ng-model="$ctrl.company.social.youtube">
-                        </md-input-container>
-                    </div>
-                    <div layout="column">
-                        <md-input-container class="md-block" flex-gt-xs="80">
-                            <label>Instagram</label>
-                            <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.instagram}}"><img ng-src="/img/instagram.png" class="md-icon socialicons"></a>
-                            </md-icon>
-                            <input ng-model="$ctrl.company.social.instagram">
-                        </md-input-container>
-                    </div>
-                    <div layout="column">
-                        <md-input-container class="md-block" flex-gt-xs="80">
-                            <label>Pininterest</label>
-                            <md-icon class="name">
-                                <a ng-href="{{$ctrl.company.pininterest}}"><img ng-src="/img/pininterest.png" class="md-icon socialicons"></a>
-                            </md-icon>
-                            <input ng-model="$ctrl.company.social.pinterest">
-                        </md-input-container>
-                    </div>
-                </md-user-avatar>
-            </md-card>
-
-            <md-card-content>
-                <div layout="row">
-                    <div flex>
-                        <md-card>
-                            <md-input-container class="md-block">
-                                <h2 layout-padding style="color: #3a88be;"><label>Company Description</label></h2>
-                                <textarea ng-model="$ctrl.company.presentation" md-maxlength="300" rows="5" md-select-on-focus></textarea>
-                            </md-input-container>
-                        </md-card>
-                    </div>
-                </div>
-            </md-card-content>
-
-            <!-- ////////////////////////
-First Contact Card
-////////////////////////////-->
-
-            <md-card-content layout="row">
-                <div flex-gt-xs="35">
-                    <md-card flex style="color: #3a88be;">
-                        <div layout="column">
-                            <div flex>
-                                <h2>
-                      <md-input-container class="md-block" flex-gt-xs="80">
-                            <label>Contact</label>
-                            <div></div>
-                      </md-input-container>
-                  </h2>
-                            </div>
-                        </div>
-
-                        <div layout="column">
-                            <div layout="row">
-                                <!--<div flex><img class="md-user-avatar" src="../img/gorille_en_colere.gif" style="width: 60%;"></div>-->
-                                <div flex>
-                                    <div layout="column">
-                                        <div>
-                                            <md-input-container class="md-block" flex-gt-xs="80">
-                                                <label>Nom Prénom</label>
-                                                <md-icon class="name"><i class="material-icons md-24 md-dark">person</i></md-icon>
-                                                <input ng-model="$ctrl.cofondateurbis.name">
-                                            </md-input-container>
-                                        </div>
-                                        <div flex>
-                                            <md-input-container class="md-block" flex-gt-xs="80">
-                                                <label>Email</label>
-                                                <md-icon class="name"><i class="material-icons md-24 md-dark">email</i></md-icon>
-                                                <input ng-model="$ctrl.cofondateurbis.email">
-                                            </md-input-container>
-                                        </div>
-                                        <div flex>
-                                            <md-input-container class="md-block" flex-gt-xs="80">
-                                                <label>Phone Number</label>
-                                                <md-icon class="name"><i class="material-icons md-24 md-dark">phone</i></md-icon>
-                                                <input ng-model="$ctrl.cofondateurbis.number">
-                                            </md-input-container>
-                                        </div>
+        <div class="card card-panel">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s3">
+                        <a ui-href="{{$ctrl.company.siteweb}}">
+                            <img ng-src="/img/developer.jpg" class="responsive-img" alt="" />
+                            <form action="#" >
+                                <div class="file-field input-field">
+                                    <div class="btn">
+                                        <span>File</span>
+                                        <input type="file" ng-model="$ctrl.image" ng-change="$ctrl.preview()">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text">
                                     </div>
                                 </div>
-                            </div>
+                            </form>
+
+                        </a>
+                    </div>
+                    <div class="col s9">
+                        <div class="input-field">
+                            <input class="validate" ng-model="$ctrl.company.name">
+                            <label>Company Name</label>
                         </div>
 
-                        <div layout="column">
-                            <div flex>
-
-                                <md-input-container class="md-block" flex-gt-xs="80">
-                                    <label>Facebook</label>
-                                    <md-icon class="name">
-                                        <a ng-href="{{$ctrl.facebook}}"><img ng-src="/img/facebook2.png" class="md-icon socialicons"></a>
-                                    </md-icon>
-                                    <input ng-model="$ctrl.cofondateurbis.social.facebook">
-                                </md-input-container>
-
-
-                                <md-input-container class="md-block" flex-gt-xs="80">
-                                    <label>linkedin</label>
-                                    <md-icon class="name">
-                                        <a ng-href="{{$ctrl.linkedin}}"><img ng-src="/img/linkedin2.png" class="md-icon socialicons"></a>
-                                    </md-icon>
-                                    <input ng-model="$ctrl.cofondateurbis.social.linkedin">
-                                </md-input-container>
-
-
-                                <md-input-container class="md-block" flex-gt-xs="80">
-                                    <label>Twitter</label>
-                                    <md-icon class="name">
-                                        <a ng-href="{{$ctrl.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
-                                    </md-icon>
-                                    <input ng-model="$ctrl.cofondateurbis.social.twitter">
-                                </md-input-container>
-
-
-                            </div>
+                        <div class="input-field">
+                            <input class="validate" ng-model="$ctrl.company.secteur">
+                            <label>Sector of Activity</label>
                         </div>
 
-                    </md-card>
+                        <div class="input-field">
+                            <input class="validate" ng-model="$ctrl.company.sitweb">
+                            <label>Company Website</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input class="validate" ng-model="$ctrl.tags" placeholder="Entrer les mots clés séparés par une ,">
+                            <label>Tags</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!--////////////////////////////
+        Social inputs
+      ////////////////////////////// -->
+
+                <div class="row">
+                    <div class="input-field col s4">
+                        <a ng-href="{{$ctrl.company.facebook}}">
+                            <img ng-src="/img/facebook2.png" class="socialicons">
+                        </a>
+                        <input ng-model="$ctrl.company.social.facebook">
+                        <label>Facebook</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <a ng-href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin2.png" class="socialicons"></a>
+                        <input ng-model="$ctrl.company.social.linkedin">
+                        <label>linkedin</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <a ng-href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="socialicons"></a>
+                        <input ng-model="$ctrl.company.social.twitter">
+                        <label>Twitter</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <a ng-href="{{$ctrl.company.youtube}}"><img ng-src="/img/youtube.png" class="socialicons"></a>
+                        <input ng-model="$ctrl.company.social.youtube">
+                        <label>YouTube</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <a ng-href="{{$ctrl.company.instagram}}"><img ng-src="/img/instagram.png" class="socialicons"></a>
+                        <input ng-model="$ctrl.company.social.instagram">
+                        <label>Instagram</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <a ng-href="{{$ctrl.company.pininterest}}"><img ng-src="/img/pininterest.png" class="socialicons"></a>
+                        <input ng-model="$ctrl.company.social.pinterest">
+                        <label>Pinterest</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea class="materialize-textarea" ng-model="$ctrl.company.presentation" maxlength="300" rows="5"></textarea>
+                        <label>Company Description</label>
+                    </div>
                 </div>
 
                 <!-- ////////////////////////
+            First Contact Card
+            ////////////////////////////-->
+
+                <div class="row">
+                    <div class="col s4">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <h3>Contact</h3>
+                                <!-- <input type="text" name="" value=""> -->
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons">person</i>
+                                <input ng-model="$ctrl.cofondateurbis.name">
+                                <label>Nom Prénom</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons">email</i>
+                                <input ng-model="$ctrl.cofondateurbis.email">
+                                <label>Email</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons">phone</i>
+                                <input ng-model="$ctrl.cofondateurbis.number">
+                                <label>Phone Number</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <a ng-href="{{$ctrl.facebook}}"><img ng-src="/img/facebook2.png" class="socialicons"></a>
+                                <input ng-model="$ctrl.cofondateurbis.social.facebook">
+                                <label>Facebook</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <a ng-href="{{$ctrl.linkedin}}"><img ng-src="/img/linkedin2.png" class="socialicons"></a>
+                                <input ng-model="$ctrl.cofondateurbis.social.linkedin">
+                                <label>linkedin</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <a ng-href="{{$ctrl.twitter}}"><img ng-src="/img/twitter.png" class="socialicons"></a>
+                                <input ng-model="$ctrl.cofondateurbis.social.twitter">
+                                <label>Twitter</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ////////////////////////
 Fondateur Contact Card
 ////////////////////////////-->
 
-                <div flex-gt-xs="35">
-                    <md-card flex style="color: #3a88be;">
-                        <div layout="column">
-                            <div flex>
-                                <h2>
-              <md-input-container class="md-block" flex-gt-xs="80">
-                          <label>Fondateur</label>
-                          <div></div>
-              </md-input-container>
-            </h2>
+                    <div class="col s4">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <h3>Fondateur</h3>
+                                <!-- <input type="text" name="" value=""> -->
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons">person</i>
+                                <input ng-model="$ctrl.fondateur.name">
+                                <label>Nom Prénom</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons">email</i>
+                                <input ng-model="$ctrl.fondateur.email">
+                                <label>Email</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons">phone</i>
+                                <input ng-model="$ctrl.fondateur.number">
+                                <label>Phone Number</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <a ng-src="{{$ctrl.foundateur.social.facebook}}"><img ng-src="/img/facebook2.png" class="socialicons"></a>
+                                <input ng-model="$ctrl.fondateur.social.facebook">
+                                <label>Facebook</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <a ng-src="{{$ctrl.fondateur.social.linkedin}}"><img ng-src="/img/linkedin2.png" class="socialicons"></a>
+                                <input ng-model="$ctrl.fondateur.social.linkedin">
+                                <label>linkedin</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <a ng-src="{{$ctrl.fondateur.social.twitter}}"><img ng-src="/img/twitter.png" class="socialicons"></a>
+                                <input ng-model="$ctrl.fondateur.social.twitter">
+                                <label>Twitter</label>
                             </div>
                         </div>
+                    </div>
 
-                        <div layout="column">
-                            <div layout="row">
-                                <!--<div flex><img class="md-user-avatar" src="../img/gorille_en_colere.gif" style="width: 60%;"></div>-->
-                                <div flex>
-                                    <div layout="column">
-                                        <div flex>
-                                            <md-input-container class="md-block" flex-gt-xs="80">
-                                                <label>Nom Prénom</label>
-                                                <md-icon class="name"><i class="material-icons md-24 md-dark">person</i></md-icon>
-                                                <input ng-model="$ctrl.fondateur.name">
-                                            </md-input-container>
-                                        </div>
-                                        <div flex>
-                                            <md-input-container class="md-block" flex-gt-xs="80">
-                                                <md-icon class="name"><i class="material-icons md-24 md-dark">email</i></md-icon>
-                                                <label>Email</label>
-                                                <input ng-model="$ctrl.fondateur.email">
-                                            </md-input-container>
-                                        </div>
-                                        <div flex>
-                                            <md-input-container class="md-block" flex-gt-xs="80">
-                                                <label>Phone Number</label>
-                                                <md-icon class="name"><i class="material-icons md-24 md-dark">phone</i></md-icon>
-                                                <input ng-model="$ctrl.fondateur.number">
-                                            </md-input-container>
-                                        </div>
-                                    </div>
-                                </div>
+
+                    <!-- ////////////////////////
+                Second Contact Card
+                ////////////////////////////-->
+
+                    <div class="col s4">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <h3>Contact</h3>
+                                <!-- <input type="text" name="" value=""> -->
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons">person</i>
+                                <input ng-model="$ctrl.cofondateur.name">
+                                <label>Nom Prénom</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons">email</i>
+                                <input ng-model="$ctrl.cofondateur.email">
+                                <label>Email</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons">phone</i>
+                                <input ng-model="$ctrl.cofondateur.number">
+                                <label>Phone Number</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <a ng-href="{{$ctrl.cofondateur.social.facebook}}"><img ng-src="/img/facebook2.png" class="socialicons"></a>
+                                <input ng-model="$ctrl.cofondateur.social.facebook">
+                                <label>Facebook</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <a ng-href="{{$ctrl.cofondateur.social.linkedin}}"><img ng-src="/img/linkedin2.png" class="socialicons"></a>
+                                <input ng-model="$ctrl.cofondateur.social.linkedin">
+                                <label>linkedin</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <a ng-href="{{$ctrl.cofondateur.social.twitter}}">
+                                    <img ng-src="/img/twitter.png" class="socialicons">
+                                </a>
+                                <input ng-model="$ctrl.cofondateur.social.twitter">
+                                <label>Twitter</label>
                             </div>
                         </div>
-
-                        <div layout="column">
-                            <div flex>
-                                <md-input-container class="md-block" flex-gt-xs="80">
-                                    <label>Facebook</label>
-                                    <md-icon class="name">
-                                        <a ng-src="{{$ctrl.foundateur.social.facebook}}"><img ng-src="/img/facebook2.png" class="md-icon socialicons"></a>
-                                    </md-icon>
-                                    <input ng-model="$ctrl.fondateur.social.facebook">
-                                </md-input-container>
+                    </div>
+                </div>
 
 
-                                <md-input-container class="md-block" flex-gt-xs="80">
-                                    <label>linkedin</label>
-                                    <md-icon class="name">
-                                        <a ng-src="{{$ctrl.fondateur.social.linkedin}}"><img ng-src="/img/linkedin2.png" class="md-icon socialicons"></a>
-                                    </md-icon>
-                                    <input ng-model="$ctrl.fondateur.social.linkedin">
-                                </md-input-container>
-
-
-                                <md-input-container class="md-block" flex-gt-xs="80">
-                                    <label>Twitter</label>
-                                    <md-icon class="name">
-                                        <a ng-src="{{$ctrl.fondateur.social.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
-                                    </md-icon>
-                                    <input ng-model="$ctrl.fondateur.social.twitter">
-                                </md-input-container>
-                            </div>
-                        </div>
-
-                    </md-card>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea class="materialize-textarea" ng-model="$ctrl.company.prestations" maxlength="150" rows="5"></textarea>
+                        <label>Ce que nous vous proposons</label>
+                    </div>
                 </div>
 
                 <!-- ////////////////////////
-Second Contact Card
-////////////////////////////-->
+                Ce que nous recherchons
+                ////////////////////////////-->
 
-
-                <div flex-gt-xs="35">
-                    <md-card flex style="color: #3a88be;">
-                        <div layout="column">
-                            <div flex>
-                                <h2><md-input-container class="md-block" flex-gt-xs="80">
-                              <label>Contact</label>
-                              <div></div>
-                  </md-input-container>
-                </h2>
-                            </div>
-                        </div>
-
-                        <div layout="column">
-                            <div layout="row">
-                                <!--<div flex><img class="md-user-avatar" src="../img/gorille_en_colere.gif" style="width: 60%;"></div>-->
-                                <div flex>
-                                    <div layout="column">
-                                        <div flex>
-                                            <md-input-container class="md-block" flex-gt-xs="80">
-                                                <label>Nom Prénom</label>
-                                                <md-icon class="name"><i class="material-icons md-24 md-dark">person</i></md-icon>
-                                                <input ng-model="$ctrl.cofondateur.name">
-                                            </md-input-container>
-                                        </div>
-                                        <div flex>
-                                            <md-input-container class="md-block" flex-gt-xs="80">
-                                                <md-icon class="name"><i class="material-icons md-24 md-dark ">email</i></md-icon>
-                                                <label>Email</label>
-                                                <input ng-model="$ctrl.cofondateur.email">
-                                            </md-input-container>
-                                        </div>
-                                        <div flex>
-                                            <md-input-container class="md-block" flex-gt-xs="80">
-                                                <label>Phone Number</label>
-                                                <md-icon class="name"><i class="material-icons md-24 md-dark">phone</i></md-icon>
-                                                <input ng-model="$ctrl.cofondateur.number">
-                                            </md-input-container>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div layout="column">
-                            <div flex>
-                                <md-input-container class="md-block" flex-gt-xs="80">
-                                    <label>Facebook</label>
-                                    <md-icon class="name">
-                                        <a ng-href="{{$ctrl.cofondateur.social.facebook}}"><img ng-src="/img/facebook2.png" class="md-icon socialicons"></a>
-                                    </md-icon>
-                                    <input ng-model="$ctrl.cofondateur.social.facebook">
-                                </md-input-container>
-
-
-                                <md-input-container class="md-block" flex-gt-xs="80">
-                                    <label>linkedin</label>
-                                    <md-icon class="name">
-                                        <a ng-href="{{$ctrl.cofondateur.social.linkedin}}"><img ng-src="/img/linkedin2.png" class="md-icon socialicons"></a>
-                                    </md-icon>
-                                    <input ng-model="$ctrl.cofondateur.social.linkedin">
-                                </md-input-container>
-
-
-                                <md-input-container class="md-block" flex-gt-xs="80">
-                                    <label>Twitter</label>
-                                    <md-icon class="name">
-                                        <a ng-href="{{$ctrl.cofondateur.social.twitter}}"><img ng-src="/img/twitter.png" class="md-icon socialicons"></a>
-                                    </md-icon>
-                                    <input ng-model="$ctrl.cofondateur.social.twitter">
-                                </md-input-container>
-                            </div>
-                        </div>
-                    </md-card>
-                </div>
-            </md-card-content>
-
-            <md-card-content>
-                <div layout="row">
-                    <div flex>
-                        <md-card>
-                            <md-input-container class="md-block">
-                                <h2 style="color: #3a88be;"><label>Ce que nous vous proposons</label></h2>
-                                <textarea ng-model="$ctrl.company.prestations" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-                            </md-input-container>
-                        </md-card>
-                    </div>
-                    <!-- ////////////////////////
-Ce que nous recherchons
-////////////////////////////-->
-                    <div flex>
-                        <md-card>
-                            <md-input-container class="md-block">
-                                <h2 style="color: #3a88be;"><label>Ce que nous recherchons</label></h2>
-                                <textarea ng-model="$ctrl.company.attentes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-                            </md-input-container>
-                        </md-card>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea class="materialize-textarea" ng-model="$ctrl.company.attentes" maxlength="150" rows="5"></textarea>
+                        <label>Ce que nous recherchons</label>
                     </div>
                 </div>
-            </md-card-content>
 
-            <!-- ////////////////////////
-Notes
-////////////////////////////-->
+                <!-- ////////////////////////
+                Notes
+                ////////////////////////////-->
 
-            <md-card-content>
-                <div layout="row">
-                    <div flex>
-                        <md-card>
-                            <md-input-container class="md-block">
-                                <h2 layout-padding style="color: #3a88be;"><label>Notes</label></h2>
-                                <textarea ng-model="$ctrl.company.notes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-                            </md-input-container>
-                        </md-card>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea class="materialize-textarea" ng-model="$ctrl.company.notes" maxlength="150" rows="5"></textarea>
+                        <label>Notes</label>
                     </div>
                 </div>
-            </md-card-content>
 
-            <!-- ////////////////////////
-Div Containing Buttons
-////////////////////////////-->
 
-            <div layout="row" layout-padding>
+                <!-- ////////////////////////
+                Div Containing Buttons
+                ////////////////////////////-->
 
-                <md-button ng-click="$ctrl.saveCompanies($ctrl.company,$ctrl.tags,$ctrl.fondateur,$ctrl.cofondateur, $ctrl.cofondateurbis, $ctrl.image)" aria-label="photo" class="md-fab md-primary md-icon-button">
-                    <i class="material-icons">save</i>
-                </md-button>
+                <div class="row">
+                    <div class="center-align">
+                        <a class="waves-effect waves-light btn" ng-click="$ctrl.saveCompanies($ctrl.company,$ctrl.tags,$ctrl.fondateur,$ctrl.cofondateur, $ctrl.cofondateurbis, $ctrl.image)">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                </div>
             </div>
-
-        </md-card>
+        </div>
     </center>
-</div>
+</section>
