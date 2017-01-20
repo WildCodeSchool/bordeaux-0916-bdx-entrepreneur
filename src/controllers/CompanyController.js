@@ -74,6 +74,14 @@ class CompanyController extends Controller {
         })
     }
 
+    // update(req, res, next) {
+    //     console.log(req.body);
+    //     this.model.update({ _id: req.params.id}, req.body.company, (err, company) => {
+    //         if (err) next(err)
+    //         res.sendStatus(200)
+    //     })
+    // }
+    //
 
     findById(req, res, next) {
         this.model.findById(req.params.id).populate('fondateur').exec((err, documents) => {
