@@ -22,7 +22,7 @@
                             this.company = res.data
                         })
                     })
-
+                    
 
                 },
                 edit(user) {
