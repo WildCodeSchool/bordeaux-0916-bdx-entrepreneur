@@ -1,137 +1,140 @@
 <section ng-if="!$ctrl.editMode">
     <center id="printableArea">
-        <div class="card card-panel" id="bigcard">
+        <div class="card card-panel">
             <div class="card-content">
-                <div class="row">
-                    <div class="col s3">
-                        <img ng-src="{{$ctrl.company.image}}" class="responsive-img" alt="Washed Out">
-                    </div>
-                    <div class="col s9">
-                        <span class="card-title">{{$ctrl.company.name}}</span>
-                        <p>{{$ctrl.company.secteur}} </p>
-                    </div>
-                    <div class="col s9">
-                        <p>{{$ctrl.company.introduction}} </p>
-                    </div>
-                    <div class="col s9">
-                        <p>{{$ctrl.company.presentation}} </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="center-align">
-                        <a class="waves-effect waves-light btn" ng-click="$ctrl.edit($ctrl.company, $ctrl.image)">
-                            <i class="material-icons">border_color</i>
-                        </a>
-                    </div>
-                </div>
+                <div id="bigcard">
 
-                <!-- Social -->
+                    <div class="row">
+                        <div class="col s3">
+                            <img ng-src="{{$ctrl.company.image}}" class="responsive-img" alt="">
 
-                <div class="row" id="socialcompany">
-                    <div class="col s4">
-                        <div ng-if="$ctrl.social.facebook">
-                            <a href="{{$ctrl.social.facebook}}">
-                                <img ng-src="/img/facebook2.png" class="md-icon socialicons">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col s4">
-                        <div ng-if="$ctrl.social.linkedin">
-                            <a href="{{$ctrl.social.linkedin}}">
-                                <img ng-src="/img/linkedin2.png" class="md-icon socialicons">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col s4">
-                        <div ng-if="$ctrl.social.twitter">
-                            <a href="{{$ctrl.social.twitter}}">
-                                <img ng-src="/img/twitter.png" class="md-icon socialicons">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col s4">
-                        <div ng-if="$ctrl.social.youtube">
-                            <a href="{{$ctrl.social.youtube}}">
-                                <img ng-src="/img/youtube.png" class="md-icon socialicons">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col s4">
-                        <div layout="column" ng-if="$ctrl.social.instagram">
-                            <a href="{{$ctrl.social.instagram}}">
-                                <img ng-src="/img/instagram.png" class="md-icon socialicons">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col s4">
-                        <div layout="column" ng-if="$ctrl.social.pinterest">
-                            <a href="{{$ctrl.social.pinterest}}">
-                                <img ng-src="/img/pininterest.png" class="md-icon socialicons">
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                            <!-- Social -->
 
-                <!-- ////////////////////////////////
+                            <div class="row" id="socialcompany">
+                                <div class="row">
+                                    <div class="col s1">
+                                        <div ng-if="$ctrl.social.facebook">
+                                            <a href="{{$ctrl.social.facebook}}">
+                                                <img ng-src="/img/facebook2.png" class="md-icon socialicons">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col s1">
+                                        <div ng-if="$ctrl.social.linkedin">
+                                            <a href="{{$ctrl.social.linkedin}}">
+                                                <img ng-src="/img/linkedin2.png" class="md-icon socialicons">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col s1">
+                                        <div ng-if="$ctrl.social.twitter">
+                                            <a href="{{$ctrl.social.twitter}}">
+                                                <img ng-src="/img/twitter.png" class="md-icon socialicons">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s1">
+                                        <div ng-if="$ctrl.social.youtube">
+                                            <a href="{{$ctrl.social.youtube}}">
+                                                <img ng-src="/img/youtube.png" class="md-icon socialicons">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col s1">
+                                        <div layout="column" ng-if="$ctrl.social.instagram">
+                                            <a href="{{$ctrl.social.instagram}}">
+                                                <img ng-src="/img/instagram.png" class="md-icon socialicons">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col s1">
+                                        <div layout="column" ng-if="$ctrl.social.pinterest">
+                                            <a href="{{$ctrl.social.pinterest}}">
+                                                <img ng-src="/img/pininterest.png" class="md-icon socialicons">
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col s9">
+                            <span class="card-title">{{$ctrl.company.name}}</span>
+                            <p>{{$ctrl.company.secteur}} </p>
+                        </div>
+                        <div class="col s9">
+                            <p>{{$ctrl.company.introduction}} </p>
+                        </div>
+                        <div class="col s9">
+                            <p>{{$ctrl.company.presentation}} </p>
+                        </div>
+                    </div>
+
+
+                    <!-- ////////////////////////////////
                 LongContent
                 ////////////////////////////////////-->
 
-                <div class="row">
-                    <div class="col s12">
-                        <h4>Description de l'entreprise</h4>
-                        <p>{{$ctrl.company.presentation}}</p>
+                    <div class="row">
+                        <div class="col s12">
+                            <h4>Description de l'entreprise</h4>
+                            <p>{{$ctrl.company.presentation}}</p>
+                        </div>
+
+                        <!-- Ce que nous proposons -->
+
+                        <div class="col s12">
+                            <h4>Ce que nous vous proposons</h4>
+                            <p>{{$ctrl.company.prestation}}</p>
+                        </div>
+
+                        <!-- Attentes -->
+
+                        <div class="col s12">
+                            <h4>Ce que nous recherchons</h4>
+                            <p>{{$ctrl.company.attentes}}</p>
+                        </div>
+
+                        <!-- Notes -->
+
+                        <div class="col s12">
+                            <h4>Notes</h4>
+                            <p>{{$ctrl.company.notes}}</p>
+                        </div>
                     </div>
 
-                    <!-- Ce que nous proposons -->
+                    <!-- Membres -->
+                    <div class="row">
+                        <div class="col s12">
+                            <h4>Membres de la compagnie {{$ctrl.company.name}}</h4>
+                        </div>
 
-                    <div class="col s12">
-                        <h4>Ce que nous vous proposons</h4>
-                        <p>{{$ctrl.company.prestation}}</p>
+                        <!-- Première carte contact -->
+                        <div class="col s4">
+                            <span>{{$ctrl.fondateur.name}}</span>
+                            <span>Membre de la compagnie <em>{{$ctrl.company.name}}</em></span>
+                            <img ng-src="{{adherent.image}}" alt="" />
+                        </div>
+
+                        <!-- Seconde carte contact -->
+                        <div class="col s4">
+                            <span>{{$ctrl.fondateur.name}}</span>
+                            <span>Membre de la compagnie <em>{{$ctrl.company.name}}</em></span>
+                            <img ng-src="{{adherent.image}}" alt="" />
+                        </div>
+
+                        <!-- Troisième carte contact -->
+                        <div class="col s4">
+                            <span>{{$ctrl.fondateur.name}}</span>
+                            <span>Membre de la compagnie <em>{{$ctrl.company.name}}</em></span>
+                            <img ng-src="{{adherent.image}}" alt="" />
+                        </div>
                     </div>
 
-                    <!-- Attentes -->
-
-                    <div class="col s12">
-                        <h4>Ce que nous recherchons</h4>
-                        <p>{{$ctrl.company.attentes}}</p>
-                    </div>
-
-                    <!-- Notes -->
-
-                    <div class="col s12">
-                        <h4>Notes</h4>
-                        <p>{{$ctrl.company.notes}}</p>
-                    </div>
                 </div>
-
-                <!-- Membres -->
-                <div class="row">
-                    <div class="col s12">
-                        <h4>Membres de la compagnie {{$ctrl.company.name}}</h4>
-                    </div>
-
-                    <!-- Première carte contact -->
-                    <div class="col s4">
-                        <span>{{$ctrl.fondateur.name}}</span>
-                        <span>Membre de la compagnie <em>{{$ctrl.company.name}}</em></span>
-                        <img ng-src="{{adherent.image}}" alt="" />
-                    </div>
-
-                    <!-- Seconde carte contact -->
-                    <div class="col s4">
-                        <span>{{$ctrl.fondateur.name}}</span>
-                        <span>Membre de la compagnie <em>{{$ctrl.company.name}}</em></span>
-                        <img ng-src="{{adherent.image}}" alt="" />
-                    </div>
-
-                    <!-- Troisième carte contact -->
-                    <div class="col s4">
-                        <span>{{$ctrl.fondateur.name}}</span>
-                        <span>Membre de la compagnie <em>{{$ctrl.company.name}}</em></span>
-                        <img ng-src="{{adherent.image}}" alt="" />
-                    </div>
-                </div>
-
 
                 <!-- ////////////////////////
                       Speed Dial
@@ -149,6 +152,11 @@
                         <li>
                             <a class="btn-floating red darken-1" ng-click="$ctrl.delete($ctrl.company)">
                                 <i class="material-icons">delete_forever</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn-floating red darken-1" ng-click="$ctrl.printDiv('bigcard')">
+                                <i class="material-icons yellow darken-1">print</i>
                             </a>
                         </li>
                     </ul>
@@ -174,7 +182,7 @@
                         <div class="file-field input-field">
                             <div class="btn">
                                 <span>File</span>
-                                <file  ng-model="$ctrl.image" ng-change="$ctrl.preview()"></file>
+                                <file ng-model="$ctrl.image" ng-change="$ctrl.preview()"></file>
                             </div>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text">

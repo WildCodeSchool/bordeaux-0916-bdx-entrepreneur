@@ -63,6 +63,25 @@
             </div>
         </div>
     </div>
+
+    <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
+        <a class="btn-floating btn-large red">
+            <i class="material-icons">menu</i>
+        </a>
+        <ul>
+            <li>
+                <a class="btn-floating green" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', fondateur:'Fondateur', cofond:'Autres membres'}"
+                    filename="'Player'">
+                  <i class="material-icons">system_update_alt</i>Export Excel
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating red darken-1" ui-sref="app.newCompany">
+                  <i class="material-icons">note_add</i>
+                </a>
+            </li>
+        </ul>
+    </div>
     <div class="row">
         <div class="center-align">
             <a class="waves-effect waves-light btn" ng-click="$ctrl.loadMore()">Charger Plus<i class="material-icons right">add</i></a>

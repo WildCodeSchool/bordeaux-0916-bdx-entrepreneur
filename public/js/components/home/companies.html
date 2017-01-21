@@ -8,8 +8,8 @@
 
     <div class="nav-wrapper">
         <form>
-            <div class="input-field">
-                <input id="search" type="search" ng-model="$ctrl.search" ng-change="$ctrl.get()" required>
+            <div class="input-field blue">
+                <input id="search" type="search" ng-model="$ctrl.search" ng-change="$ctrl.get()" placeholder="Rechercher par nom ou par secteur">
                 <label for="search"><i class="material-icons">search</i></label>
                 <i class="material-icons">close</i>
             </div>
@@ -17,26 +17,25 @@
     </div>
     </nav>
 
-    <div class="col s6" ng-repeat="company in $ctrl.companies | orderBy:'name'">
+    <div class="col s4" ng-repeat="company in $ctrl.companies | orderBy:'name'">
         <div class="card card-panel hoverable">
             <div class="card-content">
                 <div class="row valign-wrapper">
-                    <div class="col s3">
-                        <img class="responsive-img" ng-src="{{company.image}}" alt="" />
-                    </div>
-                    <div class="col s9">
+                    <div class="col s12">
                         <div class="card-title">
                             <h3>{{company.name}}</h3>
-                            <p>
-                                {{company.presentation | limitTo : 180}}
-                            </p>
                         </div>
+                        <div class="col s12">
+                            <img class="responsive-img" ng-src="{{company.image}}" alt="" />
+                        </div>
+                        <p>
+                            {{company.presentation | limitTo : 100}}
+                        </p>
                     </div>
                 </div>
                 <div class="card-action">
-                    <a class="waves-effect waves-light btn right" ui-sref="app.company({id:company._id})">
-                        <i class="material-icons">search</i>
-                    </a>
+                    <a class="waves-effect waves-light btn right blue" ui-sref="app.company({id:company._id})">
+<i class="material-icons">play_arrow</i>            </a>
                 </div>
             </div>
         </div>
@@ -47,14 +46,13 @@
         </a>
         <ul>
             <li>
-                <a class="btn-floating green" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', fondateur:'Fondateur', cofond:'Autres membres'}"
-                    filename="'Player'">
-                  <i class="material-icons">system_update_alt</i>Export Excel
+                <a class="btn-floating green" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', fondateur:'Fondateur', cofond:'Autres membres'}" filename="'Player'">
+                    <i class="material-icons">system_update_alt</i>Export Excel
                 </a>
             </li>
             <li>
                 <a class="btn-floating red darken-1" ui-sref="app.newCompany">
-                  <i class="material-icons">note_add</i>
+                    <i class="material-icons">note_add</i>
                 </a>
             </li>
         </ul>
