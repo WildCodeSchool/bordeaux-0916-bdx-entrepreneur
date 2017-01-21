@@ -1,7 +1,7 @@
 <section id="companiesList" class="row">
     <div class="row">
         <div class="col s12">
-            <h1 class="titre">Compagnies membres</h1>
+            <h1 class="titre">Compagnies membres de Bordeaux Entrepreneurs</h1>
         </div>
     </div>
 
@@ -16,7 +16,7 @@
     </div>
     </nav>
 
-    <div class="col s6" ng-repeat="company in $ctrl.companies | orderBy:'name' | filterCompanyName :  $ctrl.name | limitTo : $ctrl.carouselstate track by $index">
+    <div class="col s6" ng-repeat="company in $ctrl.companies | orderBy:'name'">
         <div class="card card-panel hoverable">
             <div class="card-content">
                 <div class="row valign-wrapper">
@@ -40,6 +40,24 @@
             </div>
         </div>
     </div>
+    <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
+        <a class="btn-floating btn-large red">
+            <i class="material-icons">menu</i>
+        </a>
+        <ul>
+            <li>
+                <a class="btn-floating green" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', fondateur:'Fondateur', cofond:'Autres membres'}"
+                    filename="'Player'">
+                  <i class="material-icons right">save</i>Export Excel
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating red darken-1" ui-sref="app.newCompany">
+                  <i class="material-icons">note_add</i>
+                </a>
+            </li>
+        </ul>
+    </div>
 </section>
 <section id="buttons">
     <div class="row">
@@ -50,7 +68,7 @@
             <a class="waves-effect waves-light btn" ui-sref="app.newCompany">
                 <i class="material-icons">note_add</i>
             </a>
-            <a class="waves-effect waves-light btn" ng-click="$ctrl.loadMore()" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', fondateur:'Fondateur', cofond:'Autres membres'}"
+            <a class="waves-effect waves-light btn" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', fondateur:'Fondateur', cofond:'Autres membres'}"
                 filename="'Player'">
                 <i class="material-icons right">save</i>Export Excel
                 </a>

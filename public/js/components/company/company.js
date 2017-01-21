@@ -1,9 +1,8 @@
 ((app) => {
     app.component('company', {
         templateUrl: 'js/components/company/company.html',
-        controller: function($stateParams, usersService, companiesService, $state, $scope, $mdToast, $mdDialog, $timeout) {
+        controller: function($stateParams, usersService, companiesService, $state) {
             let copie = {};
-
             angular.extend(this, {
                 $onInit() {
 
@@ -16,7 +15,8 @@
 
                     companiesService.getById($stateParams.id).then((response) => {
                         this.company = response.data
-                        this.tags = this.company.tags.join(',')
+                        if (this.company.tags.length > 0)
+                            this.tags = this.company.tags.join(',')
                         this.social = this.company.social[0]
                         this.fondateur = this.company.fondateur[0]
                         this.cofond = this.company.cofond[0]

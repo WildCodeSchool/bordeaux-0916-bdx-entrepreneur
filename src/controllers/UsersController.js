@@ -30,8 +30,10 @@ class UsersController extends Controller {
 
 
     connect(req, res, next) {
-      console.log(req.body.password);
-      console.log(bcrypt.hashSync(req.body.password, salt));
+        console.log(req.body.password);
+        let newPassword = bcrypt.hashSync(req.body.password, salt)
+        req.body.password = newPassword
+        console.log(newPassword);
         if (!req.body.email || !req.body.password) {
             res.status(400).send("Please enter your email and password")
         } else {
@@ -42,7 +44,7 @@ class UsersController extends Controller {
                     next(err)
                 else if (!user)
                     res.status(403).send("User not found")
-                else if(bcrypt.hashSync(req.body.password, salt) === user.password){
+                else {
                     let token = jwt.sign(user, ENV.token, {
                         expiresIn: "24h"
                     })

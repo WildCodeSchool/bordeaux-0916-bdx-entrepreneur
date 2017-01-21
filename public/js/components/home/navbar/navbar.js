@@ -7,6 +7,7 @@
 
                     usersService.getCurrent().then((user) => {
                         this.user = user
+                        console.log(this.user);
                     }).catch(() => {
                         $state.go('app.login')
                     })

@@ -88,7 +88,11 @@ class CompanyController extends Controller {
     findOne(req, res, next) {
         let search = new RegExp("(" + req.params.recherche + ")", "igm")
         this.model.find({
-            'name': search
+            $or: [{
+                'name': search
+            }, {
+                'secteur': search
+            }]
         }, (err, companies) => {
             if (err) next(err)
             else

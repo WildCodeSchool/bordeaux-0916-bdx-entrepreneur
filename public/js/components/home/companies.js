@@ -1,7 +1,7 @@
 ((app) => {
     app.component('companies', {
         templateUrl: 'js/components/home/companies.html',
-        controller: ['companiesService', '$stateParams', '$state', '$scope', function(companiesService, ngJsonExportExcel, $stateParams, $state, $scope, $mdDialog) {
+        controller: ['companiesService', '$stateParams', '$state', '$scope', function(companiesService, ngJsonExportExcel, $stateParams, $state, $scope) {
             angular.extend(this, {
                 $onInit() {
                     let date = new Date();
@@ -17,7 +17,6 @@
                     if (this.search.length > 0) {
                         companiesService.findOne(this.search).then((res) => {
                             this.companies = res.data
-                            console.log(this.companies);
                         })
                     }
                 },
