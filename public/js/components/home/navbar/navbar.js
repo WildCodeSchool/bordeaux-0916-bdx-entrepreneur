@@ -6,8 +6,7 @@
                 $onInit() {
 
                     usersService.getCurrent().then((user) => {
-                        this.user = user
-                        console.log(this.user);
+                        this.currentUser = user
                     }).catch(() => {
                         $state.go('app.login')
                     })
@@ -15,6 +14,7 @@
                 },
                 disconnect() {
                     usersService.disconnect().then(() => {
+                      this.currentUser = null
                         $state.go('app.login')
                     })
                 }

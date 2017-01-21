@@ -43,6 +43,19 @@
                     <label for="compagnie" data-success="right">Compagnie</label>
                 </div>
 
+                <form action="#">
+                    <div class="file-field input-field col s6">
+                        <div class="btn">
+                            <span>Avatar</span>
+                            <file ng-model="$ctrl.image"></file>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div>
+                </form>
+
+
             </div>
 
 
@@ -66,14 +79,15 @@
                     <i class="material-icons prefix">location_on</i>
                     <input id="codePostale" type="text" class="validate" ng-model="$ctrl.currentUser.address.codePostal" placeholder="75000">
                     <label for="compagnie" data-success="right">Code Postal</label>
-                </div>
+                  </div>
 
-                <div class=" col s12">
-                    <select ng-model="region">
-                    <option ng-value="{{region}}" ng-repeat="region in $ctrl.regions">{{region}}</option>
-                  </select>
-                    <label>Materialize Select</label>
-                </div>
+                <div class="input-field col s6">
+                <select class="browser-default" ng-model="$ctrl.region" ng-change="$ctrl.find()">
+                  <option value="" disabled selected>{{$ctrl.currentUser.address.region || 'Ma région' }}</option>
+                  <option ng-repeat="region in $ctrl.regions">{{region}}</option>
+                </select>
+              </div>
+
 
             </div>
 
