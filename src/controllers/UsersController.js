@@ -68,8 +68,10 @@ class UsersController extends Controller {
     }
 
     update(req, res, next) {
-      let newPassword = bcrypt.hashSync(req.body.password, salt)
-      req.body.password = newPassword
+        if (req.body.password) {
+            let newPassword = bcrypt.hashSync(req.body.password, salt)
+            req.body.password = newPassword
+        }
         this.model.update({
             _id: req.params.id
         }, req.body, (err, document) => {
