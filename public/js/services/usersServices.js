@@ -19,9 +19,7 @@
             edit(user) {
                 return $http.put('/api/users/' + user._id, user)
             },
-            // updateOne(email) {
-            //     return $http.put('/api/users/' + email)
-            // },
+
             delete(user) {
                 return $http.delete('/api/users/' + user._id)
             },

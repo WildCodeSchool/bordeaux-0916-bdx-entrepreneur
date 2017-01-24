@@ -5,28 +5,29 @@
         controller: ['usersService', '$state', function(usersService, $state) {
             angular.extend(this, {
                 $onInit() {
-                    usersService.getCurrent().then((res) => {
-                        $state.go('app.home')
-                    }).catch(() => {
-                        $state.go('app.login')
-                    })
+
+                    this.form = true
+
+                    // usersService.getCurrent().then((res) => {
+                    //     $state.go('app.home')
+                    // }).catch(() => {
+                    //     $state.go('login')
+                    // })
 
                 },
                 connect(user) {
                     usersService.connect(user).then((user) => {
                         this.currentUser = user
-                        $state.go('app.home').then(() => {
-                            $state.reload()
-                        })
-
-                    }).catch((err) => {
+                        $state.go('app.home')
+                      }).catch((err) => {
                         let textContent = `Error : ${err.data} !`
                     })
                 },
-                newPassword(email){
-                  usersService.getOne(email).then((res)=>{
-                    console.log(res);
-                  })
+                newPassword(email) {
+                    this.email = false
+                    usersService.getOne(email).then((res) => {
+                        this.sent = true
+                    })
                 }
             })
         }]
