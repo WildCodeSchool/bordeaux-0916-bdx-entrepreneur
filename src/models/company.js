@@ -2,16 +2,16 @@
 
 let mongoose = require('mongoose')
 
-module.exports = mongoose.model('Companie', new mongoose.Schema({
-
+module.exports = mongoose.model('Company', new mongoose.Schema({
     name: {
         type: String,
         required: true
     },
-    image:String,
+    image: String,
     secteur: String,
-    logo: String,
-    social: [mongoose.Schema.Types.Mixed],
+    social: {
+        type: mongoose.Schema.Types.Mixed
+    },
     tags: [],
     active: {
         type: Boolean,
@@ -19,14 +19,11 @@ module.exports = mongoose.model('Companie', new mongoose.Schema({
     },
     siteweb: String,
     introduction: String,
-    presentation: {
-        type: String
-    },
+    presentation: String,
     prestation: String,
     attentes: String,
     notes: String,
-    cofond: [mongoose.Schema.Types.Mixed],
-    fondateur: [{
+    contacts: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],

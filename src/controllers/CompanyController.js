@@ -102,7 +102,7 @@ class CompanyController extends Controller {
 
 
     findById(req, res, next) {
-        this.model.findById(req.params.id).populate('fondateur').exec((err, documents) => {
+        this.model.findById(req.params.id).populate('contacts').exec((err, documents) => {
             res.json(documents)
         })
     }
