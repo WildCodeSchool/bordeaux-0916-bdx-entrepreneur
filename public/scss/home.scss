@@ -15,8 +15,27 @@
 
 .prescompanies {
     min-height: 45px;
+    max-height: 45px;
 }
 
-.colored, .colored:hover {
+.colored,
+.colored:hover {
     background-color: #3a88be;
+}
+
+.companyhead {
+    padding: 25px;
+}
+
+.companyinfo {
+    .card-title {
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+    h6{
+        font-size: 18px;
+    }
 }
