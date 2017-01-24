@@ -1,44 +1,45 @@
-#companiesList{
-  ._md{
-    width:20em;
-    height: 30em;
-  }
-  md-button{
-    background-color: #3a88be;
-  }
-  #addButton{
-    background-color: #3a88be;
-  }
-  .md-button{
-    background-color: #3a88be;
-  }
-  button{
-    background-color: #3a88be ;
+#companiesList {
+    ._md {
+        width: 20em;
+        height: 30em;
+    }
 
-  }
-  i{
-    background-color: #3a88be;
-  }
-body {
-    margin-top: 2em;
+    md-button {
+        background-color: #3a88be;
+    }
+
+    #addButton {
+        background-color: #3a88be;
+    }
+
+    .md-button {
+        background-color: #3a88be;
+    }
+
+    button {
+        background-color: #3a88be;
+    }
+
+    body {
+        margin-top: 2em;
+    }
+
+    h1 {
+        margin-bottom: 1.5em;
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+    }
+
+    li {
+        list-style-type: none;
+    }
 }
 
-h1 {
-    margin-bottom: 1.5em;
-    font-size: 2.5rem;
-}
-
-h3 {
-    font-size: 1.75rem;
-}
-
-
-li {
-    list-style-type: none;
-}
-}
-#buttons{
-  md-button{
-    background-color: #3a88be;
-  }
+#buttons {
+    md-button {
+        background-color: #3a88be;
+    }
 }

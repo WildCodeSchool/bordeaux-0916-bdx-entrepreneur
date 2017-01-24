@@ -1,9 +1,6 @@
 ((app) => {
     'use strict'
-    app.config(['$stateProvider', '$mdThemingProvider', ($stateProvider, $mdThemingProvider) => {
-        $mdThemingProvider.theme('docs-dark', 'default')
-            .primaryPalette('blue')
-            .dark();
+    app.config(['$stateProvider', ($stateProvider) => {
         $stateProvider.state('app.profile', {
             url: '/profile',
             template: '<profile></profile>'

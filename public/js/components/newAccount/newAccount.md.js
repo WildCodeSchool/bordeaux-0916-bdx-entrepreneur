@@ -2,7 +2,7 @@
     'use strict'
     app.config(['$stateProvider', ($stateProvider) => {
         $stateProvider.state('app.newAccount', {
-            url: '/new_account',
+            url: '/new-account',
             template: '<new-account></new-account>'
         })
     }])

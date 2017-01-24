@@ -5,13 +5,19 @@
         controller: ['usersService', '$state', function(usersService, $state) {
             angular.extend(this, {
                 $onInit() {
-
+                    usersService.getCurrent().then((res) => {
+                        $state.go('app.home')
+                    }).catch(() => {
+                        $state.go('app.login')
+                    })
 
                 },
                 connect(user) {
                     usersService.connect(user).then((user) => {
-                      this.currentUser = user
-                      $state.go('app.home')
+                        this.currentUser = user
+                        $state.go('app.home').then(() => {
+                            $state.reload()
+                        })
 
                     }).catch((err) => {
                         let textContent = `Error : ${err.data} !`

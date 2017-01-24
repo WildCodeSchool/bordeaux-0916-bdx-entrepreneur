@@ -16,6 +16,7 @@
                     usersService.disconnect().then(() => {
                       this.currentUser = null
                         $state.go('login')
+
                     })
                 }
             })

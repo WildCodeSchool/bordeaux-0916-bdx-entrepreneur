@@ -1,4 +1,4 @@
-<div id="footer" class="page-footer">
+<div id="footer" class="page-footer" ng-if="$ctrl.currentUser">
     <div class="container">
         <div class="row">
             <!-- First column -->
@@ -7,9 +7,7 @@
                 <div class="card-panel" ng-repeat="company in $ctrl.companies | orderBy: 'created_at':true | limitTo: 3">
                     <a ui-sref="company.item({id:company._id})">
                         <div class="row">
-                            <div class="col s3">
-                                <img class="circle" ng-src="{{company.image}}" alt="" />
-                            </div>
+                            <div class="col s3 roundfooterimage" style="background-image:url({{company.image}})"></div>
                             <div class="col s9">
                                 <h6>{{company.name}} nous a rejoints</h6>
                             </div>
@@ -24,9 +22,7 @@
                 <div class="card-panel" ng-repeat="company in $ctrl.companies | orderBy: 'created_at':true | limitTo: 3">
                     <a ui-sref="company.item({id:company._id})">
                         <div class="row">
-                            <div class="col s3">
-                                <img class="circle" ng-src="{{company.image}}" alt="" />
-                            </div>
+                            <div class="col s3 roundfooterimage" style="background-image:url({{company.image}})"></div>
                             <div class="col s9">
                                 <h6>{{company.name}} nous a rejoints</h6>
                             </div>
@@ -40,9 +36,7 @@
                 <div class="card-panel" ng-repeat="company in $ctrl.companies | orderBy: 'created_at':true | limitTo: 3">
                     <a ui-sref="company.item({id:company._id})">
                         <div class="row">
-                            <div class="col s3">
-                                <img class="circle" ng-src="{{company.image}}" alt="" />
-                            </div>
+                            <div class="col s3 roundfooterimage" style="background-image:url({{company.image}})"></div>
                             <div class="col s9">
                                 <h6>{{company.name}} nous a rejoints</h6>
                             </div>

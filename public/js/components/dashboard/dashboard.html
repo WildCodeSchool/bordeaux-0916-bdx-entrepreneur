@@ -1,45 +1,46 @@
-<navbar></navbar>
-<div layout="row" layout-padding layout-margin>
-  <div flex>
-    <h3>Ajouter une compagnie</h3>
-    <md-button class="md-fab md-primary md-icon-button" ui-sref="admin.new({id:'_new'})">
-        <i class="material-icons">note_add</i>
-    </md-button>
-  </div>
-
-  <div flex>
-    <h3>Ajouter un nouvel utilisateur</h3>
-    <md-button class="md-fab md-primary md-icon-button" ui-sref="app.newUser">
-        <i class="material-icons">note_add</i>
-    </md-button>
-  </div>
-</div>
-
-
-<div layout="row" layout-padding layout-margin>
-  <div flex>
-    <md-list>
-      <h3>Liste des compagnies</h3>
-      <md-list-item ng-repeat="company in $ctrl.companies">
-        <md-checkbox></md-checkbox>
-        <div class="md-list-item-text">
-          <p>{{company.name}}</p>
-
+<section>
+    <div class="row">
+        <div class="card card-panel">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6">
+                        <h3>Ajouter une compagnie</h3>
+                        <a class="waves-effect waves-light btn" ui-sref="admin.new({id:'_new'})">
+                            <i class="material-icons">note_add</i>
+                        </a>
+                    </div>
+                    <div class="col s6">
+                        <h3>Ajouter un nouvel utilisateur</h3>
+                        <a class="waves-effect waves-light btn" ui-sref="app.newAccount">
+                            <i class="material-icons">person_add</i>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <h3>Liste des compagnies</h3>
+                        <ul class="collection">
+                            <li class="collection-item avatar" ng-repeat="company in $ctrl.companies">
+                                <img ng-src="{{company.image}}" alt="" class="circle">
+                                <span class="title">{{company.name}}</span>
+                                <p>{{company.secteur}} {{company.fondateur.name ? '/' : ''}} {{company.fondateur.name}}
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col s6">
+                        <h3>Liste des utilisateurs</h3>
+                        <ul class="collection">
+                            <li class="collection-item avatar" ng-repeat="user in $ctrl.users">
+                                <img ng-src="{{user.image}}" alt="" class="circle">
+                                <span class="title">{{user.prenom}} {{user.name}}</span>
+                                <p>{{user.email}} {{user.number ? '/' : ''}} {{user.number}}
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-      </md-list-item>
-    </md-list>
-  </div>
-<!-- get the users but not populate with companies... -->
-  <div flex>
-    <md-list>
-      <h3>Liste des utilisateurs</h3>
-      <md-list-item ng-repeat="user in $ctrl.users">
-        <md-checkbox></md-checkbox>
-        <div class="md-list-item-text">
-          <p>{{user.name}}</p>
-        </div>
-      </md-list-item>
-    </md-list>
-  </div>
-</div>
-<footer></footer>
+    </div>
+</section>
