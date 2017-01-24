@@ -12,21 +12,21 @@
 
                             <div class="row" id="socialcompany">
                                 <div class="row">
-                                    <div class="col s1">
+                                    <div class="col s3">
                                         <div ng-if="$ctrl.social.facebook">
                                             <a href="{{$ctrl.social.facebook}}">
                                                 <img ng-src="/img/facebook2.png" class="md-icon socialicons">
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col s1">
+                                    <div class="col s3">
                                         <div ng-if="$ctrl.social.linkedin">
                                             <a href="{{$ctrl.social.linkedin}}">
                                                 <img ng-src="/img/linkedin2.png" class="md-icon socialicons">
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col s1">
+                                    <div class="col s3">
                                         <div ng-if="$ctrl.social.twitter">
                                             <a href="{{$ctrl.social.twitter}}">
                                                 <img ng-src="/img/twitter.png" class="md-icon socialicons">
@@ -35,21 +35,21 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col s1">
+                                    <div class="col s3">
                                         <div ng-if="$ctrl.social.youtube">
                                             <a href="{{$ctrl.social.youtube}}">
                                                 <img ng-src="/img/youtube.png" class="md-icon socialicons">
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col s1">
+                                    <div class="col s3">
                                         <div layout="column" ng-if="$ctrl.social.instagram">
                                             <a href="{{$ctrl.social.instagram}}">
                                                 <img ng-src="/img/instagram.png" class="md-icon socialicons">
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col s1">
+                                    <div class="col s3">
                                         <div layout="column" ng-if="$ctrl.social.pinterest">
                                             <a href="{{$ctrl.social.pinterest}}">
                                                 <img ng-src="/img/pininterest.png" class="md-icon socialicons">
@@ -79,30 +79,57 @@
                 ////////////////////////////////////-->
 
                     <div class="row">
-                        <div class="col s12">
-                            <h4>Description de l'entreprise</h4>
-                            <p>{{$ctrl.company.presentation}}</p>
+
+                        <div class="row">
+                            <div class="col s12 m10 offset-m1">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <span class="card-title">Description de l'entreprise</span>
+                                        <p>{{$ctrl.company.presentation}}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
 
                         <!-- Ce que nous proposons -->
 
-                        <div class="col s12">
-                            <h4>Ce que nous vous proposons</h4>
-                            <p>{{$ctrl.company.prestation}}</p>
+                        <div class="row">
+                            <div class="col s12 m10 offset-m1">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <span class="card-title">Ce que nous vous proposons</span>
+                                        <p>{{$ctrl.company.prestation}}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
 
                         <!-- Attentes -->
 
-                        <div class="col s12">
-                            <h4>Ce que nous recherchons</h4>
-                            <p>{{$ctrl.company.attentes}}</p>
+                        <div class="row">
+                            <div class="col s12 m8 offset-m2">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <span class="card-title">Ce que nous recherchons</span>
+                                        <p>{{$ctrl.company.attentes}}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Notes -->
 
-                        <div class="col s12">
-                            <h4>Notes</h4>
-                            <p>{{$ctrl.company.notes}}</p>
+                        <div class="row">
+                            <div class="col s12 m8 offset-m2">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <span class="card-title">Notes</span>
+                                        <p>{{$ctrl.company.notes}}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -113,24 +140,61 @@
                         </div>
 
                         <!-- Première carte contact -->
+
                         <div class="col s4">
-                            <span>{{$ctrl.fondateur.name}}</span>
-                            <span>Membre de la compagnie <em>{{$ctrl.company.name}}</em></span>
-                            <img ng-src="{{adherent.image}}" alt="" />
+                            <div class="card card-panel hoverable">
+                                <div class="card-content">
+                                    <div class="row valign-wrapper">
+                                        <div class="col s3">
+                                            <img class="responsive-img circle" ng-src="{{$ctrl.fondateur.image}}" alt="" />
+                                        </div>
+                                        <div class="col s9">
+                                            <div class="card-title">
+                                                <p>{{$ctrl.fondateur.name}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Seconde carte contact -->
+
                         <div class="col s4">
-                            <span>{{$ctrl.fondateur.name}}</span>
-                            <span>Membre de la compagnie <em>{{$ctrl.company.name}}</em></span>
-                            <img ng-src="{{adherent.image}}" alt="" />
+                            <div class="card card-panel hoverable">
+                                <div class="card-content">
+                                    <div class="row valign-wrapper">
+                                        <div class="col s3">
+                                            <img class="responsive-img circle" ng-src="{{$ctrl.cofond.image}}" alt="" />
+                                        </div>
+                                        <div class="col s9">
+                                            <div class="card-title">
+                                                <p>{{$ctrl.cofond.name}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Troisième carte contact -->
+
+
                         <div class="col s4">
-                            <span>{{$ctrl.fondateur.name}}</span>
-                            <span>Membre de la compagnie <em>{{$ctrl.company.name}}</em></span>
-                            <img ng-src="{{adherent.image}}" alt="" />
+                            <div class="card card-panel hoverable">
+                                <div class="card-content">
+                                    <div class="row valign-wrapper">
+                                        <div class="col s3">
+                                            <img class="responsive-img circle" ng-src="{{$ctrl.cofondbis.image}}" alt="" />
+                                        </div>
+                                        <div class="col s9">
+                                            <div class="card-title">
+                                                <p>{{$ctrl.cofondbis.name}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -379,7 +443,7 @@
             <div class="row">
                 <div class="col s12">
                     <div class="input-field">
-                        <textarea class="materialize-textarea" ng-model="$ctrl.company.prestation" maxlength="150" rows="5"></textarea>
+                        <textarea class="materialize-textarea" ng-model="$ctrl.company.prestation" rows="5"></textarea>
                         <label>Ce que nous vous proposons</label>
                     </div>
                     <div class="input-field">

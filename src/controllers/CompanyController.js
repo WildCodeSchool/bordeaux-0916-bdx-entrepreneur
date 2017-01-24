@@ -32,7 +32,7 @@ class CompanyController extends Controller {
     }
 
     create(req, res, next) {
-        this.cofondateurs = {}
+        this.cofondateurs = []
         this.fondateurId;
 
         let create = (membre) => {
@@ -40,7 +40,7 @@ class CompanyController extends Controller {
                 console.log(user);
                 if (err) next(err)
                 else
-                    user.fondateur === true ? this.fondateurId = user._id : this.cofondateurs[user._id] = user
+                    user.fondateur === true ? this.fondateurId = user._id : this.cofondateurs.push(user)
             })
         }
 

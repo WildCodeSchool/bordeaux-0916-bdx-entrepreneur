@@ -19,7 +19,7 @@
                             this.tags = this.company.tags.join(',')
                         this.social = this.company.social[0]
                         this.fondateur = this.company.fondateur[0]
-                        this.cofond = this.company.cofond[0]
+                        this.cofond = this.company.cofond
                         this.cofondbis = this.company.cofond[1]
 
                     });

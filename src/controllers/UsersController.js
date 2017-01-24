@@ -18,7 +18,6 @@ class UsersController extends Controller {
         // Salt and hash password
         let newPassword = bcrypt.hashSync(req.body.password, salt)
         req.body.password = newPassword
-        console.log(newPassword);
         this.model.create(req.body, (err, document) => {
             if (err) next(err)
             else {
@@ -30,10 +29,8 @@ class UsersController extends Controller {
 
 
     connect(req, res, next) {
-        console.log(req.body.password);
         let newPassword = bcrypt.hashSync(req.body.password, salt)
         req.body.password = newPassword
-        console.log(newPassword);
         if (!req.body.email || !req.body.password) {
             res.status(400).send("Please enter your email and password")
         } else {
@@ -44,7 +41,7 @@ class UsersController extends Controller {
                     next(err)
                 else if (!user)
                     res.status(403).send("User not found")
-                else {
+                else {                  
                     let token = jwt.sign(user, ENV.token, {
                         expiresIn: "24h"
                     })
@@ -62,7 +59,9 @@ class UsersController extends Controller {
 
 
     find(req, res, next) {
-        this.model.find().populate('company').exec((err, users) => {
+        this.model.find({
+            password: 0
+        }).populate('company').exec((err, users) => {
             res.json(users)
         })
     }

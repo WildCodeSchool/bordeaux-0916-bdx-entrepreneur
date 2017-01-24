@@ -13,7 +13,7 @@
                     this.carouselstate = 3
 
                 },
-
+                
                 add(contact) {
                     this.contacts.push(this.contacts),
                         console.log('this has been added');
