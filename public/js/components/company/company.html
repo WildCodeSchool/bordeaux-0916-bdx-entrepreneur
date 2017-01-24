@@ -5,55 +5,43 @@
 
                 <div class="row colored companyhead white-text">
                     <div class="col s3">
-                        <img ng-src="{{$ctrl.company.image}}" class="responsive-img" alt="">
+                        <div class="row">
+                            <img ng-src="{{$ctrl.company.image}}" class="responsive-img" alt="">
+                        </div>
+
 
                         <!-- Social -->
 
-                        <div class="row" id="socialcompany">
-                            <div class="row center">
-                                <div class="col s4">
-                                    <div ng-if="$ctrl.social.facebook">
-                                        <a href="{{$ctrl.social.facebook}}" target="_blank">
-                                            <img ng-src="/img/facebook2.png" class="md-icon socialicons">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col s4">
-                                    <div ng-if="$ctrl.social.linkedin">
-                                        <a href="{{$ctrl.social.linkedin}}" target="_blank">
-                                            <img ng-src="/img/linkedin2.png" class="md-icon socialicons">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col s4">
-                                    <div ng-if="$ctrl.social.twitter">
-                                        <a href="{{$ctrl.social.twitter}}" target="_blank">
-                                            <img ng-src="/img/twitter.png" class="md-icon socialicons">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col s4">
-                                    <div ng-if="$ctrl.social.youtube">
-                                        <a href="{{$ctrl.social.youtube}}" target="_blank">
-                                            <img ng-src="/img/youtube.png" class="md-icon socialicons">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col s4">
-                                    <div layout="column" ng-if="$ctrl.social.instagram">
-                                        <a href="{{$ctrl.social.instagram}}" target="_blank">
-                                            <img ng-src="/img/instagram.png" class="md-icon socialicons">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col s4">
-                                    <div layout="column" ng-if="$ctrl.social.pinterest">
-                                        <a href="{{$ctrl.social.pinterest}}" target="_blank">
-                                            <img ng-src="/img/pininterest.png" class="md-icon socialicons">
-                                        </a>
-                                    </div>
-                                </div>
-
+                        <div class="row center" id="socialcompany">
+                            <div class="col s2">
+                                <a href="{{$ctrl.social.facebook}}" target="_blank" ng-if="$ctrl.social.facebook">
+                                    <img ng-src="/img/facebook2.png" class="md-icon socialicons">
+                                </a>
+                            </div>
+                            <div class="col s2">
+                                <a href="{{$ctrl.social.linkedin}}" target="_blank" ng-if="$ctrl.social.linkedin">
+                                    <img ng-src="/img/linkedin2.png" class="md-icon socialicons">
+                                </a>
+                            </div>
+                            <div class="col s2">
+                                <a href="{{$ctrl.social.twitter}}" target="_blank" ng-if="$ctrl.social.twitter">
+                                    <img ng-src="/img/twitter.png" class="md-icon socialicons">
+                                </a>
+                            </div>
+                            <div class="col s2">
+                                <a href="{{$ctrl.social.youtube}}" target="_blank" ng-if="$ctrl.social.youtube">
+                                    <img ng-src="/img/youtube.png" class="md-icon socialicons">
+                                </a>
+                            </div>
+                            <div class="col s2">
+                                <a href="{{$ctrl.social.instagram}}" target="_blank" ng-if="$ctrl.social.instagram">
+                                    <img ng-src="/img/instagram.png" class="md-icon socialicons">
+                                </a>
+                            </div>
+                            <div class="col s2">
+                                <a href="{{$ctrl.social.pinterest}}" target="_blank" ng-if="$ctrl.social.pinterest">
+                                    <img ng-src="/img/pininterest.png" class="md-icon socialicons">
+                                </a>
                             </div>
                         </div>
 
@@ -116,7 +104,9 @@
                     </div>
                 </div>
 
-                <!-- Membres -->
+                <!-- ////////////////////////
+                          Membres
+                     ////////////////////////////-->
                 <div class="row">
                     <div class="col s12">
                         <h4>Membres de la compagnie {{$ctrl.company.name}}</h4>
@@ -134,6 +124,8 @@
                                     <div class="col s9">
                                         <div class="card-title">
                                             <p>{{contact.name}}</p>
+                                            <p>{{contact.email}}</p>
+                                            <p>{{contact.number}}</p>
                                         </div>
                                     </div>
                                 </div>

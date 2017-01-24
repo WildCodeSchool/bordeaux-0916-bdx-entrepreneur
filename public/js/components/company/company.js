@@ -17,7 +17,7 @@
                         this.company = response.data
                         if (this.company.tags.length > 0)
                             this.tags = this.company.tags.join(',')
-                        this.social = this.company.social[0]
+                        this.social = this.company.social
 
                     });
 
