@@ -6,7 +6,7 @@
             angular.extend(this, {
                 $onInit() {
 
-                    this.editMode = false;
+                    this.editMode = true;
                     this.infos = {}
 
                     usersService.getCurrent().then((user) => {
@@ -58,6 +58,12 @@
                     popupWin.document.open();
                     popupWin.document.write('<html><head><link rel="stylesheet" href="css/printablearea.css" media="print"/></head><body onload="window.print()">' + printContents + '</body></html>');
                     popupWin.document.close();
+                },
+                addUser() {
+                    this.company.contacts.push({})
+                },
+                deleteUser(idx) {
+                    this.company.contacts.splice(idx, 1)
                 }
             })
         }

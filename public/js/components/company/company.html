@@ -213,37 +213,37 @@
 
             <!-- Social -->
             <div class="row">
-                <div class="input-field col s4">
+                <div class="input-field col m2 s12">
                     <a href="{{$ctrl.social.facebook}}">
                         <img ng-src="/img/facebook2.png" class="socialicons">
                     </a>
                     <input class="validate" ng-model="$ctrl.social.facebook">
                 </div>
-                <div class="input-field col s4">
+                <div class="input-field col m2 s12">
                     <a href="{{$ctrl.linkedin}}">
                         <img ng-src="/img/linkedin2.png" class="socialicons">
                     </a>
                     <input class="validate" ng-model="$ctrl.social.linkedin">
                 </div>
-                <div class="input-field col s4">
+                <div class="input-field col m2 s12">
                     <a href="{{$ctrl.social.twitter}}">
                         <img ng-src="/img/twitter.png" class="socialicons">
                     </a>
                     <input class="validate" ng-model="$ctrl.social.twitter">
                 </div>
-                <div class="input-field col s4">
+                <div class="input-field col m2 s12">
                     <a href="{{$ctrl.social.youtube}}">
                         <img ng-src="/img/youtube.png" class="socialicons">
                     </a>
                     <input class="validate" ng-model="$ctrl.social.youtube">
                 </div>
-                <div class="input-field col s4">
+                <div class="input-field col m2 s12">
                     <a href="{{$ctrl.social.instagram}}">
                         <img ng-src="/img/instagram.png" class="socialicons">
                     </a>
                     <input class="validate" ng-model="$ctrl.social.instagram">
                 </div>
-                <div class="input-field col s4">
+                <div class="input-field col m2 s12">
                     <a href="{{$ctrl.social.pinterest}}">
                         <img ng-src="/img/pininterest.png" class="socialicons">
                     </a>
@@ -263,39 +263,34 @@
 
             <!-- Contact-->
             <div class="row">
-                <div class="col s4" ng-repeat="contact in $ctrl.company.contacts track by $index">
+                <div class="col s6" ng-repeat="contact in $ctrl.company.contacts track by $index">
                     <h4>Contact</h4>
-                    <div class="input-field">
-                        <i class="material-icons prefix">person</i>
-                        <input class="validate" ng-model="contact.name">
-                        <label class="active">Nom Prénom</label>
+                    <div class="card card-panel hoverable">
+                        <div class="card-content">
+                            <div class="row valign-wrapper">
+                                <div class="col s3">
+                                    <img class="responsive-img circle" ng-src="{{contact.image}}" alt="" />
+                                </div>
+                                <div class="col s9">
+                                    <div class="card-title">
+                                        <p>{{contact.name}}</p>
+                                        <p>{{contact.email}}</p>
+                                        <p>{{contact.number}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <a class="waves-effect waves-light btn" ng-click="$ctrl.deleteUser($index)">
+                                <i class="material-icons right">close</i>Désactiver Membre
+                            </a>
+                        </div>
                     </div>
-                    <div class="input-field">
-                        <i class="material-icons prefix">email</i>
-                        <input class="validate" ng-model="contact.email">
-                        <label class="active">Email</label>
-                    </div>
-                    <div class="input-field">
-                        <i class="material-icons prefix">phone</i>
-                        <input class="validate" ng-model="contact.number">
-                        <label class="active">Phone Number</label>
-                    </div>
-                    <div class="input-field">
-                        <i class="material-icons prefix">person</i>
-                        <input class="validate" ng-model="contact.facebook">
-                        <label class="active">Facebook</label>
-                    </div>
-                    <div class="input-field">
-                        <i class="material-icons prefix">person</i>
-                        <input class="validate" ng-model="contact.linkedin">
-                        <label class="active">Linkedin</label>
-                    </div>
-                    <div class="input-field">
-                        <i class="material-icons prefix">person</i>
-                        <input class="validate" ng-model="contact.twitter">
-                        <label class="active">Twitter</label>
-                    </div>
+                    <!-- <a class="waves-effect waves-light btn right" ng-click="$ctrl.addUser()">
+                        <i class="material-icons right">add</i>Ajouter Membre
+                    </a> -->
                 </div>
+
             </div>
 
             <!-- Infos Company -->
@@ -328,8 +323,6 @@
                     </a>
                 </div>
             </div>
-
-
         </div>
     </div>
 </section>

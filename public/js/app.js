@@ -1,5 +1,4 @@
 ((app) => {
-
     const file = [() => {
         return {
             restrict: 'E',
