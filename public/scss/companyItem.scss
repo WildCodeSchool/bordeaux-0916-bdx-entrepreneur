@@ -1,6 +1,3 @@
-/*h3 .md-display-1{
-  margin: 0 auto 0 auto;
-}*/
 #iconprint {
     color:#3a88be;
     font-size: 36px;
@@ -8,11 +5,6 @@
 
 #logobdx {
     display: none;
-}
-
-#bigcard {
-    border-color: lightgray;
-    box-shadow: 1px 0 3px 2px lightslategray;
 }
 
 #headercard {
@@ -87,45 +79,4 @@ h1 {
 
 #contactdescri1 {
     text-align: left;
-}
-
-.fabSpeedDialdemoBasicUsage .text-capitalize {
-    text-transform: capitalize;
-}
-
-.fabSpeedDialdemoBasicUsage .md-fab.md-focused,
-.fabSpeedDialdemoBasicUsage .md-fab:hover {
-    background-color: #000 !important;
-}
-
-.fabSpeedDialdemoBasicUsage p.note {
-    font-size: 1.2rem;
-}
-
-.fabSpeedDialdemoBasicUsage .lock-size {
-    min-width: 300px;
-    min-height: 300px;
-    width: 300px;
-    height: 300px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.fabSpeedDialdemoMoreOptions md-fab-speed-dial {
-    margin-top: 89px;
-}
-
-.fabSpeedDialdemoMoreOptions md-fab-speed-dial md-fab-trigger {
-    transition: all 0.3s ease-in-out;
-    transform: scale(1);
-}
-
-.fabSpeedDialdemoMoreOptions md-fab-speed-dial.md-fling.ng-hide-add.ng-hide-add-active,
-.fabSpeedDialdemoMoreOptions md-fab-speed-dial.md-scale.ng-hide-add.ng-hide-add-active {
-    display: flex !important;
-}
-
-.fabSpeedDialdemoMoreOptions md-fab-speed-dial.md-fling.ng-hide md-fab-trigger,
-.fabSpeedDialdemoMoreOptions md-fab-speed-dial.md-scale.ng-hide md-fab-trigger {
-    transform: scale(0);
 }

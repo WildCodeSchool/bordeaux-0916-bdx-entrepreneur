@@ -5,7 +5,7 @@
             let copie = {};
             angular.extend(this, {
                 $onInit() {
-                    
+
                     this.editMode = false;
                     this.infos = {}
 
@@ -18,9 +18,6 @@
                         if (this.company.tags.length > 0)
                             this.tags = this.company.tags.join(',')
                         this.social = this.company.social[0]
-                        this.fondateur = this.company.fondateur[0]
-                        this.cofond = this.company.cofond
-                        this.cofondbis = this.company.cofond[1]
 
                     });
 
@@ -55,8 +52,8 @@
                     this.editMode = false
                 },
 
-                printDiv(printableArea) {
-                    let printContents = document.getElementById(printableArea).innerHTML;
+                printDiv() {
+                    let printContents = document.getElementById('bigcard').innerHTML;
                     let popupWin = window.open('', '_blank', 'width=600,height=600');
                     popupWin.document.open();
                     popupWin.document.write('<html><head><link rel="stylesheet" href="css/printablearea.css" media="print"/></head><body onload="window.print()">' + printContents + '</body></html>');

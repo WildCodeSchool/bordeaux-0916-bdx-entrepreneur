@@ -4,29 +4,24 @@ let userSchema = new mongoose.Schema({
 
 
     name: String,
-    prenom: String,
+    firstname: String,
     company: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Companie'
+        ref: 'Company'
     }],
-    firstname: String,
     address: {
         type: mongoose.Schema.Types.Mixed
     },
     social: {
         type: mongoose.Schema.Types.Mixed
     },
-    number: {
-        type: Number
-    },
+    number: String,
     email: {
         type: String,
         unique: true
     },
     image: String,
-    password: {
-        type: String,
-    },
+    password: String,
     remarques:String,
     isAdmin: {
         type: Boolean,

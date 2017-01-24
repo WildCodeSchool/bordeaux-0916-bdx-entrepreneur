@@ -1,7 +1,7 @@
 <section ng-if="!$ctrl.editMode">
     <div id="printableArea">
         <div class="card card-panel">
-            <div class="card-content companyinfo">
+            <div class="card-content companyinfo" id="bigcard">
 
                 <div class="row colored companyhead white-text">
                     <div class="col s3">
@@ -13,44 +13,42 @@
                             <div class="row center">
                                 <div class="col s4">
                                     <div ng-if="$ctrl.social.facebook">
-                                        <a href="{{$ctrl.social.facebook}}">
+                                        <a href="{{$ctrl.social.facebook}}" target="_blank">
                                             <img ng-src="/img/facebook2.png" class="md-icon socialicons">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col s4">
                                     <div ng-if="$ctrl.social.linkedin">
-                                        <a href="{{$ctrl.social.linkedin}}">
+                                        <a href="{{$ctrl.social.linkedin}}" target="_blank">
                                             <img ng-src="/img/linkedin2.png" class="md-icon socialicons">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col s4">
                                     <div ng-if="$ctrl.social.twitter">
-                                        <a href="{{$ctrl.social.twitter}}">
+                                        <a href="{{$ctrl.social.twitter}}" target="_blank">
                                             <img ng-src="/img/twitter.png" class="md-icon socialicons">
                                         </a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row center">
                                 <div class="col s4">
                                     <div ng-if="$ctrl.social.youtube">
-                                        <a href="{{$ctrl.social.youtube}}">
+                                        <a href="{{$ctrl.social.youtube}}" target="_blank">
                                             <img ng-src="/img/youtube.png" class="md-icon socialicons">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col s4">
                                     <div layout="column" ng-if="$ctrl.social.instagram">
-                                        <a href="{{$ctrl.social.instagram}}">
+                                        <a href="{{$ctrl.social.instagram}}" target="_blank">
                                             <img ng-src="/img/instagram.png" class="md-icon socialicons">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col s4">
                                     <div layout="column" ng-if="$ctrl.social.pinterest">
-                                        <a href="{{$ctrl.social.pinterest}}">
+                                        <a href="{{$ctrl.social.pinterest}}" target="_blank">
                                             <img ng-src="/img/pininterest.png" class="md-icon socialicons">
                                         </a>
                                     </div>
@@ -62,7 +60,7 @@
                     </div>
                     <div class="col s9">
                         <h3>{{$ctrl.company.name}}</h3>
-                        <h6>{{$ctrl.company.secteur}}</h6>
+                        <h6>Secteur : {{$ctrl.company.secteur}}</h6>
                         <h6>{{$ctrl.company.introduction}}</h6>
                         <h6><a class="waves-effect waves-light btn" href="{{$ctrl.company.siteweb}}" target="_blank">Site Web</a></h6>
                     </div>
@@ -76,19 +74,19 @@
                 <div class="row">
                     <div class="row">
                         <!-- Description -->
-                        <div class="col s12 m5 offset-m1">
+                        <div class="col s12 m5 offset-m1" ng-if="$ctrl.company.presentation">
                             <div class="card">
                                 <div class="card-content">
-                                    <span class="card-title">Description de l'entreprise</span>
+                                    <span class="card-title">Qui nous sommes</span>
                                     <p>{{$ctrl.company.presentation}}</p>
                                 </div>
                             </div>
                         </div>
                         <!-- Ce que nous proposons -->
-                        <div class="col s12 m5">
+                        <div class="col s12 m5" ng-if="$ctrl.company.prestation">
                             <div class="card">
                                 <div class="card-content">
-                                    <span class="card-title">Ce que nous vous proposons</span>
+                                    <span class="card-title">Ce que nous faisons</span>
                                     <p>{{$ctrl.company.prestation}}</p>
                                 </div>
                             </div>
@@ -97,7 +95,7 @@
 
                     <div class="row">
                         <!-- Attentes -->
-                        <div class="col s12 m5 offset-m1">
+                        <div class="col s12 m5 offset-m1" ng-if="$ctrl.company.attentes">
                             <div class="card">
                                 <div class="card-content">
                                     <span class="card-title">Ce que nous recherchons</span>
@@ -107,7 +105,7 @@
                         </div>
 
                         <!-- Notes -->
-                        <div class="col s12 m5">
+                        <div ng-class="!$ctrl.company.attentes ? 'col s12 m5 offset-m1' : 'col s12 m5'" ng-if="$ctrl.company.notes">
                             <div class="card">
                                 <div class="card-content">
                                     <span class="card-title">Notes</span>
@@ -124,57 +122,18 @@
                         <h4>Membres de la compagnie {{$ctrl.company.name}}</h4>
                     </div>
 
-                    <!-- Première carte contact -->
+                    <!-- Contact -->
 
-                    <div class="col s4">
+                    <div class="col s4" ng-repeat="contact in $ctrl.company.contacts">
                         <div class="card card-panel hoverable">
                             <div class="card-content">
                                 <div class="row valign-wrapper">
                                     <div class="col s3">
-                                        <img class="responsive-img circle" ng-src="{{$ctrl.fondateur.image}}" alt="" />
+                                        <img class="responsive-img circle" ng-src="{{contact.image}}" alt="" />
                                     </div>
                                     <div class="col s9">
                                         <div class="card-title">
-                                            <p>{{$ctrl.fondateur.name}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Seconde carte contact -->
-
-                    <div class="col s4">
-                        <div class="card card-panel hoverable">
-                            <div class="card-content">
-                                <div class="row valign-wrapper">
-                                    <div class="col s3">
-                                        <img class="responsive-img circle" ng-src="{{$ctrl.cofond.image}}" alt="" />
-                                    </div>
-                                    <div class="col s9">
-                                        <div class="card-title">
-                                            <p>{{$ctrl.cofond.name}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Troisième carte contact -->
-
-
-                    <div class="col s4">
-                        <div class="card card-panel hoverable">
-                            <div class="card-content">
-                                <div class="row valign-wrapper">
-                                    <div class="col s3">
-                                        <img class="responsive-img circle" ng-src="{{$ctrl.cofondbis.image}}" alt="" />
-                                    </div>
-                                    <div class="col s9">
-                                        <div class="card-title">
-                                            <p>{{$ctrl.cofondbis.name}}</p>
+                                            <p>{{contact.name}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -204,7 +163,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="btn-floating red darken-1" ng-click="$ctrl.printDiv('bigcard')">
+                        <a class="btn-floating red darken-1" ng-click="$ctrl.printDiv()">
                             <i class="material-icons yellow darken-1">print</i>
                         </a>
                     </li>
