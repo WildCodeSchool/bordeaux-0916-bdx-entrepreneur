@@ -1,4 +1,3 @@
-<!-- <navbar></navbar> -->
 <section id="companiesList" class="row">
     <div class="row">
         <div class="col s12">
@@ -28,7 +27,7 @@
         </div>
     </nav>
 
-    <div class="col s4" ng-repeat="company in $ctrl.companies | orderBy:'name'">
+    <div class="col s4" ng-repeat="company in $ctrl.companies | orderBy:'name' | limitTo : $ctrl.carouselstate">
         <div class="card card-panel hoverable">
             <div class="card-content">
                 <div class="row valign-wrapper">
@@ -70,16 +69,9 @@
 <section id="buttons">
     <div class="row">
         <div class="center-align">
-            <a class="waves-effect waves-light btn" ng-click="$ctrl.loadMore()">
+            <a class="waves-effect waves-light btn blue" ng-click="$ctrl.loadMore()" ng-if="$ctrl.carouselstate < $ctrl.companies.length">
                 <i class="material-icons right">add</i>Charger Plus
             </a>
-            <a class="waves-effect waves-light btn" ui-sref="app.newCompany">
-                <i class="material-icons">note_add</i>
-            </a>
-            <a class="waves-effect waves-light btn" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', fondateur:'Fondateur', cofond:'Autres membres'}"
-                filename="'Player'">
-                <i class="material-icons right">save</i>Export Excel
-                </a>
         </div>
     </div>
 </section>

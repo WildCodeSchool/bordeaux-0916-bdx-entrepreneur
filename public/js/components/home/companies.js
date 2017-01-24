@@ -4,11 +4,11 @@
         controller: ['companiesService', '$stateParams', '$state', '$scope', '$window', function(companiesService, ngJsonExportExcel, $stateParams, $state, $scope, $window) {
             angular.extend(this, {
                 $onInit() {
-                    this.carouselstate = 10
+                    this.carouselstate = 9
                     companiesService.get().then((response) => {
                         this.companies = response.data
                     })
-                    
+
                 },
 
                 get() {

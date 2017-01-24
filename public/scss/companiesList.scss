@@ -1,23 +1,17 @@
-#companiesList {
-    ._md {
-        width: 20em;
-        height: 30em;
-    }
+@import 'colors';
 
-    md-button {
-        background-color: #3a88be;
-    }
+#companiesList {
 
     #addButton {
-        background-color: #3a88be;
+        background-color: $blue;
     }
 
     .md-button {
-        background-color: #3a88be;
+        background-color: $blue;
     }
 
     button {
-        background-color: #3a88be;
+        background-color: $blue;
     }
 
     body {
@@ -35,11 +29,5 @@
 
     li {
         list-style-type: none;
-    }
-}
-
-#buttons {
-    md-button {
-        background-color: #3a88be;
     }
 }

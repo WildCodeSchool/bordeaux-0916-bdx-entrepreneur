@@ -1,5 +1,7 @@
+@import "colors";
+
 #iconprint {
-    color:#3a88be;
+    color: $blue;
     font-size: 36px;
 }
 
@@ -9,7 +11,7 @@
 
 #headercard {
     color: white;
-    background-color: #3a88be;
+    background-color: $blue;
 }
 
 #longcontent {
@@ -79,4 +81,8 @@ h1 {
 
 #contactdescri1 {
     text-align: left;
+}
+
+.companyinfo {
+    background-color: $bluegrey;
 }

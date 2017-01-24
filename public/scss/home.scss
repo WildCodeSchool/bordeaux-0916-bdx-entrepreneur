@@ -1,3 +1,9 @@
+@import "colors";
+
+body {
+    background-color: $bluegrey;
+}
+
 #homeback {
     background-image: url("../img/back2.jpg");
     background-repeat: no-repeat;
@@ -20,7 +26,7 @@
 
 .colored,
 .colored:hover {
-    background-color: #3a88be;
+    background-color: $blue;
 }
 
 .companyhead {
@@ -35,7 +41,8 @@
     p {
         font-size: 16px;
     }
-    h6{
+
+    h6 {
         font-size: 18px;
     }
 }
