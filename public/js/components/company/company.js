@@ -5,7 +5,7 @@
             let copie = {};
             angular.extend(this, {
                 $onInit() {
-
+                    
                     this.editMode = false;
                     this.infos = {}
 
