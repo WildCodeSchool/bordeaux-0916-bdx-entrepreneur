@@ -1,3 +1,4 @@
+<!-- header login -->
 <div class="row">
     <section id="navbar" class="white">
         <div class="row">
@@ -10,47 +11,46 @@
             </div>
         </div>
     </section>
-
 </div>
-    <div class="container">
-        <div class="row">
-            <div class="col s12">
-                <h1 class="titre">Connection</h1>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h1 class="titre">Connection</h1>
         </div>
+    </div>
 
-        <div class="row valign-wrapper">
-            <div class="col s8 offset-s2 valign">
-                <div class="card">
-                    <div class="card-content white-text">
+    <div class="row valign-wrapper">
+        <div class="col s8 offset-s2 valign">
+            <div class="card">
+                <div class="card-content ">
+                    <div class="row">
+                        <div class="input-field col s12  m6 l6">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="email" type="email" class="validate" ng-model="$ctrl.user.email">
+                            <label for="email">Email</label>
+                        </div>
+
+                        <div class="input-field col s12  m6 l6">
+                            <i class="material-icons prefix">lock</i>
+                            <input id="password" type="password" class="validate" ng-model="$ctrl.user.password">
+                            <label for="password">Mot de passe</label>
+                        </div>
+                    </div>
+                    <div class="card-action">
                         <div class="row">
-                            <div class="input-field col s12  m6 l6">
-                                <i class="material-icons prefix">account_circle</i>
-                                <input id="email" type="email" class="validate" ng-model="$ctrl.user.email">
-                                <label for="email">Email</label>
-                            </div>
-
-                            <div class="input-field col s12  m6 l6">
-                                <i class="material-icons prefix">lock</i>
-                                <input id="password" type="password" class="validate" ng-model="$ctrl.user.password">
-                                <label for="password">Mot de passe</label>
+                            <div class="col s12 center">
+                                <button ng-click="$ctrl.connect($ctrl.user)" class="btn waves-effect waves-light" type="submit" name="action">
+                                    Se Connecter
+                                  <i class="material-icons left">power_settings_new</i>
+                                </button>
                             </div>
                         </div>
-                        <div class="card-action">
-                            <div class="row">
-                                <div class="col s12 m6 l6">
-                                    <button ng-click="$ctrl.connect($ctrl.user)" class="btn waves-effect waves-light" type="submit" name="action">Connecter
-                                      <i class="material-icons">power_settings_new</i>
-</button>
-                                </div>
-                              </div>
-                              <div class="row">
-
-                                <div class="col s12 m6 l6">
-                                    <button ui-sref="app.newAccount" class="btn waves-effect waves-light" type="submit" name="action">S'enregistrer
-<i class="material-icons right">send</i>
-</button>
-                                </div>
+                        <div class="row">
+                            <div class="col s12 center">
+                                <button ui-sref="app.newAccount" class="btn waves-effect waves-light" type="submit" name="action">
+                                    S'enregistrer
+                                    <i class="material-icons right">send</i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -58,3 +58,4 @@
             </div>
         </div>
     </div>
+</div>

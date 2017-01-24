@@ -15,7 +15,7 @@
                 disconnect() {
                     usersService.disconnect().then(() => {
                       this.currentUser = null
-                        $state.go('app.login')
+                        $state.go('app.login', {reload: true})
                     })
                 }
             })
