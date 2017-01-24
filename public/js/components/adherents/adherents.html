@@ -76,21 +76,10 @@
                 </a>
             </li>
             <li>
-                <a class="btn-floating red darken-1" ui-sref="app.newCompany">
+                <a class="btn-floating red darken-1" ui-sref="app.newAdherent">
                   <i class="material-icons">note_add</i>
                 </a>
             </li>
         </ul>
-    </div>
-    <div class="row">
-        <div class="center-align">
-            <a class="waves-effect waves-light btn" ng-click="$ctrl.loadMore()">Charger Plus<i class="material-icons right">add</i></a>
-            <!--Button for add page.-->
-            <a class="waves-effect waves-light btn" ui-sref="app.newAdherent"><i class="material-icons">note_add</i></a>
-            <!-- Button export -->
-            <a ng-json-export-excel data="$ctrl.adherents" report-fields="{name: 'Name', company:'Société',social:'Réseaux sociaux', email:'Email'}" filename="'Player'" class="waves-effect waves-light btn" ng-click="$ctrl.loadMore()">
-                <i class="material-icons right">save</i> Export Excel
-            </a>
-        </div>
     </div>
 </section>

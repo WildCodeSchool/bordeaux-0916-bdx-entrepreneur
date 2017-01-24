@@ -41,7 +41,7 @@ class UsersController extends Controller {
                     next(err)
                 else if (!user)
                     res.status(403).send("User not found")
-                else {                  
+                else {
                     let token = jwt.sign(user, ENV.token, {
                         expiresIn: "24h"
                     })
@@ -59,9 +59,7 @@ class UsersController extends Controller {
 
 
     find(req, res, next) {
-        this.model.find({
-            password: 0
-        }).populate('company').exec((err, users) => {
+        this.model.find().populate('company').exec((err, users) => {
             res.json(users)
         })
     }

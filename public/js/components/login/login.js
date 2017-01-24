@@ -5,7 +5,7 @@
         controller: ['usersService', '$state', function(usersService, $state) {
             angular.extend(this, {
                 $onInit() {
-
+                  
 
                 },
                 connect(user) {

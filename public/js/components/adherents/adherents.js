@@ -23,6 +23,7 @@
 
                     usersService.get().then((res) => {
                         this.adherents = res.data
+                        console.log(this.adherents);
                         this.adherents.forEach((adherent) => {
                             affect(adherent)
                         })
