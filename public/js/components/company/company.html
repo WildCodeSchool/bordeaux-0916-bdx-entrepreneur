@@ -1,7 +1,7 @@
 <section ng-if="!$ctrl.editMode">
     <div id="printableArea">
         <div class="card card-panel">
-            <div class="card-content">
+            <div class="card-content companyinfo">
 
                 <div class="row colored companyhead white-text">
                     <div class="col s3">
@@ -10,22 +10,22 @@
                         <!-- Social -->
 
                         <div class="row" id="socialcompany">
-                            <div class="row">
-                                <div class="col s3">
+                            <div class="row center">
+                                <div class="col s4">
                                     <div ng-if="$ctrl.social.facebook">
                                         <a href="{{$ctrl.social.facebook}}">
                                             <img ng-src="/img/facebook2.png" class="md-icon socialicons">
                                         </a>
                                     </div>
                                 </div>
-                                <div class="col s3">
+                                <div class="col s4">
                                     <div ng-if="$ctrl.social.linkedin">
                                         <a href="{{$ctrl.social.linkedin}}">
                                             <img ng-src="/img/linkedin2.png" class="md-icon socialicons">
                                         </a>
                                     </div>
                                 </div>
-                                <div class="col s3">
+                                <div class="col s4">
                                     <div ng-if="$ctrl.social.twitter">
                                         <a href="{{$ctrl.social.twitter}}">
                                             <img ng-src="/img/twitter.png" class="md-icon socialicons">
@@ -33,22 +33,22 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col s3">
+                            <div class="row center">
+                                <div class="col s4">
                                     <div ng-if="$ctrl.social.youtube">
                                         <a href="{{$ctrl.social.youtube}}">
                                             <img ng-src="/img/youtube.png" class="md-icon socialicons">
                                         </a>
                                     </div>
                                 </div>
-                                <div class="col s3">
+                                <div class="col s4">
                                     <div layout="column" ng-if="$ctrl.social.instagram">
                                         <a href="{{$ctrl.social.instagram}}">
                                             <img ng-src="/img/instagram.png" class="md-icon socialicons">
                                         </a>
                                     </div>
                                 </div>
-                                <div class="col s3">
+                                <div class="col s4">
                                     <div layout="column" ng-if="$ctrl.social.pinterest">
                                         <a href="{{$ctrl.social.pinterest}}">
                                             <img ng-src="/img/pininterest.png" class="md-icon socialicons">
@@ -62,13 +62,9 @@
                     </div>
                     <div class="col s9">
                         <h3>{{$ctrl.company.name}}</h3>
-                        <p>{{$ctrl.company.secteur}} </p>
-                    </div>
-                    <div class="col s9">
-                        <p>{{$ctrl.company.introduction}} </p>
-                    </div>
-                    <div class="col s9">
-                        <p>{{$ctrl.company.presentation}} </p>
+                        <h6>{{$ctrl.company.secteur}}</h6>
+                        <h6>{{$ctrl.company.introduction}}</h6>
+                        <h6><a class="waves-effect waves-light btn" href="{{$ctrl.company.siteweb}}" target="_blank">Site Web</a></h6>
                     </div>
                 </div>
 
@@ -78,9 +74,9 @@
                 ////////////////////////////////////-->
 
                 <div class="row">
-
                     <div class="row">
-                        <div class="col s12 m10 offset-m1">
+                        <!-- Description -->
+                        <div class="col s12 m5 offset-m1">
                             <div class="card">
                                 <div class="card-content">
                                     <span class="card-title">Description de l'entreprise</span>
@@ -88,13 +84,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-
-                    <!-- Ce que nous proposons -->
-
-                    <div class="row">
-                        <div class="col s12 m10 offset-m1">
+                        <!-- Ce que nous proposons -->
+                        <div class="col s12 m5">
                             <div class="card">
                                 <div class="card-content">
                                     <span class="card-title">Ce que nous vous proposons</span>
@@ -104,11 +95,9 @@
                         </div>
                     </div>
 
-
-                    <!-- Attentes -->
-
                     <div class="row">
-                        <div class="col s12 m8 offset-m2">
+                        <!-- Attentes -->
+                        <div class="col s12 m5 offset-m1">
                             <div class="card">
                                 <div class="card-content">
                                     <span class="card-title">Ce que nous recherchons</span>
@@ -116,12 +105,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Notes -->
-
-                    <div class="row">
-                        <div class="col s12 m8 offset-m2">
+                        <!-- Notes -->
+                        <div class="col s12 m5">
                             <div class="card">
                                 <div class="card-content">
                                     <span class="card-title">Notes</span>
