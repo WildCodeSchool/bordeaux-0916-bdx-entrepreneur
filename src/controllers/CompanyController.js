@@ -76,14 +76,6 @@ class CompanyController extends Controller {
         })
     }
 
-    // update(req, res, next) {
-    //     console.log(req.body);
-    //     this.model.update({ _id: req.params.id}, req.body.company, (err, company) => {
-    //         if (err) next(err)
-    //         res.sendStatus(200)
-    //     })
-    // }
-    //
 
     findOne(req, res, next) {
         let search = new RegExp("(" + req.params.recherche + ")", "igm")
@@ -93,6 +85,17 @@ class CompanyController extends Controller {
             }, {
                 'secteur': search
             }]
+        }, (err, companies) => {
+            if (err) next(err)
+            else
+                res.json(companies)
+        });
+    }
+
+    findTags(req, res, next) {
+        let tags = new RegExp("(" + req.params.tags + ")", "igm")
+        this.model.find({
+            'tags': tags
         }, (err, companies) => {
             if (err) next(err)
             else
