@@ -44,6 +44,8 @@ class UsersController extends Controller {
         } else {
             USER.findOne({
                 email: req.body.email
+            }, {
+                password: 0
             }, (err, user) => {
                 if (err)
                     next(err)
@@ -73,7 +75,7 @@ class UsersController extends Controller {
     }
 
     findOne(req, res, next) {
-        // let to_email = new helper.Email(`${req.params.email}`)
+        let to_email = new helper.Email(`${req.params.email}`)
         this.model.findOneAndUpdate({
             'email': req.params.email
         }, {
@@ -94,7 +96,6 @@ class UsersController extends Controller {
                 console.log(response.body)
                 console.log(response.headers)
             })
-            user.password === null
             res.json(user)
         })
     }
