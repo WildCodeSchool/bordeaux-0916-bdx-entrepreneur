@@ -6,7 +6,7 @@
             angular.extend(this, {
                 $onInit() {
 
-                    this.editMode = true;
+                    this.editMode = false;
                     this.infos = {}
 
                     usersService.getCurrent().then((user) => {
