@@ -1,10 +1,20 @@
 'use strict'
-let jwt = require('jsonwebtoken')
-let bcrypt = require('bcrypt');
-let Controller = require('./Controller')
+let jwt = require('jsonwebtoken'),
+    bcrypt = require('bcrypt'),
+    salt = bcrypt.genSaltSync(10),
+    Controller = require('./Controller'),
+    generator = require('generate-password'),
+    sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+let password = generator.generate({
+    length: 10,
+    numbers: true
+});
 const USER = require('../models/user')
 const ENV = require('../../config/env')
-let salt = bcrypt.genSaltSync(10);
+
+let helper = require('sendgrid').mail,
+    from_email = new helper.Email("poloc1722@hotmail.fr"),
+    subject = "Nouveau mot de pass";
 
 class UsersController extends Controller {
 
@@ -14,8 +24,6 @@ class UsersController extends Controller {
     }
 
     create(req, res, next) {
-        // Create a password salt
-        // Salt and hash password
         let newPassword = bcrypt.hashSync(req.body.password, salt)
         req.body.password = newPassword
         this.model.create(req.body, (err, document) => {
@@ -61,6 +69,33 @@ class UsersController extends Controller {
     find(req, res, next) {
         this.model.find().populate('company').exec((err, users) => {
             res.json(users)
+        })
+    }
+
+    findOne(req, res, next) {
+        // let to_email = new helper.Email(`${req.params.email}`)
+        this.model.findOneAndUpdate({
+            'email': req.params.email
+        }, {
+            $set: {
+                'password': password
+            }
+        }, (err, user) => {
+            if (err) next(err)
+            let content = new helper.Content("text/plain", `Bonjour ${user.prenom}, \n Suite à votre demande de renouvellement de mot de passe, votre nouveau mot de passe est ${password} \n\n Connectez vous avec celui-ci puis pensez à le changer dans votre espace profile. \n\n Sincèrement,\n\nBordeaux Entrepreneurs`)
+            let mail = new helper.Mail(from_email, subject, to_email, content);
+            let request = sg.emptyRequest({
+                method: 'POST',
+                path: '/v3/mail/send',
+                body: mail.toJSON()
+            });
+            sg.API(request, function(error, response) {
+                console.log(response.statusCode)
+                console.log(response.body)
+                console.log(response.headers)
+            })
+            user.password === null
+            res.json(user)
         })
     }
 

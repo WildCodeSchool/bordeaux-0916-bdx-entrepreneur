@@ -13,6 +13,10 @@ module.exports = (app) => {
         return usersCtrl.findById(req, res, next)
     })
 
+    app.get('/users/one/:email', (req, res, next) => {
+        return usersCtrl.findOne(req, res, next)
+    })
+
     app.post('/users', (req, res, next) => {
         return usersCtrl.create(req, res, next)
     })

@@ -5,7 +5,7 @@
         controller: ['usersService', '$state', function(usersService, $state) {
             angular.extend(this, {
                 $onInit() {
-                  
+
 
                 },
                 connect(user) {
@@ -16,6 +16,11 @@
                     }).catch((err) => {
                         let textContent = `Error : ${err.data} !`
                     })
+                },
+                newPassword(email){
+                  usersService.getOne(email).then((res)=>{
+                    console.log(res);
+                  })
                 }
             })
         }]
