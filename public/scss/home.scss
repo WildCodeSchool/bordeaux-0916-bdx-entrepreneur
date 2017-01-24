@@ -15,8 +15,13 @@
 
 .prescompanies {
     min-height: 45px;
+    max-height: 45px;
 }
 
 .colored, .colored:hover {
     background-color: #3a88be;
+}
+
+.companyhead{
+  padding: 25px;
 }
