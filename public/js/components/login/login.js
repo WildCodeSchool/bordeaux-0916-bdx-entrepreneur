@@ -15,7 +15,9 @@
                 connect(user) {
                     usersService.connect(user).then((user) => {
                         this.currentUser = user
-                        $state.go('app.home')
+                        $state.go('app.home').then(() => {
+                            $state.reload()
+                        })
 
                     }).catch((err) => {
                         let textContent = `Error : ${err.data} !`
