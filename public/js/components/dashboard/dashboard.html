@@ -21,7 +21,7 @@
                         <h3>Liste des compagnies</h3>
                         <ul class="collection">
                             <li class="collection-item avatar" ng-repeat="company in $ctrl.companies">
-                                <img src="{{company.image}}" alt="" class="circle">
+                                <img ng-src="{{company.image}}" alt="" class="circle">
                                 <span class="title">{{company.name}}</span>
                                 <p>{{company.secteur}} {{company.fondateur.name ? '/' : ''}} {{company.fondateur.name}}
                                 </p>
@@ -32,7 +32,7 @@
                         <h3>Liste des utilisateurs</h3>
                         <ul class="collection">
                             <li class="collection-item avatar" ng-repeat="user in $ctrl.users">
-                                <img src="{{user.image}}" alt="" class="circle">
+                                <img ng-src="{{user.image}}" alt="" class="circle">
                                 <span class="title">{{user.prenom}} {{user.name}}</span>
                                 <p>{{user.email}} {{user.number ? '/' : ''}} {{user.number}}
                                 </p>
