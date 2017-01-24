@@ -7,9 +7,8 @@
                     this.carouselstate = 10
                     companiesService.get().then((response) => {
                         this.companies = response.data
-                        this.save = response.data
                     })
-
+                    
                 },
 
                 get() {
@@ -17,20 +16,15 @@
                         companiesService.findOne(this.search).then((res) => {
                             this.companies = res.data
                         })
-                    } else {
-                        this.companies = this.save
                     }
                 },
 
-                getTags() {
-                    if (this.tags.length > 0) {
-                        companiesService.findTags(this.tags).then((res) => {
-                            this.companies = res.data
-                        })
-                    } else {
-                        this.companies = this.save
-
-                    }
+                getTags(){
+                  if (this.tags.length > 0) {
+                      companiesService.findTags(this.tags).then((res) => {
+                          this.companies = res.data
+                      })
+                  }
                 },
 
                 loadMore() {
