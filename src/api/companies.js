@@ -17,6 +17,10 @@ module.exports = (app) => {
         return ctrl.findOne(req, res, next)
     })
 
+    app.get('/tags/:tags', (req, res, next) => {
+        return ctrl.findTags(req, res, next)
+    })
+
     app.post('/companies', (req, res, next) => {
         return ctrl.create(req, res, next)
     })

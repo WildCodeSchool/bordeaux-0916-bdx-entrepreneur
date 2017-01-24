@@ -6,7 +6,7 @@
                 $onInit() {
                     this.carouselstate = 10
                     companiesService.get().then((response) => {
-                        this.companies = response.data                        
+                        this.companies = response.data
                     })
 
                 },
@@ -17,6 +17,14 @@
                             this.companies = res.data
                         })
                     }
+                },
+                
+                getTags(){
+                  if (this.tags.length > 0) {
+                      companiesService.findTags(this.tags).then((res) => {
+                          this.companies = res.data
+                      })
+                  }
                 },
 
                 loadMore() {
