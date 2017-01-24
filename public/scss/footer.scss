@@ -15,4 +15,13 @@
         text-decoration: none;
         color: black;
     }
+
+    .roundfooterimage {
+      background-position: center;
+      background-size: contain;
+      height: 4em;
+      width: 4em;
+      border-radius: 25px;
+      background-repeat: no-repeat;
+    }
 }

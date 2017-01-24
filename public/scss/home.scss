@@ -1,6 +1,22 @@
 #homeback {
-  background-image: url(../img/back2.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 428px;
+    background-image: url("../img/back2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 428px;
+}
+
+.imgcompanies {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 15em;
+    width: 100%;
+}
+
+.prescompanies {
+    min-height: 45px;
+}
+
+.colored, .colored:hover {
+    background-color: #3a88be;
 }

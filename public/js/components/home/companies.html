@@ -25,11 +25,9 @@
                         <div class="card-title">
                             <h3>{{company.name}}</h3>
                         </div>
-                        <div class="col s12">
-                            <img class="responsive-img" ng-src="{{company.image}}" alt="" />
-                        </div>
-                        <p>
-                            {{company.presentation | limitTo : 100}}
+                        <div class="imgcompanies" style="background-image:url({{company.image}})"></div>
+                        <p class="prescompanies">
+                            {{company.presentation | limitTo : 90}}{{company.presentation.length > 90 ? '...' : ''}}
                         </p>
                     </div>
                 </div>
@@ -41,17 +39,17 @@
         </div>
     </div>
     <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
-        <a class="btn-floating btn-large red">
+        <a class="btn-floating btn-large colored">
             <i class="material-icons">menu</i>
         </a>
         <ul>
             <li>
-                <a class="btn-floating green" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', fondateur:'Fondateur', cofond:'Autres membres'}" filename="'Player'">
+                <a class="btn-floating colored" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', fondateur:'Fondateur', cofond:'Autres membres'}" filename="'Player'">
                     <i class="material-icons">system_update_alt</i>Export Excel
                 </a>
             </li>
             <li>
-                <a class="btn-floating red darken-1" ui-sref="app.newCompany">
+                <a class="btn-floating colored" ui-sref="app.newCompany">
                     <i class="material-icons">note_add</i>
                 </a>
             </li>
