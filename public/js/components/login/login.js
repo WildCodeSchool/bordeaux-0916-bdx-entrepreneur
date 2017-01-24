@@ -8,12 +8,6 @@
 
                     this.form = true
 
-                    // usersService.getCurrent().then((res) => {
-                    //     $state.go('app.home')
-                    // }).catch(() => {
-                    //     $state.go('login')
-                    // })
-
                 },
                 connect(user) {
                     usersService.connect(user).then((user) => {

@@ -67,6 +67,20 @@ class UsersController extends Controller {
         }
     }
 
+    update(req, res, next) {
+      let newPassword = bcrypt.hashSync(req.body.password, salt)
+      req.body.password = newPassword
+        this.model.update({
+            _id: req.params.id
+        }, req.body, (err, document) => {
+            if (err) {
+                next(err)
+            } else {
+                res.sendStatus(200)
+            }
+        })
+    }
+
 
     find(req, res, next) {
         this.model.find().populate('company').exec((err, users) => {
