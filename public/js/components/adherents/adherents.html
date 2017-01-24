@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="card-action">
-                        <a class="waves-effect waves-light btn right" ng-click="$ctrl.disable($index)"><i class="material-icons">delete</i></a>
+                        <a class="waves-effect waves-light btn right blue" ng-click="$ctrl.disable($index)"><i class="material-icons">delete</i></a>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                     <div class="card-action">
-                        <a class="waves-effect waves-light btn right" ng-click="$ctrl.activate($index)"><i class="material-icons">done</i></a>
+                        <a class="waves-effect waves-light btn right blue" ng-click="$ctrl.activate($index)"><i class="material-icons">done</i></a>
                     </div>
                 </div>
             </div>
@@ -65,18 +65,18 @@
     </div>
 
     <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
-        <a class="btn-floating btn-large red">
+        <a class="btn-floating btn-large blue">
             <i class="material-icons">menu</i>
         </a>
         <ul>
             <li>
-                <a class="btn-floating green" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', fondateur:'Fondateur', cofond:'Autres membres'}"
+                <a class="btn-floating blue" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', fondateur:'Fondateur', cofond:'Autres membres'}"
                     filename="'Player'">
                   <i class="material-icons">system_update_alt</i>Export Excel
                 </a>
             </li>
             <li>
-                <a class="btn-floating red darken-1" ui-sref="app.newAdherent">
+                <a class="btn-floating blue" ui-sref="app.newAdherent">
                   <i class="material-icons">note_add</i>
                 </a>
             </li>

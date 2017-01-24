@@ -80,7 +80,7 @@
                             <input id="codePostale" type="text" class="validate" ng-model="$ctrl.currentUser.address.codePostal" placeholder="75000">
                             <label class="active" for="compagnie" data-success="right">Code Postal</label>
                         </div>
-                        
+
                         <div class="input-field col s6">
                             <select class="browser-default" ng-model="$ctrl.region" ng-change="$ctrl.find()">
                               <option value="" disabled selected>{{$ctrl.currentUser.address.region || 'Ma région' }}</option>
@@ -125,7 +125,7 @@
                 </form>
             </div>
             <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
-                <a class="btn-floating btn-large red" ng-click="$ctrl.edit($ctrl.currentUser)">
+                <a class="btn-floating btn-large blue" ng-click="$ctrl.edit($ctrl.currentUser)">
                     <i class="material-icons">save</i>
                 </a>
             </div>
