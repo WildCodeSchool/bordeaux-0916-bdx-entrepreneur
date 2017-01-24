@@ -28,7 +28,7 @@
                         companiesService.upload(this.image)
                         user.image = `img/${this.image.name}`
                     }
-                    user.address.region = this.region
+                    user.address = {region : this.region}
                     usersService.edit(user).then((res) => {
                         this.currentUser = res.config.data
                         $state.reload()
