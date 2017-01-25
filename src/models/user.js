@@ -26,20 +26,8 @@ let userSchema = new mongoose.Schema({
     remarques: String,
     role: {
         type: String,
-        enum: ['Admin', 'Foundateur', 'Other'],
+        enum: ['Admin', 'Fondateur', 'Other'],
         default: 'Other'
-    },
-    isAdmin: {
-        type: Boolean,
-        default: false
-    },
-    fondateur: {
-        type: Boolean,
-        default: false
-    },
-    cofondateur: {
-        type: Boolean,
-        default: true
     },
     active: {
         type: Boolean,

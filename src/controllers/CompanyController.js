@@ -33,10 +33,10 @@ class CompanyController extends Controller {
 
     create(req, res, next) {
         this.contacts = []
-
+        let contacts = req.body.contacts
         let create = (membre) => {
+            if (membre.fondateur) membre.role = 'Fondateur'
             USER.create(membre, (err, user) => {
-                console.log(user);
                 if (err) next(err)
                 else
                     this.contacts.push(user)
@@ -47,18 +47,11 @@ class CompanyController extends Controller {
             if (err) next(err)
             else {
                 this.companyId = document._id
-                if (req.body.fondateur || req.body.cofond || req.body.cofondbis) {
-                    if (req.body.fondateur) {
-                        req.body.fondateur.company = this.companyId
-                        req.body.fondateur.role = 'Foundateur'
-                        create(req.body.fondateur)
-                    }
-                    if (req.body.contacts) {
-                        res.body.contacts.forEach((contact) => {
-                            contact.company = this.companyId
-                            create(contact)
-                        })
-                    }
+                if (contacts) {
+                    contacts.forEach((contact) => {
+                        contact.company = this.companyId
+                        create(contact)
+                    })
 
                 }
 

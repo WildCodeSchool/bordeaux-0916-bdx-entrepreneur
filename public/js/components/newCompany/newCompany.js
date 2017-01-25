@@ -5,29 +5,25 @@
             angular.extend(this, {
                 $onInit() {
                     this.infos = {}
-                    this.infos.contacts = []
+                    this.contacts = []
 
                 },
-                saveCompanies(company, tags, fondateur,contact, image) {
-                  debugger
+                saveCompanies(company, tags, contacts, image) {
                     companiesService.upload(this.image)
                     this.infos.company = company
                     this.infos.company.image = `img/${this.image.name}` || ""
                     this.infos.company.tags = [tags]
-// <<<<<<< HEAD
-//                     this.infos.company.contacts = [contacts]
-// =======
-                    this.infos.fondateur = fondateur
-                    this.infos.contacts.push(contact)
+                    this.infos.contacts = contacts
+                    debugger
                     companiesService.add(this.infos).then((res) => {
                         this.newCompany = res.data
-                        console.log(res.data)
-                        // $state.go("app.company({id: this.newCompany._id})")
+                        console.log(res)
+                      //  $state.go("app.company({id: this.newCompany._id})")
                     }).catch((err) => {
                         console.log(err)
                     })
                 },
-                addUser(){
+                addUser() {
                     this.contacts.push({})
                 }
 
