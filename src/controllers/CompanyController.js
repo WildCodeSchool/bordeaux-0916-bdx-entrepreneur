@@ -32,15 +32,14 @@ class CompanyController extends Controller {
     }
 
     create(req, res, next) {
-        this.cofondateurs = []
-        this.fondateurId;
+        this.contacts = []
 
         let create = (membre) => {
             USER.create(membre, (err, user) => {
                 console.log(user);
                 if (err) next(err)
                 else
-                    user.fondateur === true ? this.fondateurId = user._id : this.cofondateurs.push(user)
+                    this.contacts.push(user)
             })
         }
 
@@ -51,26 +50,21 @@ class CompanyController extends Controller {
                 if (req.body.fondateur || req.body.cofond || req.body.cofondbis) {
                     if (req.body.fondateur) {
                         req.body.fondateur.company = this.companyId
-                        req.body.fondateur.fondateur = true
+                        req.body.fondateur.role = 'Foundateur'
                         create(req.body.fondateur)
                     }
-                    if (req.body.cofond) {
-                        req.body.cofond.company = this.companyId
-                        create(req.body.cofond)
-                    }
-                    if (req.body.cofondbis) {
-                        req.body.cofondbis.company = this.companyId
-                        create(req.body.cofondbis)
+                    if (req.body.contacts) {
+                        res.body.contacts.forEach((contact) => {
+                            contact.company = this.companyId
+                            create(contact)
+                        })
                     }
 
                 }
 
                 this.model.findById(this.companyId, (err, company) => {
-                    company.fondateur.push(this.fondateurId)
-                    company.cofond.push(this.cofondateurs)
+                    company.contacts = this.contacts
                     company.save()
-                    this.cofondateurs = null
-                    this.fondateurId = null
                 })
             }
         })

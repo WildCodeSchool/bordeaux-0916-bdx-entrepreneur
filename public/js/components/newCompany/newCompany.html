@@ -102,32 +102,32 @@
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons">person</i>
-                                <input ng-model="$ctrl.cofondateurbis.name">
+                                <input ng-model="$ctrl.contact.name">
                                 <label>Nom Prénom</label>
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons">email</i>
-                                <input ng-model="$ctrl.cofondateurbis.email">
+                                <input ng-model="$ctrl.contact.email">
                                 <label>Email</label>
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons">phone</i>
-                                <input ng-model="$ctrl.cofondateurbis.number">
+                                <input ng-model="$ctrl.contact.number">
                                 <label>Phone Number</label>
                             </div>
                             <div class="input-field col s12">
                                 <a ng-href="{{$ctrl.facebook}}"><img ng-src="/img/facebook2.png" class="socialicons"></a>
-                                <input ng-model="$ctrl.cofondateurbis.social.facebook">
+                                <input ng-model="$ctrl.contact.social.facebook">
                                 <label>Facebook</label>
                             </div>
                             <div class="input-field col s12">
                                 <a ng-href="{{$ctrl.linkedin}}"><img ng-src="/img/linkedin2.png" class="socialicons"></a>
-                                <input ng-model="$ctrl.cofondateurbis.social.linkedin">
+                                <input ng-model="$ctrl.contact.social.linkedin">
                                 <label>linkedin</label>
                             </div>
                             <div class="input-field col s12">
                                 <a ng-href="{{$ctrl.twitter}}"><img ng-src="/img/twitter.png" class="socialicons"></a>
-                                <input ng-model="$ctrl.cofondateurbis.social.twitter">
+                                <input ng-model="$ctrl.contact.social.twitter">
                                 <label>Twitter</label>
                             </div>
                         </div>
@@ -189,34 +189,34 @@ Fondateur Contact Card
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons">person</i>
-                                <input ng-model="$ctrl.cofondateur.name">
+                                <input ng-model="$ctrl.contact.name">
                                 <label>Nom Prénom</label>
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons">email</i>
-                                <input ng-model="$ctrl.cofondateur.email">
+                                <input ng-model="$ctrl.contact.email">
                                 <label>Email</label>
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons">phone</i>
-                                <input ng-model="$ctrl.cofondateur.number">
+                                <input ng-model="$ctrl.contact.number">
                                 <label>Phone Number</label>
                             </div>
                             <div class="input-field col s12">
-                                <a ng-href="{{$ctrl.cofondateur.social.facebook}}"><img ng-src="/img/facebook2.png" class="socialicons"></a>
-                                <input ng-model="$ctrl.cofondateur.social.facebook">
+                                <a ng-href="{{$ctrl.contact.social.facebook}}"><img ng-src="/img/facebook2.png" class="socialicons"></a>
+                                <input ng-model="$ctrl.contact.social.facebook">
                                 <label>Facebook</label>
                             </div>
                             <div class="input-field col s12">
-                                <a ng-href="{{$ctrl.cofondateur.social.linkedin}}"><img ng-src="/img/linkedin2.png" class="socialicons"></a>
-                                <input ng-model="$ctrl.cofondateur.social.linkedin">
+                                <a ng-href="{{$ctrl.contact.social.linkedin}}"><img ng-src="/img/linkedin2.png" class="socialicons"></a>
+                                <input ng-model="$ctrl.contact.social.linkedin">
                                 <label>linkedin</label>
                             </div>
                             <div class="input-field col s12">
-                                <a ng-href="{{$ctrl.cofondateur.social.twitter}}">
+                                <a ng-href="{{$ctrl.contact.social.twitter}}">
                                     <img ng-src="/img/twitter.png" class="socialicons">
                                 </a>
-                                <input ng-model="$ctrl.cofondateur.social.twitter">
+                                <input ng-model="$ctrl.contact.social.twitter">
                                 <label>Twitter</label>
                             </div>
                         </div>
@@ -260,7 +260,7 @@ Fondateur Contact Card
 
                 <div class="row">
                     <div class="center-align">
-                        <a class="waves-effect waves-light btn" ng-click="$ctrl.saveCompanies($ctrl.company,$ctrl.tags,$ctrl.fondateur,$ctrl.cofondateur, $ctrl.cofondateurbis, $ctrl.image)">
+                        <a class="waves-effect waves-light btn" ng-click="$ctrl.saveCompanies($ctrl.company,$ctrl.tags,$ctrl.fondateur,$ctrl.contact, $ctrl.image)">
                             <i class="material-icons">save</i>
                         </a>
                     </div>
