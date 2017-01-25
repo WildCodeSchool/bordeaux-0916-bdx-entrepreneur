@@ -33,14 +33,30 @@ class CompanyController extends Controller {
 
     create(req, res, next) {
         this.contacts = []
+        this.companyId;
         let contacts = req.body.contacts
+
         let create = (membre) => {
             if (membre.fondateur) membre.role = 'Fondateur'
-            USER.create(membre, (err, user) => {
+            USER.findOne({
+                email: membre.email
+            }, (err, user) => {
                 if (err) next(err)
-                else
+                if (user) {
+                    console.log(user);
+                    user.company.push(this.companyId)
                     this.contacts.push(user)
+                    user.save()
+                } else if (!user) {
+                    USER.create(membre, (err, user) => {
+                        if (err) next(err)
+                        else
+                            this.contacts.push(user)
+                    })
+                }
+
             })
+
         }
 
         this.model.create(req.body.company, (err, document) => {
@@ -54,7 +70,6 @@ class CompanyController extends Controller {
                     })
 
                 }
-
                 this.model.findById(this.companyId, (err, company) => {
                     company.contacts = this.contacts
                     company.save()
