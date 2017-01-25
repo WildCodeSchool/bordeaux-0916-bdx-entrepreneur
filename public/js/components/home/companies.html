@@ -53,15 +53,17 @@
             <i class="material-icons">menu</i>
         </a>
         <ul>
-            <li>
+            <li class="wrapper">
                 <a class="btn-floating colored" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', fondateur:'Fondateur', cofond:'Autres membres'}" filename="'Player'">
                     <i class="material-icons">system_update_alt</i>Export Excel
                 </a>
+                <div class="tooltip">Export CSV</div>
             </li>
-            <li>
+            <li class="wrapper">
                 <a class="btn-floating colored" ui-sref="app.newCompany">
                     <i class="material-icons">note_add</i>
                 </a>
+                <div class="tooltip">Ajouter une société</div>
             </li>
         </ul>
     </div>
