@@ -18,11 +18,17 @@ let userSchema = new mongoose.Schema({
     number: String,
     email: {
         type: String,
+        lowercase: true,
         unique: true
     },
     image: String,
     password: String,
-    remarques:String,
+    remarques: String,
+    role: {
+        type: String,
+        enum: ['Admin', 'Foundateur', 'Other'],
+        default: 'Other'
+    },
     isAdmin: {
         type: Boolean,
         default: false
