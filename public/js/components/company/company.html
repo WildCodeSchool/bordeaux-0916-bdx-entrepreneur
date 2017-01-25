@@ -144,20 +144,23 @@
                     <i class="material-icons">menu</i>
                 </a>
                 <ul>
-                    <li>
+                    <li class="wrapper">
                         <a class="btn-floating blue" ng-click="$ctrl.edit($ctrl.company, $ctrl.image)" user="$ctrl.user">
                             <i class="material-icons">mode_edit</i>
                         </a>
+                        <div class="tooltip">Éditer</div>
                     </li>
-                    <li>
+                    <li class="wrapper">
                         <a class="btn-floating blue" ng-click="$ctrl.delete($ctrl.company)">
                             <i class="material-icons">delete_forever</i>
                         </a>
+                        <div class="tooltip">Supprimer</div>
                     </li>
-                    <li>
+                    <li class="wrapper">
                         <a class="btn-floating blue" ng-click="$ctrl.printDiv()">
                             <i class="material-icons">print</i>
                         </a>
+                        <div class="tooltip">Imprimer</div>
                     </li>
                 </ul>
             </div>
