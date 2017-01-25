@@ -14,7 +14,6 @@
                     this.infos.company.image = `img/${this.image.name}` || ""
                     this.infos.company.tags = [tags]
                     this.infos.contacts = contacts
-                    debugger
                     companiesService.add(this.infos).then((res) => {
                         this.newCompany = res.data
                         console.log(res)
