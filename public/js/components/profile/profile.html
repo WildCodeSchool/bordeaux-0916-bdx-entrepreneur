@@ -1,50 +1,142 @@
-<section>
+<section ng-if="!$ctrl.editMode">
+    <div class="card card-panel">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        <h1>Informations principales</h1>
+                        <div class="col s4">
+                            <img class="responsive-img" ng-src="{{$ctrl.currentUser.image}}">
+                        </div>
+                        <div class="col s8">
+                            <label for="icon_telephone">Nom Prénom</label>
+                            <p><i class="material-icons">account_circle</i> {{$ctrl.currentUser.name}} {{$ctrl.currentUser.firstname}}</p>
+                            <label for="icon_telephone">Telephone</label>
+                            <p><i class="material-icons">phone</i> {{$ctrl.currentUser.number}}</p>
+                            <label>Email</label>
+                            <p><i class="material-icons">email</i> {{$ctrl.currentUser.email}}</p>
+                            <label>Société</label>
+                            <p><i class="material-icons">business</i> {{$ctrl.company.name}}</p>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <h1>Adresse</h1>
+
+                        <div class="col s6">
+                            <label>Rue</label>
+                            <p><i class="material-icons">location_on</i> {{$ctrl.currentUser.address.rue}}</p>
+                            <label>Ville</label>
+                            <p><i class="material-icons">location_on</i> {{$ctrl.currentUser.address.ville}}</p>
+                        </div>
+                        <div class="col s6">
+                            <label>Code Postal</label>
+                            <p><i class="material-icons">location_on</i> {{$ctrl.currentUser.address.codePostal}}</p>
+                            <label>Région</label>
+                            <p><i class="material-icons">location_on</i> {{$ctrl.currentUser.address.region}}</p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Social -->
+                    <div class="row">
+                        <h1>Social</h1>
+                        <div class="col s2" ng-if="$ctrl.currentUser.social.facebook">
+                            <a ng-href="{{$ctrl.currentUser.social.facebook}}"><img ng-src="/img/facebook2.png" class="socialicons"></a>
+                            <p>{{$ctrl.currentUser.social.facebook}}</p>
+                        </div>
+                        <div class="col s2" ng-if="$ctrl.currentUser.social.linkedin">
+                            <a ng-href="{{$ctrl.currentUser.social.linkedin}}"><img ng-src="/img/linkedin2.png" class="socialicons"></a>
+                            <p>{{$ctrl.currentUser.social.linkedin}}</p>
+                        </div>
+                        <div class="col s2" ng-if="$ctrl.currentUser.social.twitter">
+                            <a ng-href="{{$ctrl.currentUser.social.twitter}}"><img ng-src="/img/twitter.png" class="socialicons"></a>
+                            <p>{{$ctrl.currentUser.social.twitter}}</p>
+                        </div>
+                        <div class="col s2" ng-if="$ctrl.currentUser.social.youtube">
+                            <a ng-href="{{$ctrl.currentUser.social.youtube}}"><img ng-src="/img/youtube.png" class="socialicons"></a>
+                            <p>{{$ctrl.currentUser.social.youtube}}</p>
+                        </div>
+                        <div class="col s2" ng-if="$ctrl.currentUser.social.instagram">
+                            <a ng-href="{{$ctrl.currentUser.social.instagram}}"><img ng-src="/img/instagram.png" class="socialicons"></a>
+                            <p>{{$ctrl.currentUser.social.instagram}}</p>
+                        </div>
+                        <div class="col s2" ng-if="$ctrl.currentUser.social.pinterest">
+                            <a ng-href="{{$ctrl.currentUser.social.pinterest}}"><img ng-src="/img/pininterest.png" class="socialicons"></a>
+                            <p>{{$ctrl.currentUser.social.pinterest}}</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <form class="col s12">
+                    <label>Notes</label>
+                    <p><i class="material-icons prefix">mode_edit</i> {{$ctrl.currentUser.remarques}}</p>
+                </form>
+            </div>
+
+            <div class="fixed-action-btn click-to-toggle">
+                <a tooltiped data-position="left" data-delay="50" data-tooltip="Enregistrer" class="btn-floating btn-large colored" ng-click="$ctrl.editMode = true">
+                    <i class="material-icons">mode_edit</i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Edit Mode -->
+<section ng-if="$ctrl.editMode">
     <div class="card card-panel">
         <div class="card-content">
             <div class="row">
                 <form class="col s12">
                     <div class="row">
                         <h1>Informations principales</h1>
-                        <div class="input-field col s6">
+                        <div input-field class="col s6">
                             <i class="material-icons prefix">account_circle</i>
-                            <input placeholder=" " placeholder="Placeholder" id="icon_prefix" type="text" class="validate" ng-model="$ctrl.currentUser.prenom" ng-value="{{$ctrl.currentUser.prenom}}">
-                            <label class="active" for="icon_prefix">Prenom</label>
+                            <input placeholder="Placeholder" id="icon_prefix" type="text" ng-model="$ctrl.currentUser.firstname" ng-value="{{$ctrl.currentUser.firstname}}">
+                            <label for="icon_prefix">Prénom</label>
                         </div>
 
-                        <div class="input-field col s6">
+                        <div input-field class="col s6">
                             <i class="material-icons prefix">account_circle</i>
-                            <input placeholder=" " type="text" class="validate" id="nom" ng-model="$ctrl.currentUser.name">
-                            <label class="active" for="nom">Nom</label>
+                            <input type="text" id="nom" ng-model="$ctrl.currentUser.name">
+                            <label for="nom">Nom</label>
                         </div>
 
-                        <div class="input-field col s6">
+                        <div input-field class="col s6">
                             <i class="material-icons prefix">phone</i>
-                            <input placeholder=" " id="icon_telephone" type="tel" class="validate" ng-model="$ctrl.currentUser.number">
-                            <label class="active" for="icon_telephone">Telephone</label>
+                            <input placeholder="0612345678" id="icon_telephone" type="tel" ng-model="$ctrl.currentUser.number">
+                            <label for="icon_telephone">Telephone</label>
                         </div>
 
-                        <div class="input-field col s6">
+                        <div input-field class="col s6">
                             <i class="material-icons prefix">email</i>
-                            <input placeholder=" " id="email" type="email" class="validate" ng-model="$ctrl.currentUser.email">
-                            <label class="active" for="email" data-error="erreur" data-success="validé">Email</label>
+                            <input id="email" type="email" ng-model="$ctrl.currentUser.email">
+                            <label for="email" data-error="erreur" data-success="validé">Email</label>
                         </div>
 
 
-                        <div class="input-field col s6">
+                        <div input-field class="col s6">
                             <i class="material-icons prefix">lock_outline</i>
-                            <input placeholder=" " id="icon_password" type="password" class="validate" ng-model="$ctrl.currentUser.password">
-                            <label class="active" for="icon_password">Mot de pass</label>
+                            <input id="icon_password" type="password" ng-model="$ctrl.currentUser.password">
+                            <label for="icon_password">Mot de pass</label>
                         </div>
 
 
-                        <div class="input-field col s6">
+                        <div input-field class="col s6">
                             <i class="material-icons prefix">business</i>
-                            <input placeholder=" " id="business" type="text" class="validate" ng-model="$ctrl.company.name">
-                            <label class="active" for="business">Compagnie</label>
+                            <input id="business" type="text" ng-model="$ctrl.company.name">
+                            <label for="business">Compagnie</label>
                         </div>
 
                         <form action="#">
-                            <div class="file-field input-field col s6">
+                            <div class="file-field col s6">
                                 <div class="btn blue">
                                     <span>Avatar</span>
                                     <file ng-model="$ctrl.image"></file>
@@ -63,25 +155,25 @@
                         <h1>Adresse</h1>
 
 
-                        <div class="input-field col s6">
+                        <div input-field class="col s6">
                             <i class="material-icons prefix">location_on</i>
                             <input id="location_on" type="text" class="validate" ng-model="$ctrl.currentUser.address.rue">
-                            <label class="active" for="location_on" data-success="right">Rue</label>
+                            <label for="location_on" data-success="right">Rue</label>
                         </div>
 
-                        <div class="input-field col s6">
+                        <div input-field class="col s6">
                             <i class="material-icons prefix">location_on</i>
                             <input id="ville" type="text" class="validate" ng-model="$ctrl.currentUser.address.ville">
-                            <label class="active" for="location_on" data-success="right">Ville</label>
+                            <label for="location_on" data-success="right">Ville</label>
                         </div>
 
-                        <div class="input-field col s6">
+                        <div input-field class="col s6">
                             <i class="material-icons prefix">location_on</i>
-                            <input id="codePostale" type="text" class="validate" ng-model="$ctrl.currentUser.address.codePostal" placeholder="75000">
-                            <label class="active" for="compagnie" data-success="right">Code Postal</label>
+                            <input id="codePostale" type="text" class="validate" ng-model="$ctrl.currentUser.address.codePostal" placeholder="33000">
+                            <label for="compagnie" data-success="right">Code Postal</label>
                         </div>
 
-                        <div class="input-field col s6">
+                        <div input-field class="col s6">
                             <select class="browser-default" ng-model="$ctrl.region" ng-change="$ctrl.find()">
                               <option value="" disabled selected>{{$ctrl.currentUser.address.region || 'Ma région' }}</option>
                               <option ng-repeat="region in $ctrl.regions">{{region}}</option>
@@ -96,27 +188,27 @@
                     <div class="row">
                         <h1>Social</h1>
 
-                        <div class="input-field col s4">
+                        <div input-field class="col s4">
                             <a ng-href="{{$ctrl.currentUser.social.facebook}}"><img ng-src="/img/facebook2.png" class="socialicons"></a>
                             <input ng-model="$ctrl.currentUser.social.facebook">
                         </div>
-                        <div class="input-field col s4">
+                        <div input-field class="col s4">
                             <a ng-href="{{$ctrl.currentUser.social.linkedin}}"><img ng-src="/img/linkedin2.png" class="socialicons"></a>
                             <input ng-model="$ctrl.currentUser.social.linkedin">
                         </div>
-                        <div class="input-field col s4">
+                        <div input-field class="col s4">
                             <a ng-href="{{$ctrl.currentUser.social.twitter}}"><img ng-src="/img/twitter.png" class="socialicons"></a>
                             <input ng-model="$ctrl.currentUser.social.twitter">
                         </div>
-                        <div class="input-field col s4">
+                        <div input-field class="col s4">
                             <a ng-href="{{$ctrl.currentUser.social.youtube}}"><img ng-src="/img/youtube.png" class="socialicons"></a>
                             <input ng-model="$ctrl.currentUser.social.youtube">
                         </div>
-                        <div class="input-field col s4">
+                        <div input-field class="col s4">
                             <a ng-href="{{$ctrl.currentUser.social.instagram}}"><img ng-src="/img/instagram.png" class="socialicons"></a>
                             <input ng-model="$ctrl.currentUser.social.instagram">
                         </div>
-                        <div class="input-field col s4">
+                        <div input-field class="col s4">
                             <a ng-href="{{$ctrl.currentUser.social.pinterest}}"><img ng-src="/img/pininterest.png" class="socialicons"></a>
                             <input ng-model="$ctrl.currentUser.social.pinterest">
                         </div>
@@ -124,23 +216,36 @@
 
                 </form>
             </div>
-            <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
-                <a class="btn-floating btn-large blue" ng-click="$ctrl.edit($ctrl.currentUser)">
-                    <i class="material-icons">save</i>
-                </a>
-            </div>
-
 
             <div class="row">
                 <form class="col s12">
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div input-field class="col s12">
                             <i class="material-icons prefix">mode_edit</i>
                             <textarea id="textarea1" class="materialize-textarea" ng-model="$ctrl.currentUser.remarques"></textarea>
-                            <label class="active" for="textarea1">Notes</label>
+                            <label for="textarea1">Notes</label>
                         </div>
                     </div>
                 </form>
+            </div>
+
+
+            <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
+                <a class="btn-floating btn-large colored">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul>
+                    <li>
+                        <a tooltiped data-position="left" data-delay="50" data-tooltip="Enregistrer" class="btn-floating btn-large colored" ng-click="$ctrl.edit($ctrl.currentUser)">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a tooltiped data-position="left" data-delay="50" data-tooltip="Annuler" class="btn-floating btn-large colored" ng-click="$ctrl.editMode = false">
+                            <i class="material-icons">cancel</i>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

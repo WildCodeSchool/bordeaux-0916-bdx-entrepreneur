@@ -69,18 +69,16 @@
             <i class="material-icons">menu</i>
         </a>
         <ul>
-          <li class="wrapper">
-                <a class="btn-floating blue" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', fondateur:'Fondateur', cofond:'Autres membres'}"
+          <li>
+                <a tooltipped data-position="left" data-delay="50" data-tooltip="Exporter Excel" class="btn-floating blue" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', fondateur:'Fondateur', cofond:'Autres membres'}"
                     filename="'Player'">
                   <i class="material-icons">system_update_alt</i>Export Excel
                 </a>
-                <div class="tooltip">Importer Excel</div>
             </li>
-            <li class="wrapper">
-                <a class="btn-floating blue" ui-sref="app.newAdherent">
+            <li>
+                <a tooltipped data-position="left" data-delay="50" data-tooltip="Ajouter un Adhérent" class="btn-floating blue" ui-sref="app.newAdherent">
                   <i class="material-icons">note_add</i>
                 </a>
-                <div class="tooltip">Ajouter un Adhérent</div>
             </li>
         </ul>
     </div>

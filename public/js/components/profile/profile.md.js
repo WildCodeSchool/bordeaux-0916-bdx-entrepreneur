@@ -2,7 +2,7 @@
     'use strict'
     app.config(['$stateProvider', ($stateProvider) => {
         $stateProvider.state('app.profile', {
-            url: '/profile',
+            url: '/moncompte',
             template: '<profile></profile>'
         })
     }])

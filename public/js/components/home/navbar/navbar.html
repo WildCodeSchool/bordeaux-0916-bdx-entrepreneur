@@ -7,7 +7,8 @@
                 </a>
             </div>
             <div class="col s4 center" id="iconNav">
-                <a title="Adhérents" ui-sref="app.adherents"><i class="material-icons">face</i></a>
+                <a tooltipped data-position="bottom" data-delay="200" data-tooltip="Dashboard" ui-sref="app.dashboard"><i class="material-icons">dns</i></a>
+                <a tooltipped data-position="bottom" data-delay="200" data-tooltip="Adhérents" ui-sref="app.adherents"><i class="material-icons">face</i></a>
             </div>
 
             <div class="col s4 right">
@@ -21,7 +22,7 @@
                             <a class="waves-effect waves-light btn blue" ui-sref="app.company({id:$ctrl.currentUser.company})" ng-if="!$ctrl.currentUser.company.length == 0">
                                 <i class="material-icons left">assignment_ind</i>Ma Fiche
                             </a>
-                            <a class="waves-effect waves-light btn blue" ng-click="$ctrl.disconnect()">
+                            <a tooltipped data-position="bottom" data-delay="200" data-tooltip="Se Déconnecter" class="waves-effect waves-light btn blue" ng-click="$ctrl.disconnect()">
                                 <i class="material-icons">exit_to_app</i>
                             </a>
                         </div>

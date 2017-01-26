@@ -1,26 +1,15 @@
 <section id="companiesList" class="row">
     <div class="row">
         <div class="col s12">
-            <h1 class="titre">Compagnies membres de Bordeaux Entrepreneurs</h1>
+            <h1 class="titre">Sociétés membres de Bordeaux Entrepreneurs</h1>
         </div>
     </div>
     <nav>
         <div class="nav-wrapper">
             <form>
-                <div class="input-field blue">
-                    <input id="search" type="search" ng-model="$ctrl.search" ng-change="$ctrl.get()" placeholder="Rechercher par nom  ou par secteur">
-                    <label for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
-                </div>
-            </form>
-        </div>
-    </nav>
-    <nav>
-        <div class="nav-wrapper">
-            <form>
-                <div class="input-field blue">
-                    <input id="search" type="search" ng-model="$ctrl.tags" ng-change="$ctrl.getTags()" placeholder="Rechercher par tags">
-                    <label for="search"><i class="material-icons">search</i></label>
+                <div class="input-field white">
+                    <input id="search" type="search" ng-model="$ctrl.search" ng-change="$ctrl.get()" placeholder="Rechercher société par nom, secteur ou tags">
+                    <label for="search"><i class="material-icons blue-text">search</i></label>
                     <i class="material-icons">close</i>
                 </div>
             </form>
@@ -53,17 +42,15 @@
             <i class="material-icons">menu</i>
         </a>
         <ul>
-            <li class="wrapper">
-                <a class="btn-floating colored" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', fondateur:'Fondateur', cofond:'Autres membres'}" filename="'Player'">
+            <li>
+                <a tooltipped data-position="left" data-delay="50" data-tooltip="Export CSV" class="btn-floating colored" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', fondateur:'Fondateur', cofond:'Autres membres'}" filename="'Player'">
                     <i class="material-icons">system_update_alt</i>Export Excel
                 </a>
-                <div class="tooltip">Export CSV</div>
             </li>
-            <li class="wrapper">
-                <a class="btn-floating colored" ui-sref="app.newCompany">
+            <li>
+                <a tooltipped data-position="left" data-delay="50" data-tooltip="Ajouter une société" class="btn-floating colored" ui-sref="app.newCompany">
                     <i class="material-icons">note_add</i>
                 </a>
-                <div class="tooltip">Ajouter une société</div>
             </li>
         </ul>
     </div>

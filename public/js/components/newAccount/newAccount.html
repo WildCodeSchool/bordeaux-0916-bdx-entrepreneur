@@ -11,8 +11,8 @@
                 <form class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="first_name" type="text" class="validate" ng-model="$ctrl.user.prenom">
-                            <label for="first_name">Prenom</label>
+                            <input id="first_name" type="text" class="validate" ng-model="$ctrl.user.firstname">
+                            <label for="first_name">Prénom</label>
                         </div>
                         <div class="input-field col s6">
                             <input id="last_name" type="text" class="validate" ng-model="$ctrl.user.name">
@@ -39,8 +39,8 @@
             <div class="row">
                 <div class="col s12">
                     <button ng-click="$ctrl.add($ctrl.user)" class="btn waves-effect waves-light right" type="submit" name="action">Valider
-                <i class="material-icons right">send</i>
-              </button>
+                      <i class="material-icons right">send</i>
+                    </button>
                 </div>
             </div>
         </div>

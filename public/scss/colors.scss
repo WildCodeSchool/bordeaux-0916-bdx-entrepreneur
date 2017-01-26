@@ -1,5 +1,6 @@
 $blue: #3a88be;
 $bluegrey: #ecf0f1;
+$bluedark: #455a64;
 
 .blue,
 btn-floating {
@@ -8,4 +9,8 @@ btn-floating {
 
 a {
     color: $blue;
+}
+
+.blue-text {
+  color: $blue !important;
 }

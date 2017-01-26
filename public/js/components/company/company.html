@@ -144,23 +144,20 @@
                     <i class="material-icons">menu</i>
                 </a>
                 <ul>
-                    <li class="wrapper">
-                        <a class="btn-floating blue" ng-click="$ctrl.edit($ctrl.company, $ctrl.image)" user="$ctrl.user">
+                    <li>
+                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Éditer" class="btn-floating blue" ng-click="$ctrl.edit($ctrl.company, $ctrl.image)" user="$ctrl.user">
                             <i class="material-icons">mode_edit</i>
                         </a>
-                        <div class="tooltip">Éditer</div>
                     </li>
-                    <li class="wrapper">
-                        <a class="btn-floating blue" ng-click="$ctrl.delete($ctrl.company)">
+                    <li>
+                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Supprimer" class="btn-floating blue" ng-click="$ctrl.delete($ctrl.company)">
                             <i class="material-icons">delete_forever</i>
                         </a>
-                        <div class="tooltip">Supprimer</div>
                     </li>
-                    <li class="wrapper">
-                        <a class="btn-floating blue" ng-click="$ctrl.printDiv()">
+                    <li>
+                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Imprimer" class="btn-floating blue" ng-click="$ctrl.printDiv()">
                             <i class="material-icons">print</i>
                         </a>
-                        <div class="tooltip">Imprimer</div>
                     </li>
                 </ul>
             </div>
@@ -314,16 +311,22 @@
             </div>
 
             <!-- Buttons -->
-
-            <div class="row">
-                <div class="center-align">
-                    <a class="waves-effect waves-light btn" ng-click="$ctrl.edit($ctrl.company, $ctrl.social, $ctrl.tags, $ctrl.image)">
-                        <i class="material-icons">save</i>
-                    </a>
-                    <a class="waves-effect waves-light btn" ng-click="$ctrl.cancel($ctrl.company)">
-                        <i class="material-icons">cancel</i>
-                    </a>
-                </div>
+            <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
+                <a class="btn-floating blue btn-large">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul>
+                    <li>
+                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer" class="btn-floating blue" ng-click="$ctrl.edit($ctrl.company, $ctrl.social, $ctrl.tags, $ctrl.image)">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Annuler" class="btn-floating blue" ng-click="$ctrl.cancel($ctrl.company)">
+                            <i class="material-icons">cancel</i>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

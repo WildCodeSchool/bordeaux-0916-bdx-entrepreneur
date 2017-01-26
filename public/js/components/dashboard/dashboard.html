@@ -2,19 +2,22 @@
     <div class="row">
         <div class="card card-panel">
             <div class="card-content">
-                <div class="row">
-                    <div class="col s6">
-                        <h3>Ajouter une compagnie</h3>
-                        <a class="waves-effect waves-light btn" ui-sref="admin.new({id:'_new'})">
-                            <i class="material-icons">note_add</i>
-                        </a>
-                    </div>
-                    <div class="col s6">
-                        <h3>Ajouter un nouvel utilisateur</h3>
-                        <a class="waves-effect waves-light btn" ui-sref="app.newAccount">
-                            <i class="material-icons">person_add</i>
-                        </a>
-                    </div>
+                <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
+                    <a class="btn-floating blue btn-large">
+                        <i class="material-icons">menu</i>
+                    </a>
+                    <ul>
+                        <li>
+                            <a tooltipped data-position="left" data-delay="50" data-tooltip="Ajouter une société" class="btn-floating blue" ui-sref="app.newCompany">
+                                <i class="material-icons">note_add</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a tooltipped data-position="left" data-delay="50" data-tooltip="Ajouter un utilisateur" class="btn-floating blue" ui-sref="app.newAdherent">
+                                <i class="material-icons">person_add</i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="row">
                     <div class="col s6">
@@ -33,7 +36,7 @@
                         <ul class="collection">
                             <li class="collection-item avatar" ng-repeat="user in $ctrl.users">
                                 <img ng-src="{{user.image}}" alt="" class="circle">
-                                <span class="title">{{user.prenom}} {{user.name}}</span>
+                                <span class="title">{{user.firstname}} {{user.name}}</span>
                                 <p>{{user.email}} {{user.number ? '/' : ''}} {{user.number}}
                                 </p>
                             </li>

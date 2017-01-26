@@ -23,16 +23,6 @@
                     }
                 },
 
-                getTags() {
-                    if (this.tags.length > 0) {
-                        companiesService.findTags(this.tags).then((res) => {
-                            this.companies = res.data
-                        })
-                    } else {
-                        this.companies = this.save
-                    }
-                },
-
                 loadMore() {
                     this.carouselstate += 6
                 }

@@ -86,18 +86,9 @@ class CompanyController extends Controller {
                 'name': search
             }, {
                 'secteur': search
+            }, {
+                'tags': search
             }]
-        }, (err, companies) => {
-            if (err) next(err)
-            else
-                res.json(companies)
-        });
-    }
-
-    findTags(req, res, next) {
-        let tags = new RegExp("(" + req.params.tags + ")", "igm")
-        this.model.find({
-            'tags': tags
         }, (err, companies) => {
             if (err) next(err)
             else

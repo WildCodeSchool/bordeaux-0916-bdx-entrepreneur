@@ -11,9 +11,6 @@
             findOne(recherche) {
                 return $http.get('/api/search/' + recherche)
             },
-            findTags(recherche) {
-                return $http.get('/api/tags/' + recherche)
-            },
             add(company) {
                 return $http.post('/api/companies', company)
             },

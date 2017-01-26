@@ -100,19 +100,25 @@ class UsersController extends Controller {
             }
         }, (err, user) => {
             if (err) next(err)
-            let content = new helper.Content("text/plain", `Bonjour ${user.prenom}, \n Suite à votre demande de renouvellement de mot de passe, votre nouveau mot de passe est ${password} \n\n Connectez vous avec celui-ci puis pensez à le changer dans votre espace profile. \n\n Sincèrement,\n\nBordeaux Entrepreneurs`)
-            let mail = new helper.Mail(from_email, subject, to_email, content);
-            let request = sg.emptyRequest({
-                method: 'POST',
-                path: '/v3/mail/send',
-                body: mail.toJSON()
-            });
-            sg.API(request, function(error, response) {
-                console.log(response.statusCode)
-                console.log(response.body)
-                console.log(response.headers)
-            })
-            res.json(user)
+            else if (!user) {
+                res.sendStatus(404)
+            }
+            else {
+                let content = new helper.Content("text/plain", `Bonjour ${user.firstname}, \n Suite à votre demande de renouvellement de mot de passe, votre nouveau mot de passe est ${password} \n\n Connectez vous avec celui-ci puis pensez à le changer dans votre espace profile. \n\n Sincèrement,\n\nBordeaux Entrepreneurs`)
+                let mail = new helper.Mail(from_email, subject, to_email, content);
+                let request = sg.emptyRequest({
+                    method: 'POST',
+                    path: '/v3/mail/send',
+                    body: mail.toJSON()
+                });
+                sg.API(request, function(error, response) {
+                    console.log(response.statusCode)
+                    console.log(response.body)
+                    console.log(response.headers)
+                })
+                res.json(user)
+            }
+
         })
     }
 
