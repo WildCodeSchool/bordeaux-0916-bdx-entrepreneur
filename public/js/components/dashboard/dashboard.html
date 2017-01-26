@@ -26,7 +26,7 @@
                             <li class="collection-item avatar" ng-repeat="company in $ctrl.companies">
                                 <img ng-src="{{company.image}}" alt="" class="circle">
                                 <span class="title">{{company.name}}</span>
-                                <p>{{company.secteur}} {{company.fondateur.name ? '/' : ''}} {{company.fondateur.name}}
+                                <p>{{company.secteur}} {{company.contacts.name ? '/' : ''}} {{company.contacts.name}}
                                 </p>
                             </li>
                         </ul>
