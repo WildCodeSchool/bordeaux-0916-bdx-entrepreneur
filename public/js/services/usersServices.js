@@ -52,8 +52,11 @@
                     }
                     deferred.resolve(this.currentUser)
                 }
-
-                return deferred.promise
+                return deferred.promise.then((res) => {
+                    return this.getPopulate(res._id)
+                }).then((res) => {
+                    return res.data
+                })
             }
         }
     }])

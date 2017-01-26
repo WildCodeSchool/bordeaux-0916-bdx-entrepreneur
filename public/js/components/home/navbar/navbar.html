@@ -7,7 +7,6 @@
                 </a>
             </div>
             <div class="col s4 center" id="iconNav">
-                <!-- <a title="Favoris" href=""><i class="material-icons">grade</i></a> -->
                 <a title="Adhérents" ui-sref="app.adherents"><i class="material-icons">face</i></a>
             </div>
 
@@ -19,8 +18,12 @@
                         </div>
                         <div class="col s9">
                             <h6>Bonjour <strong>{{$ctrl.currentUser.name}}</strong></h6>
-                            <a class="waves-effect waves-light btn blue" ui-sref="app.company({id:$ctrl.currentUser.company})"><i class="material-icons left">assignment_ind</i>Ma Fiche</a>
-                            <a class="waves-effect waves-light btn blue" ng-click="$ctrl.disconnect()"><i class="material-icons">exit_to_app</i></a>
+                            <a class="waves-effect waves-light btn blue" ui-sref="app.company({id:$ctrl.currentUser.company})" ng-if="!$ctrl.currentUser.company.length == 0">
+                                <i class="material-icons left">assignment_ind</i>Ma Fiche
+                            </a>
+                            <a class="waves-effect waves-light btn blue" ng-click="$ctrl.disconnect()">
+                                <i class="material-icons">exit_to_app</i>
+                            </a>
                         </div>
                     </div>
                 </div>

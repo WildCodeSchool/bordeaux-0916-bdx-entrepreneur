@@ -7,7 +7,7 @@
 
                     usersService.getCurrent().then((user) => {
                         this.currentUser = user
-                        console.log(this.currentUser);
+                        // console.log(this.currentUser);
                     }).catch(() => {
                         $state.go('login')
                     })
@@ -15,9 +15,10 @@
                 },
                 disconnect() {
                     usersService.disconnect().then(() => {
-                      this.currentUser = null
-                        $state.go('login')
-
+                        this.currentUser = null
+                        $state.go('login').then(() => {
+                            $state.reload()
+                        })
                     })
                 }
             })
