@@ -9,7 +9,9 @@
                         this.currentUser = user
                         // console.log(this.currentUser);
                     }).catch(() => {
-                        $state.go('login')
+                        $state.go('app.login').then(() => {
+                            $state.reload()
+                        })
                     })
 
                 },

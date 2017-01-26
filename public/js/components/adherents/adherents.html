@@ -65,18 +65,18 @@
     </div>
 
     <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
-        <a class="btn-floating btn-large blue">
+        <a class="btn-floating btn-large colored">
             <i class="material-icons">menu</i>
         </a>
         <ul>
           <li>
-                <a tooltipped data-position="left" data-delay="50" data-tooltip="Exporter Excel" class="btn-floating blue" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', role:'Role'}"
+                <a tooltipped data-position="left" data-delay="50" data-tooltip="Exporter Excel" class="btn-floating colored" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', role:'Role'}"
                     filename="'Player'">
                   <i class="material-icons">system_update_alt</i>Export Excel
                 </a>
             </li>
             <li>
-                <a tooltipped data-position="left" data-delay="50" data-tooltip="Ajouter un Adhérent" class="btn-floating blue" ui-sref="app.newAdherent">
+                <a tooltipped data-position="left" data-delay="50" data-tooltip="Ajouter un Adhérent" class="btn-floating colored" ui-sref="app.newAdherent">
                   <i class="material-icons">note_add</i>
                 </a>
             </li>

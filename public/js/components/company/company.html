@@ -3,7 +3,7 @@
         <div class="card card-panel">
             <div class="card-content companyinfo" id="bigcard">
 
-                <div class="row colored companyhead white-text">
+                <div class="row companyhead white-text">
                     <div class="col s3">
                         <div class="row">
                             <img ng-src="{{$ctrl.company.image}}" class="responsive-img" alt="">
@@ -50,7 +50,7 @@
                         <h3>{{$ctrl.company.name}}</h3>
                         <h6>Secteur : {{$ctrl.company.secteur}}</h6>
                         <h6>{{$ctrl.company.introduction}}</h6>
-                        <h6><a class="waves-effect waves-light btn" href="{{$ctrl.company.siteweb}}" target="_blank">Site Web</a></h6>
+                        <h6><a class="waves-effect waves-light btn colored" href="{{$ctrl.company.siteweb}}" target="_blank">Site Web</a></h6>
                     </div>
                 </div>
 
@@ -140,22 +140,22 @@
                       Speed Dial
                  ////////////////////////////-->
             <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
-                <a class="btn-floating blue btn-large">
+                <a class="btn-floating colored btn-large">
                     <i class="material-icons">menu</i>
                 </a>
                 <ul>
                     <li>
-                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Éditer" class="btn-floating blue" ng-click="$ctrl.edit($ctrl.company, $ctrl.image)" user="$ctrl.user">
+                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Éditer" class="btn-floating colored" ng-click="$ctrl.edit($ctrl.company, $ctrl.image)" user="$ctrl.user">
                             <i class="material-icons">mode_edit</i>
                         </a>
                     </li>
                     <li>
-                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Supprimer" class="btn-floating blue" ng-click="$ctrl.delete($ctrl.company)">
+                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Supprimer" class="btn-floating colored" ng-click="$ctrl.delete($ctrl.company)">
                             <i class="material-icons">delete_forever</i>
                         </a>
                     </li>
                     <li>
-                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Imprimer" class="btn-floating blue" ng-click="$ctrl.printDiv()">
+                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Imprimer" class="btn-floating colored" ng-click="$ctrl.printDiv()">
                             <i class="material-icons">print</i>
                         </a>
                     </li>

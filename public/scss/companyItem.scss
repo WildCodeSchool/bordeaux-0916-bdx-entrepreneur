@@ -30,50 +30,6 @@ h1 {
     font-size: 2.5rem;
 }
 
-.editfb,
-.editlnkd,
-.edittwt {
-    font-size: 1.75em;
-}
-
-.editModefb-label,
-.editModetwt-label {
-    margin: 0;
-}
-
-.editlnkd {
-    margin-top: 1.3em;
-    margin-bottom: 1.3em;
-}
-
-.editModelnkd-label {
-    margin-top: 1.2em;
-    margin-bottom: 1.2em;
-}
-
-.edit1 {
-    font-size: 2.8125em;
-}
-
-.edit2 {
-    font-size: 2.125em;
-}
-
-.edit3 {
-    font-size: 2.125em;
-}
-
-.edit4 {
-    font-size: 1.75em;
-    width: 100%;
-}
-
-.edit5 {
-    font-size: 1.5em;
-    height: 20em;
-    width: 100%;
-}
-
 .socialicons {
     height: 2rem;
     width: 2rem;
@@ -85,4 +41,8 @@ h1 {
 
 .companyinfo {
     background-color: $bluegrey;
+}
+
+.companyhead {
+    background-color: $blue;
 }
