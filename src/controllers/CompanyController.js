@@ -43,7 +43,6 @@ class CompanyController extends Controller {
             }, (err, user) => {
                 if (err) next(err)
                 if (user) {
-                    console.log(user);
                     user.company.push(this.companyId)
                     this.contacts.push(user)
                     user.save()
