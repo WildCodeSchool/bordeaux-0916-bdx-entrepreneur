@@ -59,7 +59,18 @@
                     let printContents = document.getElementById('bigcard').innerHTML;
                     let popupWin = window.open('', '_blank', 'width=600,height=600');
                     popupWin.document.open();
-                    popupWin.document.write('<html><head><link rel="stylesheet" href="css/printablearea.css" media="print"/></head><body onload="window.print()">' + printContents + '</body></html>');
+                    popupWin.document.write(`
+                        <html>
+                            <head>
+                                <link rel="stylesheet" href="css/materialize.min.css" media="print" />
+                                <link rel="stylesheet" href="css/app.min.css" media="print" />
+                                <link rel="stylesheet" href="css/printablearea.css" media="print" />
+                            </head>
+                            <body onload="window.print()">
+                                ${printContents}
+                            </body>
+                        </html>`
+                    );
                     popupWin.document.close();
                 },
                 addUser() {
