@@ -9,8 +9,8 @@
                             <img class="responsive-img" ng-src="{{$ctrl.currentUser.image}}">
                         </div>
                         <div class="col s8">
-                            <label for="icon_telephone">Nom Prénom</label>
-                            <p><i class="material-icons">account_circle</i> {{$ctrl.currentUser.name}} {{$ctrl.currentUser.firstname}}</p>
+                            <label for="icon_telephone">Prénom Nom</label>
+                            <p><i class="material-icons">account_circle</i> {{$ctrl.currentUser.firstname}} {{$ctrl.currentUser.name}}</p>
                             <label for="icon_telephone">Telephone</label>
                             <p><i class="material-icons">phone</i> {{$ctrl.currentUser.number}}</p>
                             <label>Email</label>
@@ -44,27 +44,27 @@
                     <div class="row">
                         <h1>Social</h1>
                         <div class="col s2" ng-if="$ctrl.currentUser.social.facebook">
-                            <a ng-href="{{$ctrl.currentUser.social.facebook}}"><img ng-src="/img/facebook2.png" class="socialicons"></a>
+                            <a href="{{$ctrl.currentUser.social.facebook}}" target="_blank"><img ng-src="/img/facebook2.png" class="socialicons"></a>
                             <p>{{$ctrl.currentUser.social.facebook}}</p>
                         </div>
                         <div class="col s2" ng-if="$ctrl.currentUser.social.linkedin">
-                            <a ng-href="{{$ctrl.currentUser.social.linkedin}}"><img ng-src="/img/linkedin2.png" class="socialicons"></a>
+                            <a href="{{$ctrl.currentUser.social.linkedin}}" target="_blank"><img ng-src="/img/linkedin2.png" class="socialicons"></a>
                             <p>{{$ctrl.currentUser.social.linkedin}}</p>
                         </div>
                         <div class="col s2" ng-if="$ctrl.currentUser.social.twitter">
-                            <a ng-href="{{$ctrl.currentUser.social.twitter}}"><img ng-src="/img/twitter.png" class="socialicons"></a>
+                            <a href="{{$ctrl.currentUser.social.twitter}}" target="_blank"><img ng-src="/img/twitter.png" class="socialicons"></a>
                             <p>{{$ctrl.currentUser.social.twitter}}</p>
                         </div>
                         <div class="col s2" ng-if="$ctrl.currentUser.social.youtube">
-                            <a ng-href="{{$ctrl.currentUser.social.youtube}}"><img ng-src="/img/youtube.png" class="socialicons"></a>
+                            <a href="{{$ctrl.currentUser.social.youtube}}" target="_blank"><img ng-src="/img/youtube.png" class="socialicons"></a>
                             <p>{{$ctrl.currentUser.social.youtube}}</p>
                         </div>
                         <div class="col s2" ng-if="$ctrl.currentUser.social.instagram">
-                            <a ng-href="{{$ctrl.currentUser.social.instagram}}"><img ng-src="/img/instagram.png" class="socialicons"></a>
+                            <a href="{{$ctrl.currentUser.social.instagram}}" target="_blank"><img ng-src="/img/instagram.png" class="socialicons"></a>
                             <p>{{$ctrl.currentUser.social.instagram}}</p>
                         </div>
                         <div class="col s2" ng-if="$ctrl.currentUser.social.pinterest">
-                            <a ng-href="{{$ctrl.currentUser.social.pinterest}}"><img ng-src="/img/pininterest.png" class="socialicons"></a>
+                            <a href="{{$ctrl.currentUser.social.pinterest}}" target="_blank"><img ng-src="/img/pininterest.png" class="socialicons"></a>
                             <p>{{$ctrl.currentUser.social.pinterest}}</p>
                         </div>
                     </div>
@@ -174,7 +174,7 @@
                         </div>
 
                         <div input-field class="col s6">
-                            <select class="browser-default" ng-model="$ctrl.region" ng-change="$ctrl.find()">
+                            <select ng-model="$ctrl.region" ng-change="$ctrl.find()" material-select>
                               <option value="" disabled selected>{{$ctrl.currentUser.address.region || 'Ma région' }}</option>
                               <option ng-repeat="region in $ctrl.regions">{{region}}</option>
                             </select>
