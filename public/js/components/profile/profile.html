@@ -4,71 +4,76 @@
             <div class="row">
                 <div class="col s12">
                     <div class="row">
-                        <h1>Informations principales</h1>
-                        <div class="col s4">
-                            <img class="responsive-img" ng-src="{{$ctrl.currentUser.image}}">
+                        <!-- infos -->
+                        <div class="col l5 m12">
+                            <h1>Informations principales</h1>
+                            <div class="col s4">
+                                <img class="responsive-img" ng-src="{{$ctrl.currentUser.image}}">
+                            </div>
+                            <div class="col s8">
+                                <label for="icon_telephone">Prénom Nom</label>
+                                <p><i class="material-icons">account_circle</i> {{$ctrl.currentUser.firstname}} {{$ctrl.currentUser.name}}</p>
+                                <label for="icon_telephone">Telephone</label>
+                                <p><i class="material-icons">phone</i> {{$ctrl.currentUser.number}}</p>
+                                <label>Email</label>
+                                <p><i class="material-icons">email</i> {{$ctrl.currentUser.email}}</p>
+                                <label>Société</label>
+                                <p><i class="material-icons">business</i>
+                                    <span ng-repeat="companies in $ctrl.currentUser.company">
+                                        <span ng-repeat="company in companies track by $index">
+                                            {{company.name}}
+                                        </span>
+                                        <span>
+                                            {{($ctrl.currentUser.company.length > 1 && $ctrl.currentUser.company.length != $index + 1) ? ',' : ""}}
+                                        </span>
+                                    </span>
+                                </p>
+                            </div>
                         </div>
-                        <div class="col s8">
-                            <label for="icon_telephone">Prénom Nom</label>
-                            <p><i class="material-icons">account_circle</i> {{$ctrl.currentUser.firstname}} {{$ctrl.currentUser.name}}</p>
-                            <label for="icon_telephone">Telephone</label>
-                            <p><i class="material-icons">phone</i> {{$ctrl.currentUser.number}}</p>
-                            <label>Email</label>
-                            <p><i class="material-icons">email</i> {{$ctrl.currentUser.email}}</p>
-                            <label>Société</label>
-                            <p><i class="material-icons">business</i> {{$ctrl.company.name}}</p>
+                        <!-- Address -->
+                        <div class="col l3 m6">
+                            <h1>Adresse</h1>
+                            <div class="col s12">
+                                <label>Rue</label>
+                                <p><i class="material-icons">location_on</i> {{$ctrl.currentUser.address.rue}}</p>
+                                <label>Code Postal</label>
+                                <p><i class="material-icons">location_on</i> {{$ctrl.currentUser.address.codePostal}}</p>
+                                <label>Ville</label>
+                                <p><i class="material-icons">location_on</i> {{$ctrl.currentUser.address.ville}}</p>
+                                <label>Région</label>
+                                <p><i class="material-icons">location_on</i> {{$ctrl.currentUser.address.region}}</p>
+                            </div>
                         </div>
+                        <!-- Social -->
+                        <div class="col l4 m6">
+                            <h1>Social</h1>
+                            <div class="col s6" ng-if="$ctrl.currentUser.social.facebook">
+                                <a href="{{$ctrl.currentUser.social.facebook}}" target="_blank"><img ng-src="/img/facebook2.png" class="socialicons"></a>
+                                <p>{{$ctrl.currentUser.social.facebook}}</p>
+                            </div>
+                            <div class="col s6" ng-if="$ctrl.currentUser.social.linkedin">
+                                <a href="{{$ctrl.currentUser.social.linkedin}}" target="_blank"><img ng-src="/img/linkedin2.png" class="socialicons"></a>
+                                <p>{{$ctrl.currentUser.social.linkedin}}</p>
+                            </div>
+                            <div class="col s6" ng-if="$ctrl.currentUser.social.twitter">
+                                <a href="{{$ctrl.currentUser.social.twitter}}" target="_blank"><img ng-src="/img/twitter.png" class="socialicons"></a>
+                                <p>{{$ctrl.currentUser.social.twitter}}</p>
+                            </div>
+                            <div class="col s6" ng-if="$ctrl.currentUser.social.youtube">
+                                <a href="{{$ctrl.currentUser.social.youtube}}" target="_blank"><img ng-src="/img/youtube.png" class="socialicons"></a>
+                                <p>{{$ctrl.currentUser.social.youtube}}</p>
+                            </div>
+                            <div class="col s6" ng-if="$ctrl.currentUser.social.instagram">
+                                <a href="{{$ctrl.currentUser.social.instagram}}" target="_blank"><img ng-src="/img/instagram.png" class="socialicons"></a>
+                                <p>{{$ctrl.currentUser.social.instagram}}</p>
+                            </div>
+                            <div class="col s6" ng-if="$ctrl.currentUser.social.pinterest">
+                                <a href="{{$ctrl.currentUser.social.pinterest}}" target="_blank"><img ng-src="/img/pininterest.png" class="socialicons"></a>
+                                <p>{{$ctrl.currentUser.social.pinterest}}</p>
+                            </div>
+                        </div>
+
                     </div>
-
-
-                    <div class="row">
-                        <h1>Adresse</h1>
-
-                        <div class="col s6">
-                            <label>Rue</label>
-                            <p><i class="material-icons">location_on</i> {{$ctrl.currentUser.address.rue}}</p>
-                            <label>Ville</label>
-                            <p><i class="material-icons">location_on</i> {{$ctrl.currentUser.address.ville}}</p>
-                        </div>
-                        <div class="col s6">
-                            <label>Code Postal</label>
-                            <p><i class="material-icons">location_on</i> {{$ctrl.currentUser.address.codePostal}}</p>
-                            <label>Région</label>
-                            <p><i class="material-icons">location_on</i> {{$ctrl.currentUser.address.region}}</p>
-                        </div>
-
-                    </div>
-
-
-                    <!-- Social -->
-                    <div class="row">
-                        <h1>Social</h1>
-                        <div class="col s2" ng-if="$ctrl.currentUser.social.facebook">
-                            <a href="{{$ctrl.currentUser.social.facebook}}" target="_blank"><img ng-src="/img/facebook2.png" class="socialicons"></a>
-                            <p>{{$ctrl.currentUser.social.facebook}}</p>
-                        </div>
-                        <div class="col s2" ng-if="$ctrl.currentUser.social.linkedin">
-                            <a href="{{$ctrl.currentUser.social.linkedin}}" target="_blank"><img ng-src="/img/linkedin2.png" class="socialicons"></a>
-                            <p>{{$ctrl.currentUser.social.linkedin}}</p>
-                        </div>
-                        <div class="col s2" ng-if="$ctrl.currentUser.social.twitter">
-                            <a href="{{$ctrl.currentUser.social.twitter}}" target="_blank"><img ng-src="/img/twitter.png" class="socialicons"></a>
-                            <p>{{$ctrl.currentUser.social.twitter}}</p>
-                        </div>
-                        <div class="col s2" ng-if="$ctrl.currentUser.social.youtube">
-                            <a href="{{$ctrl.currentUser.social.youtube}}" target="_blank"><img ng-src="/img/youtube.png" class="socialicons"></a>
-                            <p>{{$ctrl.currentUser.social.youtube}}</p>
-                        </div>
-                        <div class="col s2" ng-if="$ctrl.currentUser.social.instagram">
-                            <a href="{{$ctrl.currentUser.social.instagram}}" target="_blank"><img ng-src="/img/instagram.png" class="socialicons"></a>
-                            <p>{{$ctrl.currentUser.social.instagram}}</p>
-                        </div>
-                        <div class="col s2" ng-if="$ctrl.currentUser.social.pinterest">
-                            <a href="{{$ctrl.currentUser.social.pinterest}}" target="_blank"><img ng-src="/img/pininterest.png" class="socialicons"></a>
-                            <p>{{$ctrl.currentUser.social.pinterest}}</p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
@@ -94,38 +99,38 @@
     <div class="card card-panel">
         <div class="card-content">
             <div class="row">
-                <form class="col s12">
+                <form class="col s12" name="editUser">
                     <div class="row">
                         <h1>Informations principales</h1>
                         <div input-field class="col s6">
                             <i class="material-icons prefix">account_circle</i>
-                            <input placeholder="Placeholder" id="icon_prefix" type="text" ng-model="$ctrl.currentUser.firstname" ng-value="{{$ctrl.currentUser.firstname}}">
-                            <label for="icon_prefix">Prénom</label>
+                            <input placeholder="Placeholder" id="icon_prefix" type="text" ng-model="$ctrl.currentUser.firstname" required>
+                            <label for="icon_prefix">Prénom *</label>
                         </div>
 
                         <div input-field class="col s6">
                             <i class="material-icons prefix">account_circle</i>
-                            <input type="text" id="nom" ng-model="$ctrl.currentUser.name">
-                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" ng-model="$ctrl.currentUser.name" required>
+                            <label for="nom">Nom *</label>
                         </div>
 
                         <div input-field class="col s6">
                             <i class="material-icons prefix">phone</i>
                             <input placeholder="0612345678" id="icon_telephone" type="tel" ng-model="$ctrl.currentUser.number">
-                            <label for="icon_telephone">Telephone</label>
+                            <label for="icon_telephone">Téléphone</label>
                         </div>
 
                         <div input-field class="col s6">
                             <i class="material-icons prefix">email</i>
-                            <input id="email" type="email" ng-model="$ctrl.currentUser.email">
-                            <label for="email" data-error="erreur" data-success="validé">Email</label>
+                            <input id="email" type="email" ng-model="$ctrl.currentUser.email" required>
+                            <label for="email" data-error="erreur" data-success="validé">Email *</label>
                         </div>
 
 
                         <div input-field class="col s6">
                             <i class="material-icons prefix">lock_outline</i>
-                            <input id="icon_password" type="password" ng-model="$ctrl.currentUser.password">
-                            <label for="icon_password">Mot de pass</label>
+                            <input id="icon_password" type="password" ng-model="$ctrl.currentUser.password" required>
+                            <label for="icon_password">Mot de passe *</label>
                         </div>
 
 
@@ -228,7 +233,7 @@
                 </a>
                 <ul>
                     <li>
-                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer" class="btn-floating btn-large colored" ng-click="$ctrl.edit($ctrl.currentUser)">
+                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer" class="btn-floating btn-large colored" ng-click="$ctrl.edit($ctrl.currentUser)" ng-disabled="editUser.$invalid">
                             <i class="material-icons">save</i>
                         </a>
                     </li>

@@ -90,6 +90,12 @@ class UsersController extends Controller {
         })
     }
 
+    findById(req, res, next) {
+        this.model.findById(req.params.id).populate('company.company').exec((err, user) => {
+            res.json(user)
+        })
+    }
+
     findOne(req, res, next) {
         let to_email = new helper.Email(`${req.params.email}`)
         this.model.findOneAndUpdate({
