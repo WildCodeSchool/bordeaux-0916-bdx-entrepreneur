@@ -8,11 +8,12 @@
 
                     this.editMode = false;
                     this.infos = {}
+                    this.contacts = []
                     this.hasAccess = false
                     usersService.getCurrent().then((user) => {
                         this.user = user
-                        this.user.company.forEach((el)=>{
-                            if($stateParams.id == el){
+                        this.user.company.forEach((el) => {
+                            if ($stateParams.id == el) {
                                 return this.hasAccess = true
                             }
                         })
@@ -36,6 +37,9 @@
                         this.infos.social = social
                         this.infos.tags = []
                         this.infos.tags.push(tag)
+
+                        this.contacts.length > 0 ? this.infos.newContacts = this.contacts : ''
+
                         companiesService.edit(this.infos).then((res) => {
                             this.newCompany = res.config.data
                         }).catch(() => {
@@ -63,7 +67,7 @@
                     popupWin.document.close();
                 },
                 addUser() {
-                    this.company.contacts.push({})
+                    this.contacts.push({})
                 },
                 deleteUser(idx) {
                     this.company.contacts.splice(idx, 1)

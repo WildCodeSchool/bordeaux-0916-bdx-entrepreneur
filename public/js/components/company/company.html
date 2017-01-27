@@ -190,6 +190,9 @@
 
 <!-- editMode -->
 
+
+
+
 <section ng-if="$ctrl.editMode">
     <div class="card card-panel">
         <div class="card-content">
@@ -314,6 +317,8 @@
                     <i class="material-icons right">add</i>Ajouter Membre
                 </a>
             </div>
+
+            <membre contact="contact" ng-repeat="contact in $ctrl.contacts track by $index"></membre>
 
             <!-- Infos Company -->
             <div class="row">
