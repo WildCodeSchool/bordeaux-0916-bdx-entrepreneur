@@ -85,7 +85,7 @@ class UsersController extends Controller {
 
 
     find(req, res, next) {
-        this.model.find().populate('company').exec((err, users) => {
+        this.model.find().populate('company.company').exec((err, users) => {
             res.json(users)
         })
     }

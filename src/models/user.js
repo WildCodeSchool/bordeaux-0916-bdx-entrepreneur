@@ -6,8 +6,15 @@ let userSchema = new mongoose.Schema({
     name: String,
     firstname: String,
     company: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Company'
+        company: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Company'
+        },
+        role: {
+            type: String,
+            enum: ['Fondateur', 'Other'],
+            default: 'Other'
+        }
     }],
     address: {
         type: mongoose.Schema.Types.Mixed
@@ -24,15 +31,14 @@ let userSchema = new mongoose.Schema({
     image: String,
     password: String,
     remarques: String,
-    role: {
-        type: String,
-        enum: ['Admin', 'Fondateur', 'Other'],
-        default: 'Other'
-    },
     active: {
         type: Boolean,
         default: true
     },
+    isAdmin: {
+      type: Boolean,
+      default: false
+    }
 }, {
     timestamps: true
 });

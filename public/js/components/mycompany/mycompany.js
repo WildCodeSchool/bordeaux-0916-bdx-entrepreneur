@@ -8,8 +8,9 @@
                     this.companies = []
                     usersService.getCurrent().then((user) => {
                         this.user = user
+                        console.log(this.user);
                         return this.user.company.map((el) => {
-                            return companiesService.getById(el).then((res) => {
+                            return companiesService.getById(el.company).then((res) => {
                                 this.companies.push(res.data)
                             })
                         })
