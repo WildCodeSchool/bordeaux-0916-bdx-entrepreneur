@@ -14,7 +14,7 @@
                     })
                     companiesService.getById($stateParams.id).then((response) => {
                         this.company = response.data
-                        if (this.company.tags && this.company.tags.length > 0){
+                        if (this.company.tags && this.company.tags.length > 0) {
                             this.tags = this.company.tags.join(',')
                         }
                         this.social = this.company.social
@@ -64,6 +64,13 @@
                 },
                 deleteUser(idx) {
                     this.company.contacts.splice(idx, 1)
+                },
+                delete(company) {
+                    companiesService.delete(company).then(() => {
+                        return $state.go('app.home')
+                    }).then(() => {
+                        $state.reload()
+                    })
                 }
             })
         }
