@@ -43,7 +43,14 @@
         </a>
         <ul>
             <li>
-                <a tooltipped data-position="left" data-delay="50" data-tooltip="Export CSV" class="btn-floating colored" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', contact:'Membres'}" filename="'Player'">
+                <a tooltipped data-position="left" data-delay="50" data-tooltip="Export CSV" class="btn-floating colored"
+                        ng-json-export-excel data="$ctrl.companies"
+                        report-fields="{
+                          name: 'Société',
+                          secteur:'Secteur',
+                          siteweb:'Site Web',
+                          prestation:'Prestation'
+                        }" filename="'bdx-entrepreneur-societes'">
                     <i class="material-icons">system_update_alt</i>Export Excel
                 </a>
             </li>
