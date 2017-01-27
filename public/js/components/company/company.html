@@ -174,7 +174,7 @@
                     </a>
                     <form action="#">
                         <div class="file-field input-field">
-                            <div class="btn">
+                            <div class="btn colored">
                                 <span>File</span>
                                 <file ng-model="$ctrl.image" ng-change="$ctrl.preview()"></file>
                             </div>
@@ -329,15 +329,17 @@
                 </ul>
             </div>
 
-            <div class="col s6 center deleteModal" ng-init="!showModal" ng-if="showModal">
+            <div class="col s6 deleteModal" ng-hide="!showModal">
                 <div class="modal-content">
                     <h4>Supprimer</h4>
+                    <p>Êtes-vous sûr de supprimer la société {{$ctrl.company.name}}?</p>
                 </div>
+                <hr>
                 <div class="modal-footer">
-                    <a class="modal-action btn red" ng-click="$ctrl.delete($ctrl.company)">
+                    <a class="modal-action btn red right" ng-click="$ctrl.delete($ctrl.company)">
                         <i class="material-icons right">delete_forever</i> Supprimer
                     </a>
-                    <a class="modal-action btn colored" ng-click="showModal = !showModal">
+                    <a class="modal-action btn colored left" ng-click="showModal = !showModal">
                         <i class="material-icons right">cancel</i> Annuler
                     </a>
                 </div>
