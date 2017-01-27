@@ -12,7 +12,7 @@
                     usersService.getCurrent().then((user) => {
                         this.user = user
                         this.user.company.forEach((el)=>{
-                            if($stateParams.id == el.company && el.role == 'Fondateur'){
+                            if($stateParams.id == el.company._id && el.role == 'Fondateur'){
                                 return this.hasAccess = true
                             }
                         })
