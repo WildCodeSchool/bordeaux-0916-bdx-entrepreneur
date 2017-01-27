@@ -2,57 +2,62 @@
     <div id="printableArea">
         <div class="card card-panel">
             <div class="card-content companyinfo" id="bigcard">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row companyhead white-text">
 
-                <div class="row companyhead white-text">
-                    <div class="col s3">
-                        <div class="row">
-                            <img ng-src="{{$ctrl.company.image}}" class="responsive-img" alt="">
+                            <div class="col s3">
+                                <div class="row">
+                                    <img ng-src="{{$ctrl.company.image}}" class="responsive-img" alt="">
+                                </div>
+
+
+                                <!-- Social -->
+
+                                <div class="row center" id="socialcompany">
+                                    <div class="col s2">
+                                        <a href="{{$ctrl.social.facebook}}" target="_blank" ng-if="$ctrl.social.facebook">
+                                            <img ng-src="/img/facebook2.png" class="md-icon socialicons">
+                                        </a>
+                                    </div>
+                                    <div class="col s2">
+                                        <a href="{{$ctrl.social.linkedin}}" target="_blank" ng-if="$ctrl.social.linkedin">
+                                            <img ng-src="/img/linkedin2.png" class="md-icon socialicons">
+                                        </a>
+                                    </div>
+                                    <div class="col s2">
+                                        <a href="{{$ctrl.social.twitter}}" target="_blank" ng-if="$ctrl.social.twitter">
+                                            <img ng-src="/img/twitter.png" class="md-icon socialicons">
+                                        </a>
+                                    </div>
+                                    <div class="col s2">
+                                        <a href="{{$ctrl.social.youtube}}" target="_blank" ng-if="$ctrl.social.youtube">
+                                            <img ng-src="/img/youtube.png" class="md-icon socialicons">
+                                        </a>
+                                    </div>
+                                    <div class="col s2">
+                                        <a href="{{$ctrl.social.instagram}}" target="_blank" ng-if="$ctrl.social.instagram">
+                                            <img ng-src="/img/instagram.png" class="md-icon socialicons">
+                                        </a>
+                                    </div>
+                                    <div class="col s2">
+                                        <a href="{{$ctrl.social.pinterest}}" target="_blank" ng-if="$ctrl.social.pinterest">
+                                            <img ng-src="/img/pininterest.png" class="md-icon socialicons">
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col s9">
+                                <h3>{{$ctrl.company.name}}</h3>
+                                <h6>Secteur : {{$ctrl.company.secteur}}</h6>
+                                <h6>{{$ctrl.company.introduction}}</h6>
+                                <h6><a class="waves-effect waves-light btn colored" href="{{$ctrl.company.siteweb}}" target="_blank">Site Web</a></h6>
+                            </div>
                         </div>
-
-
-                        <!-- Social -->
-
-                        <div class="row center" id="socialcompany">
-                            <div class="col s2">
-                                <a href="{{$ctrl.social.facebook}}" target="_blank" ng-if="$ctrl.social.facebook">
-                                    <img ng-src="/img/facebook2.png" class="md-icon socialicons">
-                                </a>
-                            </div>
-                            <div class="col s2">
-                                <a href="{{$ctrl.social.linkedin}}" target="_blank" ng-if="$ctrl.social.linkedin">
-                                    <img ng-src="/img/linkedin2.png" class="md-icon socialicons">
-                                </a>
-                            </div>
-                            <div class="col s2">
-                                <a href="{{$ctrl.social.twitter}}" target="_blank" ng-if="$ctrl.social.twitter">
-                                    <img ng-src="/img/twitter.png" class="md-icon socialicons">
-                                </a>
-                            </div>
-                            <div class="col s2">
-                                <a href="{{$ctrl.social.youtube}}" target="_blank" ng-if="$ctrl.social.youtube">
-                                    <img ng-src="/img/youtube.png" class="md-icon socialicons">
-                                </a>
-                            </div>
-                            <div class="col s2">
-                                <a href="{{$ctrl.social.instagram}}" target="_blank" ng-if="$ctrl.social.instagram">
-                                    <img ng-src="/img/instagram.png" class="md-icon socialicons">
-                                </a>
-                            </div>
-                            <div class="col s2">
-                                <a href="{{$ctrl.social.pinterest}}" target="_blank" ng-if="$ctrl.social.pinterest">
-                                    <img ng-src="/img/pininterest.png" class="md-icon socialicons">
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col s9">
-                        <h3>{{$ctrl.company.name}}</h3>
-                        <h6>Secteur : {{$ctrl.company.secteur}}</h6>
-                        <h6>{{$ctrl.company.introduction}}</h6>
-                        <h6><a class="waves-effect waves-light btn colored" href="{{$ctrl.company.siteweb}}" target="_blank">Site Web</a></h6>
                     </div>
                 </div>
+
 
 
                 <!-- ////////////////////////////////
@@ -60,45 +65,43 @@
                 ////////////////////////////////////-->
 
                 <div class="row">
-                    <div class="row">
-                        <!-- Description -->
-                        <div class="col s12 m5 offset-m1" ng-if="$ctrl.company.presentation">
-                            <div class="card">
-                                <div class="card-content">
-                                    <span class="card-title">Qui nous sommes</span>
-                                    <p>{{$ctrl.company.presentation}}</p>
-                                </div>
+                    <!-- Description -->
+                    <div class="col s12 m6 " ng-if="$ctrl.company.presentation">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Qui nous sommes</span>
+                                <p>{{$ctrl.company.presentation}}</p>
                             </div>
                         </div>
-                        <!-- Ce que nous proposons -->
-                        <div class="col s12 m5" ng-if="$ctrl.company.prestation">
-                            <div class="card">
-                                <div class="card-content">
-                                    <span class="card-title">Ce que nous faisons</span>
-                                    <p>{{$ctrl.company.prestation}}</p>
-                                </div>
+                    </div>
+                    <!-- Ce que nous proposons -->
+                    <div class="col s12 m6" ng-if="$ctrl.company.prestation">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Ce que nous faisons</span>
+                                <p>{{$ctrl.company.prestation}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Attentes -->
+                    <div class="col s12 m6" ng-if="$ctrl.company.attentes">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Ce que nous recherchons</span>
+                                <p>{{$ctrl.company.attentes}}</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <!-- Attentes -->
-                        <div class="col s12 m5 offset-m1" ng-if="$ctrl.company.attentes">
-                            <div class="card">
-                                <div class="card-content">
-                                    <span class="card-title">Ce que nous recherchons</span>
-                                    <p>{{$ctrl.company.attentes}}</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Notes -->
-                        <div ng-class="!$ctrl.company.attentes ? 'col s12 m5 offset-m1' : 'col s12 m5'" ng-if="$ctrl.company.notes">
-                            <div class="card">
-                                <div class="card-content">
-                                    <span class="card-title">Notes</span>
-                                    <p>{{$ctrl.company.notes}}</p>
-                                </div>
+                    <!-- Notes -->
+                    <div class="col s12 m6" ng-if="$ctrl.company.notes">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Notes</span>
+                                <p>{{$ctrl.company.notes}}</p>
                             </div>
                         </div>
                     </div>
