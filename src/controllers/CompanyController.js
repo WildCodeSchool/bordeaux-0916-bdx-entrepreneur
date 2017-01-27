@@ -77,6 +77,43 @@ class CompanyController extends Controller {
         })
     }
 
+    update(req, res, next) {
+        console.log(req.body.newContacts);
+
+        let updateCompany = (company) => {
+            this.model.update({
+                _id: company._id
+            }, company, (err, document) => {
+                if (err) {
+                    next(err)
+                } else {
+                    res.sendStatus(200)
+                }
+            })
+        }
+
+        if (req.body.newContacts) {
+            Promise.all(req.body.newContacts.map((contact) => {
+                return new Promise((resolve, reject) => {
+                    contact.company = [req.body._id]
+                    USER.create(contact, (err, user) => {
+                        if (err) reject(err)
+                        else {
+                            resolve(user)
+                        }
+                    })
+                })
+            })).then((users) => {
+                req.body.contacts = req.body.contacts.concat(users)
+                delete req.body.newContacts
+                updateCompany(req.body)
+            })
+        } else {
+            updateCompany(req.body)
+        }
+
+
+    }
 
     findOne(req, res, next) {
         let search = new RegExp("(" + req.params.recherche + ")", "igm")
