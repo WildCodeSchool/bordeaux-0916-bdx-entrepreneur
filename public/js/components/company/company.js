@@ -8,9 +8,14 @@
 
                     this.editMode = false;
                     this.infos = {}
-
+                    this.hasAccess = false
                     usersService.getCurrent().then((user) => {
                         this.user = user
+                        this.user.company.forEach((el)=>{
+                            if($stateParams.id == el){
+                                return this.hasAccess = true
+                            }
+                        })
                     })
                     companiesService.getById($stateParams.id).then((response) => {
                         this.company = response.data
@@ -18,9 +23,7 @@
                             this.tags = this.company.tags.join(',')
                         }
                         this.social = this.company.social
-
                     });
-
 
                 },
                 edit(company, social, tag, image) {

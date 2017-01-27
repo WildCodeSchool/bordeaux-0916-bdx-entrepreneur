@@ -109,12 +109,12 @@
                      ////////////////////////////-->
                 <div class="row">
                     <div class="col s12">
-                        <h4>Membres de la compagnie {{$ctrl.company.name}}</h4>
+                        <h4>Membres de la société {{$ctrl.company.name}}</h4>
                     </div>
 
                     <!-- Contact -->
 
-                    <div class="col s4" ng-repeat="contact in $ctrl.company.contacts">
+                    <div class="col s6" ng-repeat="contact in $ctrl.company.contacts">
                         <div class="card card-panel hoverable">
                             <div class="card-content">
                                 <div class="row valign-wrapper">
@@ -123,9 +123,37 @@
                                     </div>
                                     <div class="col s9">
                                         <div class="card-title">
-                                            <p>{{contact.name}}</p>
-                                            <p>{{contact.email}}</p>
-                                            <p>{{contact.number}}</p>
+                                            <div class="col s12">
+                                                {{contact.firstname}} {{contact.name}}
+                                            </div>
+                                            <div class="col s6">
+                                                {{contact.email}} {{contact.number}}
+                                            </div>
+                                            <div class="col s12">
+                                                <p>{{contact.address.ville}}</p>
+                                            </div>
+                                            <div class="col s12">
+                                                <p>
+                                                    <a href="{{contact.social.facebook}}" target="_blank" ng-if="contact.social.facebook">
+                                                        <img class="socialicons" src="img/facebook2.png" />
+                                                    </a>
+                                                    <a href="{{contact.social.twitter}}" target="_blank" ng-if="contact.social.twitter">
+                                                        <img class="socialicons" src="img/twitter.png" />
+                                                    </a>
+                                                    <a href="{{contact.social.linkedin}}" target="_blank" ng-if="contact.social.linkedin">
+                                                        <img class="socialicons" src="img/linkedin2.png" />
+                                                    </a>
+                                                    <a href="{{contact.social.pinterest}}" target="_blank" ng-if="contact.social.pinterest">
+                                                        <img class="socialicons" src="img/pinterest-logo-icon.png" />
+                                                    </a>
+                                                    <a href="{{contact.social.youtube}}" target="_blank" ng-if="contact.social.youtube">
+                                                        <img class="socialicons" src="img/youtube.png" />
+                                                    </a>
+                                                    <a href="{{contact.social.instagram}}" target="_blank" ng-if="contact.social.instagram">
+                                                        <img class="socialicons" src="img/instagram.png" />
+                                                    </a>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -145,7 +173,7 @@
                 </a>
                 <ul>
                     <li>
-                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Éditer" class="btn-floating colored" ng-click="$ctrl.edit($ctrl.company, $ctrl.image)" user="$ctrl.user">
+                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Éditer" class="btn-floating colored" ng-click="$ctrl.edit($ctrl.company, $ctrl.image)" user="$ctrl.user" ng-if="$ctrl.hasAccess">
                             <i class="material-icons">mode_edit</i>
                         </a>
                     </li>
@@ -175,7 +203,7 @@
                     <form action="#">
                         <div class="file-field input-field">
                             <div class="btn colored">
-                                <span>File</span>
+                                <span>Image</span>
                                 <file ng-model="$ctrl.image" ng-change="$ctrl.preview()"></file>
                             </div>
                             <div class="file-path-wrapper">
@@ -189,7 +217,7 @@
                 <div class="col s9">
                     <div class="input-field">
                         <input class="validate" ng-model="$ctrl.company.name">
-                        <label class="active">Nom de la compagnie</label>
+                        <label class="active">Nom de la société</label>
                     </div>
                     <div class="input-field">
                         <input class="validate" ng-model="$ctrl.company.secteur">
@@ -197,7 +225,7 @@
                     </div>
                     <div class="input-field">
                         <input class="validate" ng-model="$ctrl.company.siteweb">
-                        <label class="active">Site Web de la compagnie</label>
+                        <label class="active">Site Web de la société</label>
                     </div>
                     <div class="input-field">
                         <input class="validate" ng-model="$ctrl.tags" placeholder="Entrer les mots clés séparés par une ,">
@@ -251,7 +279,7 @@
                 <div class="col s12">
                     <div class="input-field">
                         <textarea class="materialize-textarea" ng-model="$ctrl.company.presentation" maxlength="150" rows="5"></textarea>
-                        <label class="active">Company Description</label>
+                        <label class="active">Description de la société</label>
                     </div>
                 </div>
             </div>
