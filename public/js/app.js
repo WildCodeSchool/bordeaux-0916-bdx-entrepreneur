@@ -36,6 +36,7 @@
     'app.login',
     'app.home',
     'app.company',
+    'app.mycompany',
     'app.newCompany',
     'app.dashboard',
     'app.adherents',

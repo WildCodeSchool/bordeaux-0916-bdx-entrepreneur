@@ -129,12 +129,6 @@
                         </div>
 
 
-                        <div input-field class="col s6">
-                            <i class="material-icons prefix">business</i>
-                            <input id="business" type="text" ng-model="$ctrl.company.name">
-                            <label for="business">Compagnie</label>
-                        </div>
-
                         <form action="#">
                             <div class="file-field col s6">
                                 <div class="btn blue">
@@ -154,29 +148,27 @@
                     <div class="row">
                         <h1>Adresse</h1>
 
-
                         <div input-field class="col s6">
                             <i class="material-icons prefix">location_on</i>
                             <input id="location_on" type="text" class="validate" ng-model="$ctrl.currentUser.address.rue">
-                            <label for="location_on" data-success="right">Rue</label>
+                            <label data-success="right">Rue</label>
                         </div>
 
                         <div input-field class="col s6">
                             <i class="material-icons prefix">location_on</i>
                             <input id="ville" type="text" class="validate" ng-model="$ctrl.currentUser.address.ville">
-                            <label for="location_on" data-success="right">Ville</label>
+                            <label data-success="right">Ville</label>
                         </div>
 
                         <div input-field class="col s6">
                             <i class="material-icons prefix">location_on</i>
                             <input id="codePostale" type="text" class="validate" ng-model="$ctrl.currentUser.address.codePostal" placeholder="33000">
-                            <label for="compagnie" data-success="right">Code Postal</label>
+                            <label data-success="right">Code Postal</label>
                         </div>
 
                         <div input-field class="col s6">
-                            <select ng-model="$ctrl.region" ng-change="$ctrl.find()" material-select>
-                              <option value="" disabled selected>{{$ctrl.currentUser.address.region || 'Ma région' }}</option>
-                              <option ng-repeat="region in $ctrl.regions">{{region}}</option>
+                            <select class="browser-default" ng-model="$ctrl.currentUser.address.region" ng-change="$ctrl.find()" material-select>
+                              <option ng-repeat="region in $ctrl.regions" value="{{region}}">{{region}}</option>
                             </select>
                         </div>
 

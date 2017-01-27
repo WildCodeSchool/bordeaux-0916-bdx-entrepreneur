@@ -14,7 +14,6 @@
 
                 },
                 add(user, search) {
-                  debugger
                     let compagnie = this.companies.find((company) => {
                         return company.name === search
                     })

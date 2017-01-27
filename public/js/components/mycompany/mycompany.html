@@ -1,0 +1,25 @@
+<section ng-if="!$ctrl.editMode">
+    <div id="printableArea">
+        <div class="card card-panel">
+            <div class="card-content companyinfo" id="bigcard" >
+                <div class="row companyhead white-text" ng-repeat="company in $ctrl.companies">
+                    <div class="col s3">
+                        <div class="row">
+                            <img ng-src="{{company.image}}" class="responsive-img" alt="">
+                        </div>
+
+                    </div>
+                    <div class="col s9">
+                        <h4>{{company.name}}</h4>
+                        <p>{{company.presentation}}</p>
+                        <br>
+                        <p>Secteur : {{company.secteur}}</p>
+                    </div>
+                    <a class="waves-effect waves-light btn right colored" ui-sref="app.company({id:company._id})">
+                        <i class="material-icons right">play_arrow</i>Voir Fiche
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
