@@ -5,9 +5,11 @@
             angular.extend(this, {
                 $onInit() {
 
+                    this.isAdmin = false
+                    
                     usersService.getCurrent().then((user) => {
                         this.currentUser = user
-                        // console.log(this.currentUser);
+                        this.isAdmin = this.currentUser.isAdmin
                     }).catch(() => {
                         $state.go('app.login')
                     })

@@ -352,7 +352,10 @@
                             </a>
                         </li>
                         <li>
-                            <a tooltipped data-position="left" data-delay="50" data-tooltip="Supprimer" class="btn-floating colored" ng-click="showModal = !showModal">
+                            <a tooltipped data-position="left" data-delay="50" data-tooltip="Supprimer"
+                            class="btn-floating colored"
+                            ng-click="showModal = !showModal"
+                            ng-if="$ctrl.isAdmin">
                                 <i class="material-icons">delete_forever</i>
                             </a>
                         </li>

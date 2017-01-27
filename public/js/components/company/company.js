@@ -9,8 +9,11 @@
                     this.editMode = false;
                     this.infos = {}
                     this.hasAccess = false
+                    this.isAdmin = false
+                    
                     usersService.getCurrent().then((user) => {
                         this.user = user
+                        this.isAdmin = this.user.isAdmin
                         this.user.company.forEach((el)=>{
                             if($stateParams.id == el.company._id && el.role == 'Fondateur'){
                                 return this.hasAccess = true
