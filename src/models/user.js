@@ -12,7 +12,7 @@ let userSchema = new mongoose.Schema({
         },
         role: {
             type: String,
-            enum: ['Admin', 'Fondateur', 'Other'],
+            enum: ['Fondateur', 'Other'],
             default: 'Other'
         }
     }],
@@ -35,6 +35,10 @@ let userSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     },
+    isAdmin: {
+      type: Boolean,
+      default: false
+    }
 }, {
     timestamps: true
 });
