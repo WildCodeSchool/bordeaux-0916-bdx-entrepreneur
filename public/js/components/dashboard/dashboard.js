@@ -9,8 +9,8 @@
                         this.companies = response.data
                     })
 
-                    usersService.get().then((response) => {
-                        this.users = response.data
+                    usersService.get().then((res) => {
+                        this.users = res.data
                     })
                 }
             })
