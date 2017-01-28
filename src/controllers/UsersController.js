@@ -4,7 +4,7 @@ let jwt = require('jsonwebtoken'),
     salt = bcrypt.genSaltSync(10),
     Controller = require('./Controller'),
     generator = require('generate-password'),
-    sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+    sg = require('../middlewares/sendgrid');
 let password = generator.generate({
     length: 10,
     numbers: true
@@ -12,9 +12,6 @@ let password = generator.generate({
 const USER = require('../models/user')
 const ENV = require('../../config/env')
 
-let helper = require('sendgrid').mail,
-    from_email = new helper.Email("poloc1722@hotmail.fr"),
-    subject = "Nouveau mot de pass";
 
 class UsersController extends Controller {
 
@@ -42,9 +39,7 @@ class UsersController extends Controller {
         if (!req.body.email || !req.body.password) {
             res.status(400).send("Please enter your email and password")
         } else {
-            USER.findOne({
-                email: req.body.email
-            }, {
+            USER.findOne(req.body, {
                 password: 0
             }, (err, user) => {
                 if (err)
@@ -97,32 +92,24 @@ class UsersController extends Controller {
     }
 
     findOne(req, res, next) {
-        let to_email = new helper.Email(`${req.params.email}`)
+      
+        let newPassword = bcrypt.hashSync(password, salt)
+
         this.model.findOneAndUpdate({
             'email': req.params.email
         }, {
             $set: {
-                'password': password
+                'password': newPassword
             }
         }, (err, user) => {
             if (err) next(err)
             else if (!user) {
+                // Renvoyer un message à l'utilisateur pour lui dire que son mail est incorrect
                 res.sendStatus(404)
-            }
-            else {
-                let content = new helper.Content("text/plain", `Bonjour ${user.firstname}, \n Suite à votre demande de renouvellement de mot de passe, votre nouveau mot de passe est ${password} \n\n Connectez vous avec celui-ci puis pensez à le changer dans votre espace profile. \n\n Sincèrement,\n\nBordeaux Entrepreneurs`)
-                let mail = new helper.Mail(from_email, subject, to_email, content);
-                let request = sg.emptyRequest({
-                    method: 'POST',
-                    path: '/v3/mail/send',
-                    body: mail.toJSON()
-                });
-                sg.API(request, function(error, response) {
-                    console.log(response.statusCode)
-                    console.log(response.body)
-                    console.log(response.headers)
-                })
-                res.json(user)
+            } else {
+                user.password = password
+                sg.sendgrid.emailIt(user)
+                res.sendStatus(200)
             }
 
         })

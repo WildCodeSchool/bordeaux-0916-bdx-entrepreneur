@@ -2,7 +2,7 @@
     <div id="printableArea">
         <div class="card card-panel">
             <div class="card-content companyinfo" id="bigcard" >
-                <div class="row companyhead white-text" ng-repeat="company in $ctrl.companies">
+                <div class="row companyhead white-text" ng-repeat="company in $ctrl.companies track by $index">
                     <div class="col s3">
                         <div class="row">
                             <img ng-src="{{company.image}}" class="responsive-img" alt="">

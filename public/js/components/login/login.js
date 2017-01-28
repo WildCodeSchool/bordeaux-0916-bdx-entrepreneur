@@ -17,11 +17,12 @@
                         })
 
                     }).catch((err) => {
-                        let textContent = `Error : ${err.data} !`
+                        this.error = `Error : ${err.data} !`
                     })
                 },
                 newPassword(email) {
                     this.email = false
+                    this.error = null
                     usersService.getOne(email).then((res) => {
                         this.sent = true
                     })
