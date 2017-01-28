@@ -16,7 +16,7 @@
         </div>
     </nav>
 
-    <div class="col s4" ng-repeat="company in $ctrl.companies | orderBy:'name' | limitTo : $ctrl.carouselstate">
+    <div class="col m12 l4" ng-repeat="company in $ctrl.companies | orderBy:'name' | limitTo : $ctrl.carouselstate">
         <div class="card card-panel hoverable">
             <div class="card-content">
                 <div class="row valign-wrapper">
@@ -43,12 +43,22 @@
         </a>
         <ul>
             <li>
-                <a tooltipped data-position="left" data-delay="50" data-tooltip="Export CSV" class="btn-floating colored" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', contact:'Membres'}" filename="'Player'">
+                <a tooltipped data-position="left" data-delay="50" data-tooltip="Export CSV" class="btn-floating colored"
+                        ng-json-export-excel data="$ctrl.companies"
+                        report-fields="{
+                          name: 'Société',
+                          secteur:'Secteur',
+                          siteweb:'Site Web',
+                          prestation:'Prestation'
+                        }" filename="'bdx-entrepreneur-societes'">
                     <i class="material-icons">system_update_alt</i>Export Excel
                 </a>
             </li>
             <li>
-                <a tooltipped data-position="left" data-delay="50" data-tooltip="Ajouter une société" class="btn-floating colored" ui-sref="app.newCompany">
+                <a tooltipped data-position="left" data-delay="50" data-tooltip="Ajouter une société"
+                class="btn-floating colored"
+                ui-sref="app.newCompany"
+                ng-if="$ctrl.isAdmin">
                     <i class="material-icons">note_add</i>
                 </a>
             </li>

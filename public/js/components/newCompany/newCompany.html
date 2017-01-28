@@ -1,166 +1,168 @@
 <section>
     <div class="card card-panel">
         <div class="card-content">
-            <div class="row">
-                <div class="col s3">
-                    <a href="{{$ctrl.company.siteweb}}" target="_blank">
-                        <img ng-src="/img/developer.jpg" class="responsive-img" />
-                    </a>
-                    <form action="#">
-                        <div class="file-field input-field">
-                            <div class="btn">
-                                <span>Image</span>
-                                <file ng-model="$ctrl.image" ng-change="$ctrl.preview()"></file>
+            <form name="newCompany">
+                <div class="row">
+                    <div class="col s3">
+                        <a href="{{$ctrl.company.siteweb}}" target="_blank">
+                            <img ng-src="/img/developer.jpg" class="responsive-img" />
+                        </a>
+                        <form action="#">
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span>Image *</span>
+                                    <file ng-model="$ctrl.image" ng-change="$ctrl.preview()" required></file>
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text">
+                                </div>
                             </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text">
-                            </div>
+                        </form>
+
+                    </div>
+                    <div class="col s9">
+                        <div class="input-field">
+                            <input ng-model="$ctrl.company.name" required>
+                            <label class="active">Nom de la société *</label>
                         </div>
-                    </form>
 
-                </div>
-                <div class="col s9">
-                    <div class="input-field">
-                        <input ng-model="$ctrl.company.name">
-                        <label class="active">Nom de la société</label>
-                    </div>
+                        <div class="input-field">
+                            <input ng-model="$ctrl.company.secteur" required>
+                            <label class="active">Secteur d'activité *</label>
+                        </div>
 
-                    <div class="input-field">
-                        <input ng-model="$ctrl.company.secteur">
-                        <label class="active">Secteur d'activité</label>
-                    </div>
+                        <div class="input-field">
+                            <input ng-model="$ctrl.company.sitweb" required>
+                            <label class="active">Website de la société *</label>
+                        </div>
 
-                    <div class="input-field">
-                        <input ng-model="$ctrl.company.sitweb">
-                        <label class="active">Website de la société</label>
-                    </div>
-
-                    <div class="input-field">
-                        <input ng-model="$ctrl.tags" placeholder="Entrer les mots clés séparés par une ,">
-                        <label class="active">Tags</label>
+                        <div class="input-field">
+                            <input ng-model="$ctrl.tags" placeholder="Entrer les mots clés séparés par une ,">
+                            <label class="active">Tags</label>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!--////////////////////////////
+                <!--////////////////////////////
         Social inputs
       ////////////////////////////// -->
 
-            <div class="row">
-                <div class="input-field col s2">
-                    <a ng-href="{{$ctrl.company.facebook}}">
-                        <img ng-src="/img/facebook2.png" class="socialicons">
-                    </a>
-                    <input ng-model="$ctrl.company.social.facebook">
-                </div>
-                <div class="input-field col s2">
-                    <a ng-href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin2.png" class="socialicons"></a>
-                    <input ng-model="$ctrl.company.social.linkedin">
-                </div>
-                <div class="input-field col s2">
-                    <a ng-href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="socialicons"></a>
-                    <input ng-model="$ctrl.company.social.twitter">
-                </div>
-                <div class="input-field col s2">
-                    <a ng-href="{{$ctrl.company.youtube}}"><img ng-src="/img/youtube.png" class="socialicons"></a>
-                    <input ng-model="$ctrl.company.social.youtube">
-                </div>
-                <div class="input-field col s2">
-                    <a ng-href="{{$ctrl.company.instagram}}"><img ng-src="/img/instagram.png" class="socialicons"></a>
-                    <input ng-model="$ctrl.company.social.instagram">
-                </div>
-                <div class="input-field col s2">
-                    <a ng-href="{{$ctrl.company.pininterest}}"><img ng-src="/img/pininterest.png" class="socialicons"></a>
-                    <input ng-model="$ctrl.company.social.pinterest">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="input-field col s12">
-                    <textarea class="materialize-textarea" ng-model="$ctrl.company.presentation" maxlength="300" rows="5"></textarea>
-                    <label>Description de la société</label>
-                </div>
-            </div>
-
-            <!--Membre des la compagnie  -->
-
-            <div class="row">
-                <div class="col s12">
-                    <h3>Contact</h3>
-                    <div class="row" ng-repeat="contact in $ctrl.contacts">
-                        <div class="col s12">
-                            <div class="input-field col s3">
-                                <i class="material-icons prefix">person</i>
-                                <input ng-model="contact.name">
-                                <label class="active">Nom Prénom</label>
-                            </div>
-                            <div class="input-field col s3">
-                                <i class="material-icons prefix">email</i>
-                                <input ng-model="contact.email">
-                                <label class="active">Email</label>
-                            </div>
-                            <div class="input-field col s3">
-                                <i class="material-icons prefix">phone</i>
-                                <input ng-model="contact.number">
-                                <label class="active">Numéro de téléphone</label>
-                            </div>
-                            <div class="input-field col s3">
-                                <input type="checkbox" ng-model="contact.fondateur" id="fondateur($index)">
-                                <label for="fondateur($index)">Fondateur</label>
-
-                            </div>
-                        </div>
-                        <div class="col s12">
-                            <div class="input-field col s3">
-                                <img ng-src="/img/facebook2.png" class="socialicons">
-                                <input ng-model="contact.social.facebook">
-                            </div>
-                            <div class="input-field col s3">
-                                <img ng-src="/img/linkedin2.png" class="socialicons">
-                                <input ng-model="contact.social.linkedin">
-                            </div>
-                            <div class="input-field col s3">
-                                <img ng-src="/img/twitter.png" class="socialicons">
-                                <input ng-model="contact.social.twitter">
-                            </div>
-                        </div>
-                    </div>
-                    <a class="waves-effect waves-light btn" ng-click="$ctrl.addUser()"><i class="material-icons right">add</i>Ajouter un utilisateur</a>
-                </div>
-
-
-
                 <div class="row">
-                    <div class="input-field col s12">
-                        <textarea class="materialize-textarea" ng-model="$ctrl.company.prestations" maxlength="150" rows="5"></textarea>
-                        <label>Ce que nous vous proposons</label>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea class="materialize-textarea" ng-model="$ctrl.company.attentes" maxlength="150" rows="5"></textarea>
-                        <label>Ce que nous recherchons</label>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea class="materialize-textarea" ng-model="$ctrl.company.notes" maxlength="150" rows="5"></textarea>
-                        <label>Notes</label>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="center-align">
-                        <a class="waves-effect waves-light btn" ng-click="$ctrl.saveCompanies($ctrl.company, $ctrl.tags, $ctrl.contacts,$ctrl.image)">
-                            <i class="material-icons">save</i>
+                    <div class="input-field col s2">
+                        <a ng-href="{{$ctrl.company.facebook}}">
+                            <img ng-src="/img/facebook2.png" class="socialicons">
                         </a>
+                        <input ng-model="$ctrl.company.social.facebook">
+                    </div>
+                    <div class="input-field col s2">
+                        <a ng-href="{{$ctrl.company.linkedin}}"><img ng-src="/img/linkedin2.png" class="socialicons"></a>
+                        <input ng-model="$ctrl.company.social.linkedin">
+                    </div>
+                    <div class="input-field col s2">
+                        <a ng-href="{{$ctrl.company.twitter}}"><img ng-src="/img/twitter.png" class="socialicons"></a>
+                        <input ng-model="$ctrl.company.social.twitter">
+                    </div>
+                    <div class="input-field col s2">
+                        <a ng-href="{{$ctrl.company.youtube}}"><img ng-src="/img/youtube.png" class="socialicons"></a>
+                        <input ng-model="$ctrl.company.social.youtube">
+                    </div>
+                    <div class="input-field col s2">
+                        <a ng-href="{{$ctrl.company.instagram}}"><img ng-src="/img/instagram.png" class="socialicons"></a>
+                        <input ng-model="$ctrl.company.social.instagram">
+                    </div>
+                    <div class="input-field col s2">
+                        <a ng-href="{{$ctrl.company.pininterest}}"><img ng-src="/img/pininterest.png" class="socialicons"></a>
+                        <input ng-model="$ctrl.company.social.pinterest">
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea class="materialize-textarea" ng-model="$ctrl.company.presentation" maxlength="300" rows="5" required></textarea>
+                        <label>Description de la société *</label>
+                    </div>
+                </div>
+
+                <!--Membre des la compagnie  -->
+
+                <div class="row">
+                    <div class="col s12">
+                        <h3>Contact</h3>
+                        <div class="row" ng-repeat="contact in $ctrl.contacts">
+                            <div class="col s12">
+                                <div class="input-field col s3">
+                                    <i class="material-icons prefix">person</i>
+                                    <input ng-model="contact.name">
+                                    <label class="active">Nom Prénom</label>
+                                </div>
+                                <div class="input-field col s3">
+                                    <i class="material-icons prefix">email</i>
+                                    <input ng-model="contact.email">
+                                    <label class="active">Email</label>
+                                </div>
+                                <div class="input-field col s3">
+                                    <i class="material-icons prefix">phone</i>
+                                    <input ng-model="contact.number">
+                                    <label class="active">Numéro de téléphone</label>
+                                </div>
+                                <div class="input-field col s3">
+                                    <input type="checkbox" ng-model="contact.fondateur" id="fondateur($index)">
+                                    <label for="fondateur($index)">Fondateur</label>
+
+                                </div>
+                            </div>
+                            <div class="col s12">
+                                <div class="input-field col s3">
+                                    <img ng-src="/img/facebook2.png" class="socialicons">
+                                    <input ng-model="contact.social.facebook">
+                                </div>
+                                <div class="input-field col s3">
+                                    <img ng-src="/img/linkedin2.png" class="socialicons">
+                                    <input ng-model="contact.social.linkedin">
+                                </div>
+                                <div class="input-field col s3">
+                                    <img ng-src="/img/twitter.png" class="socialicons">
+                                    <input ng-model="contact.social.twitter">
+                                </div>
+                            </div>
+                        </div>
+                        <a class="waves-effect waves-light btn" ng-click="$ctrl.addUser()"><i class="material-icons right">add</i>Ajouter un utilisateur</a>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea class="materialize-textarea" ng-model="$ctrl.company.prestations" maxlength="150" rows="5"></textarea>
+                            <label>Ce que nous vous proposons</label>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea class="materialize-textarea" ng-model="$ctrl.company.attentes" maxlength="150" rows="5"></textarea>
+                            <label>Ce que nous recherchons</label>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea class="materialize-textarea" ng-model="$ctrl.company.notes" maxlength="150" rows="5"></textarea>
+                            <label>Notes</label>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+        </form>
+        <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
+            <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer la société"
+                class="waves-effect waves-light btn-floating btn-large colored"
+                ng-click="$ctrl.saveCompanies($ctrl.company, $ctrl.tags, $ctrl.contacts,$ctrl.image)"
+                ng-disabled="newCompany.$invalid">
+                <i class="material-icons">save</i>
+            </a>
         </div>
 </section>

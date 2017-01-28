@@ -1,35 +1,58 @@
-#bigcard{
-  color: red !important;
+div{
+    color: black !important;
 }
-img{
-  width:150px;
+
+img {
+    width: 150px !important;
 }
-#headertxtprint{
-  text-align: center;
+
+textarea {
+    display: none !important;
 }
-.socialicons{
-  display: none;
+
+input {
+    display: none !important;
 }
-.md-user-avatar{
-  width: 100px !important;
+
+a {
+    display: none !important;
 }
-#iconprint{
-  display: none;
+
+#socialcompany {
+    display: none !important;
 }
-#contactprint{
-  display: flex !important;
-  justify-content: space-around !important;
+
+.card {
+    margin: 0px !important;
+    border: 0px !important;
+    box-shadow: none !important;
 }
-#rowprint{
-  display: flex !important;
-  justify-content: space-around !important;
+
+.card-title {
+    font-size: 20px !important;
 }
-#btnprint{
-  display: none;
+
+p, h6, .smallPrint {
+    font-size: 14px !important;
+    line-height: 20px !!important;
 }
-textarea{
-  display: none;
+
+h4 {
+    font-size: 1.28rem !important;
 }
-input{
-  display: none;
+
+h3 {
+    font-size: 1.92rem !important;
+}
+
+img.responsive-img {
+    max-width: 75% !important;
+}
+
+.card .card-content {
+    padding: 0px !important;
+}
+
+.companyhead{
+    background-color: blue;
 }

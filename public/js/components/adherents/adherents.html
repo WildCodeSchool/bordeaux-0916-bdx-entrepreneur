@@ -70,8 +70,16 @@
         </a>
         <ul>
           <li>
-                <a tooltipped data-position="left" data-delay="50" data-tooltip="Exporter Excel" class="btn-floating colored" ng-json-export-excel data="$ctrl.companies" report-fields="{name: 'Société', secteur:'Secteur',social:'Réseaux sociaux', siteweb:'Site Web', prestation:'Prestation', role:'Role'}"
-                    filename="'Player'">
+                <a tooltipped data-position="left" data-delay="50" data-tooltip="Exporter Excel" class="btn-floating colored"
+                    ng-json-export-excel data="$ctrl.adherents" report-fields="{
+                        name: 'Nom',
+                        firstname:'Prénom',
+                        active:'Activé',
+                        email:'Email',
+                        number:'Numéro',
+                        address:'Adresse'
+                    }"
+                    filename="'bdx-entrepreneur-adherents'">
                   <i class="material-icons">system_update_alt</i>Export Excel
                 </a>
             </li>

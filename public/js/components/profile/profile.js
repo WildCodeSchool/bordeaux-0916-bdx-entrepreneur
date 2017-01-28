@@ -16,9 +16,6 @@
 
                     usersService.getCurrent().then((res) => {
                         this.currentUser = res
-                        companiesService.getById(this.currentUser.company).then((res) => {
-                            this.company = res.data
-                        })
                     })
 
 

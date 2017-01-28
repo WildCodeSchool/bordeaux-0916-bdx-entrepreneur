@@ -46,17 +46,21 @@
                         let payload = $cookies.get('token').split('.')[1]
                         payload = $window.atob(payload)
                         payload = JSON.parse(payload)
-                        this.currentUser = payload._doc
                         if (Math.round(new Date().getTime() / 1000) > payload.exp)
                             return this.disconnect()
+                        this.getPopulate(payload._doc._id).then((res) => {
+                            this.currentUser = res.data
+
+                            deferred.resolve(this.currentUser)
+                        })
+                    } else {
+                        deferred.resolve(this.currentUser)
                     }
-                    deferred.resolve(this.currentUser)
+
                 }
-                return deferred.promise.then((res) => {
-                    return this.getPopulate(res._id)
-                }).then((res) => {
-                    return res.data
-                })
+
+                return deferred.promise
+
             }
         }
     }])

@@ -1,36 +1,90 @@
 <section id="navbar" class="white" ng-if="$ctrl.currentUser">
     <div class="row">
         <div class="col s12">
-            <div class="col s4 left">
+            <div class="col s3 left">
                 <a ui-sref="app.home" title="Accueil">
                     <img src="../img/logo_BordeauxEntrepreneursV3.png" alt="logo" class="img-responsive" />
                 </a>
             </div>
-            <div class="col s4 center" id="iconNav">
-                <a tooltipped data-position="bottom" data-delay="400" data-tooltip="Dashboard" ui-sref="app.dashboard"><i class="material-icons">dns</i></a>
-                <a tooltipped data-position="bottom" data-delay="400" data-tooltip="Adhérents" ui-sref="app.adherents"><i class="material-icons">face</i></a>
-            </div>
 
-            <div class="col s4 right">
+            <div class="col s5 right hide-on-med-and-down">
                 <div class="card-panel">
                     <div class="row">
-                        <div class="col s3">
-                            <a tooltipped data-position="left" data-delay="400" data-tooltip="Mon Compte" ui-sref="app.profile">
-                              <img class="responsive-img circle" ng-src="{{($ctrl.currentUser.image ? $ctrl.currentUser.image : '../img/avatar_defaut.png')}}" alt="" />
-                            </a>
+                        <div class="col s2">
+                            <img class="responsive-img circle" ng-src="{{($ctrl.currentUser.image ? $ctrl.currentUser.image : '../img/avatar_defaut.png')}}" alt="" />
                         </div>
-                        <div class="col s9">
-                            <h6>Bonjour <strong>{{$ctrl.currentUser.name}}</strong></h6>
-                            <a class="waves-effect waves-light btn blue" ui-sref="app.mycompany" ng-if="!$ctrl.currentUser.company.length == 0">
-                                <i class="material-icons left">assignment_ind</i>{{$ctrl.currentUser.company.length > 1 ? 'Mes Sociétés' : 'Ma Société'}}
-                            </a>
-                            <a tooltipped data-position="bottom" data-delay="400" data-tooltip="Se Déconnecter" class="waves-effect waves-light btn blue" ng-click="$ctrl.disconnect()">
-                                <i class="material-icons">exit_to_app</i>
-                            </a>
+                        <div class="col s10">
+
+                            <div class="row">
+                                <div class="col s12">
+                                    <h6>Bonjour <strong>{{$ctrl.currentUser.firstname}} {{$ctrl.currentUser.name}}</strong></h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col l8 m12">
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Dashboard"
+                                      class="btn-floating colored"
+                                      ui-sref="app.dashboard"
+                                      ng-if="$ctrl.isAdmin">
+                                        <i class="material-icons">dns</i>
+                                    </a>
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Adhérents"
+                                    class="btn-floating colored"
+                                    ui-sref="app.adherents"
+                                    ng-if="$ctrl.isAdmin">
+                                        <i class="material-icons">face</i>
+                                    </a>
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Mon Compte" class="btn-floating colored" ui-sref="app.profile">
+                                        <i class="material-icons">person</i>
+                                    </a>
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="{{$ctrl.currentUser.company.length > 1 ? 'Mes Sociétés' : 'Ma Société'}}" class="btn-floating colored" ui-sref="app.mycompany" ng-if="!$ctrl.currentUser.company.length == 0">
+                                        <i class="material-icons">assignment_ind</i>
+                                    </a>
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Se déconnecter" class="btn-floating colored" ui-sref="app.mycompany">
+                                        <i class="material-icons">exit_to_app</i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
+
+            <div class="fixed-action-btn horizontal click-to-toggle hide-on-large-only buttonNav" ng-hide="$ctrl.hidden">
+                <a class="btn-floating btn-large colored">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul>
+                    <li>
+                        <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Dashboard" class="btn-floating colored" ui-sref="app.dashboard">
+                            <i class="material-icons">dns</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Adhérents" class="btn-floating colored" ui-sref="app.adherents">
+                            <i class="material-icons">face</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Mon Compte" class="btn-floating colored" ui-sref="app.profile">
+                            <i class="material-icons">person</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a tooltipped data-position="bottom" data-delay="50" data-tooltip="{{$ctrl.currentUser.company.length > 1 ? 'Mes Sociétés' : 'Ma Société'}}" class="btn-floating colored" ui-sref="app.mycompany" ng-if="!$ctrl.currentUser.company.length == 0">
+                            <i class="material-icons">assignment_ind</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Se déconnecter" class="btn-floating colored" ui-sref="app.mycompany">
+                            <i class="material-icons">exit_to_app</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </div>
     </div>
 </section>
