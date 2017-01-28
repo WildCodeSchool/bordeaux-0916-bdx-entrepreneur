@@ -39,9 +39,7 @@ class UsersController extends Controller {
         if (!req.body.email || !req.body.password) {
             res.status(400).send("Please enter your email and password")
         } else {
-            USER.findOne({
-                email: req.body.email
-            }, {
+            USER.findOne(req.body, {
                 password: 0
             }, (err, user) => {
                 if (err)
@@ -88,11 +86,14 @@ class UsersController extends Controller {
     }
 
     findOne(req, res, next) {
+      
+        let newPassword = bcrypt.hashSync(password, salt)
+
         this.model.findOneAndUpdate({
             'email': req.params.email
         }, {
             $set: {
-                'password': password
+                'password': newPassword
             }
         }, (err, user) => {
             if (err) next(err)
@@ -100,9 +101,9 @@ class UsersController extends Controller {
                 // Renvoyer un message à l'utilisateur pour lui dire que son mail est incorrect
                 res.sendStatus(404)
             } else {
-
+                user.password = password
                 sg.sendgrid.emailIt(user)
-                res.json(user)
+                res.sendStatus(200)
             }
 
         })
