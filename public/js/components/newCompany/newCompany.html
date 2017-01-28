@@ -89,22 +89,27 @@
                     <h3>Contact</h3>
                     <div class="row" ng-repeat="contact in $ctrl.contacts">
                         <div class="col s12">
-                            <div class="input-field col s3">
+                            <div class="input-field col s2">
+                                <i class="material-icons prefix">person</i>
+                                <input ng-model="contact.firstname">
+                                <label class="active">Prénom </label>
+                            </div>
+                            <div class="input-field col s2">
                                 <i class="material-icons prefix">person</i>
                                 <input ng-model="contact.name">
-                                <label class="active">Nom Prénom</label>
+                                <label class="active">Nom </label>
                             </div>
-                            <div class="input-field col s3">
+                            <div class="input-field col s2">
                                 <i class="material-icons prefix">email</i>
                                 <input ng-model="contact.email">
                                 <label class="active">Email</label>
                             </div>
-                            <div class="input-field col s3">
+                            <div class="input-field col s2">
                                 <i class="material-icons prefix">phone</i>
                                 <input ng-model="contact.number">
                                 <label class="active">Numéro de téléphone</label>
                             </div>
-                            <div class="input-field col s3">
+                            <div class="input-field col s2">
                                 <input type="checkbox" ng-model="contact.fondateur" id="fondateur($index)">
                                 <label for="fondateur($index)">Fondateur</label>
 

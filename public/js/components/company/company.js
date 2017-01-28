@@ -39,7 +39,7 @@
                         this.infos.tags.push(tag)
 
                         this.contacts.length > 0 ? this.infos.newContacts = this.contacts : ''
-
+                        debugger
                         companiesService.edit(this.infos).then((res) => {
                             this.newCompany = res.config.data
                         }).catch(() => {

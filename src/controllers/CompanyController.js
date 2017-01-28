@@ -2,7 +2,13 @@
 let Controller = require('./Controller'),
     formidable = require('formidable'),
     fs = require('fs'),
-    path = require('path');
+    path = require('path'),
+    sg = require('../middlewares/sendgrid'),
+    generator = require('generate-password');
+let password = generator.generate({
+    length: 10,
+    numbers: true
+});
 const COMPANY = require('../models/company')
 const USER = require('../models/user')
 
@@ -37,20 +43,31 @@ class CompanyController extends Controller {
         let contacts = req.body.contacts
 
         let create = (membre) => {
-            if (membre.fondateur) membre.role = 'Fondateur'
             USER.findOne({
                 email: membre.email
             }, (err, user) => {
                 if (err) next(err)
                 if (user) {
-                    user.company.push(this.companyId)
+                    user.company.push({
+                        company: this.companyId,
+                        role: membre.fondateur ? 'Fondateur' : 'Other'
+                    })
                     this.contacts.push(user)
                     user.save()
                 } else if (!user) {
+                    membre.company = [{
+                        company: this.companyId,
+                        role: membre.fondateur ? 'Fondateur' : 'Other'
+                    }]
+                    membre.password = password
                     USER.create(membre, (err, user) => {
                         if (err) next(err)
-                        else
+                        else {
+                            user.New = true
+                            sg.sendgrid.emailIt(user)
                             this.contacts.push(user)
+
+                        }
                     })
                 }
 
@@ -64,7 +81,6 @@ class CompanyController extends Controller {
                 this.companyId = document._id
                 if (contacts) {
                     contacts.forEach((contact) => {
-                        contact.company = this.companyId
                         create(contact)
                     })
 
@@ -78,24 +94,24 @@ class CompanyController extends Controller {
     }
 
     update(req, res, next) {
-        console.log(req.body.newContacts);
 
         let updateCompany = (company) => {
             this.model.update({
                 _id: company._id
             }, company, (err, document) => {
-                if (err) {
-                    next(err)
-                } else {
-                    res.sendStatus(200)
-                }
+                if (err) next(err)
+                else res.sendStatus(200)
             })
         }
 
         if (req.body.newContacts) {
             Promise.all(req.body.newContacts.map((contact) => {
                 return new Promise((resolve, reject) => {
-                    contact.company = [req.body._id]
+                    contact.company = [{
+                        company: req.body._id,
+                        role: contact.fondateur ? 'Fondateur' : 'Other'
+                    }]
+
                     USER.create(contact, (err, user) => {
                         if (err) reject(err)
                         else {
