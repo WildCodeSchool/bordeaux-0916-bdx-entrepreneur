@@ -22,16 +22,10 @@
                             </div>
                             <div class="row">
                                 <div class="col l8 m12">
-                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Dashboard"
-                                      class="btn-floating colored"
-                                      ui-sref="app.dashboard"
-                                      ng-if="$ctrl.isAdmin">
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Dashboard" class="btn-floating colored" ui-sref="app.dashboard" ng-if="$ctrl.isAdmin">
                                         <i class="material-icons">dns</i>
                                     </a>
-                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Adhérents"
-                                    class="btn-floating colored"
-                                    ui-sref="app.adherents"
-                                    ng-if="$ctrl.isAdmin">
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Adhérents" class="btn-floating colored" ui-sref="app.adherents" ng-if="$ctrl.isAdmin">
                                         <i class="material-icons">face</i>
                                     </a>
                                     <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Mon Compte" class="btn-floating colored" ui-sref="app.profile">
@@ -40,7 +34,7 @@
                                     <a tooltipped data-position="bottom" data-delay="50" data-tooltip="{{$ctrl.currentUser.company.length > 1 ? 'Mes Sociétés' : 'Ma Société'}}" class="btn-floating colored" ui-sref="app.mycompany" ng-if="!$ctrl.currentUser.company.length == 0">
                                         <i class="material-icons">assignment_ind</i>
                                     </a>
-                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Se déconnecter" class="btn-floating colored" ui-sref="app.mycompany">
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Se déconnecter" class="btn-floating colored" ui-sref="app.login" ng-click="$ctrl.disconnect()">
                                         <i class="material-icons">exit_to_app</i>
                                     </a>
                                 </div>
@@ -78,13 +72,12 @@
                         </a>
                     </li>
                     <li>
-                        <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Se déconnecter" class="btn-floating colored" ui-sref="app.mycompany">
+                        <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Se déconnecter" class="btn-floating colored" ui-sref="app.login" ng-click="$ctrl.disconnect()">
                             <i class="material-icons">exit_to_app</i>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
-    </div>
     </div>
 </section>
