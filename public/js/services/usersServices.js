@@ -26,8 +26,8 @@
 
             connect(data) {
                 return $http.post('/api/admin', data).then((res) => {
-                    this.currentUser = res.data.user
                     $cookies.put('token', res.data.token)
+                    return this.getCurrent();
                 })
             },
             disconnect() {
@@ -50,7 +50,7 @@
                             return this.disconnect()
                         this.getPopulate(payload._doc._id).then((res) => {
                             this.currentUser = res.data
-
+                            console.log(this.currentUser)
                             deferred.resolve(this.currentUser)
                         })
                     } else {
