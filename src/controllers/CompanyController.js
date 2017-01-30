@@ -1,10 +1,15 @@
 'use strict'
 let Controller = require('./Controller'),
+    bcrypt = require('bcrypt'),
+    salt = bcrypt.genSaltSync(10),
     formidable = require('formidable'),
     fs = require('fs'),
     path = require('path'),
     sg = require('../middlewares/sendgrid'),
     generator = require('generate-password');
+let newPassword = (password) => {
+    return bcrypt.hashSync(password, salt)
+}
 let password = generator.generate({
     length: 10,
     numbers: true
@@ -46,44 +51,10 @@ class CompanyController extends Controller {
             else {
                 this.companyId = document._id
                 if (contacts) {
-                    Promise.all(contacts.map((contact) => {
-                        return new Promise((resolve, reject) => {
-                            USER.findOne({
-                                email: contact.email
-                            }, (err, user) => {
-                                if (err) reject(err)
-                                if (user) {
-                                    user.company.push({
-                                        company: this.companyId,
-                                        role: contact.fondateur ? 'Fondateur' : 'Other'
-                                    })
-                                    user.save()
-                                    resolve(user)
-                                } else if (!user) {
-                                    contact.company = [{
-                                        company: this.companyId,
-                                        role: contact.fondateur ? 'Fondateur' : 'Other'
-                                    }]
-                                    contact.password = password
-                                    USER.create(contact, (err, user) => {
-                                        if (err) reject(err)
-                                        else {
-                                            user.New = true
-                                            sg.sendgrid.emailIt(user)
-                                            resolve(user)
-                                        }
-                                    })
-                                }
-
-                            })
-
-                        })
-                    })).then((users) => {
-                        this.model.findById(this.companyId, (err, company) => {
-                            company.contacts = company.contacts.concat(users)
-                            company.save()
-                        })
-                    })
+                    let company = {}
+                    company._id = this.companyId
+                    company.newContacts = contacts
+                    this.updateOrCreate(company)
                 }
 
             }
@@ -92,40 +63,65 @@ class CompanyController extends Controller {
 
     update(req, res, next) {
 
-        let updateCompany = (company) => {
+        if (req.body.newContacts) {
+
+            this.updateOrCreate(req.body)
+
+        } else {
+
             this.model.update({
-                _id: company._id
-            }, company, (err, document) => {
+                _id: req.params.id
+            }, req.body, (err, document) => {
                 if (err) next(err)
                 else res.sendStatus(200)
             })
         }
 
-        if (req.body.newContacts) {
-            Promise.all(req.body.newContacts.map((contact) => {
-                return new Promise((resolve, reject) => {
-                    contact.company = [{
-                        company: req.body._id,
-                        role: contact.fondateur ? 'Fondateur' : 'Other'
-                    }]
 
-                    USER.create(contact, (err, user) => {
-                        if (err) reject(err)
-                        else {
-                            resolve(user)
-                        }
-                    })
+    }
+
+    updateOrCreate(company) {
+        Promise.all(company.newContacts.map((contact) => {
+            return new Promise((resolve, reject) => {
+                USER.findOne({
+                    email: contact.email
+                }, (err, user) => {
+                    if (err) reject(err)
+                    if (user) {
+                        user.company.push({
+                            company: company._id,
+                            role: contact.fondateur ? 'Fondateur' : 'Other'
+                        })
+                        user.save()
+                        resolve(user)
+                    } else if (!user) {
+                        contact.company = [{
+                            company: company._id,
+                            role: contact.fondateur ? 'Fondateur' : 'Other'
+                        }]
+                        contact.password = newPassword(password)
+
+                        USER.create(contact, (err, user) => {
+                            if (err) reject(err)
+                            else {
+                                user.New = true
+                                user.password = password
+                                sg.sendgrid.emailIt(user)
+                                resolve(user)
+                            }
+                        })
+                    }
+
                 })
-            })).then((users) => {
-                req.body.contacts = req.body.contacts.concat(users)
-                delete req.body.newContacts
-                updateCompany(req.body)
+
             })
-        } else {
-            updateCompany(req.body)
-        }
-
-
+        })).then((users) => {
+            delete company.newContacts
+            this.model.findById(company._id, (err, company) => {
+                company.contacts = company.contacts.concat(users)
+                company.save()
+            })
+        })
     }
 
     findOne(req, res, next) {

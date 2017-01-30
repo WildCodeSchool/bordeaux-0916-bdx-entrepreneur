@@ -11,7 +11,7 @@
                     this.contacts = []
                     this.hasAccess = false
                     this.isAdmin = false
-                    
+
                     usersService.getCurrent().then((user) => {
                         this.user = user
                         this.isAdmin = this.user.isAdmin
@@ -40,9 +40,7 @@
                         this.infos.social = social
                         this.infos.tags = []
                         this.infos.tags.push(tag)
-
                         this.contacts.length > 0 ? this.infos.newContacts = this.contacts : ''
-                        debugger
                         companiesService.edit(this.infos).then((res) => {
                             this.newCompany = res.config.data
                         }).catch(() => {

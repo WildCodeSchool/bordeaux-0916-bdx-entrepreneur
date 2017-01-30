@@ -8,7 +8,7 @@ let helper = require('sendgrid').mail,
 
 exports.sendgrid = {
 
-    emailIt(user) {
+    emailIt(user) {      
         let to_email = new helper.Email(`${user.email}`);
         if (user.New) {
             subject = "Bordeux Entrepreuneurs - Nouveau Compte";
