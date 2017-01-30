@@ -5,6 +5,10 @@ let jwt = require('jsonwebtoken'),
     Controller = require('./Controller'),
     generator = require('generate-password'),
     sg = require('../middlewares/sendgrid');
+
+let newPassword = (mdp) => {
+    return bcrypt.hashSync(mdp, salt)
+}
 let password = generator.generate({
     length: 10,
     numbers: true
@@ -21,8 +25,7 @@ class UsersController extends Controller {
     }
 
     create(req, res, next) {
-        let newPassword = bcrypt.hashSync(req.body.password, salt)
-        req.body.password = newPassword
+        req.body.password = newPassword(req.body.password)
         this.model.create(req.body, (err, document) => {
             if (err) next(err)
             else {
@@ -34,8 +37,8 @@ class UsersController extends Controller {
 
 
     connect(req, res, next) {
-        let newPassword = bcrypt.hashSync(req.body.password, salt)
-        req.body.password = newPassword
+
+        req.body.password = newPassword(req.body.password)
         if (!req.body.email || !req.body.password) {
             res.status(400).send("Please enter your email and password")
         } else {
@@ -63,10 +66,7 @@ class UsersController extends Controller {
     }
 
     update(req, res, next) {
-        if (req.body.password) {
-            let newPassword = bcrypt.hashSync(req.body.password, salt)
-            req.body.password = newPassword
-        }
+        if (req.body.password) req.body.password = newPassword(req.body.password)
         this.model.update({
             _id: req.params.id
         }, req.body, (err, document) => {
@@ -93,13 +93,11 @@ class UsersController extends Controller {
 
     findOne(req, res, next) {
 
-        let newPassword = bcrypt.hashSync(password, salt)
-
         this.model.findOneAndUpdate({
             'email': req.params.email
         }, {
             $set: {
-                'password': newPassword
+                'password': newPassword(password)
             }
         }, (err, user) => {
             if (err) next(err)
