@@ -1,12 +1,10 @@
-let bcrypt = require('bcrypt'),
-    salt = bcrypt.genSaltSync(10);
-
+let bcrypt = require('bcrypt')
+const ENV = require('../../config/env')
 exports.password = {
-    cryptIt() {
 
-      let newPassword = bcrypt.hashSync(req.body.password, salt)
-      req.body.password = newPassword
-
+    cryptIt(password) {
+        let newPassword = bcrypt.hashSync(password, ENV.salt)
+        return newPassword;
 
     }
 }
