@@ -21,23 +21,14 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col l8 m12">
-                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Dashboard"
-                                      class="btn-floating colored"
-                                      ui-sref="app.dashboard"
-                                      ng-if="$ctrl.isAdmin">
+                                <div class="col l12">
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Dashboard" class="btn-floating colored" ui-sref="app.dashboard" ng-if="$ctrl.isAdmin">
                                         <i class="material-icons">dns</i>
                                     </a>
-                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Adhérents"
-                                    class="btn-floating colored"
-                                    ui-sref="app.adherents"
-                                    ng-if="$ctrl.isAdmin">
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Adhérents" class="btn-floating colored" ui-sref="app.adherents" ng-if="$ctrl.isAdmin">
                                         <i class="material-icons">face</i>
                                     </a>
-                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Message"
-                                    class="btn-floating colored"
-                                    ui-sref="app.message"
-                                    ng-if="$ctrl.isAdmin">
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Message" class="btn-floating colored" ui-sref="app.message" ng-if="$ctrl.isAdmin">
                                         <i class="material-icons">mail</i>
                                     </a>
                                     <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Mon Compte" class="btn-floating colored" ui-sref="app.profile">
@@ -71,6 +62,11 @@
                     <li>
                         <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Adhérents" class="btn-floating colored" ui-sref="app.adherents">
                             <i class="material-icons">face</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Message" class="btn-floating colored" ui-sref="app.message" ng-if="$ctrl.isAdmin">
+                            <i class="material-icons">mail</i>
                         </a>
                     </li>
                     <li>
