@@ -18,8 +18,13 @@
                                     </div>
                                 </div>
                                 <div class="right">
-                                    <a tooltipped data-position="left" data-delay="50" data-tooltip="Envoyer" class="btn-floating colored" ng-click="$ctrl.send($ctrl.email)" ng-disabled="email.$invalid">
+                                    <a tooltipped data-position="left" data-delay="50" data-tooltip="Envoyer" class="btn-floating colored" ng-click="showModal = !showModal" ng-disabled="email.$invalid">
                                         <i class="material-icons">send</i>
+                                    </a>
+                                </div>
+                                <div class="left">
+                                    <a tooltipped data-position="right" data-delay="50" data-tooltip="Annuler" class="btn-floating colored" ng-click="$ctrl.email = {}">
+                                        <i class="material-icons">cancel</i>
                                     </a>
                                 </div>
                             </div>
@@ -27,6 +32,36 @@
                     </div>
                 </div>
             </div>
+
+            <div class="messageModal" ng-hide="!showModal">
+                <div class="modal-content">
+                    <h4>Envoyer</h4>
+                    <p>Êtes-vous sûr vouloir envoyer ce mail à tout les adhérents ?</p>
+                    <div class="card card-panel">
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col s12">
+                                    <label>Object</label>
+                                    <p>{{$ctrl.email.subject}}</p>
+                                    <br>
+                                    <label>Message</label>
+                                    <p>{{$ctrl.email.content}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="modal-footer">
+                    <a class="modal-action btn red right" ng-click="$ctrl.send($ctrl.email); showModal = !showModal">
+                        <i class="material-icons right">send</i> Envoyer
+                    </a>
+                    <a class="modal-action btn colored left" ng-click="showModal = !showModal">
+                        <i class="material-icons right">cancel</i> Annuler
+                    </a>
+                </div>
+            </div>
         </div>
     </form>
+    <div class="modal-overlay" ng-if="showModal"></div>
 </section>
