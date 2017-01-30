@@ -15,11 +15,9 @@
                     usersService.getCurrent().then((user) => {
                         this.user = user
                         this.isAdmin = this.user.isAdmin
-                        this.user.company.forEach((el)=>{
-                            if($stateParams.id == el.company._id && el.role == 'Fondateur'){
-                                return this.hasAccess = true
-                            }
-                        })
+                        this.hasAccess = (this.user.company.find((el)=>{
+                          return $stateParams.id == el.company._id && el.role == 'Fondateur'
+                        })) || this.user.isAdmin
                     })
                     companiesService.getById($stateParams.id).then((response) => {
                         this.company = response.data
