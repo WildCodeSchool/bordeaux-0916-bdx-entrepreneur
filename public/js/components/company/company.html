@@ -125,38 +125,32 @@
                                         <img class="responsive-img circle" ng-src="{{contact.image}}" alt="" />
                                     </div>
                                     <div class="col s9">
-                                        <div class="card-title">
-                                            <div class="col s12 smallPrint">
-                                                {{contact.firstname}} {{contact.name}}
-                                            </div>
-                                            <div class="col s6 smallPrint">
-                                                {{contact.email}} {{contact.number}}
-                                            </div>
-                                            <div class="col s12 smallPrint">
-                                                <p>{{contact.address.ville}}</p>
-                                            </div>
-                                            <div class="col s12 smallPrint">
-                                                <p>
-                                                    <a href="{{contact.social.facebook}}" target="_blank" ng-if="contact.social.facebook">
-                                                        <img class="socialicons" src="img/facebook2.png" />
-                                                    </a>
-                                                    <a href="{{contact.social.twitter}}" target="_blank" ng-if="contact.social.twitter">
-                                                        <img class="socialicons" src="img/twitter.png" />
-                                                    </a>
-                                                    <a href="{{contact.social.linkedin}}" target="_blank" ng-if="contact.social.linkedin">
-                                                        <img class="socialicons" src="img/linkedin2.png" />
-                                                    </a>
-                                                    <a href="{{contact.social.pinterest}}" target="_blank" ng-if="contact.social.pinterest">
-                                                        <img class="socialicons" src="img/pinterest-logo-icon.png" />
-                                                    </a>
-                                                    <a href="{{contact.social.youtube}}" target="_blank" ng-if="contact.social.youtube">
-                                                        <img class="socialicons" src="img/youtube.png" />
-                                                    </a>
-                                                    <a href="{{contact.social.instagram}}" target="_blank" ng-if="contact.social.instagram">
-                                                        <img class="socialicons" src="img/instagram.png" />
-                                                    </a>
-                                                </p>
-                                            </div>
+                                        <div class="col s12 smallPrint">
+                                            <p>{{contact.firstname}} {{contact.name}}</p>
+                                            <p>{{contact.email}} {{contact.number}}</p>
+                                            <p>{{contact.address.ville}}</p>
+                                        </div>
+                                        <div class="col s12 smallPrint">
+                                            <p>
+                                                <a href="{{contact.social.facebook}}" target="_blank" ng-if="contact.social.facebook">
+                                                    <img class="socialicons" src="img/facebook2.png" />
+                                                </a>
+                                                <a href="{{contact.social.twitter}}" target="_blank" ng-if="contact.social.twitter">
+                                                    <img class="socialicons" src="img/twitter.png" />
+                                                </a>
+                                                <a href="{{contact.social.linkedin}}" target="_blank" ng-if="contact.social.linkedin">
+                                                    <img class="socialicons" src="img/linkedin2.png" />
+                                                </a>
+                                                <a href="{{contact.social.pinterest}}" target="_blank" ng-if="contact.social.pinterest">
+                                                    <img class="socialicons" src="img/pinterest-logo-icon.png" />
+                                                </a>
+                                                <a href="{{contact.social.youtube}}" target="_blank" ng-if="contact.social.youtube">
+                                                    <img class="socialicons" src="img/youtube.png" />
+                                                </a>
+                                                <a href="{{contact.social.instagram}}" target="_blank" ng-if="contact.social.instagram">
+                                                    <img class="socialicons" src="img/instagram.png" />
+                                                </a>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

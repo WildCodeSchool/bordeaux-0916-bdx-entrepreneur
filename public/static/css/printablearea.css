@@ -1,4 +1,4 @@
-div{
+div {
     color: black !important;
 }
 
@@ -6,19 +6,7 @@ img {
     width: 150px !important;
 }
 
-textarea {
-    display: none !important;
-}
-
-input {
-    display: none !important;
-}
-
-a {
-    display: none !important;
-}
-
-#socialcompany {
+textarea, #navbar, #footer, .imgcompanies, input, a, #socialcompany, #search, nav, .collection-item img {
     display: none !important;
 }
 
@@ -32,7 +20,7 @@ a {
     font-size: 20px !important;
 }
 
-p, h6, .smallPrint {
+p, h6, .smallPrint p, .smallPrint, .companyinfo p {
     font-size: 14px !important;
     line-height: 20px !!important;
 }
@@ -51,8 +39,4 @@ img.responsive-img {
 
 .card .card-content {
     padding: 0px !important;
-}
-
-.companyhead{
-    background-color: blue;
 }
