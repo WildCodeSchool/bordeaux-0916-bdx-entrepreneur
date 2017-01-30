@@ -1,15 +1,12 @@
 'use strict'
 let Controller = require('./Controller'),
-    bcrypt = require('bcrypt'),
-    salt = bcrypt.genSaltSync(10),
     formidable = require('formidable'),
     fs = require('fs'),
     path = require('path'),
     sg = require('../middlewares/sendgrid'),
+    bcrypt = require('../middlewares/bcrypt'),
     generator = require('generate-password');
-let newPassword = (password) => {
-    return bcrypt.hashSync(password, salt)
-}
+
 let password = generator.generate({
     length: 10,
     numbers: true
@@ -99,7 +96,7 @@ class CompanyController extends Controller {
                             company: company._id,
                             role: contact.fondateur ? 'Fondateur' : 'Other'
                         }]
-                        contact.password = newPassword(password)
+                        contact.password = bcrypt.password.cryptIt(password)
 
                         USER.create(contact, (err, user) => {
                             if (err) reject(err)

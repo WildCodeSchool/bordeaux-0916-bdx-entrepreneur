@@ -1,18 +1,15 @@
 'use strict'
 let jwt = require('jsonwebtoken'),
-    bcrypt = require('bcrypt'),
-    salt = bcrypt.genSaltSync(10),
     Controller = require('./Controller'),
     generator = require('generate-password'),
-    sg = require('../middlewares/sendgrid');
+    sg = require('../middlewares/sendgrid'),
+    bcrypt = require('../middlewares/bcrypt');
 
-let newPassword = (mdp) => {
-    return bcrypt.hashSync(mdp, salt)
-}
 let password = generator.generate({
     length: 10,
     numbers: true
 });
+
 const USER = require('../models/user')
 const ENV = require('../../config/env')
 
@@ -25,7 +22,7 @@ class UsersController extends Controller {
     }
 
     create(req, res, next) {
-        req.body.password = newPassword(req.body.password)
+        req.body.password = bcrypt.password.cryptIt(req.body.password)
         this.model.create(req.body, (err, document) => {
             if (err) next(err)
             else {
@@ -37,8 +34,7 @@ class UsersController extends Controller {
 
 
     connect(req, res, next) {
-
-        req.body.password = newPassword(req.body.password)
+        req.body.password = bcrypt.password.cryptIt(req.body.password)
         if (!req.body.email || !req.body.password) {
             res.status(400).send("Please enter your email and password")
         } else {
@@ -66,7 +62,7 @@ class UsersController extends Controller {
     }
 
     update(req, res, next) {
-        if (req.body.password) req.body.password = newPassword(req.body.password)
+        if (req.body.password) req.body.password = bcrypt.password.cryptIt(req.body.password)
         this.model.update({
             _id: req.params.id
         }, req.body, (err, document) => {
@@ -97,7 +93,7 @@ class UsersController extends Controller {
             'email': req.params.email
         }, {
             $set: {
-                'password': newPassword(password)
+                'password': bcrypt.password.cryptIt(password)
             }
         }, (err, user) => {
             if (err) next(err)
