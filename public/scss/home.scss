@@ -25,7 +25,8 @@ body {
 }
 
 .colored,
-.colored:hover {
+.colored:hover,
+.colored:focus {
     background-color: $bluedark;
 }
 
