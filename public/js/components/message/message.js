@@ -1,20 +1,25 @@
 ((app) => {
     app.component('message', {
         templateUrl: 'js/components/message/message.html',
-        controller: ['usersService', function(usersService) {
+        controller: ['usersService', '$state', function(usersService, $state) {
             angular.extend(this, {
                 $onInit() {
 
                     let allEmail = []
                     usersService.get().then((res) => {
                         res.data.map((e) => {
-                            return allEmail.push(e.email)
+                            return allEmail.push({
+                                email: e.email,
+                                name: `${e.firstname} ${e.name}`
+                            })
                         })
                     })
 
                     this.send = (message) => {
                         message.to = allEmail
-                        console.log(message);
+                        usersService.send(message).then(() => {
+                            this.email = {}
+                        })
                     }
                 }
 

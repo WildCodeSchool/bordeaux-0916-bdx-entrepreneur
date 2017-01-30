@@ -61,6 +61,9 @@
 
                 return deferred.promise
 
+            },
+            send(message) {
+                return $http.post('/api/message/send/', message)
             }
         }
     }])

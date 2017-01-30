@@ -1,5 +1,6 @@
 'use strict'
 let UsersController = require('../controllers/UsersController')
+let sg = require('../middlewares/sendgrid')
 
 module.exports = (app) => {
     // Create new controller
@@ -19,6 +20,11 @@ module.exports = (app) => {
 
     app.post('/users', (req, res, next) => {
         return usersCtrl.create(req, res, next)
+    })
+
+    //send email
+    app.post('/message/send', (req, res, next) => {
+        return sg.sendgrid.emailAll(req, res, next)
     })
 
     //  Auth

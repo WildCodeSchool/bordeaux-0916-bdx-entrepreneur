@@ -92,7 +92,7 @@ class UsersController extends Controller {
     }
 
     findOne(req, res, next) {
-      
+
         let newPassword = bcrypt.hashSync(password, salt)
 
         this.model.findOneAndUpdate({

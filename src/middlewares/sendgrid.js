@@ -27,5 +27,28 @@ exports.sendgrid = {
         })
 
 
+    },
+    emailAll(message, res, next) {
+        let newmessage = message.body
+        subject = newmessage.subject
+        let to_email = ""
+        Promise.all(newmessage.to.map((e) => {
+            return new Promise((resolve, reject) => {
+                content = new helper.Content("text/plain", `Bonjour ${e.name}, \n\n${newmessage.content}`);
+                to_email = new helper.Email(`${e.email}`);
+                let mail = new helper.Mail(from_email, subject, to_email, content),
+                    request = sg.emptyRequest({
+                        method: 'POST',
+                        path: '/v3/mail/send',
+                        body: mail.toJSON()
+                    });
+                sg.API(request, function(err, response) {
+                    console.log(`Status : ${response.statusCode}`, `Response : ${response.body}`, `Header : ${response.headers}`)
+                    resolve()
+                })
+            })
+        })).then(() => {
+            res.sendStatus(202)
+        })
     }
 }
