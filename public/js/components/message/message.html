@@ -1,0 +1,32 @@
+<section id="message">
+    <form name="email">
+        <div class="row">
+            <div class="card card-panel">
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col s6">
+                            <h5>Envoyer un message à tout les adhérents</h5>
+                            <div class="row">
+                                <div class="col s12">
+                                    <div class="input-field">
+                                        <input class="validate" ng-model="$ctrl.email.object" required>
+                                        <label class="active">Object *</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <textarea class="materialize-textarea" ng-model="$ctrl.email.content" required></textarea>
+                                        <label class="active">Message *</label>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <a tooltipped data-position="left" data-delay="50" data-tooltip="Envoyer" class="btn-floating colored" ng-click="$ctrl.send($ctrl.email)" ng-disabled="email.$invalid">
+                                        <i class="material-icons">send</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
