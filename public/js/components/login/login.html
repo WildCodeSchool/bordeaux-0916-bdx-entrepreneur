@@ -57,9 +57,9 @@
                           </div>
                           <div class="row">
                               <div class="col s12 center" ng-if="!$ctrl.email">
-                                  <button ng-click="$ctrl.email=true" class="btn waves-effect waves-light colored" type="submit" name="action">Mot de pass oublié
-                                      <i class="material-icons left">error_outline</i>
-                                  </button>
+                                  <a ng-click="$ctrl.email=true" class="black-text centerForgot" type="submit" name="action">
+                                    Mot de pass oublié
+                                  </a>
                               </div>
                               <div class="col s12 center" ng-if="$ctrl.email">
                                   <button ng-click="$ctrl.newPassword($ctrl.user.email)" class="btn waves-effect waves-light colored" type="submit" name="action">Envoyer
