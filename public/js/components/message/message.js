@@ -1,7 +1,7 @@
 ((app) => {
     app.component('message', {
         templateUrl: 'js/components/message/message.html',
-        controller: ['usersService', '$state', function(usersService, $state) {
+        controller: ['usersService', '$state', 'toastr', function(usersService, $state, toastr) {
             angular.extend(this, {
                 $onInit() {
 
@@ -18,7 +18,14 @@
                     this.send = (message) => {
                         message.to = allEmail
                         usersService.send(message).then(() => {
+                            toastr.success('Messages Envoyés.', {
+                                iconClass: 'toast-success'
+                            })
                             this.email = {}
+                        }).catch(() => {
+                            toastr.error('Une erreur est survenue.', {
+                                iconClass: 'toast-error'
+                            })
                         })
                     }
                 }

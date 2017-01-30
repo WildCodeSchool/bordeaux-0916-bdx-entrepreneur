@@ -30,6 +30,7 @@
     require('angular-animate'),
     require('angular-messages'),
     require('angular-cookies'),
+    require('angular-toastr'),
     'ui.materialize',
     'app.config',
     'app.services',
