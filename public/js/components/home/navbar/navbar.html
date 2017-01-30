@@ -22,22 +22,22 @@
                             </div>
                             <div class="row">
                                 <div class="col l12">
-                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Dashboard" class="btn-floating blue" ui-sref="app.dashboard" ng-if="$ctrl.isAdmin">
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Dashboard" class="btn-floating colored" ui-sref-active="blue" ui-sref="app.dashboard" ng-if="$ctrl.isAdmin">
                                         <i class="material-icons">dns</i>
                                     </a>
-                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Adhérents" class="btn-floating blue" ui-sref="app.adherents" ng-if="$ctrl.isAdmin">
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Adhérents" class="btn-floating colored" ui-sref-active="blue" ui-sref="app.adherents" ng-if="$ctrl.isAdmin">
                                         <i class="material-icons">face</i>
                                     </a>
-                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Message" class="btn-floating blue" ui-sref="app.message" ng-if="$ctrl.isAdmin">
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Message" class="btn-floating colored" ui-sref-active="blue" ui-sref="app.message" ng-if="$ctrl.isAdmin">
                                         <i class="material-icons">mail</i>
                                     </a>
-                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Mon Compte" class="btn-floating blue" ui-sref="app.profile">
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Mon Compte" class="btn-floating colored" ui-sref-active="blue" ui-sref="app.profile">
                                         <i class="material-icons">person</i>
                                     </a>
-                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="{{$ctrl.currentUser.company.length > 1 ? 'Mes Sociétés' : 'Ma Société'}}" class="btn-floating blue" ui-sref="app.mycompany" ng-if="!$ctrl.currentUser.company.length == 0">
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="{{$ctrl.currentUser.company.length > 1 ? 'Mes Sociétés' : 'Ma Société'}}" class="btn-floating colored" ui-sref-active="blue" ui-sref="app.mycompany" ng-if="!$ctrl.currentUser.company.length == 0">
                                         <i class="material-icons">assignment_ind</i>
                                     </a>
-                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Se déconnecter" class="btn-floating blue" ui-sref="app.login" ng-click="$ctrl.disconnect()">
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Se déconnecter" class="btn-floating colored" ui-sref-active="blue" ui-sref="app.login" ng-click="$ctrl.disconnect()">
                                         <i class="material-icons">exit_to_app</i>
                                     </a>
                                 </div>
