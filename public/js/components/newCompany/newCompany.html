@@ -90,25 +90,29 @@
                         <h3>Contact</h3>
                         <div class="row" ng-repeat="contact in $ctrl.contacts">
                             <div class="col s12">
-                                <div class="input-field col s3">
+                                <div class="input-field col s2">
+                                    <i class="material-icons prefix">person</i>
+                                    <input ng-model="contact.firstname">
+                                    <label class="active">Prénom </label>
+                                </div>
+                                <div class="input-field col s2">
                                     <i class="material-icons prefix">person</i>
                                     <input ng-model="contact.name">
-                                    <label class="active">Nom Prénom</label>
+                                    <label class="active">Nom </label>
                                 </div>
-                                <div class="input-field col s3">
+                                <div class="input-field col s2">
                                     <i class="material-icons prefix">email</i>
                                     <input ng-model="contact.email">
                                     <label class="active">Email</label>
                                 </div>
-                                <div class="input-field col s3">
+                                <div class="input-field col s2">
                                     <i class="material-icons prefix">phone</i>
                                     <input ng-model="contact.number">
                                     <label class="active">Numéro de téléphone</label>
                                 </div>
-                                <div class="input-field col s3">
+                                <div class="input-field col s2">
                                     <input type="checkbox" ng-model="contact.fondateur" id="fondateur($index)">
                                     <label for="fondateur($index)">Fondateur</label>
-
                                 </div>
                             </div>
                             <div class="col s12">
@@ -128,41 +132,40 @@
                         </div>
                         <a class="waves-effect waves-light btn" ng-click="$ctrl.addUser()"><i class="material-icons right">add</i>Ajouter un utilisateur</a>
                     </div>
-
-
-
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea class="materialize-textarea" ng-model="$ctrl.company.prestations" maxlength="150" rows="5"></textarea>
-                            <label>Ce que nous vous proposons</label>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea class="materialize-textarea" ng-model="$ctrl.company.attentes" maxlength="150" rows="5"></textarea>
-                            <label>Ce que nous recherchons</label>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea class="materialize-textarea" ng-model="$ctrl.company.notes" maxlength="150" rows="5"></textarea>
-                            <label>Notes</label>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
-        </form>
-        <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
-            <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer la société"
-                class="waves-effect waves-light btn-floating btn-large colored"
-                ng-click="$ctrl.saveCompanies($ctrl.company, $ctrl.tags, $ctrl.contacts,$ctrl.image)"
-                ng-disabled="newCompany.$invalid">
-                <i class="material-icons">save</i>
-            </a>
+
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea class="materialize-textarea" ng-model="$ctrl.company.prestations" maxlength="150" rows="5"></textarea>
+                        <label>Ce que nous vous proposons</label>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea class="materialize-textarea" ng-model="$ctrl.company.attentes" maxlength="150" rows="5"></textarea>
+                        <label>Ce que nous recherchons</label>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea class="materialize-textarea" ng-model="$ctrl.company.notes" maxlength="150" rows="5"></textarea>
+                        <label>Notes</label>
+                    </div>
+                </div>
+
+                <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
+                    <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer la société" class="waves-effect waves-light btn-floating btn-large colored" ng-click="$ctrl.saveCompanies($ctrl.company, $ctrl.tags, $ctrl.contacts,$ctrl.image)" ng-disabled="newCompany.$invalid">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>
+
+
+            </form>
         </div>
+    </div>
 </section>

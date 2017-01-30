@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col s12">
+        <h3>Contact</h3>
+        <div class="row">
+            <div class="col s12">
+                <div class="input-field col s3">
+                    <i class="material-icons prefix">person</i>
+                    <input ng-model="$ctrl.contact.name">
+                    <label class="active">Nom Prénom</label>
+                </div>
+                <div class="input-field col s3">
+                    <i class="material-icons prefix">email</i>
+                    <input ng-model="$ctrl.contact.email">
+                    <label class="active">Email</label>
+                </div>
+                <div class="input-field col s3">
+                    <i class="material-icons prefix">phone</i>
+                    <input ng-model="$ctrl.contact.number">
+                    <label class="active">Numéro de téléphone</label>
+                </div>
+                <div class="input-field col s3">
+                    <input type="checkbox" ng-model="$ctrl.contact.fondateur" id="fondateur($index)">
+                    <label for="fondateur($index)">Fondateur</label>
+
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="input-field col s3">
+                    <img ng-src="/img/facebook2.png" class="socialicons">
+                    <input ng-model="$ctrl.contact.social.facebook">
+                </div>
+                <div class="input-field col s3">
+                    <img ng-src="/img/linkedin2.png" class="socialicons">
+                    <input ng-model="$ctrl.contact.social.linkedin">
+                </div>
+                <div class="input-field col s3">
+                    <img ng-src="/img/twitter.png" class="socialicons">
+                    <input ng-model="$ctrl.contact.social.twitter">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
