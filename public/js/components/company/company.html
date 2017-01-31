@@ -81,7 +81,7 @@
 
                 <div class="row">
                     <!-- Description -->
-                    <div class="col s12 m6 " ng-if="$ctrl.company.presentation">
+                    <div class="col s12" ng-if="$ctrl.company.presentation">
                         <div class="card">
                             <div class="card-content">
                                 <span class="card-title">Qui nous sommes</span>
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                     <!-- Ce que nous proposons -->
-                    <div class="col s12 m6" ng-if="$ctrl.company.prestation">
+                    <div class="col s12" ng-if="$ctrl.company.prestation">
                         <div class="card">
                             <div class="card-content">
                                 <span class="card-title">Ce que nous faisons</span>
@@ -98,11 +98,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="row">
                     <!-- Attentes -->
-                    <div class="col s12 m6" ng-if="$ctrl.company.attentes">
+                    <div class="col s12" ng-if="$ctrl.company.attentes">
                         <div class="card">
                             <div class="card-content">
                                 <span class="card-title">Ce que nous recherchons</span>
@@ -112,7 +109,7 @@
                     </div>
 
                     <!-- Notes -->
-                    <div class="col s12 m6" ng-if="$ctrl.company.notes">
+                    <div class="col s12" ng-if="$ctrl.company.notes && $ctrl.isAdmin">
                         <div class="card">
                             <div class="card-content">
                                 <span class="card-title">Notes</span>
@@ -348,7 +345,7 @@
                             <textarea class="materialize-textarea" ng-model="$ctrl.company.attentes" maxlength="150" rows="5"></textarea>
                             <label class="active">Ce que nous recherchons</label>
                         </div>
-                        <div class="input-field">
+                        <div class="input-field" ng-if="$ctrl.isAdmin">
                             <textarea class="materialize-textarea" ng-model="$ctrl.company.notes" maxlength="150" rows="5"></textarea>
                             <label class="active">Notes</label>
                         </div>
