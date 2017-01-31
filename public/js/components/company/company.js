@@ -39,7 +39,7 @@
                         this.infos.tags = []
                         this.infos.tags.push(tag)
                         if (this.contacts.length > 0)
-                            this.infos.newContacts = this.contacts
+                            this.infos.newContacts = this.contacts.filter(value => Object.keys(value).length !== 0)
                         companiesService.edit(this.infos).then((res) => {
                             this.newCompany = res.config.data
                         }).catch(() => {
