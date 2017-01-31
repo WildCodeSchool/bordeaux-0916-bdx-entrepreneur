@@ -1,8 +1,8 @@
-<section ng-if="!$ctrl.editMode">
-    <div id="printableArea">
+<section>
+    <div>
         <div class="card card-panel">
-            <div class="card-content companyinfo" id="bigcard" >
-                <div class="row companyhead white-text" ng-repeat="company in $ctrl.companies track by $index">
+            <div class="card-content companyinfo" id="bigcard">
+                <div class="row companyhead white-text" ng-repeat="company in $ctrl.companies track by $index" ng-if="$ctrl.companies.length > 0">
                     <div class="col s3">
                         <div class="row">
                             <img ng-src="{{company.image}}" class="responsive-img" alt="">
@@ -18,6 +18,9 @@
                     <a class="waves-effect waves-light btn right colored" ui-sref="app.company({id:company._id})">
                         <i class="material-icons right">play_arrow</i>Voir Fiche
                     </a>
+                </div>
+                <div class="valign-wrapper companyhead" ng-if="$ctrl.companies.length == 0">
+                    <h5 class="valign white-text">Vous n'avez pas de société</h5>
                 </div>
             </div>
         </div>
