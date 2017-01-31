@@ -43,6 +43,8 @@ class UsersController extends Controller {
                     next(err)
                 else if (!user)
                     res.status(403).send("Utilisateur non trouvé")
+                else if (!user.active)
+                    res.status(403).send("Votre compte a été désactivé, veuillez contacter un administrateur")
                 else {
                     let token = jwt.sign(user, ENV.token, {
                         expiresIn: "24h"
