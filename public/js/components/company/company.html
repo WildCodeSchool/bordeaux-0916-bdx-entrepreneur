@@ -58,7 +58,7 @@
                                 <div class="col s12">
                                     <h6>{{$ctrl.company.introduction}}</h6>
                                 </div>
-                                <div class="col s12 m8">
+                                <div class="col s12 m8" ng-if="$ctrl.company.tags.length > 0">
                                     <div ng-repeat="tag in $ctrl.tags" class="chip">
                                         {{tag}}
                                     </div>
