@@ -23,7 +23,7 @@
                                         <span ng-repeat="company in companies track by $index">
                                             {{company.name}}
                                         </span>
-                                        <span>
+                                    <span>
                                             {{($ctrl.currentUser.company.length > 1 && $ctrl.currentUser.company.length != $index + 1) ? ',' : ""}}
                                         </span>
                                     </span>
@@ -31,7 +31,7 @@
                             </div>
                         </div>
                         <!-- Address -->
-                        <div class="col l3 m6">
+                        <div class="col l4 m6">
                             <h1>Adresse</h1>
                             <div class="col s12">
                                 <label>Rue</label>
@@ -45,63 +45,63 @@
                             </div>
                         </div>
                         <!-- Social -->
-
+                        <div class="col l3 m6">
                             <h1>Social</h1>
-                            <div class="col s6" ng-if="$ctrl.currentUser.social.facebook">
+                            <div class="col s12" ng-if="$ctrl.currentUser.social.facebook">
                                 <a href="{{$ctrl.currentUser.social.facebook}}" target="_blank">
-                                  <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
                                 </a>
                                 <p>{{$ctrl.currentUser.social.facebook}}</p>
                             </div>
-                            <div class="col s6" ng-if="$ctrl.currentUser.social.linkedin">
+                            <div class="col s12" ng-if="$ctrl.currentUser.social.linkedin">
                                 <a href="{{$ctrl.currentUser.social.linkedin}}" target="_blank">
-                                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
                                 </a>
                                 <p>{{$ctrl.currentUser.social.linkedin}}</p>
                             </div>
-                            <div class="col s6" ng-if="$ctrl.currentUser.social.twitter">
+                            <div class="col s12" ng-if="$ctrl.currentUser.social.twitter">
                                 <a href="{{$ctrl.currentUser.social.twitter}}" target="_blank">
-                                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
                                 </a>
                                 <p>{{$ctrl.currentUser.social.twitter}}</p>
                             </div>
-                            <div class="col s6" ng-if="$ctrl.currentUser.social.youtube">
+                            <div class="col s12" ng-if="$ctrl.currentUser.social.youtube">
                                 <a href="{{$ctrl.currentUser.social.youtube}}" target="_blank">
-                                  <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
                                 </a>
                                 <p>{{$ctrl.currentUser.social.youtube}}</p>
                             </div>
-                            <div class="col s6" ng-if="$ctrl.currentUser.social.instagram">
+                            <div class="col s12" ng-if="$ctrl.currentUser.social.instagram">
                                 <a href="{{$ctrl.currentUser.social.instagram}}" target="_blank">
-                                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
                                 </a>
                                 <p>{{$ctrl.currentUser.social.instagram}}</p>
                             </div>
-                            <div class="col s6" ng-if="$ctrl.currentUser.social.pinterest">
+                            <div class="col s12" ng-if="$ctrl.currentUser.social.pinterest">
                                 <a href="{{$ctrl.currentUser.social.pinterest}}" target="_blank">
-                                  <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                                    <i class="fa fa-pinterest-p" aria-hidden="true"></i>
                                 </a>
                                 <p>{{$ctrl.currentUser.social.pinterest}}</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <form class="col s12">
-                    <label>Notes</label>
-                    <p><i class="material-icons prefix">mode_edit</i> {{$ctrl.currentUser.remarques}}</p>
-                </form>
-            </div>
-
-            <div class="fixed-action-btn click-to-toggle">
-                <a tooltipped data-position="left" data-delay="50" data-tooltip="Editer" class="btn-floating btn-large colored" ng-click="$ctrl.editMode = true">
-                    <i class="material-icons">mode_edit</i>
-                </a>
-            </div>
         </div>
+
+        <div class="row">
+            <form class="col s12">
+                <label>Notes</label>
+                <p><i class="material-icons prefix">mode_edit</i> {{$ctrl.currentUser.remarques}}</p>
+            </form>
+        </div>
+
+        <div class="fixed-action-btn click-to-toggle">
+            <a tooltipped data-position="left" data-delay="50" data-tooltip="Editer" class="btn-floating btn-large colored" ng-click="$ctrl.editMode = true">
+                <i class="material-icons">mode_edit</i>
+            </a>
+        </div>
+    </div>
     </div>
 </section>
 
@@ -197,77 +197,77 @@
                     <div class="row">
                         <h1>Social</h1>
                         <div class="col l4 m6">
-                        <div input-field class="col s4">
-                            <a ng-href="{{$ctrl.currentUser.social.facebook}}">
-                              <i class="fa fa-facebook-official" aria-hidden="true"></i>
-                            </a>
-                            <input ng-model="$ctrl.currentUser.social.facebook">
+                            <div input-field class="col s4">
+                                <a ng-href="{{$ctrl.currentUser.social.facebook}}">
+                                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                                </a>
+                                <input ng-model="$ctrl.currentUser.social.facebook">
+                            </div>
+                            <div input-field class="col s4">
+                                <a ng-href="{{$ctrl.currentUser.social.linkedin}}">
+                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                </a>
+                                <input ng-model="$ctrl.currentUser.social.linkedin">
+                            </div>
+                            <div input-field class="col s4">
+                                <a ng-href="{{$ctrl.currentUser.social.twitter}}">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                                <input ng-model="$ctrl.currentUser.social.twitter">
+                            </div>
+                            <div input-field class="col s4">
+                                <a ng-href="{{$ctrl.currentUser.social.youtube}}">
+                                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                </a>
+                                <input ng-model="$ctrl.currentUser.social.youtube">
+                            </div>
+                            <div input-field class="col s4">
+                                <a ng-href="{{$ctrl.currentUser.social.instagram}}">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                                <input ng-model="$ctrl.currentUser.social.instagram">
+                            </div>
+                            <div input-field class="col s4">
+                                <a ng-href="{{$ctrl.currentUser.social.pinterest}}">
+                                    <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                                </a>
+                                <input ng-model="$ctrl.currentUser.social.pinterest">
+                            </div>
                         </div>
-                        <div input-field class="col s4">
-                            <a ng-href="{{$ctrl.currentUser.social.linkedin}}">
-                              <i class="fa fa-linkedin" aria-hidden="true"></i>
-                            </a>
-                            <input ng-model="$ctrl.currentUser.social.linkedin">
-                        </div>
-                        <div input-field class="col s4">
-                            <a ng-href="{{$ctrl.currentUser.social.twitter}}">
-                              <i class="fa fa-twitter" aria-hidden="true"></i>
-                            </a>
-                            <input ng-model="$ctrl.currentUser.social.twitter">
-                        </div>
-                        <div input-field class="col s4">
-                            <a ng-href="{{$ctrl.currentUser.social.youtube}}">
-                              <i class="fa fa-youtube-play" aria-hidden="true"></i>
-                            </a>
-                            <input ng-model="$ctrl.currentUser.social.youtube">
-                        </div>
-                        <div input-field class="col s4">
-                            <a ng-href="{{$ctrl.currentUser.social.instagram}}">
-                              <i class="fa fa-instagram" aria-hidden="true"></i>
-                            </a>
-                            <input ng-model="$ctrl.currentUser.social.instagram">
-                        </div>
-                        <div input-field class="col s4">
-                            <a ng-href="{{$ctrl.currentUser.social.pinterest}}">
-                              <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                            </a>
-                            <input ng-model="$ctrl.currentUser.social.pinterest">
-                        </div>
-                    </div>
 
                 </form>
-            </div>
+                </div>
 
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div input-field class="col s12">
-                            <i class="material-icons prefix">mode_edit</i>
-                            <textarea id="textarea1" class="materialize-textarea" ng-model="$ctrl.currentUser.remarques"></textarea>
-                            <label for="textarea1">Notes</label>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div input-field class="col s12">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea id="textarea1" class="materialize-textarea" ng-model="$ctrl.currentUser.remarques"></textarea>
+                                <label for="textarea1">Notes</label>
+                            </div>
                         </div>
-                    </div>
-                </form>
-            </div>
+                    </form>
+                </div>
 
 
-            <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
-                <a class="btn-floating btn-large colored">
-                    <i class="material-icons">menu</i>
-                </a>
-                <ul>
-                    <li>
-                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer" class="btn-floating btn-large colored" ng-click="$ctrl.edit($ctrl.currentUser)" ng-disabled="editUser.$invalid">
-                            <i class="material-icons">save</i>
-                        </a>
-                    </li>
-                    <li>
-                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Annuler" class="btn-floating btn-large colored" ng-click="$ctrl.editMode = false">
-                            <i class="material-icons">cancel</i>
-                        </a>
-                    </li>
-                </ul>
+                <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
+                    <a class="btn-floating btn-large colored">
+                        <i class="material-icons">menu</i>
+                    </a>
+                    <ul>
+                        <li>
+                            <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer" class="btn-floating btn-large colored" ng-click="$ctrl.edit($ctrl.currentUser)" ng-disabled="editUser.$invalid">
+                                <i class="material-icons">save</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a tooltipped data-position="left" data-delay="50" data-tooltip="Annuler" class="btn-floating btn-large colored" ng-click="$ctrl.editMode = false">
+                                <i class="material-icons">cancel</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
 </section>

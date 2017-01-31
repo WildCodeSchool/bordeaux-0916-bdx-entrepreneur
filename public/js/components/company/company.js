@@ -29,6 +29,7 @@
 
                 },
                 edit(company, tag, image) {
+                    console.log(company);
                     if (this.editMode) {
                         this.infos = company
                         if (this.image) {
