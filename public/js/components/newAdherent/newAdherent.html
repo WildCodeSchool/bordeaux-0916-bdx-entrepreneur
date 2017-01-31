@@ -7,39 +7,42 @@
                 </div>
             </div>
             <div class="row">
-                <form class="col s12">
+                <form class="col s12 m6 offset-m3">
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12">
                             <input placeholder=" " id="first_name" type="text" class="validate" ng-model="$ctrl.user.firstname">
                             <label for="first_name">Prénom</label>
                         </div>
-                        <div class="input-field col s6">
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
                             <input id="last_name" type="text" class="validate" ng-model="$ctrl.user.name">
                             <label for="last_name">Nom</label>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="email" type="email" class="validate" ng-model="$ctrl.user.email">
                             <label for="email">Email</label>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <label>Compagnie</label>
+                            <select class="browser-default" ng-model="$ctrl.search" ng-change="$ctrl.find()">
+                              <option value="" disabled selected>Sélection une compagnie</option>
+                              <option ng-repeat="company in $ctrl.companies">{{company.name}}</option>
+                            </select>
+                        </div>
+                    </div>
 
-                    <label>Compagnie</label>
-                    <select class="browser-default" ng-model="$ctrl.search" ng-change="$ctrl.find()">
-                      <option value="" disabled selected>Sélection une compagnie</option>
-                      <option ng-repeat="company in $ctrl.companies">{{company.name}}</option>
-                    </select>
 
                 </form>
             </div>
-            <div class="row">
-                <div class="col s12">
-                    <a ng-click="$ctrl.add($ctrl.user, $ctrl.search)" class="btn waves-effect waves-light right blue" type="submit" name="action">Valider
-                          <i class="material-icons right">send</i>
-                      </a>
-                </div>
+            <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
+                <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer l'adhérent" ng-click="$ctrl.add($ctrl.user, $ctrl.search)" class="waves-effect waves-light btn-floating btn-large colored" type="submit" name="action">
+                    <i class="material-icons right">send</i>
+                </a>
             </div>
         </div>
     </div>
