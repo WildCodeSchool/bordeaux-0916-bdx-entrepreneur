@@ -17,7 +17,10 @@
 
                     usersService.getPopulate($stateParams.id).then((res) => {
                         this.user = res.data
-                        this.isAdmin = this.user.isAdmin
+                    })
+
+                    usersService.getCurrent().then((response)=>{
+                      this.isAdmin = response.isAdmin
                     })
                 },
                 edit(user) {
