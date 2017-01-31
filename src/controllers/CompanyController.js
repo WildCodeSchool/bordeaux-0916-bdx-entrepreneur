@@ -51,7 +51,14 @@ class CompanyController extends Controller {
                     let company = {}
                     company._id = this.companyId
                     company.newContacts = contacts
-                    this.updateOrCreate(company)
+                    this.updateOrCreate(company).then((users) => {
+                        delete company.newContacts
+                        this.model.findById(company._id, (err, company) => {
+                            company.contacts = company.contacts.concat(users)
+                            company.save()
+                            res.json(company)
+                        })
+                    })
                 }
 
             }
@@ -61,9 +68,13 @@ class CompanyController extends Controller {
     update(req, res, next) {
 
         if (req.body.newContacts) {
-
-            this.updateOrCreate(req.body)
-
+            this.updateOrCreate(req.body).then((users) => {
+                this.model.findById(req.params.id, (err, company) => {
+                    company.contacts = company.contacts.concat(users)
+                    company.save()
+                    res.json(company)
+                })
+            })
         } else {
 
             this.model.update({
@@ -78,7 +89,7 @@ class CompanyController extends Controller {
     }
 
     updateOrCreate(company) {
-        Promise.all(company.newContacts.map((contact) => {
+        return Promise.all(company.newContacts.map((contact) => {
             return new Promise((resolve, reject) => {
                 USER.findOne({
                     email: contact.email
@@ -112,13 +123,7 @@ class CompanyController extends Controller {
                 })
 
             })
-        })).then((users) => {
-            delete company.newContacts
-            this.model.findById(company._id, (err, company) => {
-                company.contacts = company.contacts.concat(users)
-                company.save()
-            })
-        })
+        }))
     }
 
     findOne(req, res, next) {
