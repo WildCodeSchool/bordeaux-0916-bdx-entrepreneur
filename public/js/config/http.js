@@ -11,8 +11,8 @@
                 },
                 responseError(response) {
                     let state = $injector.get('$state')
-                    if ( (response.status === 401 || response.status === 403) && state.current.name.indexOf('app.login') === -1 )
-                        state.go('comapanies.list')
+                    if ( (response.status === 401 || response.status === 403) && state.current.name.indexOf('login') === -1 )
+                        state.go('app.home')
                     return $q.reject(response)
                 }
             }
