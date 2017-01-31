@@ -34,7 +34,7 @@
                                     <a tooltipped data-position="bottom" data-delay="50" data-tooltip="{{$ctrl.currentUser.company.length > 1 ? 'Mes Sociétés' : 'Ma Société'}}" class="btn-floating colored" ui-sref-active="blue" ui-sref="app.mycompany" ng-if="!$ctrl.currentUser.company.length == 0">
                                         <i class="material-icons">assignment_ind</i>
                                     </a>
-                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Se déconnecter" class="btn-floating colored" ui-sref-active="blue" ui-sref="app.login" ng-click="$ctrl.disconnect()">
+                                    <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Se déconnecter" class="btn-floating colored" ui-sref-active="blue" ng-click="$ctrl.disconnect()">
                                         <i class="material-icons">exit_to_app</i>
                                     </a>
                                 </div>
@@ -72,7 +72,7 @@
                         </a>
                     </li>
                     <li>
-                        <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Se déconnecter" class="btn-floating blue" ui-sref="app.login" ng-click="$ctrl.disconnect()">
+                        <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Se déconnecter" class="btn-floating blue" ui-sref="login" ng-click="$ctrl.disconnect()">
                             <i class="material-icons">exit_to_app</i>
                         </a>
                     </li>

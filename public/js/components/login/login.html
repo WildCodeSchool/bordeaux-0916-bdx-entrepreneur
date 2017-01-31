@@ -20,15 +20,15 @@
       <div class="row valign-wrapper">
           <div class="col s8 offset-s2 valign">
               <div class="card">
-                  <div class="card-content ">
-                      <div class="row" ng-if="$ctrl.form">
-                          <div class="input-field col s12  m6 l6">
+                  <div class="card-content">
+                      <div class="row">
+                          <div class="input-field col s12" ng-class="{'m6 l6' : !email, 'm12 l12': email}">
                               <i class="material-icons prefix">account_circle</i>
                               <input id="email" type="email" class="validate" ng-model="$ctrl.user.email">
                               <label for="email">Email</label>
                           </div>
 
-                          <div ng-if="!$ctrl.email">
+                          <div ng-show="!email">
                               <div class="input-field col s12  m6 l6">
                                   <i class="material-icons prefix">lock</i>
                                   <input id="password" type="password" class="validate" ng-model="$ctrl.user.password">
@@ -36,35 +36,30 @@
                               </div>
                           </div>
                       </div>
-                      <div class="row" ng-if="$ctrl.sent">
-                          <div class="input-field col s12  m12 l12">
-                              <p>Un Mail contenant votre nouveau mot de passe vous a été envoyé</p>
-                          </div>
-                      </div>
-                      <div class="row" ng-if="$ctrl.error && !$ctrl.email">
-                          <div class="input-field col s12  m12 l12">
-                              <p>Mail ou Mot de passe incorrect</p>
-                          </div>
-                      </div>
                       <div class="card-action">
                           <div class="row">
-                              <div class="col s12 center" ng-if="!$ctrl.email">
+                              <div class="col s12 center" ng-show="!email">
                                   <button ng-click="$ctrl.connect($ctrl.user)" class="btn waves-effect waves-light colored" type="submit" name="action">
                                       Se Connecter
                                     <i class="material-icons left">power_settings_new</i>
                                   </button>
                               </div>
-                          </div>
-                          <div class="row">
-                              <div class="col s12 center" ng-if="!$ctrl.email">
-                                  <a ng-click="$ctrl.email=true" class="black-text centerForgot" type="submit" name="action">
-                                    Mot de pass oublié
-                                  </a>
-                              </div>
-                              <div class="col s12 center" ng-if="$ctrl.email">
+                              <div class="col s12 center" ng-show="email">
                                   <button ng-click="$ctrl.newPassword($ctrl.user.email)" class="btn waves-effect waves-light colored" type="submit" name="action">Envoyer
                                     <i class="material-icons left">done</i>
                                   </button>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col s12 center" ng-show="!email">
+                                  <a ng-click="email=!email" class="black-text centerForgot" type="submit" name="action">
+                                    Mot de passe oublié
+                                  </a>
+                              </div>
+                              <div class="col s12 center" ng-show="email">
+                                  <a ng-click="email=!email" class="black-text centerForgot" type="submit" name="action">
+                                    Retour
+                                  </a>
                               </div>
                           </div>
                       </div>
