@@ -16,32 +16,32 @@
 
                                 <div class="row center" id="socialcompany">
                                     <div class="col s2">
-                                        <a href="{{$ctrl.social.facebook}}" target="_blank" ng-if="$ctrl.social.facebook">
+                                        <a href="{{$ctrl.company.social.facebook}}" target="_blank" ng-if="$ctrl.company.social.facebook">
                                             <i class="fa fa-facebook-official" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                     <div class="col s2">
-                                        <a href="{{$ctrl.social.linkedin}}" target="_blank" ng-if="$ctrl.social.linkedin">
+                                        <a href="{{$ctrl.company.social.linkedin}}" target="_blank" ng-if="$ctrl.company.social.linkedin">
                                             <i class="fa fa-linkedin" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                     <div class="col s2">
-                                        <a href="{{$ctrl.social.twitter}}" target="_blank" ng-if="$ctrl.social.twitter">
+                                        <a href="{{$ctrl.company.social.twitter}}" target="_blank" ng-if="$ctrl.company.social.twitter">
                                             <i class="fa fa-twitter" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                     <div class="col s2">
-                                        <a href="{{$ctrl.social.youtube}}" target="_blank" ng-if="$ctrl.social.youtube">
+                                        <a href="{{$ctrl.company.social.youtube}}" target="_blank" ng-if="$ctrl.company.social.youtube">
                                             <i class="fa fa-youtube-play" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                     <div class="col s2">
-                                        <a href="{{$ctrl.social.instagram}}" target="_blank" ng-if="$ctrl.social.instagram">
+                                        <a href="{{$ctrl.company.social.instagram}}" target="_blank" ng-if="$ctrl.company.social.instagram">
                                             <i class="fa fa-instagram" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                     <div class="col s2">
-                                        <a href="{{$ctrl.social.pinterest}}" target="_blank" ng-if="$ctrl.social.pinterest">
+                                        <a href="{{$ctrl.company.social.pinterest}}" target="_blank" ng-if="$ctrl.company.social.pinterest">
                                             <i class="fa fa-pinterest-p" aria-hidden="true"></i>
                                         </a>
                                     </div>
@@ -49,6 +49,10 @@
 
                             </div>
                             <div class="col s9">
+                                <span ng-repeat="tag in $ctrl.company.tags">
+                                    <span class="new badge" data-badge-caption="{{tag}}"></span>
+                                </span>
+
                                 <h3>{{$ctrl.company.name}}</h3>
                                 <h6>Secteur : {{$ctrl.company.secteur}}</h6>
                                 <h6>{{$ctrl.company.introduction}}</h6>
@@ -238,40 +242,40 @@
                 <!-- Social -->
                 <div class="row">
                     <div class="input-field col m2 s12">
-                        <a href="{{$ctrl.social.facebook}}">
+                        <a href="{{$ctrl.company.social.facebook}}">
                             <i class="fa fa-facebook-official" aria-hidden="true"></i>
                         </a>
-                        <input class="validate" ng-model="$ctrl.social.facebook">
+                        <input class="validate" ng-model="$ctrl.company.social.facebook">
                     </div>
                     <div class="input-field col m2 s12">
                         <a href="{{$ctrl.linkedin}}">
                             <i class="fa fa-linkedin" aria-hidden="true"></i>
                         </a>
-                        <input class="validate" ng-model="$ctrl.social.linkedin">
+                        <input class="validate" ng-model="$ctrl.company.social.linkedin">
                     </div>
                     <div class="input-field col m2 s12">
-                        <a href="{{$ctrl.social.twitter}}">
+                        <a href="{{$ctrl.company.social.twitter}}">
                             <i class="fa fa-twitter" aria-hidden="true"></i>
                         </a>
-                        <input class="validate" ng-model="$ctrl.social.twitter">
+                        <input class="validate" ng-model="$ctrl.company.social.twitter">
                     </div>
                     <div class="input-field col m2 s12">
-                        <a href="{{$ctrl.social.youtube}}">
+                        <a href="{{$ctrl.company.social.youtube}}">
                             <i class="fa fa-youtube-play" aria-hidden="true"></i>
                         </a>
-                        <input class="validate" ng-model="$ctrl.social.youtube">
+                        <input class="validate" ng-model="$ctrl.company.social.youtube">
                     </div>
                     <div class="input-field col m2 s12">
-                        <a href="{{$ctrl.social.instagram}}">
+                        <a href="{{$ctrl.company.social.instagram}}">
                             <i class="fa fa-instagram" aria-hidden="true"></i>
                         </a>
-                        <input class="validate" ng-model="$ctrl.social.instagram">
+                        <input class="validate" ng-model="$ctrl.company.social.instagram">
                     </div>
                     <div class="input-field col m2 s12">
-                        <a href="{{$ctrl.social.pinterest}}">
+                        <a href="{{$ctrl.company.social.pinterest}}">
                             <i class="fa fa-pinterest-p" aria-hidden="true"></i>
                         </a>
-                        <input class="validate" ng-model="$ctrl.social.pinterest">
+                        <input class="validate" ng-model="$ctrl.company.social.pinterest">
                     </div>
                 </div>
 
@@ -342,7 +346,7 @@
                         </a>
                         <ul>
                             <li>
-                                <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer" class="btn-floating colored" ng-click="$ctrl.edit($ctrl.company, $ctrl.social, $ctrl.tags, $ctrl.image)" ng-disabled="editCompany.$invalid">
+                                <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer" class="btn-floating colored" ng-click="$ctrl.edit($ctrl.company, $ctrl.tags, $ctrl.image)" ng-disabled="editCompany.$invalid">
                                     <i class="material-icons">save</i>
                                 </a>
                             </li>
