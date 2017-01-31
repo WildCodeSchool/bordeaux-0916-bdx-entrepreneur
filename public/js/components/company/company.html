@@ -299,6 +299,21 @@
                             <label class="active">Description de la société *</label>
                         </div>
                     </div>
+                    <!-- Infos Company -->
+                    <div class="col s12">
+                        <div class="input-field">
+                            <textarea class="materialize-textarea" ng-model="$ctrl.company.prestation" rows="5"></textarea>
+                            <label class="active">Ce que nous vous proposons</label>
+                        </div>
+                        <div class="input-field">
+                            <textarea class="materialize-textarea" ng-model="$ctrl.company.attentes" maxlength="150" rows="5"></textarea>
+                            <label class="active">Ce que nous recherchons</label>
+                        </div>
+                        <div class="input-field" ng-if="$ctrl.isAdmin">
+                            <textarea class="materialize-textarea" ng-model="$ctrl.company.notes" maxlength="150" rows="5"></textarea>
+                            <label class="active">Notes</label>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Contact-->
@@ -334,22 +349,8 @@
 
                 <membre contact="contact" ng-repeat="contact in $ctrl.contacts track by $index"></membre>
 
-                <!-- Infos Company -->
+
                 <div class="row">
-                    <div class="col s12">
-                        <div class="input-field">
-                            <textarea class="materialize-textarea" ng-model="$ctrl.company.prestation" rows="5"></textarea>
-                            <label class="active">Ce que nous vous proposons</label>
-                        </div>
-                        <div class="input-field">
-                            <textarea class="materialize-textarea" ng-model="$ctrl.company.attentes" maxlength="150" rows="5"></textarea>
-                            <label class="active">Ce que nous recherchons</label>
-                        </div>
-                        <div class="input-field" ng-if="$ctrl.isAdmin">
-                            <textarea class="materialize-textarea" ng-model="$ctrl.company.notes" maxlength="150" rows="5"></textarea>
-                            <label class="active">Notes</label>
-                        </div>
-                    </div>
 
                     <!-- Buttons -->
                     <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
