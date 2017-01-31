@@ -6,7 +6,7 @@
                     <div class="col s12">
                         <div class="row companyhead white-text">
 
-                            <div class="col s3">
+                            <div class="col s12 m3">
                                 <div class="row">
                                     <img ng-src="{{$ctrl.company.image}}" class="responsive-img" alt="">
                                 </div>
@@ -48,14 +48,26 @@
                                 </div>
 
                             </div>
-                            <div class="col s9">
-                                <span ng-repeat="tag in $ctrl.company.tags">
-                                    <span class="new badge" data-badge-caption="{{tag}}"></span>
-                                </span>
-                                <h3>{{$ctrl.company.name}}</h3>
-                                <h6>Secteur : {{$ctrl.company.secteur}}</h6>
-                                <h6>{{$ctrl.company.introduction}}</h6>
-                                <h6><a class="waves-effect waves-light btn colored" href="{{$ctrl.company.siteweb}}" target="_blank">Site Web</a></h6>
+                            <div class="col s12 m9">
+                                <div class="col s12">
+                                    <h3>{{$ctrl.company.name}}</h3>
+                                </div>
+                                <div class="col s12">
+                                    <h6>Secteur : {{$ctrl.company.secteur}}</h6>
+                                </div>
+                                <div class="col s12">
+                                    <h6>{{$ctrl.company.introduction}}</h6>
+                                </div>
+                                <div class="col s12 m8">
+                                    <div ng-repeat="tag in $ctrl.tags" class="chip">
+                                        {{tag}}
+                                    </div>
+                                </div>
+                                <div class="col s12 m4">
+                                    <h6>
+                                        <a class="waves-effect waves-light btn colored" href="{{$ctrl.company.siteweb}}" target="_blank">Site Web</a>
+                                    </h6>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -120,14 +132,14 @@
 
                     <!-- Contact -->
 
-                    <div class="col s6" ng-repeat="contact in $ctrl.company.contacts">
+                    <div class="col m12 l6" ng-repeat="contact in $ctrl.company.contacts">
                         <div class="card card-panel hoverable">
                             <div class="card-content">
-                                <div class="row valign-wrapper">
-                                    <div class="col s3">
+                                <div class="row">
+                                    <div class="col s12 m3">
                                         <img class="responsive-img circle" ng-src="{{contact.image}}" alt="" />
                                     </div>
-                                    <div class="col s9">
+                                    <div class="col s12 m9">
                                         <div class="col s12 smallPrint">
                                             <p>{{contact.firstname}} {{contact.name}}</p>
                                             <p>{{contact.email}} {{contact.number}}</p>
@@ -230,6 +242,10 @@
                         <div class="input-field">
                             <input class="validate" ng-model="$ctrl.company.siteweb" required>
                             <label class="active">Site Web de la société *</label>
+                        </div>
+                        <div class="input-field">
+                            <input class="validate" ng-model="$ctrl.company.introduction" required>
+                            <label class="active">Brève introduction *</label>
                         </div>
                         <div class="input-field">
                             <input class="validate" ng-model="$ctrl.tags" placeholder="Entrer les mots clés séparés par une ,">

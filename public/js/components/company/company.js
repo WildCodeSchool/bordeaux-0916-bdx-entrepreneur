@@ -24,7 +24,7 @@
                         if (this.company.tags && this.company.tags.length > 0) {
                             this.tags = this.company.tags.join(',')
                         }
-                        // this.social = this.company.social
+                        this.tags = this.company.tags.join('').split(',')
                     });
 
                 },
