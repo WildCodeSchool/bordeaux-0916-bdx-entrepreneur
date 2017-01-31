@@ -42,7 +42,6 @@
     'app.dashboard',
     'app.navbar',
     'app.footer',
-    'app.newAccount',
     'ngJsonExportExcel',
     'app.profile',
     'app.newAdherent',

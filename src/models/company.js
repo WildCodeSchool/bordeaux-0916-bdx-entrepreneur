@@ -7,7 +7,10 @@ module.exports = mongoose.model('Company', new mongoose.Schema({
         type: String,
         required: true
     },
-    image: String,
+    image: {
+      type: String,
+      default: "img/defaut.jpg"
+    },
     secteur: String,
     social: {
         type: mongoose.Schema.Types.Mixed
