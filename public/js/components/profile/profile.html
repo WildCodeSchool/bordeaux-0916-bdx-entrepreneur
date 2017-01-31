@@ -45,30 +45,42 @@
                             </div>
                         </div>
                         <!-- Social -->
-                        <div class="col l4 m6">
+
                             <h1>Social</h1>
                             <div class="col s6" ng-if="$ctrl.currentUser.social.facebook">
-                                <a href="{{$ctrl.currentUser.social.facebook}}" target="_blank"><img ng-src="/img/facebook2.png" class="socialicons"></a>
+                                <a href="{{$ctrl.currentUser.social.facebook}}" target="_blank">
+                                  <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                                </a>
                                 <p>{{$ctrl.currentUser.social.facebook}}</p>
                             </div>
                             <div class="col s6" ng-if="$ctrl.currentUser.social.linkedin">
-                                <a href="{{$ctrl.currentUser.social.linkedin}}" target="_blank"><img ng-src="/img/linkedin2.png" class="socialicons"></a>
+                                <a href="{{$ctrl.currentUser.social.linkedin}}" target="_blank">
+                                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                </a>
                                 <p>{{$ctrl.currentUser.social.linkedin}}</p>
                             </div>
                             <div class="col s6" ng-if="$ctrl.currentUser.social.twitter">
-                                <a href="{{$ctrl.currentUser.social.twitter}}" target="_blank"><img ng-src="/img/twitter.png" class="socialicons"></a>
+                                <a href="{{$ctrl.currentUser.social.twitter}}" target="_blank">
+                                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
                                 <p>{{$ctrl.currentUser.social.twitter}}</p>
                             </div>
                             <div class="col s6" ng-if="$ctrl.currentUser.social.youtube">
-                                <a href="{{$ctrl.currentUser.social.youtube}}" target="_blank"><img ng-src="/img/youtube.png" class="socialicons"></a>
+                                <a href="{{$ctrl.currentUser.social.youtube}}" target="_blank">
+                                  <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                </a>
                                 <p>{{$ctrl.currentUser.social.youtube}}</p>
                             </div>
                             <div class="col s6" ng-if="$ctrl.currentUser.social.instagram">
-                                <a href="{{$ctrl.currentUser.social.instagram}}" target="_blank"><img ng-src="/img/instagram.png" class="socialicons"></a>
+                                <a href="{{$ctrl.currentUser.social.instagram}}" target="_blank">
+                                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
                                 <p>{{$ctrl.currentUser.social.instagram}}</p>
                             </div>
                             <div class="col s6" ng-if="$ctrl.currentUser.social.pinterest">
-                                <a href="{{$ctrl.currentUser.social.pinterest}}" target="_blank"><img ng-src="/img/pininterest.png" class="socialicons"></a>
+                                <a href="{{$ctrl.currentUser.social.pinterest}}" target="_blank">
+                                  <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                                </a>
                                 <p>{{$ctrl.currentUser.social.pinterest}}</p>
                             </div>
                         </div>
@@ -184,29 +196,41 @@
                     <!-- Social -->
                     <div class="row">
                         <h1>Social</h1>
-
+                        <div class="col l4 m6">
                         <div input-field class="col s4">
-                            <a ng-href="{{$ctrl.currentUser.social.facebook}}"><img ng-src="/img/facebook2.png" class="socialicons"></a>
+                            <a ng-href="{{$ctrl.currentUser.social.facebook}}">
+                              <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                            </a>
                             <input ng-model="$ctrl.currentUser.social.facebook">
                         </div>
                         <div input-field class="col s4">
-                            <a ng-href="{{$ctrl.currentUser.social.linkedin}}"><img ng-src="/img/linkedin2.png" class="socialicons"></a>
+                            <a ng-href="{{$ctrl.currentUser.social.linkedin}}">
+                              <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </a>
                             <input ng-model="$ctrl.currentUser.social.linkedin">
                         </div>
                         <div input-field class="col s4">
-                            <a ng-href="{{$ctrl.currentUser.social.twitter}}"><img ng-src="/img/twitter.png" class="socialicons"></a>
+                            <a ng-href="{{$ctrl.currentUser.social.twitter}}">
+                              <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
                             <input ng-model="$ctrl.currentUser.social.twitter">
                         </div>
                         <div input-field class="col s4">
-                            <a ng-href="{{$ctrl.currentUser.social.youtube}}"><img ng-src="/img/youtube.png" class="socialicons"></a>
+                            <a ng-href="{{$ctrl.currentUser.social.youtube}}">
+                              <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                            </a>
                             <input ng-model="$ctrl.currentUser.social.youtube">
                         </div>
                         <div input-field class="col s4">
-                            <a ng-href="{{$ctrl.currentUser.social.instagram}}"><img ng-src="/img/instagram.png" class="socialicons"></a>
+                            <a ng-href="{{$ctrl.currentUser.social.instagram}}">
+                              <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </a>
                             <input ng-model="$ctrl.currentUser.social.instagram">
                         </div>
                         <div input-field class="col s4">
-                            <a ng-href="{{$ctrl.currentUser.social.pinterest}}"><img ng-src="/img/pininterest.png" class="socialicons"></a>
+                            <a ng-href="{{$ctrl.currentUser.social.pinterest}}">
+                              <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                            </a>
                             <input ng-model="$ctrl.currentUser.social.pinterest">
                         </div>
                     </div>

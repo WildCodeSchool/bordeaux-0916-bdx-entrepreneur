@@ -25,8 +25,8 @@ body {
 }
 
 .colored,
-.colored:hover,
-.colored:focus {
+.colored:focus,
+.colored:hover {
     background-color: $bluedark;
 }
 
@@ -106,4 +106,12 @@ body {
 
 .toast-success {
     background-color: #4aa152;
+}
+
+#socialcompany .fa {
+    color: white;
+}
+
+.fa {
+    font-size: 30px;
 }
