@@ -36,13 +36,13 @@ class UsersController extends Controller {
     connect(req, res, next) {
         req.body.password = bcrypt.password.cryptIt(req.body.password)
         if (!req.body.email || !req.body.password) {
-            res.status(400).send("Please enter your email and password")
+            res.status(400).send("Veuillez saisir votre email et votre mot de passe")
         } else {
             USER.findOne(req.body, '-password', (err, user) => {
                 if (err)
                     next(err)
                 else if (!user)
-                    res.status(403).send("User not found")
+                    res.status(403).send("Utilisateur non trouvé")
                 else {
                     let token = jwt.sign(user, ENV.token, {
                         expiresIn: "24h"
@@ -95,7 +95,7 @@ class UsersController extends Controller {
             if (err) next(err)
             else if (!user) {
                 // Renvoyer un message à l'utilisateur pour lui dire que son mail est incorrect
-                res.sendStatus(404)
+                res.status(403).send("Utilisateur non trouvé")
             } else {
                 user.password = password
                 sg.sendgrid.emailIt(user)

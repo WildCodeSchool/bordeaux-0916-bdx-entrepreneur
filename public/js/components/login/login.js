@@ -17,7 +17,7 @@
                 newPassword(email) {
                     usersService.resetPassword(email).then((res) => {
                         this.email = false
-                        toastr.success('Un Mail contenant votre nouveau mot de passe vous a été envoyé')
+                        toastr.success('Un email contenant votre nouveau mot de passe vous a été envoyé')
                     }).catch((err)=>{
                       toastr.error(`${err.data} !`)
                     })
