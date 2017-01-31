@@ -2,29 +2,24 @@
     'use strict'
     app.component('login', {
         templateUrl: 'js/components/login/login.html',
-        controller: ['usersService', '$state', function(usersService, $state) {
+        controller: ['usersService', '$state', 'toastr', function(usersService, $state, toastr) {
             angular.extend(this, {
-                $onInit() {
-
-                    this.form = true
-
-                },
                 connect(user) {
                     usersService.connect(user).then((user) => {
                         this.currentUser = user
                         $state.go('app.home').then(() => {
                             $state.reload()
                         })
-
                     }).catch((err) => {
-                        this.error = `Error : ${err.data} !`
+                        toastr.error(`${err.data} !`)
                     })
                 },
                 newPassword(email) {
-                    this.email = false
-                    this.error = null
                     usersService.resetPassword(email).then((res) => {
-                        this.sent = true
+                        this.email = false
+                        toastr.success('Un Mail contenant votre nouveau mot de passe vous a été envoyé')
+                    }).catch((err)=>{
+                      toastr.error(`${err.data} !`)
                     })
                 }
             })

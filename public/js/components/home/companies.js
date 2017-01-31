@@ -17,7 +17,7 @@
                         this.user = res
                         this.isAdmin = this.user.isAdmin
                     }).catch((err) => {
-                        $state.go('app.login').then(() => {
+                        $state.go('login').then(() => {
                             $state.reload()
                         })
                     })

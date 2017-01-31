@@ -6,21 +6,19 @@
                 $onInit() {
 
                     this.isAdmin = false
-                    
+
                     usersService.getCurrent().then((user) => {
                         this.currentUser = user
                         this.isAdmin = this.currentUser.isAdmin
                     }).catch(() => {
-                        $state.go('app.login')
+                        $state.go('login')
                     })
 
                 },
                 disconnect() {
                     usersService.disconnect().then(() => {
                         this.currentUser = null
-                        $state.go('app.login').then(() => {
-                            $state.reload()
-                        })
+                        $state.go('login')
                     })
                 }
             })
