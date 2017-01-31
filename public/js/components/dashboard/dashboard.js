@@ -2,9 +2,14 @@
     'use strict';
     app.component('dashboard', {
         templateUrl: 'js/components/dashboard/dashboard.html',
-        controller: ['companiesService', 'usersService', function(companiesService, usersService) {
+        controller: ['companiesService', 'usersService', '$state', function(companiesService, usersService, $state) {
             angular.extend(this, {
                 $onInit() {
+                    usersService.getCurrent().then((res) => {
+                        if (!res.isAdmin)
+                            $state.go('app.home')
+                    })
+
                     companiesService.get().then((response) => {
                         this.companies = response.data
                     })

@@ -5,6 +5,11 @@
             angular.extend(this, {
                 $onInit() {
 
+                    usersService.getCurrent().then((res) => {
+                        if (!res.isAdmin)
+                            $state.go('app.home')
+                    })
+
                     let allEmail = []
                     usersService.get().then((res) => {
                         res.data.map((e) => {

@@ -1,9 +1,13 @@
 ((app) => {
     app.component('newCompany', {
         templateUrl: 'js/components/newCompany/newCompany.html',
-        controller: ['$stateParams', 'companiesService', '$state', function($stateParams, companiesService, $state) {
+        controller: ['$stateParams', 'companiesService', '$state', 'usersService', function($stateParams, companiesService, $state, usersService) {
             angular.extend(this, {
                 $onInit() {
+                    usersService.getCurrent().then((res) => {
+                        if (!res.isAdmin)
+                            $state.go('app.home')
+                    })
                     this.infos = {}
                     this.contacts = []
 
@@ -17,7 +21,7 @@
                     companiesService.add(this.infos).then((res) => {
                         this.newCompany = res.data
                         console.log(res)
-                            //  $state.go("app.company({id: this.newCompany._id})")
+                        //  $state.go("app.company({id: this.newCompany._id})")
                     }).catch((err) => {
                         console.log(err)
                     })

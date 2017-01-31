@@ -6,6 +6,11 @@
             angular.extend(this, {
                 $onInit() {
 
+                    usersService.getCurrent().then((res) => {
+                        if (!res.isAdmin)
+                            $state.go('app.home')
+                    })
+
                     this.find = () => {
                         companiesService.get().then((res) => {
                             this.companies = res.data
