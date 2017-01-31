@@ -23,6 +23,8 @@ module.exports = mongoose.model('Company', new mongoose.Schema({
     prestation: String,
     attentes: String,
     notes: String,
+    ca: String,
+    effectif: String,
     contacts: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
