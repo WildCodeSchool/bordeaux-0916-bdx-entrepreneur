@@ -135,7 +135,8 @@ class CompanyController extends Controller {
                 'secteur': search
             }, {
                 'tags': search
-            }]
+            }],
+            'active': true
         }, (err, companies) => {
             if (err) next(err)
             else
