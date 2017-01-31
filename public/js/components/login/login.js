@@ -23,7 +23,7 @@
                 newPassword(email) {
                     this.email = false
                     this.error = null
-                    usersService.getOne(email).then((res) => {
+                    usersService.resetPassword(email).then((res) => {
                         this.sent = true
                     })
                 }
