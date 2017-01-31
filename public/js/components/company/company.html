@@ -283,6 +283,10 @@
                             <input class="validate" ng-model="$ctrl.company.effectif">
                             <label class="active">Effectif</label>
                         </div>
+                        <p ng-if="$ctrl.isAdmin">
+                            <input type="checkbox" id="active" ng-model="$ctrl.company.active" />
+                            <label for="active">Active</label>
+                        </p>
                     </div>
                 </div>
 
