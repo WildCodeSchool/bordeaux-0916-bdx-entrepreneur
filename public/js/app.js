@@ -47,5 +47,6 @@
     'app.profile',
     'app.newAdherent',
     'app.membre',
-    'app.message'
+    'app.message',
+    'app.user'
 ]))
