@@ -40,7 +40,6 @@
     'app.mycompany',
     'app.newCompany',
     'app.dashboard',
-    'app.adherents',
     'app.navbar',
     'app.footer',
     'app.newAccount',
