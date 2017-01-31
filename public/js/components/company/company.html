@@ -6,7 +6,7 @@
                     <div class="col s12">
                         <div class="row companyhead white-text">
 
-                            <div class="col s3">
+                            <div class="col s12 m3">
                                 <div class="row">
                                     <img ng-src="{{$ctrl.company.image}}" class="responsive-img" alt="">
                                 </div>
@@ -16,46 +16,58 @@
 
                                 <div class="row center" id="socialcompany">
                                     <div class="col s2">
-                                        <a href="{{$ctrl.company.social.facebook}}" target="_blank" ng-if="$ctrl.company.social.facebook">
+                                        <a href="https://www.facebook.com/{{$ctrl.company.social.facebook}}" target="_blank" ng-if="$ctrl.company.social.facebook">
                                             <i class="fa fa-facebook-official" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                     <div class="col s2">
-                                        <a href="{{$ctrl.company.social.linkedin}}" target="_blank" ng-if="$ctrl.company.social.linkedin">
+                                        <a href="https://www.linkedin.com/in/{{$ctrl.company.social.linkedin}}" target="_blank" ng-if="$ctrl.company.social.linkedin">
                                             <i class="fa fa-linkedin" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                     <div class="col s2">
-                                        <a href="{{$ctrl.company.social.twitter}}" target="_blank" ng-if="$ctrl.company.social.twitter">
+                                        <a href="https://twitter.com/{{$ctrl.company.social.twitter}}" target="_blank" ng-if="$ctrl.company.social.twitter">
                                             <i class="fa fa-twitter" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                     <div class="col s2">
-                                        <a href="{{$ctrl.company.social.youtube}}" target="_blank" ng-if="$ctrl.company.social.youtube">
+                                        <a href="https://www.youtube.com/user/{{$ctrl.company.social.youtube}}" target="_blank" ng-if="$ctrl.company.social.youtube">
                                             <i class="fa fa-youtube-play" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                     <div class="col s2">
-                                        <a href="{{$ctrl.company.social.instagram}}" target="_blank" ng-if="$ctrl.company.social.instagram">
+                                        <a href="https://www.instagram.com/{{$ctrl.company.social.instagram}}" target="_blank" ng-if="$ctrl.company.social.instagram">
                                             <i class="fa fa-instagram" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                     <div class="col s2">
-                                        <a href="{{$ctrl.company.social.pinterest}}" target="_blank" ng-if="$ctrl.company.social.pinterest">
+                                        <a href="https://www.pinterest.com/{{$ctrl.company.social.pinterest}}" target="_blank" ng-if="$ctrl.company.social.pinterest">
                                             <i class="fa fa-pinterest-p" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                 </div>
 
                             </div>
-                            <div class="col s9">
-                                <span ng-repeat="tag in $ctrl.company.tags">
-                                    <span class="new badge" data-badge-caption="{{tag}}"></span>
-                                </span>
-                                <h3>{{$ctrl.company.name}}</h3>
-                                <h6>Secteur : {{$ctrl.company.secteur}}</h6>
-                                <h6>{{$ctrl.company.introduction}}</h6>
-                                <h6><a class="waves-effect waves-light btn colored" href="{{$ctrl.company.siteweb}}" target="_blank">Site Web</a></h6>
+                            <div class="col s12 m9">
+                                <div class="col s12">
+                                    <h3>{{$ctrl.company.name}}</h3>
+                                </div>
+                                <div class="col s12">
+                                    <h6>Secteur : {{$ctrl.company.secteur}}</h6>
+                                </div>
+                                <div class="col s12">
+                                    <h6>{{$ctrl.company.introduction}}</h6>
+                                </div>
+                                <div class="col s12 m8" ng-if="$ctrl.company.tags.length > 0">
+                                    <div ng-repeat="tag in $ctrl.tags" class="chip">
+                                        {{tag}}
+                                    </div>
+                                </div>
+                                <div class="col s12 m4">
+                                    <h6>
+                                        <a class="waves-effect waves-light btn colored" href="{{$ctrl.company.siteweb}}" target="_blank">Site Web</a>
+                                    </h6>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -69,7 +81,7 @@
 
                 <div class="row">
                     <!-- Description -->
-                    <div class="col s12 m6 " ng-if="$ctrl.company.presentation">
+                    <div class="col s12" ng-if="$ctrl.company.presentation">
                         <div class="card">
                             <div class="card-content">
                                 <span class="card-title">Qui nous sommes</span>
@@ -78,7 +90,7 @@
                         </div>
                     </div>
                     <!-- Ce que nous proposons -->
-                    <div class="col s12 m6" ng-if="$ctrl.company.prestation">
+                    <div class="col s12" ng-if="$ctrl.company.prestation">
                         <div class="card">
                             <div class="card-content">
                                 <span class="card-title">Ce que nous faisons</span>
@@ -86,11 +98,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="row">
                     <!-- Attentes -->
-                    <div class="col s12 m6" ng-if="$ctrl.company.attentes">
+                    <div class="col s12" ng-if="$ctrl.company.attentes">
                         <div class="card">
                             <div class="card-content">
                                 <span class="card-title">Ce que nous recherchons</span>
@@ -100,7 +109,7 @@
                     </div>
 
                     <!-- Notes -->
-                    <div class="col s12 m6" ng-if="$ctrl.company.notes">
+                    <div class="col s12" ng-if="$ctrl.company.notes && $ctrl.isAdmin">
                         <div class="card">
                             <div class="card-content">
                                 <span class="card-title">Notes</span>
@@ -120,14 +129,14 @@
 
                     <!-- Contact -->
 
-                    <div class="col s6" ng-repeat="contact in $ctrl.company.contacts">
+                    <div class="col m12 l6" ng-repeat="contact in $ctrl.company.contacts">
                         <div class="card card-panel hoverable">
                             <div class="card-content">
-                                <div class="row valign-wrapper">
-                                    <div class="col s3">
+                                <div class="row">
+                                    <div class="col s12 m3">
                                         <img class="responsive-img circle" ng-src="{{contact.image}}" alt="" />
                                     </div>
-                                    <div class="col s9">
+                                    <div class="col s12 m9">
                                         <div class="col s12 smallPrint">
                                             <p>{{contact.firstname}} {{contact.name}}</p>
                                             <p>{{contact.email}} {{contact.number}}</p>
@@ -135,22 +144,22 @@
                                         </div>
                                         <div class="col s12 smallPrint">
                                             <p>
-                                                <a href="{{contact.social.facebook}}" target="_blank" ng-if="contact.social.facebook">
+                                                <a href="https://www.facebook.com/{{contact.social.facebook}}" target="_blank" ng-if="contact.social.facebook">
                                                     <i class="fa fa-facebook-official" aria-hidden="true"></i>
                                                 </a>
-                                                <a href="{{contact.social.twitter}}" target="_blank" ng-if="contact.social.twitter">
+                                                <a href="https://twitter.com/{{contact.social.twitter}}" target="_blank" ng-if="contact.social.twitter">
                                                     <i class="fa fa-twitter" aria-hidden="true"></i>
                                                 </a>
-                                                <a href="{{contact.social.linkedin}}" target="_blank" ng-if="contact.social.linkedin">
+                                                <a href="https://www.linkedin.com/in/{{contact.social.linkedin}}" target="_blank" ng-if="contact.social.linkedin">
                                                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                                                 </a>
-                                                <a href="{{contact.social.pinterest}}" target="_blank" ng-if="contact.social.pinterest">
+                                                <a href="https://www.pinterest.com/{{contact.social.pinterest}}" target="_blank" ng-if="contact.social.pinterest">
                                                     <i class="fa fa-pinterest-p" aria-hidden="true"></i>
                                                 </a>
-                                                <a href="{{contact.social.youtube}}" target="_blank" ng-if="contact.social.youtube">
+                                                <a href="https://www.youtube.com/user/{{contact.social.youtube}}" target="_blank" ng-if="contact.social.youtube">
                                                     <i class="fa fa-youtube-play" aria-hidden="true"></i>
                                                 </a>
-                                                <a href="{{contact.social.instagram}}" target="_blank" ng-if="contact.social.instagram">
+                                                <a href="https://www.instagram.com/{{contact.social.instagram}}" target="_blank" ng-if="contact.social.instagram">
                                                     <i class="fa fa-instagram" aria-hidden="true"></i>
                                                 </a>
                                             </p>
@@ -232,6 +241,10 @@
                             <label class="active">Site Web de la société *</label>
                         </div>
                         <div class="input-field">
+                            <input class="validate" ng-model="$ctrl.company.introduction" required>
+                            <label class="active">Brève introduction *</label>
+                        </div>
+                        <div class="input-field">
                             <input class="validate" ng-model="$ctrl.tags" placeholder="Entrer les mots clés séparés par une ,">
                             <label class="active">Tags</label>
                         </div>
@@ -241,37 +254,37 @@
                 <!-- Social -->
                 <div class="row">
                     <div class="input-field col m2 s12">
-                        <a href="{{$ctrl.company.social.facebook}}">
+                        <a href="https://www.facebook.com/{{$ctrl.company.social.facebook}}" target="_blank">
                             <i class="fa fa-facebook-official" aria-hidden="true"></i>
                         </a>
                         <input class="validate" ng-model="$ctrl.company.social.facebook">
                     </div>
                     <div class="input-field col m2 s12">
-                        <a href="{{$ctrl.linkedin}}">
+                        <a href="https://www.linkedin.com/in/{{$ctrl.linkedin}}" target="_blank">
                             <i class="fa fa-linkedin" aria-hidden="true"></i>
                         </a>
                         <input class="validate" ng-model="$ctrl.company.social.linkedin">
                     </div>
                     <div class="input-field col m2 s12">
-                        <a href="{{$ctrl.company.social.twitter}}">
+                        <a href="https://twitter.com/{{$ctrl.company.social.twitter}}" target="_blank">
                             <i class="fa fa-twitter" aria-hidden="true"></i>
                         </a>
                         <input class="validate" ng-model="$ctrl.company.social.twitter">
                     </div>
                     <div class="input-field col m2 s12">
-                        <a href="{{$ctrl.company.social.youtube}}">
+                        <a href="https://www.youtube.com/user/{{$ctrl.company.social.youtube}}" target="_blank">
                             <i class="fa fa-youtube-play" aria-hidden="true"></i>
                         </a>
                         <input class="validate" ng-model="$ctrl.company.social.youtube">
                     </div>
                     <div class="input-field col m2 s12">
-                        <a href="{{$ctrl.company.social.instagram}}">
+                        <a href="https://www.instagram.com/{{$ctrl.company.social.instagram}}" target="_blank">
                             <i class="fa fa-instagram" aria-hidden="true"></i>
                         </a>
                         <input class="validate" ng-model="$ctrl.company.social.instagram">
                     </div>
                     <div class="input-field col m2 s12">
-                        <a href="{{$ctrl.company.social.pinterest}}">
+                        <a href="https://www.pinterest.com/{{$ctrl.company.social.pinterest}}" target="_blank">
                             <i class="fa fa-pinterest-p" aria-hidden="true"></i>
                         </a>
                         <input class="validate" ng-model="$ctrl.company.social.pinterest">
@@ -284,6 +297,21 @@
                         <div class="input-field">
                             <textarea class="materialize-textarea" ng-model="$ctrl.company.presentation" maxlength="150" rows="5" required></textarea>
                             <label class="active">Description de la société *</label>
+                        </div>
+                    </div>
+                    <!-- Infos Company -->
+                    <div class="col s12">
+                        <div class="input-field">
+                            <textarea class="materialize-textarea" ng-model="$ctrl.company.prestation" rows="5"></textarea>
+                            <label class="active">Ce que nous vous proposons</label>
+                        </div>
+                        <div class="input-field">
+                            <textarea class="materialize-textarea" ng-model="$ctrl.company.attentes" maxlength="150" rows="5"></textarea>
+                            <label class="active">Ce que nous recherchons</label>
+                        </div>
+                        <div class="input-field" ng-if="$ctrl.isAdmin">
+                            <textarea class="materialize-textarea" ng-model="$ctrl.company.notes" maxlength="150" rows="5"></textarea>
+                            <label class="active">Notes</label>
                         </div>
                     </div>
                 </div>
@@ -321,22 +349,8 @@
 
                 <membre contact="contact" ng-repeat="contact in $ctrl.contacts track by $index"></membre>
 
-                <!-- Infos Company -->
+
                 <div class="row">
-                    <div class="col s12">
-                        <div class="input-field">
-                            <textarea class="materialize-textarea" ng-model="$ctrl.company.prestation" rows="5"></textarea>
-                            <label class="active">Ce que nous vous proposons</label>
-                        </div>
-                        <div class="input-field">
-                            <textarea class="materialize-textarea" ng-model="$ctrl.company.attentes" maxlength="150" rows="5"></textarea>
-                            <label class="active">Ce que nous recherchons</label>
-                        </div>
-                        <div class="input-field">
-                            <textarea class="materialize-textarea" ng-model="$ctrl.company.notes" maxlength="150" rows="5"></textarea>
-                            <label class="active">Notes</label>
-                        </div>
-                    </div>
 
                     <!-- Buttons -->
                     <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
