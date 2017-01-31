@@ -29,6 +29,12 @@
                         this.user = res.config.data
                         this.editMode = false
                     })
+                },
+                archive(user) {
+                    user.active = false
+                    usersService.edit(user).then(() => {
+                        $state.go('app.home')
+                    })
                 }
             })
         }]

@@ -95,14 +95,40 @@
                 <p><i class="material-icons prefix">mode_edit</i> {{$ctrl.user.remarques}}</p>
             </form>
         </div>
-
-        <div class="fixed-action-btn click-to-toggle">
-            <a tooltipped data-position="left" data-delay="50" data-tooltip="Editer" class="btn-floating btn-large colored" ng-click="$ctrl.editMode = true">
-                <i class="material-icons">mode_edit</i>
+        <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
+            <a class="btn-floating btn-large colored">
+                <i class="material-icons">menu</i>
             </a>
+            <ul>
+                <li>
+                    <a tooltipped data-position="left" data-delay="50" data-tooltip="Editer" class="btn-floating colored" ng-click="$ctrl.editMode = true">
+                        <i class="material-icons">mode_edit</i>
+                    </a>
+                </li>
+                <li>
+                    <a tooltipped data-position="left" data-delay="50" data-tooltip="Archiver" class="btn-floating colored" ng-click="$ctrl.showModal = !$ctrl.showModal" ng-if="$ctrl.isAdmin">
+                        <i class="material-icons">delete_forever</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col s6 deleteModal" ng-show="$ctrl.showModal">
+            <div class="modal-content">
+                <h4>Archiver</h4>
+                <p>Êtes-vous sûr d'archiver l'adhérent {{$ctrl.user.firstname}} {{$ctrl.user.name}}?</p>
+            </div>
+            <hr>
+            <div class="modal-footer">
+                <a class="modal-action btn red right" ng-click="$ctrl.archive($ctrl.user)">
+                    <i class="material-icons right">delete_forever</i> Archiver
+                </a>
+                <a class="modal-action btn colored left" ng-click="$ctrl.showModal = !$ctrl.showModal">
+                    <i class="material-icons right">cancel</i> Annuler
+                </a>
+            </div>
         </div>
     </div>
-    </div>
+    <div class="modal-overlay" ng-show="$ctrl.showModal"></div>
 </section>
 
 
@@ -259,12 +285,12 @@
                 </a>
                 <ul>
                     <li>
-                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer" class="btn-floating btn-large colored" ng-click="$ctrl.edit($ctrl.user)" ng-disabled="editUser.$invalid">
+                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer" class="btn-floating colored" ng-click="$ctrl.edit($ctrl.user)" ng-disabled="editUser.$invalid">
                             <i class="material-icons">save</i>
                         </a>
                     </li>
                     <li>
-                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Annuler" class="btn-floating btn-large colored" ng-click="$ctrl.editMode = false">
+                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Annuler" class="btn-floating colored" ng-click="$ctrl.editMode = false">
                             <i class="material-icons">cancel</i>
                         </a>
                     </li>

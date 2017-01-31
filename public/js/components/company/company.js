@@ -11,6 +11,7 @@
                     this.contacts = []
                     this.hasAccess = false
                     this.isAdmin = false
+                    this.showModal = false
 
                     usersService.getCurrent().then((user) => {
                         this.user = user
@@ -83,11 +84,10 @@
                 deleteUser(idx) {
                     this.company.contacts.splice(idx, 1)
                 },
-                delete(company) {
-                    companiesService.delete(company).then(() => {
-                        return $state.go('app.home')
-                    }).then(() => {
-                        $state.reload()
+                archive(company) {
+                    company.active = false
+                    companiesService.edit(company).then(() => {
+                        $state.go('app.home')
                     })
                 }
             })

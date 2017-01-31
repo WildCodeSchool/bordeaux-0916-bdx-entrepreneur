@@ -191,10 +191,31 @@
                             <i class="material-icons">print</i>
                         </a>
                     </li>
+                    <li>
+                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Archiver" class="btn-floating colored" ng-click="$ctrl.showModal = !$ctrl.showModal" ng-if="$ctrl.isAdmin">
+                            <i class="material-icons">delete_forever</i>
+                        </a>
+                    </li>
                 </ul>
+            </div>
+            <div class="col s6 deleteModal" ng-show="$ctrl.showModal">
+                <div class="modal-content">
+                    <h4>Archiver</h4>
+                    <p>Êtes-vous sûr d'archiver la société {{$ctrl.company.name}}?</p>
+                </div>
+                <hr>
+                <div class="modal-footer">
+                    <a class="modal-action btn red right" ng-click="$ctrl.archive($ctrl.company)">
+                        <i class="material-icons right">delete_forever</i> Archiver
+                    </a>
+                    <a class="modal-action btn colored left" ng-click="$ctrl.showModal = !$ctrl.showModal">
+                        <i class="material-icons right">cancel</i> Annuler
+                    </a>
+                </div>
             </div>
         </div>
     </div>
+    <div class="modal-overlay" ng-show="$ctrl.showModal"></div>
 </section>
 
 <!-- editMode -->
@@ -364,36 +385,14 @@
                                 </a>
                             </li>
                             <li>
-                                <a tooltipped data-position="left" data-delay="50" data-tooltip="Supprimer" class="btn-floating colored" ng-click="showModal = !showModal" ng-if="$ctrl.isAdmin">
-                                    <i class="material-icons">delete_forever</i>
-                                </a>
-                            </li>
-                            <li>
                                 <a tooltipped data-position="left" data-delay="50" data-tooltip="Annuler" class="btn-floating colored" ng-click="$ctrl.cancel($ctrl.company)">
                                     <i class="material-icons">cancel</i>
                                 </a>
                             </li>
                         </ul>
                     </div>
-
-                    <div class="col s6 deleteModal" ng-hide="!showModal">
-                        <div class="modal-content">
-                            <h4>Supprimer</h4>
-                            <p>Êtes-vous sûr de supprimer la société {{$ctrl.company.name}}?</p>
-                        </div>
-                        <hr>
-                        <div class="modal-footer">
-                            <a class="modal-action btn red right" ng-click="$ctrl.delete($ctrl.company)">
-                                <i class="material-icons right">delete_forever</i> Supprimer
-                            </a>
-                            <a class="modal-action btn colored left" ng-click="showModal = !showModal">
-                                <i class="material-icons right">cancel</i> Annuler
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </form>
         </div>
     </div>
-    <div class="modal-overlay" ng-if="showModal"></div>
 </section>
