@@ -268,7 +268,7 @@
                             <label class="active">Site Web de la société *</label>
                         </div>
                         <div class="input-field">
-                            <input class="validate" ng-model="$ctrl.company.introduction" required>
+                            <input class="validate" ng-model="$ctrl.company.introduction" maxlength="150" required>
                             <label class="active">Brève introduction *</label>
                         </div>
                         <div class="input-field">
@@ -330,8 +330,8 @@
                 <div class="row">
                     <div class="col s12">
                         <div class="input-field">
-                            <textarea class="materialize-textarea" ng-model="$ctrl.company.presentation" maxlength="150" rows="5" required></textarea>
-                            <label class="active">Description de la société *</label>
+                            <textarea class="materialize-textarea" ng-model="$ctrl.company.presentation" rows="5" required></textarea>
+                            <label class="active">Qui nous sommes *</label>
                         </div>
                     </div>
                     <!-- Infos Company -->
@@ -341,11 +341,11 @@
                             <label class="active">Ce que nous vous proposons</label>
                         </div>
                         <div class="input-field">
-                            <textarea class="materialize-textarea" ng-model="$ctrl.company.attentes" maxlength="150" rows="5"></textarea>
+                            <textarea class="materialize-textarea" ng-model="$ctrl.company.attentes" rows="5"></textarea>
                             <label class="active">Ce que nous recherchons</label>
                         </div>
                         <div class="input-field" ng-if="$ctrl.isAdmin">
-                            <textarea class="materialize-textarea" ng-model="$ctrl.company.notes" maxlength="150" rows="5"></textarea>
+                            <textarea class="materialize-textarea" ng-model="$ctrl.company.notes" rows="5"></textarea>
                             <label class="active">Notes</label>
                         </div>
                     </div>
