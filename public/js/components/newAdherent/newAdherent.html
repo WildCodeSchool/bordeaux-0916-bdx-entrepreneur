@@ -7,25 +7,26 @@
                 </div>
             </div>
             <div class="row">
-                <form class="col s12 m6 offset-m3">
+                <form name="new" class="col s12 m6 offset-m3">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input placeholder=" " id="first_name" type="text" class="validate" ng-model="$ctrl.user.firstname">
-                            <label for="first_name">Prénom</label>
+                            <input placeholder=" " id="first_name" type="text" class="validate" ng-model="$ctrl.user.firstname" required>
+                            <label for="first_name">Prénom *</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="last_name" type="text" class="validate" ng-model="$ctrl.user.name">
-                            <label for="last_name">Nom</label>
+                            <input id="last_name" type="text" class="validate" ng-model="$ctrl.user.name" required>
+                            <label for="last_name">Nom *</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="email" type="email" class="validate" ng-model="$ctrl.user.email">
-                            <label for="email">Email</label>
+                            <input id="email" type="email" class="validate" ng-model="$ctrl.user.email" required>
+                            <label for="email">Email *</label>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col s12">
                             <label>Compagnie</label>
@@ -35,12 +36,20 @@
                             </select>
                         </div>
                     </div>
+                    <div class="row" ng-if="$ctrl.search">
+                        <div class="col s12">
+                            <p>
+                                <input type="checkbox" id="founder" ng-model="$ctrl.founder" />
+                                <label for="founder">Fondateur</label>
+                            </p>
+                        </div>
+                    </div>
 
 
                 </form>
             </div>
             <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
-                <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer l'adhérent" ng-click="$ctrl.add($ctrl.user, $ctrl.search)" class="waves-effect waves-light btn-floating btn-large colored" type="submit" name="action">
+                <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer l'adhérent" ng-click="$ctrl.add($ctrl.user, $ctrl.search, $ctrl.founder)" class="waves-effect waves-light btn-floating btn-large colored" ng-disabled="new.$invalid">
                     <i class="material-icons right">send</i>
                 </a>
             </div>

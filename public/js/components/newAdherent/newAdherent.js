@@ -6,6 +6,8 @@
             angular.extend(this, {
                 $onInit() {
 
+                    this.founder = false
+
                     usersService.getCurrent().then((res) => {
                         if (!res.isAdmin)
                             $state.go('app.home')
@@ -18,13 +20,21 @@
                     }
 
                 },
-                add(user, search) {
-                    let compagnie = this.companies.find((company) => {
-                        return company.name === search
-                    })
-                    user.company = compagnie._id
+                add(user, search, founder) {
+                    if (search) {
+                        user.company = []
+                        let compagnie = this.companies.find((company) => {
+                            return company.name === search
+                        })
+
+                        user.company.push({
+                            compagny: compagnie._id,
+                            role: founder
+                        })
+                    }
+
                     usersService.add(user).then((res) => {
-                        $state.go("login")
+                        $state.go("app.home")
                     }).catch(() => {
                         console.log("Error adding user")
                     })

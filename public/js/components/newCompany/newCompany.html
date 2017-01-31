@@ -5,13 +5,13 @@
                 <div class="row">
                     <div class="col s3">
                         <a href="{{$ctrl.company.siteweb}}" target="_blank">
-                            <img ng-src="/img/developer.jpg" class="responsive-img" />
+                            <img ng-src="/img/defaut.jpg" class="responsive-img" />
                         </a>
                         <form action="#">
                             <div class="file-field input-field">
                                 <div class="btn blue">
                                     <span>Image *</span>
-                                    <file-upload ng-model="$ctrl.image" ng-change="$ctrl.preview()" required></file-upload>
+                                    <file-upload ng-model="$ctrl.image" ng-change="$ctrl.preview()"></file-upload>
                                 </div>
                                 <div class="file-path-wrapper">
                                     <input class="file-path validate" type="text">
@@ -37,7 +37,13 @@
                         </div>
 
                         <div class="input-field">
-                            <input ng-model="$ctrl.tags" placeholder="Entrer les mots clés séparés par une ,">
+                            <input ng-model="$ctrl.company.introduction" maxlength="150" required>
+                            <label class="active">Brève description *</label>
+                        </div>
+
+
+                        <div class="input-field">
+                            <input ng-model="$ctrl.company.tags" placeholder="Entrer les mots clés séparés par une ,">
                             <label class="active">Tags</label>
                         </div>
                     </div>
@@ -86,10 +92,34 @@
                     </div>
                 </div>
 
+                <!-- company infos -->
+
                 <div class="row">
                     <div class="input-field col s12">
                         <textarea class="materialize-textarea" ng-model="$ctrl.company.presentation" maxlength="300" rows="5" required></textarea>
                         <label>Description de la société *</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea class="materialize-textarea" ng-model="$ctrl.company.prestations" maxlength="150" rows="5"></textarea>
+                        <label>Ce que nous vous proposons</label>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea class="materialize-textarea" ng-model="$ctrl.company.attentes" maxlength="150" rows="5"></textarea>
+                        <label>Ce que nous recherchons</label>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea class="materialize-textarea" ng-model="$ctrl.company.notes" maxlength="150" rows="5"></textarea>
+                        <label>Notes</label>
                     </div>
                 </div>
 
@@ -144,32 +174,8 @@
                     </div>
                 </div>
 
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea class="materialize-textarea" ng-model="$ctrl.company.prestations" maxlength="150" rows="5"></textarea>
-                        <label>Ce que nous vous proposons</label>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea class="materialize-textarea" ng-model="$ctrl.company.attentes" maxlength="150" rows="5"></textarea>
-                        <label>Ce que nous recherchons</label>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea class="materialize-textarea" ng-model="$ctrl.company.notes" maxlength="150" rows="5"></textarea>
-                        <label>Notes</label>
-                    </div>
-                </div>
-
                 <div class="fixed-action-btn click-to-toggle" ng-hide="$ctrl.hidden">
-                    <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer la société" class="waves-effect waves-light btn-floating btn-large colored" ng-click="$ctrl.saveCompanies($ctrl.company, $ctrl.tags, $ctrl.contacts,$ctrl.image)" ng-disabled="newCompany.$invalid">
+                    <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer la société" class="waves-effect waves-light btn-floating btn-large colored" ng-click="$ctrl.saveCompanies($ctrl.company, $ctrl.contacts,$ctrl.image)" ng-disabled="newCompany.$invalid">
                         <i class="material-icons">save</i>
                     </a>
                 </div>
