@@ -8,13 +8,35 @@
                     </a>
                     <ul>
                         <li>
+                            <a tooltipped data-position="left" data-delay="50" data-tooltip="Ajouter un adhérent" class="btn-floating colored" ui-sref="app.newAdherent">
+                                <i class="material-icons">person_add</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a tooltipped data-position="left" data-delay="50" data-tooltip="Export CSV Adhérents" class="btn-floating colored" ng-json-export-excel data="$ctrl.users" report-fields="{
+                                        name: 'Nom',
+                                        firstname:'Prénom',
+                                        active:'Activé',
+                                        email:'Email',
+                                        number:'Numéro',
+                                        address:'Adresse'
+                                    }" filename="'bdx-entrepreneur-adherents'">
+                                <i class="material-icons">system_update_alt</i>
+                            </a>
+                        </li>
+                        <li>
                             <a tooltipped data-position="left" data-delay="50" data-tooltip="Ajouter une société" class="btn-floating colored" ui-sref="app.newCompany">
                                 <i class="material-icons">note_add</i>
                             </a>
                         </li>
                         <li>
-                            <a tooltipped data-position="left" data-delay="50" data-tooltip="Ajouter un adhérent" class="btn-floating colored" ui-sref="app.newAdherent">
-                                <i class="material-icons">person_add</i>
+                            <a tooltipped data-position="left" data-delay="50" data-tooltip="Export CSV Sociétés" class="btn-floating colored" ng-json-export-excel data="$ctrl.companies" report-fields="{
+                                      name: 'Société',
+                                      secteur:'Secteur',
+                                      siteweb:'Site Web',
+                                      prestation:'Prestation'
+                                    }" filename="'bdx-entrepreneur-societes'">
+                                <i class="material-icons">system_update_alt</i>
                             </a>
                         </li>
                     </ul>
@@ -34,11 +56,24 @@
                     <div class="col s6">
                         <h3>Liste des adhérents</h3>
                         <ul class="collection">
-                            <li class="collection-item avatar" ng-repeat="user in $ctrl.users">
+                            <li class="collection-item avatar" style="background-color:{{user.active ? '' : '#eeeeee' }}" ng-repeat="user in $ctrl.users | orderBy : '!active'">
+                                <span class="new badge {{user.active ? 'blue' : 'grey darken-1'}}" data-badge-caption="{{user.active ? 'Adhérent Actif' : 'Adhérent Inactif'}}"></span>
                                 <img ng-src="{{user.image}}" alt="" class="circle">
                                 <span class="title">{{user.firstname}} {{user.name}}</span>
-                                <p>{{user.email}} {{user.number ? '/' : ''}} {{user.number}}
+                                <p>{{user.email}} {{user.number ? '/' : ''}} {{user.number}}</p>
+                                <p>
+                                    <span ng-repeat="company in user.company">
+                                        <span ng-repeat="mycompany in company track by $index">{{mycompany.name}}</span> {{(user.company.length > 1 && user.company.length != $index + 1) ? ',' : ""}}
+                                    </span>
                                 </p>
+                                <div class="right-align">
+                                    <a class="btn-floating btn-large waves-effect waves-light grey darken-1" tooltipped data-position="left" data-delay="50" data-tooltip="Désactiver l'adhérent" ng-click="$ctrl.disable(user)" ng-if="user.active">
+                                        <i class="material-icons">delete</i>
+                                    </a>
+                                    <a class="btn-floating btn-large waves-effect waves-light blue" tooltipped data-position="left" data-delay="50" data-tooltip="Activer l'adhérent" ng-click="$ctrl.activate(user)" ng-if="!user.active">
+                                        <i class="material-icons">done</i>
+                                    </a>
+                                </div>
                             </li>
                         </ul>
                     </div>

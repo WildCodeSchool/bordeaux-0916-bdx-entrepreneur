@@ -1,8 +1,8 @@
 ((app) => {
+    'use strict'
     app.component('mycompany', {
         templateUrl: 'js/components/mycompany/mycompany.html',
-        controller: function($stateParams, usersService, companiesService, $state) {
-            let copie = {};
+        controller: ['$stateParams', 'usersService', 'companiesService', '$state', function($stateParams, usersService, companiesService, $state) {
             angular.extend(this, {
                 $onInit() {
                     this.companies = []
@@ -14,6 +14,6 @@
                     })
                 }
             })
-        }
-    }); //dont delete
+        }]
+    })
 })(angular.module('app.mycompany'))

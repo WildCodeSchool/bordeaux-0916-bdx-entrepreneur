@@ -12,6 +12,18 @@
                     usersService.get().then((res) => {
                         this.users = res.data
                     })
+                },
+                disable(user) {
+                    user.active = false
+                    usersService.edit(user).then((res) => {
+                        console.log(res);
+                    })
+                },
+                activate(user) {
+                    user.active = true
+                    usersService.edit(user).then((res) => {
+                        console.log(res);
+                    })
                 }
             })
 
