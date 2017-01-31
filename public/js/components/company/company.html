@@ -58,7 +58,13 @@
                                 <div class="col s12">
                                     <h6>{{$ctrl.company.introduction}}</h6>
                                 </div>
-                                <div class="col s12 m8" ng-if="$ctrl.company.tags.length > 0">
+                                <div class="col s12">
+                                    <h6>Chiffre d'affaire : {{$ctrl.company.ca}}</h6>
+                                </div>
+                                <div class="col s12">
+                                    <h6>Effectif : {{$ctrl.company.effectif}}</h6>
+                                </div>
+                                <div class="col s12 m8" ng-if="$ctrl.company.tags.length > 1">
                                     <div ng-repeat="tag in $ctrl.tags" class="chip">
                                         {{tag}}
                                     </div>
@@ -268,6 +274,14 @@
                         <div class="input-field">
                             <input class="validate" ng-model="$ctrl.tags" placeholder="Entrer les mots clés séparés par une ,">
                             <label class="active">Tags</label>
+                        </div>
+                        <div class="input-field">
+                            <input class="validate" ng-model="$ctrl.company.ca">
+                            <label class="active">Chiffre d'affaire</label>
+                        </div>
+                        <div class="input-field">
+                            <input class="validate" ng-model="$ctrl.company.effectif">
+                            <label class="active">Effectif</label>
                         </div>
                     </div>
                 </div>

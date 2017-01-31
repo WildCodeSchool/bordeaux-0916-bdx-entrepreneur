@@ -48,8 +48,8 @@
                             <li class="collection-item avatar" ng-repeat="company in $ctrl.companies">
                                 <img ng-src="{{company.image}}" alt="" class="circle">
                                 <a ui-sref="app.company({id:company._id})"><span class="title">{{company.name}}</span></a>
-                                <p>{{company.secteur}} {{company.contacts.name ? '/' : ''}} {{company.contacts.name}}
-                                </p>
+                                <p>{{company.secteur}} {{company.contacts.name ? '/' : ''}} {{company.contacts.name}}</p>
+                                <p>{{company.notes}}</p>
                             </li>
                         </ul>
                     </div>
