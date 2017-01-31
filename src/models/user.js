@@ -30,7 +30,7 @@ let userSchema = new mongoose.Schema({
     },
     image: {
       type: String,
-      default: '../img/avatar_defaut.png'
+      default: 'img/avatar_defaut.png'
     },
     password: String,
     remarques: String,
