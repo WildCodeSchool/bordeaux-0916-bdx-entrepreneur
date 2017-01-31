@@ -11,7 +11,7 @@
                 <div class="card-panel">
                     <div class="row">
                         <div class="col s2">
-                            <img class="responsive-img circle" ng-src="{{($ctrl.currentUser.image ? $ctrl.currentUser.image : '../img/avatar_defaut.png')}}" alt="" />
+                            <img class="responsive-img circle" ng-src="{{$ctrl.currentUser.image}}" alt="" />
                         </div>
                         <div class="col s10">
 
@@ -57,18 +57,13 @@
                         </a>
                     </li>
                     <li>
-                        <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Adhérents" class="btn-floating blue" ui-sref="app.adherents">
-                            <i class="material-icons">face</i>
+                        <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Mon Compte" class="btn-floating blue" ui-sref="app.profile">
+                            <i class="material-icons">person</i>
                         </a>
                     </li>
                     <li>
                         <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Message" class="btn-floating blue" ui-sref="app.message" ng-if="$ctrl.isAdmin">
                             <i class="material-icons">mail</i>
-                        </a>
-                    </li>
-                    <li>
-                        <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Mon Compte" class="btn-floating blue" ui-sref="app.profile">
-                            <i class="material-icons">person</i>
                         </a>
                     </li>
                     <li>
