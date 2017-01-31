@@ -15,9 +15,9 @@
                     usersService.getCurrent().then((user) => {
                         this.user = user
                         this.isAdmin = this.user.isAdmin
-                        this.hasAccess = (this.user.company.find((el)=>{
-                          return $stateParams.id == el.company._id && el.role == 'Fondateur'
-                        })) || this.user.isAdmin
+                        this.hasAccess = (this.user.company.find((el) => {
+                            return $stateParams.id == el.company._id && el.role == 'Fondateur'
+                        })) ||  this.user.isAdmin
                     })
                     companiesService.getById($stateParams.id).then((response) => {
                         this.company = response.data
@@ -38,7 +38,8 @@
                         this.infos.social = social
                         this.infos.tags = []
                         this.infos.tags.push(tag)
-                        this.contacts.length > 0 ? this.infos.newContacts = this.contacts : ''
+                        if (this.contacts.length > 0)
+                            this.infos.newContacts = this.contacts
                         companiesService.edit(this.infos).then((res) => {
                             this.newCompany = res.config.data
                         }).catch(() => {
@@ -72,8 +73,7 @@
                             <body onload="window.print()">
                                 ${printContents}
                             </body>
-                        </html>`
-                    );
+                        </html>`);
                     popupWin.document.close();
                 },
                 addUser() {
