@@ -14,8 +14,8 @@ module.exports = (app) => {
         return usersCtrl.findById(req, res, next)
     })
 
-    app.get('/users/one/:email', (req, res, next) => {
-        return usersCtrl.findOne(req, res, next)
+    app.get('/users/:email/reset_password', (req, res, next) => {
+        return usersCtrl.resetPassword(req, res, next)
     })
 
     app.post('/users', (req, res, next) => {

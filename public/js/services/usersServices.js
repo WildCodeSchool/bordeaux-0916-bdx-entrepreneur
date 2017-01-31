@@ -10,8 +10,8 @@
             getPopulate(id) {
                 return $http.get('/api/users/' + id)
             },
-            getOne(user) {
-                return $http.get('/api/users/one/' + user)
+            resetPassword(email) {
+                return $http.get('/api/users/' + email + '/reset_password' )
             },
             add(user) {
                 return $http.post('/api/users', user)
@@ -50,7 +50,6 @@
                             return this.disconnect()
                         this.getPopulate(payload._doc._id).then((res) => {
                             this.currentUser = res.data
-                            console.log(this.currentUser)
                             deferred.resolve(this.currentUser)
                         })
                     } else {

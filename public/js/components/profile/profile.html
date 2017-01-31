@@ -129,8 +129,8 @@
 
                         <div input-field class="col s6">
                             <i class="material-icons prefix">lock_outline</i>
-                            <input id="icon_password" type="password" ng-model="$ctrl.currentUser.password" required>
-                            <label for="icon_password">Mot de passe *</label>
+                            <input id="icon_password" type="password" ng-model="$ctrl.currentUser.password">
+                            <label for="icon_password">Mot de passe</label>
                         </div>
 
 
@@ -138,7 +138,7 @@
                             <div class="file-field col s6">
                                 <div class="btn blue">
                                     <span>Avatar</span>
-                                    <file ng-model="$ctrl.image"></file>
+                                    <file-upload ng-model="$ctrl.image"></file-upload>
                                 </div>
                                 <div class="file-path-wrapper">
                                     <input class="file-path validate" type="text">

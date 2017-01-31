@@ -38,9 +38,7 @@ class UsersController extends Controller {
         if (!req.body.email || !req.body.password) {
             res.status(400).send("Please enter your email and password")
         } else {
-            USER.findOne(req.body, {
-                password: 0
-            }, (err, user) => {
+            USER.findOne(req.body, '-password', (err, user) => {
                 if (err)
                     next(err)
                 else if (!user)
@@ -49,7 +47,6 @@ class UsersController extends Controller {
                     let token = jwt.sign(user, ENV.token, {
                         expiresIn: "24h"
                     })
-
                     // return the information including token as JSON
                     res.json({
                         success: true,
@@ -76,19 +73,18 @@ class UsersController extends Controller {
 
 
     find(req, res, next) {
-        this.model.find().populate('company.company').exec((err, users) => {
+        this.model.find({}, '-password').populate('company.company').exec((err, users) => {
             res.json(users)
         })
     }
 
     findById(req, res, next) {
-        this.model.findById(req.params.id).populate('company.company').exec((err, user) => {
+        this.model.findById(req.params.id, '-password').populate('company.company').exec((err, user) => {
             res.json(user)
         })
     }
 
-    findOne(req, res, next) {
-
+    resetPassword(req, res, next) {
         this.model.findOneAndUpdate({
             'email': req.params.email
         }, {

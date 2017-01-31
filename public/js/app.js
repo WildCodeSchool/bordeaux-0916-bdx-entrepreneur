@@ -22,7 +22,7 @@
         }
     }]
 
-    app.directive('file', file)
+    app.directive('fileUpload', file)
 
 })(require('angular').module('app', [
     require('angular-ui-router'),
