@@ -45,7 +45,8 @@
                     <div class="col s6">
                         <h3>Liste des sociétés</h3>
                         <ul class="collection">
-                            <li class="collection-item avatar" ng-repeat="company in $ctrl.companies">
+                            <li class="collection-item avatar" ng-repeat="company in $ctrl.companies | orderBy : '!active'" style="background-color:{{company.active ? '' : '#eeeeee' }}">
+                                <span class="new badge {{company.active ? 'blue' : 'grey darken-1'}}" data-badge-caption="{{company.active ? 'Active' : 'Inactive'}}"></span>
                                 <img ng-src="{{company.image}}" alt="" class="circle">
                                 <a ui-sref="app.company({id:company._id})"><span class="title">{{company.name}}</span></a>
                                 <p>{{company.secteur}} {{company.contacts.name ? '/' : ''}} {{company.contacts.name}}</p>
@@ -57,7 +58,7 @@
                         <h3>Liste des adhérents</h3>
                         <ul class="collection">
                             <li class="collection-item avatar" style="background-color:{{user.active ? '' : '#eeeeee' }}" ng-repeat="user in $ctrl.users | orderBy : '!active'">
-                                <span class="new badge {{user.active ? 'blue' : 'grey darken-1'}}" data-badge-caption="{{user.active ? 'Adhérent Actif' : 'Adhérent Inactif'}}"></span>
+                                <span class="new badge {{user.active ? 'blue' : 'grey darken-1'}}" data-badge-caption="{{user.active ? 'Actif' : 'Inactif'}}"></span>
                                 <img ng-src="{{user.image}}" alt="" class="circle">
                                 <a ui-sref="app.user({id:user._id})">
                                     <span class="title">{{user.firstname}} {{user.name}}</span>

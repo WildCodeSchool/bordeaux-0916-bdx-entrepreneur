@@ -8,7 +8,7 @@
 
                     this.carouselstate = 9
                     this.isAdmin = false
-                    companiesService.get().then((response) => {
+                    companiesService.getActive().then((response) => {
                         this.companies = response.data
                         this.save = response.data
                     })

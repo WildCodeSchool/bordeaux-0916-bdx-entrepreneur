@@ -8,6 +8,9 @@
             getById(id) {
                 return $http.get('/api/companies/' + id);
             },
+            getActive() {
+                return $http.get('/api/activecompanies');
+            },
             findOne(recherche) {
                 return $http.get('/api/search/' + recherche)
             },

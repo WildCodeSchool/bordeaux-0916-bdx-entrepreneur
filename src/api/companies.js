@@ -9,6 +9,10 @@ module.exports = (app) => {
         return ctrl.find(req, res, next)
     })
 
+    app.get('/activecompanies', (req, res, next) => {
+        return ctrl.findActive(req, res, next)
+    })
+
     app.get('/companies/:id', (req, res, next) => {
         return ctrl.findById(req, res, next)
     })

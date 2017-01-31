@@ -150,5 +150,14 @@ class CompanyController extends Controller {
         })
     }
 
+    findActive(req, res, next) {
+        this.model.find({
+            'active': true
+        }, (err, companies) => {
+            if (err) next(err)
+            else
+                res.json(companies)
+        })
+    }
 }
 module.exports = CompanyController
