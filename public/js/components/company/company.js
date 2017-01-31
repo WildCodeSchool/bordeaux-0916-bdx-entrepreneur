@@ -24,18 +24,18 @@
                         if (this.company.tags && this.company.tags.length > 0) {
                             this.tags = this.company.tags.join(',')
                         }
-                        this.social = this.company.social
+                        // this.social = this.company.social
                     });
 
                 },
-                edit(company, social, tag, image) {
+                edit(company, tag, image) {
                     if (this.editMode) {
                         this.infos = company
                         if (this.image) {
                             companiesService.upload(this.image)
                             this.infos.image = `img/${this.image.name}`
                         }
-                        this.infos.social = social
+                        // this.infos.social = social
                         this.infos.tags = []
                         this.infos.tags.push(tag)
                         if (this.contacts.length > 0)
@@ -43,7 +43,7 @@
                         companiesService.edit(this.infos).then((res) => {
                             this.newCompany = res.config.data
                         }).catch(() => {
-
+                            console.log('error');
                         });
 
                         this.editMode = false
