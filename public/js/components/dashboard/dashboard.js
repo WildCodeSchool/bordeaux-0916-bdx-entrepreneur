@@ -24,9 +24,20 @@
                     usersService.edit(user).then((res) => {
                         console.log(res);
                     })
+                },
+                disableCompany(company) {
+                    company.active = false
+                    companiesService.edit(company).then((res) => {
+                        console.log(res);
+                    })
+                },
+                activateCompany(company) {
+                    company.active = true
+                    companiesService.edit(company).then((res) => {
+                        console.log(res);
+                    })
                 }
             })
-
         }]
     })
 })(angular.module('app.dashboard'))
