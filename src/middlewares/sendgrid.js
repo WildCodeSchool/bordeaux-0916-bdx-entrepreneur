@@ -8,7 +8,7 @@ let helper = require('sendgrid').mail,
 
 exports.sendgrid = {
 
-    emailIt(user) {      
+    emailIt(user) {
         let to_email = new helper.Email(`${user.email}`);
         if (user.New) {
             subject = "Bordeux Entrepreuneurs - Nouveau Compte";
@@ -29,7 +29,7 @@ exports.sendgrid = {
 
     },
     emailAll(message, res, next) {
-        let newmessage = message.body
+        let newmessage = message
         subject = newmessage.subject
         let to_email = ""
         Promise.all(newmessage.to.map((e) => {

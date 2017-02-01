@@ -67,7 +67,9 @@ class UsersController extends Controller {
             this.updateCompany(req.body).then((companies) => {
                 this.model.findById(req.params.id, (err, user) => {
                     user.company = user.company.concat(companies.map((e) => {
-                        return { company: e._id }
+                        return {
+                            company: e._id
+                        }
                     }))
                     user.save(err => console.log(err))
                     res.json(user)
@@ -141,6 +143,23 @@ class UsersController extends Controller {
             if (err) next(err)
             else
                 res.json(users)
+        })
+    }
+
+    emailAll(req, res, next) {
+        console.log(req.body);
+        this.model.find({
+            'active': true
+        }, (err, users) => {
+            if (err) next(err)
+            else {
+                let message = {
+                    subject: req.body.subject,
+                    content: req.body.content,
+                    to: users
+                }
+                sg.sendgrid.emailAll(message, res)
+            }
         })
     }
 

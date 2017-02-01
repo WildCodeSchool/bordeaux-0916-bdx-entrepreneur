@@ -28,7 +28,7 @@ module.exports = (app) => {
 
     //send email
     app.post('/message/send', (req, res, next) => {
-        return sg.sendgrid.emailAll(req, res, next)
+        return usersCtrl.emailAll(req, res, next)
     })
 
     //  Auth
