@@ -17,7 +17,7 @@
                     usersService.getPopulate($stateParams.id).then((res) => {
                         this.user = res.data
 
-                        companiesService.get().then((allcompanies) => {
+                        companiesService.getActive().then((allcompanies) => {
                             this.allcompanies = allcompanies.data.filter((company) => {
                                 return !(this.user.company.find(e => e.company._id === company._id))
                             })
