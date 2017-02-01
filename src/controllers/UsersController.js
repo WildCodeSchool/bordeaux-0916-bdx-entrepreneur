@@ -11,6 +11,7 @@ let password = generator.generate({
 });
 
 const USER = require('../models/user')
+const COMPANY = require('../models/company')
 const ENV = require('../../config/env')
 
 
@@ -62,17 +63,43 @@ class UsersController extends Controller {
 
     update(req, res, next) {
         if (req.body.password) req.body.password = bcrypt.password.cryptIt(req.body.password)
-        this.model.update({
-            _id: req.params.id
-        }, req.body, (err, document) => {
-            if (err) {
-                next(err)
-            } else {
-                res.sendStatus(200)
-            }
-        })
+        if (req.body.newCompany) {
+            this.updateCompany(req.body).then((companies) => {
+                this.model.findById(req.params.id, (err, user) => {
+                    user.company = user.company.concat(companies.map((e) => {
+                        return { company: e._id }
+                    }))
+                    user.save(err => console.log(err))
+                    res.json(user)
+                })
+            })
+        } else {
+            this.model.update({
+                _id: req.params.id
+            }, req.body, (err, document) => {
+                if (err) {
+                    next(err)
+                } else {
+                    res.sendStatus(200)
+                }
+            })
+        }
     }
 
+    updateCompany(user) {
+        return Promise.all(user.newCompany.map((usercompany) => {
+            return new Promise((resolve, reject) => {
+                COMPANY.findOne({
+                    _id: usercompany.company
+                }, (err, company) => {
+                    if (err) reject(err)
+                    company.contacts.push(user._id)
+                    company.save()
+                    resolve(company)
+                })
+            })
+        }))
+    }
 
     find(req, res, next) {
         this.model.find({}, '-password').populate('company.company').exec((err, users) => {

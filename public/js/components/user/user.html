@@ -241,12 +241,13 @@
                                 <label for="founder{{$index}}">Fondateur</label>
                             </span>
                         </div>
+
                         <div class="col s12 m6">
                             <div input-field>
                                 <select ng-model="$ctrl.company" material-select multiple watch>
-                                        <option disabled selected>Ajouter une Société</option>
-                                        <option value="{{company}}" ng-repeat="company in $ctrl.allcompanies track by $index">{{company.name}}</option>
-                                    </select>
+                                    <option disabled selected>Ajouter une Société</option>
+                                    <option value="{{company}}" ng-repeat="company in $ctrl.allcompanies track by $index">{{company.name}}</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -317,7 +318,7 @@
                 </a>
                 <ul>
                     <li>
-                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer" class="btn-floating colored" ng-click="$ctrl.edit($ctrl.user)" ng-disabled="editUser.$invalid">
+                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer" class="btn-floating colored" ng-click="$ctrl.edit($ctrl.user, $ctrl.company)" ng-disabled="editUser.$invalid">
                             <i class="material-icons">save</i>
                         </a>
                     </li>

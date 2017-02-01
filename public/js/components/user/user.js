@@ -5,8 +5,7 @@
             angular.extend(this, {
                 $onInit() {
 
-                    this.showHints = true;
-                    this.editMode = false
+                    this.editMode = true
                     this.isAdmin = false
 
                     this.regions = ('Auvergne-Rhône-Alpes Bourgogne-Franche-Comté Bretagne Centre-Val-de-Loire Corse Grand-Est ' +
@@ -17,17 +16,35 @@
 
                     usersService.getPopulate($stateParams.id).then((res) => {
                         this.user = res.data
+
+                        companiesService.get().then((allcompanies) => {
+                            this.allcompanies = allcompanies.data.filter((company) => {
+                                return !(this.user.company.find(e => e.company._id === company._id))
+                            })
+                        })
                     })
 
-                    usersService.getCurrent().then((response)=>{
-                      this.isAdmin = response.isAdmin
+                    usersService.getCurrent().then((response) => {
+                        this.isAdmin = response.isAdmin
                     })
+
+
                 },
-                edit(user) {
+                edit(user, newCompany) {
+
                     if (this.image) {
                         companiesService.upload(this.image)
                         user.image = `img/${this.image.name}`
                     }
+                    if (newCompany) {
+                        user.newCompany = []
+                        newCompany.forEach((e) => {
+                            user.newCompany.push({
+                                company: JSON.parse(e)
+                            })
+                        })
+                    }
+                    console.log(user);
                     usersService.edit(user).then((res) => {
                         this.user = res.config.data
                         this.editMode = false
