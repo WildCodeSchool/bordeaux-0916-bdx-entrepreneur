@@ -5,7 +5,7 @@
             angular.extend(this, {
                 $onInit() {
 
-                    this.editMode = true
+                    this.editMode = false
                     this.isAdmin = false
 
                     this.regions = ('Auvergne-Rhône-Alpes Bourgogne-Franche-Comté Bretagne Centre-Val-de-Loire Corse Grand-Est ' +

@@ -11,7 +11,7 @@
                     })
 
                     let allEmail = []
-                    usersService.get().then((res) => {
+                    usersService.getActive().then((res) => {
                         res.data.map((e) => {
                             return allEmail.push({
                                 email: e.email,

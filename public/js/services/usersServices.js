@@ -10,6 +10,9 @@
             getPopulate(id) {
                 return $http.get('/api/users/' + id)
             },
+            getActive() {
+                return $http.get('/api/activeusers');
+            },
             resetPassword(email) {
                 return $http.get('/api/users/' + email + '/reset_password' )
             },

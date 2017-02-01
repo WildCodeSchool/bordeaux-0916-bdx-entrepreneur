@@ -14,6 +14,10 @@ module.exports = (app) => {
         return usersCtrl.findById(req, res, next)
     })
 
+    app.get('/activeusers', (req, res, next) => {
+        return usersCtrl.findActive(req, res, next)
+    })
+
     app.get('/users/:email/reset_password', (req, res, next) => {
         return usersCtrl.resetPassword(req, res, next)
     })

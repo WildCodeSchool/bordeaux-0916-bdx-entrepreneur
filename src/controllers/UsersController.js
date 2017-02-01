@@ -134,6 +134,16 @@ class UsersController extends Controller {
         })
     }
 
+    findActive(req, res, next) {
+        this.model.find({
+            'active': true
+        }, (err, users) => {
+            if (err) next(err)
+            else
+                res.json(users)
+        })
+    }
+
 }
 
 module.exports = UsersController
