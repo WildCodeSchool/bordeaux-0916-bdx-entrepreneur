@@ -44,6 +44,7 @@
                                 <p><i class="material-icons">location_on</i> {{$ctrl.user.address.region}}</p>
                             </div>
                         </div>
+
                         <!-- Social -->
                         <div class="col l3 m6">
                             <h1>Social</h1>
@@ -222,6 +223,33 @@
 
                     </div>
 
+                    <!-- company -->
+                    <div class="row">
+                        <h1>Sociétés</h1>
+                        <div class="col s12 m6">
+                            <span ng-repeat="userCompanies in $ctrl.user.company">
+                                <p ng-repeat="userCompany in userCompanies track by $index">
+                                    {{userCompany.name}}
+                                </p>
+                                <input type="checkbox" id="founder{{$index}}"
+                                    ng-true-value="'Fondateur'"
+                                    ng-false-value="'Other'"
+                                    ng-change="userCompanies.role == true ? 'Fondateur' : 'Other'"
+                                    ng-model="userCompanies.role"
+                                    value="{{userCompanies.role == true ? 'Fondateur' : 'Other' }}"
+                                    ng-checked="{{userCompanies.role == 'Fondateur' ? true : false}}" />
+                                <label for="founder{{$index}}">Fondateur</label>
+                            </span>
+                        </div>
+                        <div class="col s12 m6">
+                            <div input-field>
+                                <select ng-model="$ctrl.company" material-select multiple watch>
+                                        <option disabled selected>Ajouter une Société</option>
+                                        <option value="{{company}}" ng-repeat="company in $ctrl.allcompanies track by $index">{{company.name}}</option>
+                                    </select>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Social -->
                     <div class="row">
