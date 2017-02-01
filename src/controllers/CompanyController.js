@@ -66,7 +66,6 @@ class CompanyController extends Controller {
     }
 
     update(req, res, next) {
-
         if (req.body.newContacts) {
             this.updateOrCreate(req.body).then((users) => {
                 this.model.findById(req.params.id, (err, company) => {
@@ -76,7 +75,6 @@ class CompanyController extends Controller {
                 })
             })
         } else {
-
             this.model.update({
                 _id: req.params.id
             }, req.body, (err, document) => {

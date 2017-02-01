@@ -1,8 +1,8 @@
 ((app) => {
     app.component('company', {
         templateUrl: 'js/components/company/company.html',
-        controller: function($stateParams, usersService, companiesService, $state) {
-            let copie = {};
+        controller: ['$stateParams', 'usersService', 'companiesService', '$state', 'toastr', function($stateParams, usersService, companiesService, $state, toastr) {
+            let copie = {}
             angular.extend(this, {
                 $onInit() {
 
@@ -12,6 +12,7 @@
                     this.hasAccess = false
                     this.isAdmin = false
                     this.showModal = false
+
 
                     usersService.getCurrent().then((user) => {
                         this.user = user
@@ -26,25 +27,49 @@
                             this.tags = this.company.tags.join(',')
                         }
                         this.tags = this.company.tags.join('').split(',')
+
+                        usersService.get().then((allusers) => {
+                            let filteredUser = []
+                            this.company.contacts.forEach((eachUser) => {
+                                filteredUser = allusers.data.filter((eachCompanyContact) => {
+                                    return eachUser !== eachCompanyContact
+                                })
+                            })
+                            this.allusers = filteredUser
+                            console.log(this.allusers);
+                        })
                     });
 
                 },
-                edit(company, tag, image) {
-                    console.log(company);
+                edit(company, tag, image, selectedUser) {
                     if (this.editMode) {
                         this.infos = company
                         if (this.image) {
                             companiesService.upload(this.image)
                             this.infos.image = `img/${this.image.name}`
                         }
-                        // this.infos.social = social
                         this.infos.tags = []
                         this.infos.tags.push(tag)
+
                         if (this.contacts.length > 0)
                             this.infos.newContacts = this.contacts.filter(value => Object.keys(value).length !== 0)
+                        if (selectedUser && this.infos.newContacts) {
+                            selectedUser.forEach((el) => {
+                                this.infos.newContacts.push(JSON.parse(el))
+                            })
+                        } else if (selectedUser && !this.infos.newContacts) {
+                            this.infos.newContacts = []
+                            selectedUser.forEach((el) => {
+                                this.infos.newContacts.push(JSON.parse(el))
+                            })
+                        }
+                        console.log(this.infos.newContacts);
                         companiesService.edit(this.infos).then((res) => {
                             this.newCompany = res.config.data
-                        }).catch(() => {
+                            $state.reload()
+                            toastr.success('Société modifiée')
+                        }).catch((err) => {
+                            toastr.error(`${err.data} !`)
                             console.log('error');
                         });
 
@@ -91,6 +116,6 @@
                     })
                 }
             })
-        }
-    }); //dont delete
+        }]
+    })
 })(angular.module('app.company'))

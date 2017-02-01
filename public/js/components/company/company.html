@@ -188,7 +188,7 @@
                 </a>
                 <ul>
                     <li>
-                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Éditer" class="btn-floating colored" ng-click="$ctrl.edit($ctrl.company, $ctrl.image)" user="$ctrl.user" ng-if="$ctrl.hasAccess">
+                        <a tooltipped data-position="left" data-delay="50" data-tooltip="Éditer" class="btn-floating colored" ng-click="$ctrl.edit($ctrl.company, $ctrl.image)" user="$ctrl.user" ng-if="$ctrl.hasAccess || $ctrl.isAdmin">
                             <i class="material-icons">mode_edit</i>
                         </a>
                     </li>
@@ -357,19 +357,19 @@
 
                 <!-- Contact-->
                 <div class="row">
-                    <div class="col s6" ng-repeat="contact in $ctrl.company.contacts track by $index">
-                        <h4>Contact</h4>
+                    <h4>Contact</h4>
+                    <div class="col m12 l6" ng-repeat="contact in $ctrl.company.contacts track by $index">
                         <div class="card card-panel hoverable">
                             <div class="card-content">
                                 <div class="row valign-wrapper">
-                                    <div class="col s3">
+                                    <div class="col s12 m3">
                                         <img class="responsive-img circle" ng-src="{{contact.image}}" alt="" />
                                     </div>
-                                    <div class="col s9">
-                                        <div class="card-title">
-                                            <p>{{contact.name}}</p>
-                                            <p>{{contact.email}}</p>
-                                            <p>{{contact.number}}</p>
+                                    <div class="col s12 m9">
+                                        <div class="col s12 smallPrint">
+                                            <p>{{contact.firstname}} {{contact.name}}</p>
+                                            <p>{{contact.email}} {{contact.number}}</p>
+                                            <p>{{contact.address.ville}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -381,9 +381,26 @@
                             </div>
                         </div>
                     </div>
-                    <a class="waves-effect waves-light btn right blue" ng-click="$ctrl.addUser()">
-                        <i class="material-icons right">add</i>Ajouter Membre
-                    </a>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s6">
+                                <div input-field>
+                                    <select ng-model="$ctrl.newuser" material-select multiple watch>
+                                        <option disabled selected>Ajouter un adhérent déjà existant</option>
+                                        <option value="{{newuser}}" ng-repeat="newuser in $ctrl.allusers track by $index">{{newuser.firstname}} {{newuser.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col s6">
+                            <a class="waves-effect waves-light btn blue" ng-click="$ctrl.addUser()">
+                                <i class="material-icons right">add</i>Ajouter Nouvel Adhérent
+                            </a>
+                        </div>
+
+                    </div>
+
                 </div>
 
                 <membre contact="contact" ng-repeat="contact in $ctrl.contacts track by $index"></membre>
@@ -398,7 +415,7 @@
                         </a>
                         <ul>
                             <li>
-                                <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer" class="btn-floating colored" ng-click="$ctrl.edit($ctrl.company, $ctrl.tags, $ctrl.image)" ng-disabled="editCompany.$invalid">
+                                <a tooltipped data-position="left" data-delay="50" data-tooltip="Enregistrer" class="btn-floating colored" ng-click="$ctrl.edit($ctrl.company, $ctrl.tags, $ctrl.image, $ctrl.newuser)" ng-disabled="editCompany.$invalid">
                                     <i class="material-icons">save</i>
                                 </a>
                             </li>
