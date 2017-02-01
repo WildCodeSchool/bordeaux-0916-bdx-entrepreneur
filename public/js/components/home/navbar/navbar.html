@@ -51,7 +51,7 @@
                     <i class="material-icons">menu</i>
                 </a>
                 <ul>
-                    <li>
+                    <li ng-if="$ctrl.isAdmin">
                         <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Dashboard" class="btn-floating blue" ui-sref="app.dashboard">
                             <i class="material-icons">dns</i>
                         </a>
@@ -61,13 +61,13 @@
                             <i class="material-icons">person</i>
                         </a>
                     </li>
-                    <li>
-                        <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Message" class="btn-floating blue" ui-sref="app.message" ng-if="$ctrl.isAdmin">
+                    <li ng-if="$ctrl.isAdmin">
+                        <a tooltipped data-position="bottom" data-delay="50" data-tooltip="Message" class="btn-floating blue" ui-sref="app.message">
                             <i class="material-icons">mail</i>
                         </a>
                     </li>
-                    <li>
-                        <a tooltipped data-position="bottom" data-delay="50" data-tooltip="{{$ctrl.currentUser.company.length > 1 ? 'Mes Sociétés' : 'Ma Société'}}" class="btn-floating blue" ui-sref="app.mycompany" ng-if="!$ctrl.currentUser.company.length == 0">
+                    <li ng-if="!$ctrl.currentUser.company.length == 0">
+                        <a tooltipped data-position="bottom" data-delay="50" data-tooltip="{{$ctrl.currentUser.company.length > 1 ? 'Mes Sociétés' : 'Ma Société'}}" class="btn-floating blue" ui-sref="app.mycompany">
                             <i class="material-icons">assignment_ind</i>
                         </a>
                     </li>

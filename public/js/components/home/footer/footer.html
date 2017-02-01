@@ -2,17 +2,18 @@
     <div class="container">
         <div class="row">
             <!-- First column -->
-            <h5 class="white-text">Nouveaux adhérents</h5>
+            <h5 class="white-text">Nouvelles Sociétés Adhérentes</h5>
             <div class="col l4 s12" ng-repeat="company in $ctrl.companies | orderBy: 'created_at':true | limitTo: 3">
                 <div class="card-panel">
-                    <a ui-sref="company.item({id:company._id})">
+                    <a ui-sref="app.company({id:company._id})">
                         <div class="row">
                             <!-- <div class="col s3 roundfooterimage" style="background-image:url({{company.image}})"> -->
-                            <div class="col s3">
+                            <div class="col s4">
                               <img ng-src="{{company.image}}" alt="" class="circle">
                             </div>
-                            <div class="col s9">
-                                <h6>{{company.name}} nous a rejoints</h6>
+                            <div class="col s8">
+                                <h6>{{company.name | uppercase}} nous à rejoint</h6>
+                                <p>le {{company.createdAt | date:'dd/MM/yy'}}</p>
                             </div>
                         </div>
                     </a>
