@@ -3,7 +3,7 @@
         <div class="card card-panel">
             <div class="card-content">
                 <div class="row">
-                    <div class="col s6">
+                    <div class="col m12 l6">
                         <h3>Liste des sociétés</h3>
                         <ul class="collection">
                             <li class="collection-item avatar" ng-repeat="company in $ctrl.companies | orderBy : '!active'" style="background-color:{{company.active ? '' : '#eeeeee' }}">
@@ -25,7 +25,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col s6">
+                    <div class="col m12 l6">
                         <h3>Liste des adhérents</h3>
                         <ul class="collection">
                             <li class="collection-item avatar" style="background-color:{{user.active ? '' : '#eeeeee' }}" ng-repeat="user in $ctrl.users | orderBy : '!active'">
