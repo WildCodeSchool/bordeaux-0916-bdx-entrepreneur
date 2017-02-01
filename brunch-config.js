@@ -47,8 +47,7 @@ exports.config = {
             js:     ['node_modules/materialize-css/dist/js/materialize.min.js',
                     'node_modules/jquery/dist/jquery.min.js',
                     'node_modules/angular-materialize/src/angular-materialize.min.js'],
-            css:    ['node_modules/angular-material/angular-material.min.css',
-                    'node_modules/materialize-css/dist/css/materialize.min.css'],
+            css:    ['node_modules/materialize-css/dist/css/materialize.min.css'],
             fonts:  ['node_modules/materialize-css/dist/fonts/'],
             verbose: true,
             onlyChanged: true
