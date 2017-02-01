@@ -29,15 +29,11 @@
                         this.tags = this.company.tags.join('').split(',')
 
                         usersService.get().then((allusers) => {
-                            let filteredUser = []
-                            this.company.contacts.forEach((eachUser) => {
-                                filteredUser = allusers.data.filter((eachCompanyContact) => {
-                                    return eachUser !== eachCompanyContact
-                                })
+                            this.allusers = allusers.data.filter((user) => {
+                                return !(this.company.contacts.find(e => e._id === user._id))
                             })
-                            this.allusers = filteredUser
-                            console.log(this.allusers);
                         })
+
                     });
 
                 },
