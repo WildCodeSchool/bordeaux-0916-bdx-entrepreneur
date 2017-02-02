@@ -75,16 +75,35 @@ class CompanyController extends Controller {
                 })
             })
         } else {
-            this.model.update({
-                _id: req.params.id
-            }, req.body, (err, document) => {
-                if (err) next(err)
-                else res.sendStatus(200)
+            this.updateUserCompany(req).then(() => {
+                this.model.update({
+                    _id: req.params.id
+                }, req.body, (err, document) => {
+                    if (err) next(err)
+                    else res.sendStatus(200)
+                })
             })
         }
-
-
     }
+
+    updateUserCompany(req) {
+        return Promise.all(req.body.contacts.map((user) => {
+            return new Promise((resolve, reject) => {
+                USER.findOne({
+                    _id: user._id
+                }, (err, editedUser) => {
+                    if (err) reject(err)
+                    let newParamUser = user.company.find(el => el.company == req.params.id)
+                    editedUser.company = editedUser.company.map((e) => {
+                        return e.company == req.params.id ? e = newParamUser : e
+                    })
+                    editedUser.save()
+                    resolve(editedUser)
+                })
+            })
+        }))
+    }
+
 
     updateOrCreate(company) {
         return Promise.all(company.newContacts.map((contact) => {

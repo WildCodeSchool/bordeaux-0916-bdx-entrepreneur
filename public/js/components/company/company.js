@@ -59,7 +59,7 @@
                                 this.infos.newContacts.push(JSON.parse(el))
                             })
                         }
-                        console.log(this.infos.newContacts);
+
                         companiesService.edit(this.infos).then((res) => {
                             this.newCompany = res.config.data
                             $state.reload()

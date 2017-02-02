@@ -144,8 +144,12 @@
                                     </div>
                                     <div class="col s12 m9">
                                         <div class="col s12 smallPrint">
+                                            <span ng-repeat="companycontact in contact.company | filter : $ctrl.company._id track by $index">
+                                                <h6 ng-if="companycontact.role == 'Fondateur'"><strong>{{companycontact.role}}</strong></h6>
+                                            </span>
                                             <p>{{contact.firstname}} {{contact.name}}</p>
-                                            <p>{{contact.email}} {{contact.number}}</p>
+                                            <p>{{contact.email}}</p>
+                                            <p>{{contact.number}}</p>
                                             <p>{{contact.address.ville}}</p>
                                         </div>
                                         <div class="col s12 smallPrint">
@@ -359,7 +363,7 @@
                 <div class="row">
                     <h4>Contact</h4>
                     <div class="col m12 l6" ng-repeat="contact in $ctrl.company.contacts track by $index">
-                        <div class="card card-panel hoverable">
+                        <div class="card card-panel">
                             <div class="card-content">
                                 <div class="row valign-wrapper">
                                     <div class="col s12 m3">
@@ -370,6 +374,18 @@
                                             <p>{{contact.firstname}} {{contact.name}}</p>
                                             <p>{{contact.email}} {{contact.number}}</p>
                                             <p>{{contact.address.ville}}</p>
+                                            <!-- Fondateur -->
+                                            <span ng-repeat="companycontact in contact.company | filter : $ctrl.company._id track by $index">
+                                                <input type="checkbox" id="founder{{$index}}"
+                                                    ng-true-value="'Fondateur'"
+                                                    ng-false-value="'Other'"
+                                                    ng-change="companycontact.role == true ? 'Fondateur' : 'Other'"
+                                                    ng-model="companycontact.role"
+                                                    value="{{companycontact.role == true ? 'Fondateur' : 'Other' }}"
+                                                    ng-checked="{{companycontact.role == 'Fondateur' ? true : false}}" />
+                                                <label for="founder{{$index}}">Fondateur</label>
+                                            </span>
+
                                         </div>
                                     </div>
                                 </div>
