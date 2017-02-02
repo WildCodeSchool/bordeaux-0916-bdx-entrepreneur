@@ -23,7 +23,7 @@
                     let xhr = new XMLHttpRequest()
                     let fd = new FormData()
                     xhr.open("POST", url, true);
-                    //  xhr.setRequestHeader("Authorization", $cookies.get('token'));
+                    //xhr.setRequestHeader("authorization", $cookies.get('token'));
                     xhr.onreadystatechange = function(e) {
                         if (xhr.readyState === 4) {
                             if (xhr.status === 200) {

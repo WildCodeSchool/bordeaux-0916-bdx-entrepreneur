@@ -23,7 +23,7 @@ module.exports = (app) => {
         return usersCtrl.resetPassword(req, res, next)
     })
 
-    app.post('/users', auth.user.isAuthenticate, (req, res, next) => {
+    app.post('/users', auth.user.isAdmin, (req, res, next) => {
         return usersCtrl.create(req, res, next)
     })
 

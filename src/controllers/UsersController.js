@@ -3,7 +3,8 @@ let jwt = require('jsonwebtoken'),
     Controller = require('./Controller'),
     generator = require('generate-password'),
     sg = require('../middlewares/sendgrid'),
-    bcrypt = require('bcrypt');
+    bcrypt = require('bcrypt'),
+    auth = require('../middlewares/authorization');
 
 const USER = require('../models/user')
 const COMPANY = require('../models/company')
@@ -22,12 +23,15 @@ class UsersController extends Controller {
             length: 10,
             numbers: true
         });
-        req.body.password = bcrypt.hashSync(req.body.password || password , 10)
-        this.model.create(req.body, (err, document) => {
+        req.body.password = bcrypt.hashSync(req.body.password || password, 10)
+        this.model.create(req.body, (err, user) => {
             if (err) next(err)
             else {
-                delete document.password
-                res.json(document)
+                delete user.password
+                user.newCompany = user.company
+                this._updateCompany(user).then((companies) => {
+                    res.json(user)
+                })
             }
         })
     }
@@ -64,33 +68,42 @@ class UsersController extends Controller {
     }
 
     update(req, res, next) {
-        if (req.body.password) req.body.password = bcrypt.hashSync(req.body.password, 10)
-        if (req.body.newCompany) {
-            this.updateCompany(req.body).then((companies) => {
-                this.model.findById(req.params.id, (err, user) => {
-                    user.company = user.company.concat(companies.map((e) => {
-                        return {
-                            company: e._id
-                        }
-                    }))
-                    user.save(err => console.log(err))
-                    res.json(user)
-                })
-            })
-        } else {
-            this.model.update({
-                _id: req.params.id
-            }, req.body, (err, document) => {
-                if (err) {
-                    next(err)
+        auth.user.getDecoded(req).then((user) => {
+            if (user.isAdmin || user._id === req.params.id) {
+                if (req.body.password) req.body.password = bcrypt.hashSync(req.body.password, 10)
+                if (req.body.newCompany) {
+                    this._updateCompany(req.body).then((companies) => {
+                        this.model.findById(req.params.id, (err, user) => {
+                            user.company = user.company.concat(companies.map((e) => {
+                                return {
+                                    company: e._id
+                                }
+                            }))
+                            user.save(err => console.log(err))
+                            res.json(user)
+                        })
+                    })
                 } else {
-                    res.sendStatus(200)
+                    this.model.update({
+                        _id: req.params.id
+                    }, req.body, (err, document) => {
+                        if (err) {
+                            next(err)
+                        } else {
+                            res.sendStatus(200)
+                        }
+                    })
                 }
-            })
-        }
+            }else{
+              res.sendStatus(403)
+            }
+        }).catch((err)=> {
+          res.sendStatus(500)
+        })
+
     }
 
-    updateCompany(user) {
+    _updateCompany(user) {
         return Promise.all(user.newCompany.map((usercompany) => {
             return new Promise((resolve, reject) => {
                 COMPANY.findOne({
