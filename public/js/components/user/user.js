@@ -1,7 +1,7 @@
 ((app) => {
     app.component('user', {
         templateUrl: 'js/components/user/user.html',
-        controller: ['usersService', '$stateParams', 'companiesService', '$state', function(usersService, $stateParams, companiesService, $state) {
+        controller: ['usersService', '$stateParams', 'companiesService', '$state', 'toastr', function(usersService, $stateParams, companiesService, $state, toastr) {
             angular.extend(this, {
                 $onInit() {
 
@@ -48,12 +48,14 @@
                     usersService.edit(user).then((res) => {
                         this.user = res.config.data
                         this.editMode = false
+                        toastr.success('Profil enregistré')
                     })
                 },
                 archive(user) {
                     user.active = false
                     usersService.edit(user).then(() => {
                         $state.go('app.home')
+                        toastr.info('Profil archivé')
                     })
                 }
             })

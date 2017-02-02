@@ -1,7 +1,7 @@
 ((app) => {
     app.component('profile', {
         templateUrl: 'js/components/profile/profile.html',
-        controller: ['$stateParams', 'usersService', 'companiesService', '$state', function($stateParams, usersService, companiesService, $state) {
+        controller: ['$stateParams', 'usersService', 'companiesService', '$state', 'toastr', function($stateParams, usersService, companiesService, $state, toastr) {
             angular.extend(this, {
                 $onInit() {
 
@@ -30,6 +30,7 @@
                     usersService.edit(user).then((res) => {
                         this.currentUser = res.config.data
                         $state.reload()
+                        toastr.success('Profil enregistré')
                     })
                 }
             })

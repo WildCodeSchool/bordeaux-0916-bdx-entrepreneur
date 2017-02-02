@@ -8,6 +8,7 @@
                     usersService.connect(user).then((user) => {
                         this.currentUser = user
                         $state.go('app.home').then(() => {
+                            toastr.success('Connecté')
                             $state.reload()
                         })
                     }).catch((err) => {
@@ -18,8 +19,8 @@
                     usersService.resetPassword(email).then((res) => {
                         this.email = false
                         toastr.success('Un email contenant votre nouveau mot de passe vous a été envoyé')
-                    }).catch((err)=>{
-                      toastr.error(`${err.data} !`)
+                    }).catch((err) => {
+                        toastr.error(`${err.data} !`)
                     })
                 }
             })

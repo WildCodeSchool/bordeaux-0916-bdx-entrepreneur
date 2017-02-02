@@ -1,7 +1,7 @@
 ((app) => {
     app.component('newCompany', {
         templateUrl: 'js/components/newCompany/newCompany.html',
-        controller: ['$stateParams', 'companiesService', '$state', 'usersService', function($stateParams, companiesService, $state, usersService) {
+        controller: ['$stateParams', 'companiesService', '$state', 'usersService', 'toastr', function($stateParams, companiesService, $state, usersService, toastr) {
             angular.extend(this, {
                 $onInit() {
                     usersService.getCurrent().then((res) => {
@@ -34,6 +34,7 @@
                     companiesService.add(this.infos).then((res) => {
                         this.newCompany = res.data
                         $state.go("app.home")
+                        toastr.success('Société Ajoutée')
                     }).catch((err) => {
                         console.log(err)
                     })

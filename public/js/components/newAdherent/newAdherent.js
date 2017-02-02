@@ -2,7 +2,7 @@
     'use strict'
     app.component('newAdherent', {
         templateUrl: 'js/components/newAdherent/newAdherent.html',
-        controller: ['usersService', 'companiesService', '$state', function(usersService, companiesService, $state) {
+        controller: ['usersService', 'companiesService', '$state', 'toastr', function(usersService, companiesService, $state, toastr) {
             angular.extend(this, {
                 $onInit() {
 
@@ -35,6 +35,7 @@
 
                     usersService.add(user).then((res) => {
                         $state.go("app.home")
+                        toastr.success('Adhérent Ajouté')
                     }).catch(() => {
                         console.log("Error adding user")
                     })
