@@ -3,12 +3,7 @@ let jwt = require('jsonwebtoken'),
     Controller = require('./Controller'),
     generator = require('generate-password'),
     sg = require('../middlewares/sendgrid'),
-    bcrypt = require('../middlewares/bcrypt');
-
-let password = generator.generate({
-    length: 10,
-    numbers: true
-});
+    bcrypt = require('bcrypt');
 
 const USER = require('../models/user')
 const COMPANY = require('../models/company')
@@ -23,7 +18,7 @@ class UsersController extends Controller {
     }
 
     create(req, res, next) {
-        req.body.password = bcrypt.password.cryptIt(req.body.password)
+        req.body.password = bcrypt.hashSync(req.body.password, 10)
         this.model.create(req.body, (err, document) => {
             if (err) next(err)
             else {
@@ -35,17 +30,20 @@ class UsersController extends Controller {
 
 
     connect(req, res, next) {
-        req.body.password = bcrypt.password.cryptIt(req.body.password)
         if (!req.body.email || !req.body.password) {
             res.status(400).send("Veuillez saisir votre email et votre mot de passe")
         } else {
-            USER.findOne(req.body, '-password', (err, user) => {
+            USER.findOne({
+                email: req.body.email
+            }, (err, user) => {
                 if (err)
                     next(err)
                 else if (!user)
-                    res.status(403).send("Utilisateur non trouvé")
+                    res.status(404).send("Utilisateur non trouvé")
+                else if (!bcrypt.compareSync(req.body.password, user.password))
+                    res.status(403).send("Le mot de passe ne correspond pas")
                 else if (!user.active)
-                    res.status(403).send("Votre compte a été désactivé, veuillez contacter un administrateur")
+                    res.status(401).send("Votre compte a été désactivé, veuillez contacter un administrateur")
                 else {
                     let token = jwt.sign(user, ENV.token, {
                         expiresIn: "24h"
@@ -62,7 +60,7 @@ class UsersController extends Controller {
     }
 
     update(req, res, next) {
-        if (req.body.password) req.body.password = bcrypt.password.cryptIt(req.body.password)
+        if (req.body.password) req.body.password = bcrypt.hashSync(req.body.password, 10)
         if (req.body.newCompany) {
             this.updateCompany(req.body).then((companies) => {
                 this.model.findById(req.params.id, (err, user) => {
@@ -120,13 +118,13 @@ class UsersController extends Controller {
             'email': req.params.email
         }, {
             $set: {
-                'password': bcrypt.password.cryptIt(password)
+                'password': bcrypt.hashSync(password, 10)
             }
         }, (err, user) => {
             if (err) next(err)
             else if (!user) {
                 // Renvoyer un message à l'utilisateur pour lui dire que son mail est incorrect
-                res.status(403).send("Utilisateur non trouvé")
+                res.status(404).send("Utilisateur non trouvé")
             } else {
                 user.password = password
                 sg.sendgrid.emailIt(user)
@@ -147,7 +145,6 @@ class UsersController extends Controller {
     }
 
     emailAll(req, res, next) {
-        console.log(req.body);
         this.model.find({
             'active': true
         }, (err, users) => {
