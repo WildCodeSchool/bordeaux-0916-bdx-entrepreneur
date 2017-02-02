@@ -142,10 +142,16 @@
                     <div class="row">
                         <h1>Informations principales</h1>
                         <div class="row" ng-if="$ctrl.isAdmin">
-                            <div class="col s12">
+                            <div class="col s3">
                                 <p>
                                     <input type="checkbox" id="active" ng-model="$ctrl.user.active" />
                                     <label for="active">Actif</label>
+                                </p>
+                            </div>
+                            <div class="col s3">
+                                <p>
+                                    <input type="checkbox" id="isAdmin" ng-model="$ctrl.user.isAdmin" />
+                                    <label for="isAdmin">Administrateur</label>
                                 </p>
                             </div>
                         </div>
