@@ -24,9 +24,8 @@
                     <label class="active">Numéro de téléphone</label>
                 </div>
                 <div class="input-field col s2">
-                    <input type="checkbox" ng-model="$ctrl.contact.fondateur" id="fondateur($index)">
-                    <label for="fondateur($index)">Fondateur</label>
-
+                    <input type="checkbox" ng-model="$ctrl.contact.fondateur" id="founder{{$parent.$index}}">
+                    <label for="founder{{$parent.$index}}">Fondateur</label>
                 </div>
             </div>
             <div class="col s12">
