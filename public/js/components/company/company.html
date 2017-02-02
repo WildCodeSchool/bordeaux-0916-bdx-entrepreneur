@@ -375,15 +375,15 @@
                                             <p>{{contact.email}} {{contact.number}}</p>
                                             <p>{{contact.address.ville}}</p>
                                             <!-- Fondateur -->
-                                            <span ng-repeat="companycontact in contact.company | filter : $ctrl.company._id track by $index">
-                                                <input type="checkbox" id="founder{{$index}}"
+                                            <span ng-repeat="companycontact in contact.company | filter : $ctrl.company._id">
+                                                <input type="checkbox" id="founder{{$parent.$index}}"
                                                     ng-true-value="'Fondateur'"
                                                     ng-false-value="'Other'"
                                                     ng-change="companycontact.role == true ? 'Fondateur' : 'Other'"
                                                     ng-model="companycontact.role"
                                                     value="{{companycontact.role == true ? 'Fondateur' : 'Other' }}"
                                                     ng-checked="{{companycontact.role == 'Fondateur' ? true : false}}" />
-                                                <label for="founder{{$index}}">Fondateur</label>
+                                                <label for="founder{{$parent.$index}}">Fondateur</label>
                                             </span>
 
                                         </div>
