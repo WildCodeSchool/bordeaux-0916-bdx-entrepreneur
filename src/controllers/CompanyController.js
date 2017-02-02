@@ -98,12 +98,15 @@ class CompanyController extends Controller {
                     _id: user._id
                 }, (err, editedUser) => {
                     if (err) reject(err)
-                    let newParamUser = user.company.find(el => el.company == req.params.id)
-                    editedUser.company = editedUser.company.map((e) => {
-                        return e.company == req.params.id ? e = newParamUser : e
-                    })
-                    editedUser.save()
-                    resolve(editedUser)
+                    else if (editedUser) {
+                      let newParamUser = user.company.find(el => el.company == req.params.id)
+                      editedUser.company = editedUser.company.map((e) => {
+                          return e.company == req.params.id ? e = newParamUser : e
+                      })
+                      editedUser.save()
+                      resolve(editedUser)
+                    }
+                    resolve()
                 })
             })
         }))
