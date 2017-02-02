@@ -89,11 +89,11 @@
             </div>
         </div>
 
-        <div class="row" ng-if="$ctrl.isAdmin">
-            <form class="col s12">
+        <div class="row" ng-if="$ctrl.isAdmin && $ctrl.currentUser.remarques">
+            <div class="col s12">
                 <label>Notes</label>
                 <p><i class="material-icons prefix">mode_edit</i> {{$ctrl.currentUser.remarques}}</p>
-            </form>
+            </div>
         </div>
 
         <div class="fixed-action-btn click-to-toggle hide-on-med-and-down">

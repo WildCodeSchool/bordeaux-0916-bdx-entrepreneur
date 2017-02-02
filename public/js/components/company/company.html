@@ -58,10 +58,10 @@
                                 <div class="col s12">
                                     <h6>{{$ctrl.company.introduction}}</h6>
                                 </div>
-                                <div class="col s12">
+                                <div class="col s12" ng-if="$ctrl.company.ca">
                                     <h6>Chiffre d'affaire : {{$ctrl.company.ca}}</h6>
                                 </div>
-                                <div class="col s12">
+                                <div class="col s12" ng-if="$ctrl.company.effectif">
                                     <h6>Effectif : {{$ctrl.company.effectif}}</h6>
                                 </div>
                                 <div class="col s12 m8" ng-if="$ctrl.company.tags.length > 1">
@@ -147,7 +147,7 @@
                                             <span ng-repeat="companycontact in contact.company | filter : $ctrl.company._id track by $index">
                                                 <h6 ng-if="companycontact.role == 'Fondateur'"><strong>{{companycontact.role}}</strong></h6>
                                             </span>
-                                            <p>{{contact.firstname}} {{contact.name}}</p>
+                                            <a ui-sref="app.user({id:contact._id})"><p>{{contact.firstname}} {{contact.name}}</p></a>
                                             <p>{{contact.email}}</p>
                                             <p>{{contact.number}}</p>
                                             <p>{{contact.address.ville}}</p>
