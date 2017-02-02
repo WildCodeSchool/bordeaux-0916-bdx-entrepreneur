@@ -23,12 +23,12 @@
                 add(user, search, founder) {
                     if (search) {
                         user.company = []
-                        let compagnie = this.companies.find((company) => {
+                        let selectedCompany = this.companies.find((company) => {
                             return company.name === search
                         })
 
                         user.company.push({
-                            compagny: compagnie._id,
+                            company: selectedCompany._id,
                             role: founder
                         })
                     }
