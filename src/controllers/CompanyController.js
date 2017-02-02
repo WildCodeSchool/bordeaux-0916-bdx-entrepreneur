@@ -4,13 +4,9 @@ let Controller = require('./Controller'),
     fs = require('fs'),
     path = require('path'),
     sg = require('../middlewares/sendgrid'),
-    bcrypt = require('../middlewares/bcrypt'),
+    bcrypt = require('bcrypt'),
     generator = require('generate-password');
 
-let password = generator.generate({
-    length: 10,
-    numbers: true
-});
 const COMPANY = require('../models/company')
 const USER = require('../models/user')
 
@@ -124,7 +120,13 @@ class CompanyController extends Controller {
                             company: company._id,
                             role: contact.fondateur ? 'Fondateur' : 'Other'
                         }]
-                        contact.password = bcrypt.password.cryptIt(password)
+
+                        let password = generator.generate({
+                            length: 10,
+                            numbers: true
+                        });
+                        
+                        contact.password = bcrypt.hashSync(password, 10)
 
                         USER.create(contact, (err, user) => {
                             if (err) reject(err)
