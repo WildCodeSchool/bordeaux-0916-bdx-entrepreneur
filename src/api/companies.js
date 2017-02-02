@@ -25,11 +25,11 @@ module.exports = (app) => {
         return ctrl.findTags(req, res, next)
     })
 
-    app.post('/companies', auth.user.isAuthenticate,(req, res, next) => {
+    app.post('/companies', auth.user.isAdmin, (req, res, next) => {
         return ctrl.create(req, res, next)
     })
 
-    app.post('/upload', (req, res, next) => {
+    app.post('/upload', auth.user.isAuthenticate, (req, res, next) => {
         return ctrl.upload(req, res, next)
     })
 

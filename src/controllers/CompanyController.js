@@ -5,7 +5,8 @@ let Controller = require('./Controller'),
     path = require('path'),
     sg = require('../middlewares/sendgrid'),
     bcrypt = require('bcrypt'),
-    generator = require('generate-password');
+    generator = require('generate-password'),
+    auth = require('../middlewares/authorization');
 
 const COMPANY = require('../models/company')
 const USER = require('../models/user')
@@ -47,7 +48,7 @@ class CompanyController extends Controller {
                     let company = {}
                     company._id = this.companyId
                     company.newContacts = contacts
-                    this.updateOrCreate(company).then((users) => {
+                    this._updateOrCreate(company).then((users) => {
                         delete company.newContacts
                         this.model.findById(company._id, (err, company) => {
                             company.contacts = company.contacts.concat(users)
@@ -62,27 +63,35 @@ class CompanyController extends Controller {
     }
 
     update(req, res, next) {
-        if (req.body.newContacts) {
-            this.updateOrCreate(req.body).then((users) => {
-                this.model.findById(req.params.id, (err, company) => {
-                    company.contacts = company.contacts.concat(users)
-                    company.save()
-                    res.json(company)
-                })
-            })
-        } else {
-            this.updateUserCompany(req).then(() => {
-                this.model.update({
-                    _id: req.params.id
-                }, req.body, (err, document) => {
-                    if (err) next(err)
-                    else res.sendStatus(200)
-                })
-            })
-        }
+        auth.user.getDecoded(req).then((user) => {
+            if (user.isAdmin || (user.company.find(el => el.company === req.params.id && el.role === 'Fondateur'))) {
+                if (req.body.newContacts) {
+                    this._updateOrCreate(req.body).then((users) => {
+                        this.model.findById(req.params.id, (err, company) => {
+                            company.contacts = company.contacts.concat(users)
+                            company.save()
+                            res.json(company)
+                        })
+                    })
+                } else {
+                    this._updateUserCompany(req).then(() => {
+                        this.model.update({
+                            _id: req.params.id
+                        }, req.body, (err, document) => {
+                            if (err) next(err)
+                            else res.sendStatus(200)
+                        })
+                    })
+                }
+            } else {
+                res.sendStatus(403)
+            }
+        }).catch((err) => {
+            res.sendStatus(500)
+        })
     }
 
-    updateUserCompany(req) {
+    _updateUserCompany(req) {
         return Promise.all(req.body.contacts.map((user) => {
             return new Promise((resolve, reject) => {
                 USER.findOne({
@@ -101,7 +110,7 @@ class CompanyController extends Controller {
     }
 
 
-    updateOrCreate(company) {
+    _updateOrCreate(company) {
         return Promise.all(company.newContacts.map((contact) => {
             return new Promise((resolve, reject) => {
                 USER.findOne({
@@ -125,7 +134,7 @@ class CompanyController extends Controller {
                             length: 10,
                             numbers: true
                         });
-                        
+
                         contact.password = bcrypt.hashSync(password, 10)
 
                         USER.create(contact, (err, user) => {
