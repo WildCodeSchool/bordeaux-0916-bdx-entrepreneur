@@ -146,3 +146,25 @@ body {
 .collection .collection-item.avatar {
     display: flex;
 }
+.toast-info{
+  background-color: $blue;
+}
+
+#companiesList .ng-enter {
+    -webkit-transition: all 0.25s ease-in ;
+    transition: all 0.25s ease-in ;
+    opacity: 0;
+}
+
+#companiesList .ng-enter.ng-enter-active {
+    opacity: 1;
+}
+#companiesList .ng-leave {
+    -webkit-transition: all 0.25s ease-out ;
+    transition: all 0.25s ease-out ;
+    opacity: 1;
+}
+
+#companiesList .ng-leave.ng-leave-active {
+    opacity: 0;
+}
