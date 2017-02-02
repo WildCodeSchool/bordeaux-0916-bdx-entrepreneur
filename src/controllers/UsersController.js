@@ -18,7 +18,11 @@ class UsersController extends Controller {
     }
 
     create(req, res, next) {
-        req.body.password = bcrypt.hashSync(req.body.password, 10)
+        let password = generator.generate({
+            length: 10,
+            numbers: true
+        });
+        req.body.password = bcrypt.hashSync(req.body.password || password , 10)
         this.model.create(req.body, (err, document) => {
             if (err) next(err)
             else {
