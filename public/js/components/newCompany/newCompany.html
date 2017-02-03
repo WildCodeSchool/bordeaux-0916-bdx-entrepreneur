@@ -10,7 +10,7 @@
                         <form action="#">
                             <div class="file-field input-field">
                                 <div class="btn blue">
-                                    <span>Image *</span>
+                                    <span>Image</span>
                                     <file-upload ng-model="$ctrl.image" ng-change="$ctrl.preview()"></file-upload>
                                 </div>
                                 <div class="file-path-wrapper">
@@ -152,7 +152,7 @@
                                 </div>
                                 <div class="input-field col s2">
                                     <i class="material-icons prefix">email</i>
-                                    <input ng-model="contact.email">
+                                    <input type="email" ng-model="contact.email">
                                     <label class="active">Email</label>
                                 </div>
                                 <div class="input-field col s2">

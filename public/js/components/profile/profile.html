@@ -128,13 +128,13 @@
 
                         <div input-field class="col s6">
                             <i class="material-icons prefix">phone</i>
-                            <input placeholder="0612345678" id="icon_telephone" type="tel" ng-model="$ctrl.currentUser.number">
+                            <input placeholder="0612345678" id="icon_telephone" type="tel" class="validate" ng-model="$ctrl.currentUser.number">
                             <label for="icon_telephone">Téléphone</label>
                         </div>
 
                         <div input-field class="col s6">
                             <i class="material-icons prefix">email</i>
-                            <input id="email" type="email" ng-model="$ctrl.currentUser.email" required>
+                            <input id="email" type="email" class="validate" ng-model="$ctrl.currentUser.email" required>
                             <label for="email" data-error="erreur" data-success="validé">Email *</label>
                         </div>
 
@@ -167,19 +167,19 @@
 
                         <div input-field class="col s6">
                             <i class="material-icons prefix">location_on</i>
-                            <input id="location_on" type="text" class="validate" ng-model="$ctrl.currentUser.address.rue">
+                            <input id="location_on" type="text" ng-model="$ctrl.currentUser.address.rue">
                             <label data-success="right">Rue</label>
                         </div>
 
                         <div input-field class="col s6">
                             <i class="material-icons prefix">location_on</i>
-                            <input id="ville" type="text" class="validate" ng-model="$ctrl.currentUser.address.ville">
+                            <input id="ville" type="text" ng-model="$ctrl.currentUser.address.ville">
                             <label data-success="right">Ville</label>
                         </div>
 
                         <div input-field class="col s6">
                             <i class="material-icons prefix">location_on</i>
-                            <input id="codePostale" type="text" class="validate" ng-model="$ctrl.currentUser.address.codePostal" placeholder="33000">
+                            <input id="codePostale" type="text" ng-model="$ctrl.currentUser.address.codePostal" placeholder="33000">
                             <label data-success="right">Code Postal</label>
                         </div>
 
